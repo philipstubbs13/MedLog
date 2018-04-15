@@ -21,14 +21,14 @@ import SymptomJournal from "./containers/SymptomJournal"
 class App extends Component {
   render() {
     return [
+      <Navbar />,
       <Router>
         <Container>
-          <Navbar />
           <Route exact path="/" component={Home} />
           <Route exact path="/symptoms" component={SymptomJournal} />
-          <Footer/>
         </Container>
-      </Router>
+      </Router>,
+      <Footer/>
     ]
   }
 }
