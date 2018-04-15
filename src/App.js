@@ -16,6 +16,8 @@ import Footer from "./Components/Footer";
 import Home from "./containers/Home";
 //Importing the My Symptom Journal page component.
 import SymptomJournal from "./containers/SymptomJournal"
+//Importing the Doctor List page component.
+import DoctorList from "./containers/DoctorsList"
 
 //Render the components to the page.
 class App extends Component {
@@ -26,6 +28,7 @@ class App extends Component {
         <Container>
           <Route exact path="/" component={Home} />
           <Route exact path="/symptoms" component={SymptomJournal} />
+          <Route exact path="/doctorList" component={DoctorList} />
         </Container>
       </Router>,
       <Footer/>
