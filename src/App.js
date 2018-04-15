@@ -16,6 +16,10 @@ import Footer from "./Components/Footer";
 import Home from "./containers/Home";
 //Importing the My Symptom Journal page component.
 import SymptomJournal from "./containers/SymptomJournal"
+//Importing the Doctor List page component.
+import DoctorList from "./containers/DoctorsList"
+//Importing the Doctor List page component.
+import Appointments from "./containers/Appointments"
 //Importing the My Medical Log page component.
 import MedLog from "./containers/MedLog"
 
@@ -28,6 +32,8 @@ class App extends Component {
         <Container>
           <Route exact path="/" component={Home} />
           <Route exact path="/symptoms" component={SymptomJournal} />
+          <Route exact path="/doctorList" component={DoctorList} />
+          <Route exact path="/Appointments" component={Appointments} />
           <Route exact path="/log" component={MedLog} />
         </Container>
       </Router>,

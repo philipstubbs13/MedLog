@@ -28,7 +28,7 @@ const Home = () => [
                     bg='black'
                     align='center'
                     fontSize={24}>
-                    My medical log
+                    My Health log
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
