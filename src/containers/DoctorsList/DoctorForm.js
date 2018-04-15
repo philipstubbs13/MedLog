@@ -15,7 +15,7 @@ const DoctorForm = () => [
             </Panel.Header>
                 <Container>
                     <Label mt={3} fontSize={18}>
-                        Select a symptom
+                        Select a Doctor
                     </Label>
                     <Border
                         top
@@ -23,17 +23,34 @@ const DoctorForm = () => [
                         mt={2}>
                         <Select pl={4}>
                             <option></option>
-                            <option>Sue King</option>
-                            <option>Larry Lungs</option>
-                            <option>Luna Nose</option>
-                            <option>Steve Sneezy</option>
-                            <option>Jerridd Stomach</option>
-                            <option>Other</option>
+                            <option>Dr. Sue King</option>
+                            <option>Dr. Larry Lungs</option>
+                            <option>Dr. Luna Nose</option>
+                            <option>Dr. Steve Sneezy</option>
+                            <option>Dr. Jerridd Stomach</option>
+                            <option>Dr. Other</option>
                         </Select>
                     </Border>
-
-                    <Label mt={5} fontSize={18}>
-                        When did the doctor occur?
+                    <Label mt={3} fontSize={18}>
+                        Specialtiy
+                    </Label>
+                    <Border
+                        top
+                        bottom
+                        mt={2}>
+                        <Input/>
+                    </Border>
+                    <Label mt={3} fontSize={18}>
+                        Clinic
+                    </Label>
+                    <Border
+                        top
+                        bottom
+                        mt={2}>
+                        <Input/>
+                    </Border>
+                    <Label mt={3} fontSize={18}>
+                        Nurse(s)
                     </Label>
                     <Border
                         top
@@ -42,7 +59,7 @@ const DoctorForm = () => [
                         <Input/>
                     </Border>
 
-                    <Label mt={5} fontSize={18}>
+                    <Label mt={3} fontSize={18}>
                         Additional information to share with doctor
                     </Label>
                     <Border
@@ -54,7 +71,7 @@ const DoctorForm = () => [
                         />
                     </Border>
                     <ButtonCircle
-                        children='Add symptom'
+                        children='Add Doctor'
                         bg='blue'
                         mt={4}
                         mb={4}
