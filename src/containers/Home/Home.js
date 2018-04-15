@@ -16,6 +16,7 @@ const Home = () => [
         is='h1'
         children='What would you like to do today?'
         mt={4}
+        color= 'white'
     />,
 
     <div className="main-content-section">    
@@ -24,7 +25,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     My medical log
@@ -41,7 +42,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     My symptom journal
@@ -58,7 +59,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     Appointments
@@ -77,7 +78,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     My prescriptions
@@ -94,7 +95,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     Doctors List
@@ -111,7 +112,7 @@ const Home = () => [
                 <Panel>
                     <Panel.Header
                     color='white'
-                    bg='blue'
+                    bg='black'
                     align='center'
                     fontSize={24}>
                     Search

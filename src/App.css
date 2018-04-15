@@ -9,3 +9,15 @@
   flex: 1;
   min-height: 100vh;
 }
+
+/* Background image */
+body {
+  background-image: url('./assets/images/background.jpg');
+  background-repeat: no-repeat; 
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 100%;
+  width: 100%;
+}

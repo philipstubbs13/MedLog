@@ -6,7 +6,8 @@ import { Provider, Heading, Row, Column, Box, Subhead, ButtonCircle, Label, Sele
 //Symptom form component on the My symptom journal page.
 const SymptomForm = () => [
     <Box pr={3}>
-        <Subhead>
+        <Subhead
+            color="white">
             Add a symptom
         </Subhead>
         <Label mt={3} fontSize={18}>
