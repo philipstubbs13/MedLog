@@ -3,38 +3,42 @@ import React from "react";
 //Importing UI components from rebass.
 import { Provider, Heading, Row, Column, Box, Subhead, Container, Panel} from 'rebass';
 
-//Symptom List component on My symptom journal page.
-const SymptomList = () => [
+//Doctor Info component on My doctor list page.
+const DoctorInfo = () => [
     <Panel color='black'>
         <Panel.Header
             color='white'
             bg='black'
             fontSize={24}>
-            Symptoms
+            Doctor
         </Panel.Header>
         <Container>
             <div>
                 <Box>
                     <div> 
-                        <p>Dizzy</p>
-                        <p>April 14, 2018 at 7:10 a.m.</p>
-                        <p>Comment about symptom</p>
+                        <p>Dr. Sue King</p>
                     </div>
                 </Box>
                 
                 <Box mt={5}>
                     <div>
-                        <p>Shortness of breath</p>
-                        <p>April 7, 2018 at 2:00 p.m.</p>
-                        <p>Comment about symptom</p>
+                        <p>Dr Larry Lungs</p>
                     </div>
                 </Box>
                 
                 <Box mt={5}>
                     <div>
-                        <p>Fatigue</p>
-                        <p>February 19, 2018 at 6:00 p.m.</p>
-                        <p>Comment about symptom</p>
+                        <p>Luna Nose</p>
+                    </div>
+                </Box>
+                <Box mt={5}>
+                    <div>
+                        <p>Steve Sneezy</p>
+                    </div>
+                </Box>
+                <Box mt={5}>
+                    <div>
+                        <p>Jerridd Stomach</p>
                     </div>
                 </Box>
             </div>
