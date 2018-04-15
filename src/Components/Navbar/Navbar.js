@@ -5,10 +5,6 @@ import { Provider, Panel, Header, Border, Toolbar, NavLink, Container } from 're
 
 //Navbar component
 const Navbar = () => (
-        <Border
-            top
-            bottom
-        >
             <Toolbar
                 bg="black">
                 <Container>
@@ -19,9 +15,7 @@ const Navbar = () => (
                         <i className="fas fa-bars"></i>
                     </NavLink> */}
                 </Container>
-            </Toolbar>
-        </Border>
-    
+            </Toolbar>   
 );
 
 //Exporting the Navbar component so that the App.js file can use/render it.
