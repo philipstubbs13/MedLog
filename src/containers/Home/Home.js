@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead, Panel} from 'rebass';
+import { Provider, Heading, Row, Column, Box, Subhead, Panel, Link} from 'rebass';
 //Importing icons/images
 import report from '../../assets/images/medical_report.png';
 import journal from '../../assets/images/journal.png';
@@ -32,7 +32,11 @@ const Home = () => [
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
+                        <Link
+                            href='/log'
+                        >
                             <img src={report} ></img>
+                        </Link>
                         </Subhead>
                     </Box>
                 </Panel>
@@ -49,7 +53,11 @@ const Home = () => [
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
-                            <img src={journal} ></img>
+                            <Link
+                            href='/symptoms'
+                            >
+                                <img src={journal} ></img>
+                            </Link>
                         </Subhead>
                     </Box>
                 </Panel>
