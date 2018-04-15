@@ -4,7 +4,7 @@ import React from "react";
 import { Provider, Container, Panel, Heading, Row, Column, Box, Subhead, ButtonCircle, Label, Select, Border, Text, Textarea, Input, Arrow} from 'rebass';
 
 //Symptom form component on the Appointments page.
-const SymptomForm = () => [
+const AppointmentsForm = () => [
     <Box color="white">
         <Panel color='black'>
             <Panel.Header
