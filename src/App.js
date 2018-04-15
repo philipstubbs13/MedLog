@@ -1,5 +1,6 @@
 //Importing React since we are using React.
 import React, { Component } from 'react';
+//Importing React Router to add page routes.
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //Importing UI components from rebass.
 import { Provider, Container} from 'rebass';
@@ -12,7 +13,9 @@ import Navbar from "./Components/Navbar";
 //Importing Footer component.
 import Footer from "./Components/Footer";
 //Importing Home page component.
-import Home from "./Components/pages/Home";
+import Home from "./containers/Home";
+//Importing the My Symptom Journal page component.
+import SymptomJournal from "./containers/SymptomJournal"
 
 //Render the components to the page.
 class App extends Component {
@@ -22,6 +25,7 @@ class App extends Component {
         <Container>
           <Navbar />
           <Route exact path="/" component={Home} />
+          <Route exact path="/symptoms" component={SymptomJournal} />
           <Footer/>
         </Container>
       </Router>
