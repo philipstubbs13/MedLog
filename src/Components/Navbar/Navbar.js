@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Panel, Header, Border, Toolbar, NavLink } from 'rebass'
+import { Provider, Panel, Header, Border, Toolbar, NavLink, Container } from 'rebass'
 
 //Navbar component
 const Navbar = () => (
@@ -11,12 +11,14 @@ const Navbar = () => (
         >
             <Toolbar
                 bg="black">
-                <NavLink fontSize={30} my={4}>
-                    MedTracker
-                </NavLink>
-                <NavLink ml='auto' fontSize={26}>
-                    <i className="fas fa-bars"></i>
-                </NavLink>
+                <Container>
+                    <NavLink fontSize={35} my={4}>
+                        MedTracker
+                    </NavLink>
+                    {/* <NavLink ml='auto' fontSize={26}>
+                        <i className="fas fa-bars"></i>
+                    </NavLink> */}
+                </Container>
             </Toolbar>
         </Border>
     
