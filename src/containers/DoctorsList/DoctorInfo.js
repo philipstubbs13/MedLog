@@ -14,31 +14,42 @@ const DoctorInfo = () => [
         </Panel.Header>
         <Container>
             <div>
-                <Box>
+                <Box fontSize={1} >
                     <div> 
-                        <p>Dr. Sue King</p>
+                        <Box mt={3} fontSize={3}>Dr. Sue King</Box>
+                        <p  >Childerens Clinic</p>
+                        <p>515 Delaware St SE # 6, Minneapolis, MN 55455</p>
+                        
                     </div>
                 </Box>
                 
-                <Box mt={5}>
+                <Box mt={5} fontSize={1}>
                     <div>
-                        <p>Dr Larry Lungs</p>
+                        <Box fontSize={3}>Dr Larry Lungs</Box>
+                        <p>Childerns Respertory</p>
+                        <p>123 6th St. Melbourne, FL 32904</p>
                     </div>
                 </Box>
                 
-                <Box mt={5}>
+                <Box mt={5} fontSize={1}>
                     <div>
-                        <p>Luna Nose</p>
+                        <Box fontSize={3}>Luna Nose</Box>
+                        <p>Childerens ENT</p>
+                        <p>4 Goldfield Rd. Honolulu, HI 96815</p>
                     </div>
                 </Box>
-                <Box mt={5}>
+                <Box mt={5} fontSize={1}>
                     <div>
-                        <p>Steve Sneezy</p>
+                        <Box fontSize={3}>Steve Sneezy</Box>
+                        <p>Alergy MN</p>
+                        <p>44 Shirley Ave. West Chicago, IL 60185</p>
                     </div>
                 </Box>
-                <Box mt={5}>
+                <Box my={5} fontSize={1}>
                     <div>
-                        <p>Jerridd Stomach</p>
+                        <Box fontSize={3}>Jerridd Stomach</Box>
+                        <p>Gasto MN</p>
+                        <Box>514 S. Magnolia St. Orlando, FL 32806</Box>
                     </div>
                 </Box>
             </div>
