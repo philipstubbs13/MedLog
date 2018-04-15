@@ -13,6 +13,7 @@ const SymptomJournal = () => [
         is='h1'
         children='My symptom journal'
         mt={4}
+        color="white"
     />,
 
    <div className="main-content-section">
