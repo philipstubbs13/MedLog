@@ -4,7 +4,7 @@ import React from "react";
 import { Provider, Heading, Row, Column, Box, Subhead, Container, Panel} from 'rebass';
 
 //Appointments List component on My Appointments page.
-const SymptomList = () => [
+const AppointmentsList = () => [
     <Panel color='black'>
         <Panel.Header
             color='white'
