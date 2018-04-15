@@ -47,4 +47,4 @@ const DoctorInfo = () => [
 
 ];
 
-export default SymptomList;
+export default DoctorInfo;
