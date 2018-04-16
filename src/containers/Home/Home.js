@@ -28,7 +28,7 @@ const Home = () => [
                     bg='black'
                     align='center'
                     fontSize={24}>
-                    My Health log
+                    My health log
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
@@ -106,7 +106,7 @@ const Home = () => [
                     bg='black'
                     align='center'
                     fontSize={24}>
-                    Doctors List
+                    Doctor list
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>

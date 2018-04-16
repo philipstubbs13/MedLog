@@ -8,6 +8,7 @@ import LogForm from "./LogForm.js";
 import LogList from "./LogList.js";
 
 
+
 //My medical log page.
 const MedLog = () => [
     <Heading
