@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead, Container, Panel} from 'rebass';
+import { Box, Panel} from 'rebass';
 
 //Medical Log List component on My medical log page.
 const LogList = () => [

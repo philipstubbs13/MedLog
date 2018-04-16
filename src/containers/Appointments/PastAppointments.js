@@ -3,14 +3,14 @@ import React from "react";
 //Importing UI components from rebass.
 import { Box, Container, Panel} from 'rebass';
 
-//Appointments List component on My Appointments page.
-const AppointmentsList = () => [
+//Past Appointments component on the Appointments page.
+const PastAppointments = () => [
     <Panel color='black'>
         <Panel.Header
             color='white'
             bg='black'
             fontSize={24}>
-            Appointments
+            Past appointments
         </Panel.Header>
         <Container>
             <div>
@@ -28,4 +28,5 @@ const AppointmentsList = () => [
 
 ];
 
-export default AppointmentsList;
+//Exporting the PastAppointments so that other files can use it.
+export default PastAppointments;

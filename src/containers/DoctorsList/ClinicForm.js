@@ -3,39 +3,19 @@ import React from "react";
 //Importing UI components from rebass.
 import { Container, Panel, Box, ButtonCircle, Label, Border, Input } from 'rebass';
 
-//Doctor form component on the My doctor list page.
-const DoctorForm = () => [
+//Clinic form component on the Doctors and clinics page.
+const ClinicForm = () => [
     <Box color="white">
         <Panel color='black'>
             <Panel.Header
                 color='white'
                 bg='black'
                 fontSize={24}>
-                Add a doctor
+                Add a clinic
             </Panel.Header>
                 <Container>
                     <Label mt={3} fontSize={18}>
-                        First Name
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
-
-                    <Label mt={3} fontSize={18}>
-                        Last Name
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
-
-                    <Label mt={3} fontSize={18}>
-                        Clinic
+                        Name
                     </Label>
                     <Border
                         top
@@ -97,7 +77,7 @@ const DoctorForm = () => [
                     </Border>
 
                     <ButtonCircle
-                        children='Add Doctor'
+                        children='Add clinic'
                         bg='blue'
                         mt={4}
                         mb={4}
@@ -108,4 +88,4 @@ const DoctorForm = () => [
 
 ];
 
-export default DoctorForm;
+export default ClinicForm;

@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Container, Panel, Heading, Row, Column, Box, Subhead, ButtonCircle, Label, Select, Border, Text, Textarea, Input, Arrow} from 'rebass';
+import { Container, Panel, Box, ButtonCircle, Label, Select, Border, Input} from 'rebass';
 
 //Symptom form component on the Appointments page.
 const AppointmentsForm = () => [
@@ -11,30 +11,11 @@ const AppointmentsForm = () => [
                 color='white'
                 bg='black'
                 fontSize={24}>
-                Add a Appointments
+                Add an Appointment
             </Panel.Header>
                 <Container>
                     <Label mt={3} fontSize={18}>
-                        Select a Appointments
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Select pl={4}>
-                            <option></option>
-                            <option>Dizzy</option>
-                            <option>Shortness of Breath</option>
-                            <option>Fainted</option>
-                            <option>Swelling</option>
-                            <option>Heart Fluttering</option>
-                            <option>Fatigue</option>
-                            <option>Other</option>
-                        </Select>
-                    </Border>
-
-                    <Label mt={5} fontSize={18}>
-                        When did the Appointments?
+                        Appointment name
                     </Label>
                     <Border
                         top
@@ -43,17 +24,44 @@ const AppointmentsForm = () => [
                         <Input/>
                     </Border>
 
-                    <Label mt={5} fontSize={18}>
-                        Additional Appointments information
+                    <Label mt={3} fontSize={18}>
+                        Date
                     </Label>
                     <Border
                         top
                         bottom
                         mt={2}>
-                        <Textarea
-                            rows={6}
-                        />
+                        <Input/>
                     </Border>
+
+                    <Label mt={3} fontSize={18}>
+                        Time
+                    </Label>
+                    <Border
+                        top
+                        bottom
+                        mt={2}>
+                        <Input/>
+                    </Border>,
+
+                    <Label mt={3} fontSize={18}>
+                        Doctor
+                    </Label>
+                    <Border
+                        top
+                        bottom
+                        mt={2}>
+                        <Select pl={4}>
+                            <option></option>
+                            <option>Dr. Sue King</option>
+                            <option>Dr. Larry Lungs</option>
+                            <option>Dr. Luna Nose</option>
+                            <option>Dr. Steve Sneezy</option>
+                            <option>Dr. Jerridd Stomach</option>
+                            <option>Dr. Other</option>
+                        </Select>
+                    </Border>
+
                     <ButtonCircle
                         children='Add Appointment'
                         bg='blue'

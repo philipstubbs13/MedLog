@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Small, Border, Toolbar, NavLink, ButtonCircle, Container } from 'rebass'
+import { Toolbar, NavLink, ButtonCircle, Container } from 'rebass'
 
 
 //Footer component
@@ -10,7 +10,7 @@ const Footer = () => (
         bg="black">
         <Container>
             <NavLink fontSize={30} my={4}>
-                MedTracker
+                HealthTracker
             </NavLink>
             <a href="https://github.com/philipstubbs13/MedLog" target="_blank">
                 <ButtonCircle
@@ -18,6 +18,7 @@ const Footer = () => (
                 ml="auto"
                 p={5}
                 target="_blank"
+                rel="noopener noreferrer"
                 />
             </a>
         </Container>

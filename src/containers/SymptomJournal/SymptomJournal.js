@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead} from 'rebass';
+import { Heading, Row, Column } from 'rebass';
 //Import SymptomForm
 import SymptomForm from "./SymptomForm.js";
 //Import SymptomList

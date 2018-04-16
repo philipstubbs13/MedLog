@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead, Container, Panel} from 'rebass';
+import { Box, Container, Panel} from 'rebass';
 
 //Doctor Info component on My doctor list page.
 const DoctorInfo = () => [
@@ -10,14 +10,14 @@ const DoctorInfo = () => [
             color='white'
             bg='black'
             fontSize={24}>
-            Doctor
+            My doctors
         </Panel.Header>
         <Container>
             <div>
                 <Box fontSize={1} >
                     <div> 
                         <Box mt={3} fontSize={3}>Dr. Sue King</Box>
-                        <p  >Childerens Clinic</p>
+                        <p>Childrens Clinic</p>
                         <p>515 Delaware St SE # 6, Minneapolis, MN 55455</p>
                         <p>(949) 569-4371</p>
                     </div>
@@ -46,14 +46,6 @@ const DoctorInfo = () => [
                         <p>Alergy MN</p>
                         <p>44 Shirley Ave. West Chicago, IL 60185</p>
                         <p>(251) 546-9442</p>
-                    </div>
-                </Box>
-                <Box my={5} fontSize={1}>
-                    <div>
-                        <Box fontSize={3}>Jerridd Stomach</Box>
-                        <p>Gasto MN</p>
-                        <Box>514 S. Magnolia St. Orlando, FL 32806</Box>
-                        <p>(226) 906-2721</p>
                     </div>
                 </Box>
             </div>
