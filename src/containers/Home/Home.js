@@ -1,7 +1,7 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead, Panel, Link} from 'rebass';
+import { Heading, Row, Column, Box, Subhead, Panel, Link} from 'rebass';
 //Importing icons/images
 import report from '../../assets/images/medical_report.png';
 import journal from '../../assets/images/journal.png';
@@ -35,7 +35,7 @@ const Home = () => [
                         <Link
                             href='/log'
                         >
-                            <img src={report} ></img>
+                            <img src={report} alt="clipboard"></img>
                         </Link>
                         </Subhead>
                     </Box>
@@ -56,7 +56,7 @@ const Home = () => [
                             <Link
                             href='/symptoms'
                             >
-                                <img src={journal} ></img>
+                                <img src={journal} alt="health journal" ></img>
                             </Link>
                         </Subhead>
                     </Box>
@@ -74,7 +74,10 @@ const Home = () => [
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
-                            <img src={appointment} ></img>
+                            <Link
+                            href='/appointments'>
+                                <img src={appointment} alt="calendar"></img>
+                            </Link>
                         </Subhead>
                     </Box>
                 </Panel>
@@ -93,7 +96,7 @@ const Home = () => [
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
-                            <img src={prescription} ></img>
+                            <img src={prescription} alt="prescription label"></img>
                         </Subhead>
                     </Box>
                 </Panel>
@@ -106,11 +109,14 @@ const Home = () => [
                     bg='black'
                     align='center'
                     fontSize={24}>
-                    Doctor list
+                    Doctors and clinics
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
-                            <img src={doctor} ></img>
+                            <Link
+                            href='/doctors'>
+                                <img src={doctor} alt="doctor"></img>
+                            </Link>
                         </Subhead>
                     </Box>
                 </Panel>
@@ -127,7 +133,7 @@ const Home = () => [
                     </Panel.Header>
                     <Box p={3}>
                         <Subhead align='center'>
-                            <img src={search} ></img>
+                            <img src={search} alt="magnifying glass and folder"></img>
                         </Subhead>
                     </Box>
                 </Panel>

@@ -1,19 +1,17 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Provider, Heading, Row, Column, Box, Subhead} from 'rebass';
+import { Heading, Row, Column} from 'rebass';
 //Import LogForm
 import LogForm from "./LogForm.js";
 //Import LogList
 import LogList from "./LogList.js";
 
-
-
 //My medical log page.
 const MedLog = () => [
     <Heading
         is='h1'
-        children='My medical log'
+        children='My health log'
         mt={4}
         color="white"
     />,
@@ -46,5 +44,5 @@ const MedLog = () => [
     </div>
 ];
 
-//Exporting the MedLog component so that the App.js file can use/render the My Medical Log page.
+//Exporting the MedLog component so that the App.js file can use/render the My health log page.
 export default MedLog;

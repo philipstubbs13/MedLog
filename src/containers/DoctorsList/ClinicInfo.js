@@ -3,24 +3,30 @@ import React from "react";
 //Importing UI components from rebass.
 import { Box, Container, Panel} from 'rebass';
 
-//Appointments List component on My Appointments page.
-const AppointmentsList = () => [
+//ClinicInfo component on the My doctors and clinics page.
+const ClinicInfo = () => [
     <Panel color='black'>
         <Panel.Header
             color='white'
             bg='black'
             fontSize={24}>
-            Appointments
+            Medical clinics
         </Panel.Header>
         <Container>
             <div>
-                <Box>
+                <Box fontSize={1} >
+
                 </Box>
                 
-                <Box mt={5}>
+                <Box mt={5} fontSize={1}>
+
                 </Box>
                 
-                <Box mt={5}>
+                <Box mt={5} fontSize={1}>
+
+                </Box>
+                <Box mt={5} fontSize={1}>
+
                 </Box>
             </div>
         </Container>
@@ -28,4 +34,5 @@ const AppointmentsList = () => [
 
 ];
 
-export default AppointmentsList;
+//Exporting the ClinicInfo component so that we can display clinics on the doctors and clinics page.
+export default ClinicInfo;
