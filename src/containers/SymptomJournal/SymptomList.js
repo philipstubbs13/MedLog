@@ -5,6 +5,7 @@ import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import Divider from 'material-ui/Divider';
 
 const styles = {
   textField: {
@@ -44,6 +45,8 @@ class SymptomList extends React.Component {
                     Symptoms
                   </Typography>
 
+                   <Divider />
+
                     <div className={classes.symptom}>
                        <Typography component="p">
                         Fatigue
@@ -56,6 +59,8 @@ class SymptomList extends React.Component {
                       </Typography>
                       <Button size="small" className={classes.button}>Remove</Button>
                     </div>
+
+                    <Divider />
 
                     <div className={classes.symptom}>
                       <Typography component="p">
@@ -70,6 +75,8 @@ class SymptomList extends React.Component {
                       <Button size="small" className={classes.button}>Remove</Button>
                     </div>
 
+                    <Divider />
+
                     <div className={classes.symptom}>
                       <Typography component="p">
                         Shortness of breath
@@ -82,6 +89,8 @@ class SymptomList extends React.Component {
                       </Typography>
                       <Button size="small" className={classes.button}>Remove</Button>
                     </div>
+
+                     <Divider />
                     </CardContent>
               </Card>
             </div>

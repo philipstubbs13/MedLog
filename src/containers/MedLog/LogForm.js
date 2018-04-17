@@ -1,137 +1,176 @@
-//Importing React since we are using React.
-import React from "react";
-//Importing UI components from rebass.
-import {Container, Panel, Box, ButtonCircle, Label, Select, Border, Text, Textarea, Input, Tooltip} from 'rebass';
+// Importing React since we are using React.
+import React from 'react';
+// Importing UI components from material-ui-next
+import Typography from 'material-ui/Typography';
+import Input, { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Select from 'material-ui/Select';
+import Button from 'material-ui/Button';
+import TextField from 'material-ui/TextField';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import { withStyles } from 'material-ui/styles';
 
-//Symptom form component on the My symptom journal page.
-const LogForm = () => [
-    <Box color="white">
-        <Panel color='black'>
-            <Panel.Header
-                color='white'
-                bg='black'
-                fontSize={24}>
-                Add doctor notes
-            </Panel.Header>
-                <Container>
-                    <Label mt={3} fontSize={18}>
-                        Select a doctor
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Select pl={4}>
-                            <option></option>
-                            <option>Dr. Smith</option>
-                            <option>Dr. Jones</option>
-                            <option>Dr. Johnson</option>
-                            <option>Dr. Pain</option>
-                            <option>Dr. Somebody</option>
-                        </Select>
-                    </Border>
+const styles = {
+    textField: {
+        marginTop: 40
+    },
+    // Tell Material-UI what's the font-size on the html element is.
+    typography: {
+        htmlFontSize: 40
+    },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        minWidth: 120,
+    },
+    button: {
+        marginTop:20,
+        padding: 5
+    },
+};
 
-                    <Label mt={3} fontSize={18}>
-                        Date of doctor visit
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+class  LogForm extends React.Component {
+  state = {
+    name: '',
+    age: '',
+    multiline: 'Controlled',
+    doctor: '',
+    clinic: '',
+  };
 
-                    <Label mt={3} fontSize={18}>
-                        Select a clinic
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Select pl={4}>
-                            <option></option>
-                            <option>Clinic A</option>
-                            <option>Clinic B</option>
-                            <option>Clinic C</option>
-                            <option>Clinic D</option>
-                            <option>Clinic E</option>
-                        </Select>
-                    </Border>
+  handleChange = name => event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
-                    <Label mt={3} fontSize={18}>
-                        <Tooltip text='placeholder text' bg="black" color="white" fontSize={16}>
-                            <Text>
-                                Reason for visit <i class="fas fa-question-circle"></i>
-                            </Text>
-                        </Tooltip>
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+  render() {
+    const { classes, theme } = this.props;
 
-                    <Label mt={3} fontSize={18}>
-                        <Tooltip text='placeholder text' bg="black" color="white" fontSize={16}>
-                            <Text>
-                                Upload lab notes <i class="fas fa-question-circle"></i>
-                            </Text>
-                        </Tooltip>
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+    return (
+        <div>
+            <Card>
+                <CardContent>
+                    <Typography gutterBottom variant="headline" component="h2">
+                        Add doctor notes
+                    </Typography>
+                    <form noValidate className={classes.root} autoComplete="off">
+                        <FormControl className={classes.formControl} fullWidth>
+                            <InputLabel htmlFor="select-doctor-dropdown">Select a doctor</InputLabel>
+                            <Select
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                inputProps={{
+                                doctor: '',
+                                id: 'select-doctor',
+                                }}
+                            >
+                                <MenuItem value=""></MenuItem>
+                                <MenuItem value={"Pain"}>Dr. Pain</MenuItem>
+                                <MenuItem value={"Joins"}>Dr. Jones</MenuItem>
+                                <MenuItem value={"Johnson"}>Dr. Johnson</MenuItem>
+                                <MenuItem value={"Smith"}>Dr. Smith</MenuItem>
+                                <MenuItem value={"Phil"}>Dr. Phil</MenuItem>
+                                <MenuItem value={"J"}>Dr. J</MenuItem>
+                                <MenuItem value={"Other"}>Other</MenuItem>
+                            </Select>
+                        </FormControl>
 
-                    <Label mt={3} fontSize={18}>
-                        Height
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
-
-                    <Label mt={3} fontSize={18}>
-                        Weight
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
-
-
-                    <Label mt={3} fontSize={18}>
-                        <Tooltip text='placeholder text' bg="black" color="white" fontSize={16}>
-                            <Text>
-                                Notes <i class="fas fa-question-circle"></i>
-                            </Text>
-                        </Tooltip>
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Textarea
-                            rows={6}
+                        <TextField
+                            id="doctor-visit-date"
+                            label="Date of doctor visit"
+                            type="date"
+                            defaultValue="MM-DD-YYYY"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            fullWidth
                         />
-                    </Border>
-                    <ButtonCircle
-                        children='Add notes'
-                        bg='blue'
-                        mt={4}
-                        mb={4}
-                    />
-                </Container>
-        </Panel>
-    </Box>
 
-];
+                        <FormControl className={classes.formControl, classes.textField} fullWidth>
+                            <InputLabel htmlFor="select-clinic-dropdown">Select a clinic</InputLabel>
+                            <Select
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                inputProps={{
+                                clinic: '',
+                                id: 'select-clinic',
+                                }}
+                            >
+                                <MenuItem value=""></MenuItem>
+                                <MenuItem value={"A"}>Clinic A</MenuItem>
+                                <MenuItem value={"B"}>Clinic B</MenuItem>
+                                <MenuItem value={"C"}>Clinic C</MenuItem>
+                                <MenuItem value={"D"}>Clinic D</MenuItem>
+                                <MenuItem value={"E"}>Clinic E</MenuItem>
+                                <MenuItem value={"F"}>Clinic F</MenuItem>
+                                <MenuItem value={"Other"}>Other</MenuItem>
+                            </Select>
+                        </FormControl>
 
-export default LogForm;
+                        <TextField
+                            id="reason-for-visit"
+                            label="Reason for visit"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            helperText=""
+                            fullWidth
+                            margin="normal"
+                            className={classes.textField}
+                        />
+
+                        <InputLabel className={classes.textField} htmlFor="select-clinic-dropdown">Lab results</InputLabel>
+                        <Button className={classes.button}>
+                            <input type="file" />
+                        </Button>
+
+                        <TextField
+                            id="height"
+                            label="Height (inches)"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            helperText=""
+                            fullWidth
+                            margin="normal"
+                            className={classes.textField}
+                        />
+
+                        <TextField
+                            id="weight"
+                            label="Weight (pounds)"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            helperText=""
+                            fullWidth
+                            margin="normal"
+                            className={classes.textField}
+                        />
+
+                        <Button size="large" className={classes.button} color="primary">
+                            Submit
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
+        </div>
+    );
+  }
+}
+
+// TextFields.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
+
+export default withStyles(styles)(LogForm);
+
+ 
