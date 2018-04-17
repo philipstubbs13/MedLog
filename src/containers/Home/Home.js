@@ -139,8 +139,8 @@ const Home = () => [
                 </Panel>
             </Column>
         </Row>
-    </div>
+    </div>,
 ];
 
-//Exporting the Home component so that the App.js file can use/render the Home page.
+// Exporting the Home component so that the App.js file can use/render the Home page.
 export default Home;

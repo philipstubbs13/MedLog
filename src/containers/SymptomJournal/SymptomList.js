@@ -1,58 +1,93 @@
-//Importing React since we are using React.
-import React from "react";
-//Importing UI components from rebass.
-import { Box, Container, Panel, ButtonCircle} from 'rebass';
+// Importing React since we are using React.
+import React from 'react';
+// Importing UI components from material-ui-next.
+import Card, { CardContent } from 'material-ui/Card';
+import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 
-//Symptom List component on My symptom journal page.
-const SymptomList = () => [
-    <Panel color='black' pb={3}>
-        <Panel.Header
-            color='white'
-            bg='black'
-            fontSize={24}>
-            Symptoms
-        </Panel.Header>
-        <Container>
+const styles = {
+  textField: {
+    marginTop: 80,
+  },
+  // Tell Material-UI what's the font-size on the html element is.
+  typography: {
+    htmlFontSize: 40,
+  },
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  formControl: {
+    minWidth: 120,
+  },
+  button: {
+    marginTop: 5,
+    padding: 5,
+  },
+  symptom: {
+    marginTop: 20,
+  },
+};
+
+// Symptom List component on My symptom journal page.
+class SymptomList extends React.Component {
+    render() {
+    const { classes } = this.props;
+
+    return (
+
             <div>
-                <Box>
-                    <div> 
-                        <p>Dizzy</p>
-                        <p>April 14, 2018 at 7:10 a.m.</p>
-                        <p>Comment about symptom</p>
-                        <ButtonCircle
-                            children='Remove'
-                            bg='blue'
-                        />
+              <Card>
+                <CardContent>
+                  <Typography gutterBottom variant="headline" component="h2">
+                    Symptoms
+                  </Typography>
+
+                    <div className={classes.symptom}>
+                       <Typography component="p">
+                        Fatigue
+                      </Typography>
+                      <Typography component="p">
+                        February 19, 2018 at 6:00 p.m.
+                      </Typography>
+                      <Typography component="p">
+                        Comment about symptom
+                      </Typography>
+                      <Button size="small" className={classes.button}>Remove</Button>
                     </div>
-                </Box>
-                
-                <Box mt={5}>
-                    <div>
-                        <p>Shortness of breath</p>
-                        <p>April 7, 2018 at 2:00 p.m.</p>
-                        <p>Comment about symptom</p>
-                        <ButtonCircle
-                            children='Remove'
-                            bg='blue'
-                        />
+
+                    <div className={classes.symptom}>
+                      <Typography component="p">
+                        Dizzy
+                      </Typography>
+                      <Typography component="p">
+                        April 14, 2018 at 7:10 a.m.
+                      </Typography>
+                      <Typography component="p">
+                        Comment about symptom
+                      </Typography>
+                      <Button size="small" className={classes.button}>Remove</Button>
                     </div>
-                </Box>
-                
-                <Box mt={5}>
-                    <div>
-                        <p>Fatigue</p>
-                        <p>February 19, 2018 at 6:00 p.m.</p>
-                        <p>Comment about symptom</p>
-                        <ButtonCircle
-                            children='Remove'
-                            bg='blue'
-                        />
+
+                    <div className={classes.symptom}>
+                      <Typography component="p">
+                        Shortness of breath
+                      </Typography>
+                      <Typography component="p">
+                        February 19, 2018 at 6:00 p.m.
+                      </Typography>
+                      <Typography component="p">
+                        Comment about symptom
+                      </Typography>
+                      <Button size="small" className={classes.button}>Remove</Button>
                     </div>
-                </Box>
+                    </CardContent>
+              </Card>
             </div>
-        </Container>
-    </Panel>
+    );
+  }
+}
 
-];
-
-export default SymptomList;
+// Exporting the SymptomList component with styling.
+export default withStyles(styles)(SymptomList);

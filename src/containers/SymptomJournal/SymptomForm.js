@@ -1,69 +1,123 @@
 //Importing React since we are using React.
 import React from "react";
-//Importing UI components from rebass.
-import { Container, Panel, Box, ButtonCircle, Label, Select, Border, Textarea, Input } from 'rebass';
+//Importing material-ui components and style.
+import TextField from 'material-ui/TextField';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import { withStyles } from 'material-ui/styles';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
+import Input, { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Select from 'material-ui/Select';
+import Button from 'material-ui/Button';
 
-//Symptom form component on the My symptom journal page.
-const SymptomForm = () => [
-    <Box color="white">
-        <Panel color='black'>
-            <Panel.Header
-                color='white'
-                bg='black'
-                fontSize={24}>
-                Add a symptom
-            </Panel.Header>
-                <Container>
-                    <Label mt={3} fontSize={18}>
-                        Select a symptom
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Select pl={4}>
-                            <option></option>
-                            <option>Dizzy</option>
-                            <option>Shortness of Breath</option>
-                            <option>Fainted</option>
-                            <option>Swelling</option>
-                            <option>Heart Fluttering</option>
-                            <option>Fatigue</option>
-                            <option>Other</option>
-                        </Select>
-                    </Border>
+const styles = {
+    textField: {
+        marginTop: 80
+    },
+    // Tell Material-UI what's the font-size on the html element is.
+    typography: {
+        htmlFontSize: 40
+    },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        minWidth: 120,
+    },
+    button: {
+        marginTop:20,
+        padding: 5
+    },
+};
 
-                    <Label mt={5} fontSize={18}>
-                        When did the symptom occur?
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+class SymptomTextFields extends React.Component {
+  state = {
+    name: '',
+    age: '',
+    multiline: 'Controlled',
+    symptom: '',
+  };
 
-                    <Label mt={5} fontSize={18}>
-                        Additional information to share with doctor
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Textarea
-                            rows={6}
+  handleChange = name => event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  render() {
+    const { classes, theme } = this.props;
+
+    return (
+        <div>
+            <Card>
+                <CardContent>
+                    <Typography gutterBottom variant="headline" component="h2">
+                        Add a symptom
+                    </Typography>
+                    <form noValidate className={classes.root} autoComplete="off">
+                        <FormControl className={classes.formControl} fullWidth>
+                            <InputLabel htmlFor="select-symptom-dropdown">Select symptom</InputLabel>
+                            <Select
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                inputProps={{
+                                symptom: 'symptom',
+                                id: 'select-symptom',
+                                }}
+                            >
+                                <MenuItem value=""></MenuItem>
+                                <MenuItem value={"Dizzy"}>Dizzy</MenuItem>
+                                <MenuItem value={"Shortness of breath"}>Shortness of breath</MenuItem>
+                                <MenuItem value={"Fainted"}>Fainted</MenuItem>
+                                <MenuItem value={"Swelling"}>Swelling</MenuItem>
+                                <MenuItem value={"Heart Fluttering"}>Heart Fluttering</MenuItem>
+                                <MenuItem value={"Fatigue"}>Fatigue</MenuItem>
+                                <MenuItem value={"Other"}>Other</MenuItem>
+                            </Select>
+                        </FormControl>
+
+                        <TextField
+                            id="symptom-time"
+                            label="When did the symptom occur?"
+                            type="datetime-local"
+                            defaultValue="2017-05-24T10:30"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
                         />
-                    </Border>
-                    <ButtonCircle
-                        children='Add symptom'
-                        bg='blue'
-                        mt={4}
-                        mb={4}
-                    />
-                </Container>
-        </Panel>
-    </Box>
 
-];
+                        <TextField
+                        id="additional-symptom-info"
+                        label="Additional information you want to share with the doctor"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        placeholder=""
+                        helperText=""
+                        fullWidth
+                        className={classes.textField}
+                        multiline="true"
+                        rows={2}
+                        rowsMax={3}
+                        />
 
-export default SymptomForm;
+                        <Button size="large" className={classes.button} color="primary">
+                            Submit
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
+        </div>
+    );
+  }
+}
+
+// TextFields.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
+
+export default withStyles(styles)(SymptomTextFields);
