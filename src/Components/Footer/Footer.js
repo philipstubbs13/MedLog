@@ -1,29 +1,47 @@
 //Importing React since we are using React.
 import React from "react";
-//Importing UI components from rebass.
-import { Toolbar, NavLink, ButtonCircle, Container } from 'rebass'
+//Importing UI components from material-ui-next.
+import { withStyles } from 'material-ui/styles';
+import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
+import PropTypes from 'prop-types';
 
 
-//Footer component
-const Footer = () => (
-    <Toolbar
-        bg="black">
-        <Container>
-            <NavLink fontSize={30} my={4}>
-                HealthTracker
-            </NavLink>
-            <a href="https://github.com/philipstubbs13/MedLog" target="_blank">
-                <ButtonCircle
-                children='GitHub Repo'
-                ml="auto"
-                p={5}
-                target="_blank"
-                rel="noopener noreferrer"
-                />
-            </a>
-        </Container>
-    </Toolbar>
-);
+const styles = {
+  root: {
+    width: 500,
+  },
+};
 
-//Export the footer so that the App.js file can use/render it.
-export default Footer;
+class Footer extends React.Component {
+  state = {
+    value: '',
+  };
+
+  handleChange = (event, value) => {
+    this.setState({ value });
+  };
+
+  render() {
+    const { classes } = this.props;
+    const { value } = this.state;
+
+    return (
+      <BottomNavigation value={value} onChange={this.handleChange}>
+        <BottomNavigationAction label="Home" value="home" showLabel="true" href="/home"/>
+        <BottomNavigationAction label="My health log" value="log" showLabel="true" href="/log"/>
+        <BottomNavigationAction label="My symptom journal" value="symptoms" showLabel="true" href="/symptoms"/>
+        <BottomNavigationAction label="Appointments" value="appointments" showLabel="true"/>
+        <BottomNavigationAction label="My prescriptions" value="prescriptions" showLabel="true"/>
+        <BottomNavigationAction label="Doctors and clinics" value="doctors" showLabel="true"/>
+        <BottomNavigationAction label="Search" value="search" showLabel="true"/>
+      </BottomNavigation>
+    );
+  }
+}
+
+Footer.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+//Exporting the footer/bottom navigation component with styling.
+export default withStyles(styles)(Footer);
