@@ -21,9 +21,10 @@ import SymptomJournal from "./containers/SymptomJournal"
 // //Importing the Appointments page component.
 // import Appointments from "./containers/Appointments"
 // //Importing the My health log page component.
-// import MedLog from "./containers/MedLog"
+import MedLog from "./containers/MedLog"
 //Importing material-ui framework
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { createMuiTheme } from 'material-ui/styles';
 
 //Render the components to the page.
 class App extends Component {
@@ -36,8 +37,8 @@ class App extends Component {
             <Route exact path="/home" component={Home} />
             <Route exact path="/symptoms" component={SymptomJournal} /> 
             {/* <Route exact path="/doctors" component={DoctorList} />
-            <Route exact path="/appointments" component={Appointments} />
-            <Route exact path="/log" component={MedLog} /> */} */}
+            <Route exact path="/appointments" component={Appointments} /> */}
+            <Route exact path="/log" component={MedLog} /> 
           </Container>
         </Router>,
         <Footer/>
