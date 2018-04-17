@@ -2,7 +2,10 @@
   "name": "medtracker",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^5.0.14",
     "grommet": "^1.10.1",
     "material-ui": "^1.0.0-beta.42",
     "primereact": "^1.5.1",
@@ -22,10 +25,11 @@
     "semantic-ui-react": "^0.79.1"
   },
   "scripts": {
+    "server": "node server.js",
+    "client": "node scripts/start-client.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "seed": "node scripts/seedDB.js"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
