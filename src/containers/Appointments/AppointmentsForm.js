@@ -1,77 +1,136 @@
 //Importing React since we are using React.
 import React from "react";
 //Importing UI components from rebass.
-import { Container, Panel, Box, ButtonCircle, Label, Select, Border, Input} from 'rebass';
+import { Container, Panel, Box, ButtonCircle, Label, Border} from 'rebass';
+// Importing UI components from material-ui-next
+import Typography from 'material-ui/Typography';
+import Input, { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl, FormHelperText } from 'material-ui/Form';
+import Select from 'material-ui/Select';
+import Button from 'material-ui/Button';
+import TextField from 'material-ui/TextField';
+import Card, { CardActions, CardContent } from 'material-ui/Card';
+import { withStyles } from 'material-ui/styles';
 
-//Symptom form component on the Appointments page.
-const AppointmentsForm = () => [
-    <Box color="white">
-        <Panel color='black'>
-            <Panel.Header
-                color='white'
-                bg='black'
-                fontSize={24}>
-                Add an Appointment
-            </Panel.Header>
-                <Container>
-                    <Label mt={3} fontSize={18}>
-                        Appointment name
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+const styles = {
+    textField: {
+        marginTop: 40
+    },
+    // Tell Material-UI what's the font-size on the html element is.
+    typography: {
+        htmlFontSize: 40
+    },
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    formControl: {
+        minWidth: 120,
+    },
+    button: {
+        marginTop:20,
+        padding: 5
+    },
+};
 
-                    <Label mt={3} fontSize={18}>
-                        Date
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>
+class  AppointmentsForm extends React.Component {
+  state = {
+    name: '',
+    age: '',
+    multiline: 'Controlled',
+    doctor: '',
+    clinic: '',
+  };
 
-                    <Label mt={3} fontSize={18}>
-                        Time
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Input/>
-                    </Border>,
+  handleChange = name => event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
 
-                    <Label mt={3} fontSize={18}>
-                        Doctor
-                    </Label>
-                    <Border
-                        top
-                        bottom
-                        mt={2}>
-                        <Select pl={4}>
-                            <option></option>
-                            <option>Dr. Sue King</option>
-                            <option>Dr. Larry Lungs</option>
-                            <option>Dr. Luna Nose</option>
-                            <option>Dr. Steve Sneezy</option>
-                            <option>Dr. Jerridd Stomach</option>
-                            <option>Dr. Other</option>
-                        </Select>
-                    </Border>
+  render() {
+    const { classes, theme } = this.props;
 
-                    <ButtonCircle
-                        children='Add Appointment'
-                        bg='blue'
-                        mt={4}
-                        mb={4}
-                    />
-                </Container>
-        </Panel>
-    </Box>
+    return (
+        <div>
+            <Card>
+                <CardContent>
+                    <Typography gutterBottom variant="headline" component="h2">
+                        Add an appointment
+                    </Typography>
+                    <form noValidate className={classes.root} autoComplete="off">
+                        <TextField
+                            id="appointment-name"
+                            label="Appointment name"
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            placeholder=""
+                            helperText=""
+                            fullWidth
+                            margin="normal"
+                            className={classes.textField}
+                        />
 
-];
+                        <FormControl className={classes.formControl} fullWidth>
+                            <InputLabel htmlFor="select-doctor-dropdown">Select a doctor</InputLabel>
+                            <Select
+                                value={this.state.name}
+                                onChange={this.handleChange}
+                                inputProps={{
+                                doctor: '',
+                                id: 'select-doctor',
+                                }}
+                            >
+                                <MenuItem value=""></MenuItem>
+                                <MenuItem value={"Pain"}>Dr. Pain</MenuItem>
+                                <MenuItem value={"Joins"}>Dr. Jones</MenuItem>
+                                <MenuItem value={"Johnson"}>Dr. Johnson</MenuItem>
+                                <MenuItem value={"Smith"}>Dr. Smith</MenuItem>
+                                <MenuItem value={"Phil"}>Dr. Phil</MenuItem>
+                                <MenuItem value={"J"}>Dr. J</MenuItem>
+                                <MenuItem value={"Other"}>Other</MenuItem>
+                            </Select>
+                        </FormControl>
 
-export default AppointmentsForm;
+                        <TextField
+                            id="appointment-date"
+                            label="Date of appointment"
+                            type="date"
+                            defaultValue="MM-DD-YYYY"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            fullWidth
+                        />
+
+                        <TextField
+                            id="appointment-time"
+                            label="Appointment time"
+                            type="time"
+                            defaultValue="10:30"
+                            className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            fullWidth
+                        />
+
+                        <Button size="large" className={classes.button} color="primary">
+                            Add appointment
+                        </Button>
+                    </form>
+                </CardContent>
+            </Card>
+        </div>
+    );
+  }
+}
+
+// AppointmentsForm.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
+
+export default withStyles(styles)(AppointmentsForm);
