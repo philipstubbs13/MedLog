@@ -80,11 +80,24 @@ class SymptomTextFields extends React.Component {
                         </FormControl>
 
                         <TextField
-                            id="symptom-time"
-                            label="When did the symptom occur?"
-                            type="datetime-local"
-                            defaultValue="2017-05-24T10:30"
+                            id="symptom-day"
+                            label="Day the symptom occurred"
+                            type="date"
+                            defaultValue="DD-MM-YYYY"
                             className={classes.textField}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            fullWidth
+                        />
+
+                        <TextField
+                            id="symptom-time"
+                            label="Time symptom occurred"
+                            type="timedatetime-local"
+                            defaultValue="10:30"
+                            className={classes.textField}
+                            fullWidth
                             InputLabelProps={{
                                 shrink: true,
                             }}
