@@ -2,7 +2,7 @@
 import React from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import Input, { InputLabel } from 'material-ui/Input';
+import Input, {InputLabel, InputAdornment} from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
@@ -154,6 +154,7 @@ class  LogForm extends React.Component {
                             fullWidth
                             margin="normal"
                             className={classes.textField}
+                            endAdornment={<InputAdornment position="end">pounds</InputAdornment>}
                         />
 
                         <Button size="large" className={classes.button} color="primary">

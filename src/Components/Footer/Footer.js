@@ -30,10 +30,10 @@ class Footer extends React.Component {
         <BottomNavigationAction label="Home" value="home" showLabel="true" href="/home"/>
         <BottomNavigationAction label="My health log" value="log" showLabel="true" href="/log"/>
         <BottomNavigationAction label="My symptom journal" value="symptoms" showLabel="true" href="/symptoms"/>
-        <BottomNavigationAction label="Appointments" value="appointments" showLabel="true"/>
-        <BottomNavigationAction label="My prescriptions" value="prescriptions" showLabel="true"/>
-        <BottomNavigationAction label="Doctors and clinics" value="doctors" showLabel="true"/>
-        <BottomNavigationAction label="Search" value="search" showLabel="true"/>
+        <BottomNavigationAction label="Appointments" value="appointments" showLabel="true" href="/appointments"/>
+        <BottomNavigationAction label="My prescriptions" value="prescriptions" showLabel="true" href="/prescriptions"/>
+        <BottomNavigationAction label="Doctors and clinics" value="doctors" showLabel="true" href="/doctors"/>
+        <BottomNavigationAction label="Search" value="search" showLabel="true" href="/search"/>
       </BottomNavigation>
     );
   }
