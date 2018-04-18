@@ -4,9 +4,18 @@
   "private": true,
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.15.4",
+<<<<<<< Updated upstream
     "material-ui": "^1.0.0-beta.42",
     "mongoose": "^5.0.14",
+=======
+    "grommet": "^1.10.1",
+    "material-ui": "^1.0.0-beta.42",
+    "mongoose": "^5.0.14",
+    "morgan": "^1.9.0",
+    "primereact": "^1.5.1",
+>>>>>>> Stashed changes
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-redux": "^5.0.7",
