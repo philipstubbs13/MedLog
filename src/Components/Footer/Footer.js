@@ -1,47 +1,41 @@
-//Importing React since we are using React.
-import React from "react";
-//Importing UI components from material-ui-next.
+// Importing React since we are using React.
+import React from 'react';
+// Importing UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
-import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
-import PropTypes from 'prop-types';
+import Card, { CardContent } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
 
 
 const styles = {
   root: {
     width: 500,
   },
+  copyright: {
+    marginTop: 10,
+  },
 };
 
 class Footer extends React.Component {
-  state = {
-    value: '',
-  };
-
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
 
     return (
-      <BottomNavigation value={value} onChange={this.handleChange}>
-        <BottomNavigationAction label="Home" value="home" showLabel="true" href="/home"/>
-        <BottomNavigationAction label="My health log" value="log" showLabel="true" href="/log"/>
-        <BottomNavigationAction label="My symptom journal" value="symptoms" showLabel="true" href="/symptoms"/>
-        <BottomNavigationAction label="Appointments" value="appointments" showLabel="true" href="/appointments"/>
-        <BottomNavigationAction label="My prescriptions" value="prescriptions" showLabel="true" href="/prescriptions"/>
-        <BottomNavigationAction label="Doctors and clinics" value="doctors" showLabel="true" href="/doctors"/>
-        <BottomNavigationAction label="Search" value="search" showLabel="true" href="/search"/>
-      </BottomNavigation>
+      <Card>
+        <CardContent>
+          <Typography gutterBottom variant="headline" component="h2">
+            HealthTracker
+          </Typography>
+          <Typography component="p">
+            Created by Sara, Kayla, Jerridd, and Phil at the University of Minnesota
+          </Typography>
+          <Typography component="p" className={classes.copyright}>
+            Copyright 2018
+          </Typography>
+        </CardContent>
+      </Card>
     );
   }
 }
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-
-//Exporting the footer/bottom navigation component with styling.
+// Exporting the footer component with styling.
 export default withStyles(styles)(Footer);
