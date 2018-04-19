@@ -1,7 +1,11 @@
+// Importing React since we are using React.
 import React from 'react';
-import Button from 'material-ui/Button';
-import Menu, { MenuItem } from 'material-ui/Menu';
 
+// Importing material-ui-next components
+import Menu, { MenuItem } from 'material-ui/Menu';
+import IconButton from 'material-ui/IconButton';
+
+// Defining hamburger menu component, which is located in the top navigation bar.
 class HamburgerMenu extends React.Component {
     state = {
         anchorEl: null,
@@ -20,13 +24,13 @@ class HamburgerMenu extends React.Component {
 
         return (
             <div>
-                <Button
+                <IconButton
                     aria-owns={anchorEl ? 'simple-menu' : null}
                     aria-haspopup="true"
                     onClick={this.handleClick} raised size="large"
                 >
                     <i class="fas fa-bars"></i>
-                </Button>
+                </IconButton>
                 <Menu
                     id="hamburger-menu"
                     anchorEl={anchorEl}
@@ -40,11 +44,11 @@ class HamburgerMenu extends React.Component {
                     <a href="/prescriptions" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>My prescriptions</MenuItem></a>
                     <a href="/doctors" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Doctors and clinics</MenuItem></a>
                     <a href="/search" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Search</MenuItem></a>
-                    <a href="/" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Logout</MenuItem></a>
                 </Menu>
             </div>
         );
     }
 }
 
+//Exporting the HamburgerMenu component so that it can be rendered in the top navigation bar component.
 export default HamburgerMenu;
