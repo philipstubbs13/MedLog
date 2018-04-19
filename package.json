@@ -1,36 +1,30 @@
 {
-  "name": "medtracker",
-  "version": "0.1.0",
+  "name": "healthtracker",
+  "version": "1.0.0",
   "private": true,
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "material-ui": "^1.0.0-beta.42",
-    "mongoose": "^5.0.14",
-    "grommet": "^1.10.1",
-    "primereact": "^1.5.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-redux": "^5.0.7",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-router-redux": "^4.0.8",
-    "react-scripts": "^1.1.4",
-    "rebass": "^2.0.0-0",
-    "redux": "^4.0.0"
+    "mongoose": "^5.0.15",
+    "morgan": "^1.9.0"
   },
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "seed": "node scripts/seedDB.js"
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "build": "node scripts/build.js",
+    "seed": "node scripts/seedDB.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "yarn && cd client && yarn"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.11.0"
   }
 }

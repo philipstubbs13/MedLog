@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 // nextAppointment
 
 // new DoctorSchema object for login purposes
-const HealthlogSchema = new Schema({
+const HealthLogSchema = new Schema({
   date: {
     type: String,
     trim: true,
