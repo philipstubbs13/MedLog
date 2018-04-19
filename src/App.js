@@ -1,9 +1,9 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
-// Importing material-ui framework
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // Importing React Router to add page routes.
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+// Importing material-ui theme.
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // Importing UI components from rebass.
 import { Container } from 'rebass';
 // Importing app logo.
@@ -25,12 +25,23 @@ import Appointments from './containers/Appointments';
 // //Importing the My health log page component.
 import MedLog from './containers/MedLog';
 
+// App theme customization.
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark', // Switching the dark mode on is a single property value change.
+  },
+  typography: {
+    // In Japanese the characters are usually larger.
+    fontSize: 18,
+  },
+});
+
 
 // Render the components to the page.
 class App extends Component {
   render() {
     return [
-      <MuiThemeProvider>
+      <MuiThemeProvider theme={theme}>
         <NavBar />,
         <Router>
           <Container>
