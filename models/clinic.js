@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
-const { Schema } = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 // more about RegEx Patterns here https://www.regexbuddy.com/regex.html
 
