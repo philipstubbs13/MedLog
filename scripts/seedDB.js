@@ -5,9 +5,7 @@ mongoose.Promise = global.Promise;
 
 // This file empties the Books collection and inserts the books below
 
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
-
 
 const userSeed = [
   {
@@ -31,12 +29,66 @@ db.User
     process.exit(1);
   });
 
+const clinicSeed = [
+  {
+    clinicname: 'Childrens Clinic',
+    address: '360 Smith Ave. Suite 300',
+    city: 'St. Paul',
+    state: 'MN',
+    zip: 55101,
+    phone: '(651)999-9933',
+  },
+  {
+    clinicname: 'Childrens Respiratory',
+    address: '360 Smith Ave. Suite 601',
+    city: 'St. Paul',
+    state: 'MN',
+    zip: 55101,
+    phone: '(651)999-9977',
+  },
+  {
+    clinicname: 'Childrens ENT',
+    address: '360 Smith Ave. Suite 610',
+    city: 'St. Paul',
+    state: 'MN',
+    zip: 55101,
+    phone: '(651)999-9988',
+  },
+  {
+    clinicname: 'Allergy MN',
+    address: '555 George Ave.',
+    city: 'St. Paul',
+    state: 'MN',
+    zip: 55106,
+    phone: '(651)999-0011',
+  },
+  {
+    clinicname: 'Gastro MN',
+    address: '555 Black Ave.',
+    city: 'St. Paul',
+    state: 'MN',
+    zip: 55106,
+    phone: '(651)222-0022',
+  },
+];
+db.HealthLog
+  .remove({})
+  .then(() => db.Clinic.collection.insertMany(clinicSeed))
+  .then((data) => {
+    console.log(data.insertedIds.length + ' records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
 // will have to create seeds for healthLog, doctors, clinics, prescriptions (and appointments?)
 const healthLogSeed = [
   {
     date: '10/20/2017',
     doctor: 'Kristin King',
-    clinic: 'Childrens Clinic',
+    clinic: 'Childrens Respiratory',
     visitPurpose: '3 month follow up',
     notes: 'Having issues with new meds, so the prescription was changed. Sick a lot - suggests follow up with respiratory doctor asap. Weight should be monitored.',
     nextAppt: '3 months',

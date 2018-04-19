@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 // Save a reference to the Schema constructor
-const Schema = mongoose.Schema;
+const { Schema } = mongoose.Schema;
 
 // more about RegEx Patterns here https://www.regexbuddy.com/regex.html
 
-// in order to create a clinic we will require the following: 
+// in order to create a clinic we will require the following:
 // clinic name - to be populated as dropdown on doctor page
 // street address, city, state and zip
-// phone number and fax number 
+// phone number and fax number
 
 
 // new ClinicSchema object for login purposes
@@ -16,12 +16,12 @@ const ClinicSchema = new Schema({
   clinicname: {
     type: String,
     trim: true,
-    required: 'Clinic name is required'
+    required: 'Clinic name is required',
   },
   address: {
     type: String,
     trim: true,
-    required: 'Address is required'
+    required: 'Address is required',
   },
   // `city` must be of type String
   // `city` will trim leading and trailing whitespace before it's saved
@@ -30,7 +30,7 @@ const ClinicSchema = new Schema({
   city: {
     type: String,
     trim: true,
-    required: 'Address is required'
+    required: 'Address is required',
   },
   // `state` must be of type String
   // `state` will trim leading and trailing whitespace before it's saved
@@ -39,7 +39,7 @@ const ClinicSchema = new Schema({
   state: {
     type: String,
     trim: true,
-    required: 'State is Required'
+    required: 'State is Required',
   },
   // `zip` must be of type String
   // `zip` will trim leading and trailing whitespace before it's saved
@@ -48,7 +48,7 @@ const ClinicSchema = new Schema({
   zip: {
     type: Number,
     trim: true,
-    required: 'Zip is Required'
+    required: 'Zip is Required',
   },
   // `phone` must be of type String
   // `phone` will trim leading and trailing whitespace before it's saved
@@ -57,13 +57,13 @@ const ClinicSchema = new Schema({
   phone: {
     type: Number,
     trim: true,
-    match: [\(?\d+\)?[-.\s]?\d+[-.\s]?\d+],
-    required: 'Zip is Required'
+    match: /\(?\d+\)?[-.\s]?\d+[-.\s]?\d+/,
+    required: 'Zip is Required',
   },
   // `date` must be of type Date. The default value is the current date
   userCreated: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 });
 

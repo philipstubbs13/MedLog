@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
-const logger = require('morgan');
+// const bodyParser = require('body-parser');
+// const logger = require('morgan');
 const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -17,9 +17,9 @@ if (process.env.NODE_ENV === 'production') {
 // Configure middleware
 
 // Use morgan logger for logging requests
-app.use(logger('dev'));
+// app.use(logger('dev'));
 // Use body-parser for handling form submissions
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // When the server starts, create and save a new User document to the db
 // The "unique" rule in the User model's schema will prevent duplicate users from being added to the server
