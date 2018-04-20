@@ -85,7 +85,7 @@ const UserSchema = new Schema({
   // `healthLog` is an array that stores ObjectIds
   // The ref property links these ObjectIds to the Note model
   // This allows us to populate the User with any associated medLog
-  healthLog: [
+  healthLogs: [
     {
       // Store ObjectIds in the array
       type: Schema.Types.ObjectId,
@@ -93,7 +93,7 @@ const UserSchema = new Schema({
       ref: 'HealthLog',
     },
   ],
-  prescription: [
+  prescriptions: [
     {
       // Store ObjectIds in the array
       type: Schema.Types.ObjectId,

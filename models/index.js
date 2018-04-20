@@ -4,6 +4,6 @@ module.exports = {
   User: require('./User'),
   Clinic: require('./Clinic'),
   Doctor: require('./Doctor'),
-  Healthlog: require('./Healthlog'),
+  HealthLog: require('./HealthLog'),
   Appointment: require('./Appointment'),
 };
