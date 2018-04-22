@@ -163,22 +163,26 @@ db.HealthLog
 
 const symptomSeed = [
   {
-    syptomDate: '03/17/2018',
+    symptomType: 'Fatigue',
+    symptomDate: '03/17/2018',
     symptomTime: '11:30am',
     symptomInfo: 'Nose started running with a slight cough. Will wait to start asthma meds.',
   },
   {
-    syptomDate: '03/18/2018',
+    symptomType: 'Heart Fluttering',
+    symptomDate: '03/18/2018',
     symptomTime: '06:00am',
     symptomInfo: 'Started red zone with budesonide, albuteral and prednisolone',
   },
   {
+    symptomType: 'Other',
     syptomDate: '03/19/2018',
     symptomTime: '07:30pm',
     symptomInfo: 'Added codine, benadryl and ibuprophen to night-time routine',
   },
   {
-    syptomDate: '03/23/2018',
+    symptomType: 'Other',
+    symptomDate: '03/23/2018',
     symptomTime: '06:00am',
     symptomInfo: 'Still not better, called resp doc and got approval for another 2 days of prednisolone',
   },

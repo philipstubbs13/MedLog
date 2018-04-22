@@ -5,6 +5,11 @@ const Schema = mongoose.Schema;
 
 // new SymptomSchema object for saving symptoms.
 const SymptomSchema = new Schema({
+  symptomType: {
+    type: String,
+    trim: true,
+    required: 'Type is required.',
+  },
   symptomDate: {
     type: String,
     trim: true,

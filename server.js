@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 
+// Server will use port 3001.
 const PORT = process.env.PORT || 3001;
+// Yes, the app uses express.
 const app = express();
 
-// Configure body parser for AJAX requests
+// Configure body parser for axios requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

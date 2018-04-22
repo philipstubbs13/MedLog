@@ -19,6 +19,19 @@ class SymptomJournal extends Component {
     error: ""
   };
 
+  componentDidMount() {
+    this.loadSymptoms();
+  }
+
+  loadSymptoms = () => {
+    SymptomAPI.getSymptoms()
+      .then(res =>
+        this.setState({ symptoms: res.data, symptomDay: "", symptomTime: "", symptomInfo: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+
   // Keep track of what user selects from symptom drop-down list so that input can be grabbed later
   handleSymptomTypeChange = (event) => {
     this.setState({ symptomType: event.target.value });
@@ -73,6 +86,17 @@ class SymptomJournal extends Component {
               handleSymptomInfoChange = {this.handleSymptomInfoChange} />
           </Column>
           <Column width={1/2} ml={5}>
+              {this.state.symptoms.map(symptom => {
+                return (
+                  <SymptomList
+                    _id={symptom._id}
+                    type={symptom.symptomType}
+                    date={symptom.symptomDate}
+                    time={symptom.symptomTime}
+                    info={symptom.symptomInfo}
+                  />
+                );
+              })}
             <SymptomList />
           </Column>
         </Row>

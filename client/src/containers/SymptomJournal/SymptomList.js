@@ -33,67 +33,36 @@ const styles = {
 
 // Symptom List component on My symptom journal page.
 class SymptomList extends React.Component {
-    render() {
+  render() {
     const { classes } = this.props;
 
     return (
 
-            <div>
-              <Card>
-                <CardContent>
-                  <Typography gutterBottom variant="headline" component="h2">
-                    Symptoms
-                  </Typography>
-
-                   <Divider />
-
-                    <div className={classes.symptom}>
-                       <Typography component="p">
-                        Fatigue
-                      </Typography>
-                      <Typography component="p">
-                        February 19, 2018 at 6:00 p.m.
-                      </Typography>
-                      <Typography component="p">
-                        Comment about symptom
-                      </Typography>
-                      <Button size="small" className={classes.button}>Remove</Button>
-                    </div>
-
-                    <Divider />
-
-                    <div className={classes.symptom}>
-                      <Typography component="p">
-                        Dizzy
-                      </Typography>
-                      <Typography component="p">
-                        April 14, 2018 at 7:10 a.m.
-                      </Typography>
-                      <Typography component="p">
-                        Comment about symptom
-                      </Typography>
-                      <Button size="small" className={classes.button}>Remove</Button>
-                    </div>
-
-                    <Divider />
-
-                    <div className={classes.symptom}>
-                      <Typography component="p">
-                        Shortness of breath
-                      </Typography>
-                      <Typography component="p">
-                        February 19, 2018 at 6:00 p.m.
-                      </Typography>
-                      <Typography component="p">
-                        Comment about symptom
-                      </Typography>
-                      <Button size="small" className={classes.button}>Remove</Button>
-                    </div>
-
-                     <Divider />
-                    </CardContent>
-              </Card>
+      <div>
+        <Card>
+          <CardContent>
+            <Typography gutterBottom variant="headline" component="h2">
+            Symptoms
+            </Typography>
+            <Divider />
+            <div className={classes.symptom} key={this.props._id}>
+              <Typography component="p">
+                Symptom type: {this.props.type}
+              </Typography>
+              <Typography component="p">
+                Date: {this.props.date}
+              </Typography>
+              <Typography component="p">
+                Time: {this.props.time}
+              </Typography>
+              <Typography component="p">
+                More info: {this.props.info}
+              </Typography>
+              <Button size="small" className={classes.button}>Remove</Button>
             </div>
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 }
