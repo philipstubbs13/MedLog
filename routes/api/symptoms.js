@@ -3,7 +3,7 @@ const symptomsController = require("../../controllers/symptomsController");
 
 // Matches with "/api/symptoms"
 router.route("/")
-    // .get(symptomsController.findAll)
+    .get(symptomsController.findAll)
     .post(symptomsController.create);
 
 
