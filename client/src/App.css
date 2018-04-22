@@ -11,18 +11,12 @@
 }
 
 body {
-  background-color: #7791c2;
+  background-color: #03A9f4;
 }
-/* Background image */
-/* body {
-  background-image: url('./assets/images/background.jpg');
-  background-repeat: no-repeat; 
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  height: 100%;
-  width: 100%;
-} */
+
+.appBar {
+  background-color: #007AC1 !important;
+}
+
 
 

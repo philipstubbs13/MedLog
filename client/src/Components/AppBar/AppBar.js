@@ -23,6 +23,7 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
+    backgroundColor: 'white',
   },
 };
 
@@ -30,7 +31,7 @@ function NavBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className="appBar">
         <Toolbar>
           <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
           <Typography variant="title" color="inherit" className={classes.flex}>

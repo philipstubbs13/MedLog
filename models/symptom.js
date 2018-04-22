@@ -26,5 +26,5 @@ const SymptomSchema = new Schema({
 // This creates our model from the above schema, using mongoose's model method
 const SymptomJournal = mongoose.model('SymptomJournal', SymptomSchema);
 
-// Export the HealthLog model
+// Export the SymptomJournal model
 module.exports = SymptomJournal;

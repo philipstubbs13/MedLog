@@ -1,9 +1,15 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const routes = require('./routes');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Configure body parser for AJAX requests
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Require all models
 const db = require('./models');
@@ -12,6 +18,9 @@ const db = require('./models');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
+
+// Add routes, both API and view
+app.use(routes);
 
 
 // When the server starts, create and save a new User document to the db
@@ -93,6 +102,8 @@ app.get('/populateduser', function (req, res) {
     });
 });
 
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

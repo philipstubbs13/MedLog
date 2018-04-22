@@ -1,5 +1,5 @@
 // Importing React since we are using React.
-import React from "react";
+import React from 'react';
 // Importing material-ui components and style.
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
@@ -10,6 +10,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import Button from 'material-ui/Button';
+
 
 const styles = {
   textField: {
@@ -27,13 +28,12 @@ const styles = {
     minWidth: 120,
   },
   button: {
-    marginTop:20,
+    marginTop: 20,
     padding: 5,
   },
 };
 
 class SymptomTextFields extends React.Component {
-
   render() {
     const { classes } = this.props;
 
