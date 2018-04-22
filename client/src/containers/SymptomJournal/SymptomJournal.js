@@ -6,6 +6,7 @@ import { Heading, Row, Column } from 'rebass';
 import SymptomTextFields from './SymptomForm';
 // Import SymptomList
 import SymptomList from './SymptomList';
+// Import API
 import SymptomAPI from '../../utils/SymptomAPI';
 
 class SymptomJournal extends Component {
