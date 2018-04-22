@@ -13,6 +13,10 @@ const styles = {
   copyright: {
     marginTop: 10,
   },
+  footer: {
+    backgroundColor: "#007AC1",
+    color: "white",
+  }
 };
 
 class Footer extends React.Component {
@@ -20,15 +24,15 @@ class Footer extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card>
+      <Card className={classes.footer}>
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
+          <Typography gutterBottom variant="headline" component="h2" className={classes.footer}>
             HealthTracker
           </Typography>
-          <Typography component="p">
+          <Typography component="p" className={classes.footer}>
             Created by Sara, Kayla, Jerridd, and Phil at the University of Minnesota
           </Typography>
-          <Typography component="p" className={classes.copyright}>
+          <Typography component="p" className={classes.copyright} className={classes.footer}>
             Copyright 2018
           </Typography>
         </CardContent>

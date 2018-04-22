@@ -6,7 +6,7 @@ import { Heading, Row, Column } from 'rebass';
 import SymptomTextFields from './SymptomForm';
 // Import SymptomList
 import SymptomList from './SymptomList';
-// import SymptomAPI from '../../utils/SymptomAPI';
+import SymptomAPI from '../../utils/SymptomAPI';
 
 class SymptomJournal extends Component {
   state = {
@@ -45,17 +45,15 @@ class SymptomJournal extends Component {
     console.log("this.state.symptomDay: ", this.state.symptomDay);
     console.log("this.state.symptomTime: ", this.state.symptomTime);
     console.log("this.state.symptomInfo: ", this.state.symptomInfo);
-    // API.saveSymptom({
-    //   symptomDay: this.state.symptomDay,
-    //   symptomTime: this.state.symptomTime,
-    //   symptomInfo: this.state.symptomInfo
-    // })
-    //   // .then(res => this.loadBooks())
-    //   .catch(err => console.log(err));
+    SymptomAPI.saveSymptom({
+      symptomDay: this.state.symptomDay,
+      symptomTime: this.state.symptomTime,
+      symptomInfo: this.state.symptomInfo
+    })
   };
 
   render() {
-    return (  
+    return [  
       <Heading
         is="h1"
         children="My symptom journal"
@@ -78,7 +76,7 @@ class SymptomJournal extends Component {
           </Column>
         </Row>
       </div>
-    );
+    ];
   }
 }
 
