@@ -25,6 +25,19 @@ import Appointments from './containers/Appointments';
 // //Importing the My health log page component.
 import MedLog from './containers/MedLog';
 
+
+import Navigation from './Components/Navigation';
+import LandingPage from './Components/Landing';
+import SignUpPage from './Components/SignUp';
+import SignInPage from './Components/SignIn';
+import PasswordForgetPage from './Components/PasswordForget';
+import HomePage from './Components/Home';
+import AccountPage from './Components/Account';
+import * as routes from './constants/routes';
+
+import * as auth from './firebase/firebase';
+import { firebase } from './firebase';
+
 // App theme customization.
 const theme = createMuiTheme({
   palette: {
@@ -37,14 +50,60 @@ const theme = createMuiTheme({
 });
 
 
-// Render the components to the page.
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      authUser: null,
+    };
+  }
+
+  componentDidMount() {
+    firebase.auth.onAuthStateChanged(authUser => {
+      authUser
+        ? this.setState(() => ({ authUser }))
+        : this.setState(() => ({ authUser: null }));
+    });
+  }
   render() {
     return [
       <MuiThemeProvider theme={theme}>
         <NavBar />,
         <Router>
-          <Container>
+        <Container>
+          <Navigation authUser={this.state.authUser} />
+
+      <hr/>
+
+          <Route
+            exact path={routes.LANDING}
+            component={() => <LandingPage />}
+          />
+          <Route
+            exact path={routes.SIGN_UP}
+            component={() => <SignUpPage />}
+          />
+          <Route
+            exact path={routes.SIGN_IN}
+            component={() => <SignInPage />}
+          />
+          <Route
+            exact path={routes.PASSWORD_FORGET}
+            component={() => <PasswordForgetPage />}
+          />
+          <Route
+            exact path={routes.HOME}
+            component={() => <HomePage />}
+          />
+          <Route
+            exact path={routes.ACCOUNT}
+            component={() => <AccountPage />}
+          />
+        
+          
+            <Route exact path="/" component={SignInPage} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/symptoms" component={SymptomJournal} />
             <Route exact path="/doctors" component={DoctorList} />
