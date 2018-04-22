@@ -14,7 +14,7 @@ const userSeed = {
   password: 'gotToLoveIt',
   email: 'bracewell.sara@gmail.com',
 };
-// ];
+// // ];
 
 db.User
   .remove({})
@@ -70,7 +70,7 @@ const clinicSeed = [
     phone: '(651)222-0022',
   },
 ];
-db.HealthLog
+db.Clinic
   .remove({})
   .then(() => db.Clinic.collection.insertMany(clinicSeed))
   .then((data) => {
