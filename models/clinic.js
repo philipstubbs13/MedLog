@@ -58,7 +58,7 @@ const ClinicSchema = new Schema({
     type: Number,
     trim: true,
     match: /\(?\d+\)?[-.\s]?\d+[-.\s]?\d+/,
-    required: 'Zip is Required',
+    required: 'Phone is Required',
   },
   // `date` must be of type Date. The default value is the current date
   userCreated: {
