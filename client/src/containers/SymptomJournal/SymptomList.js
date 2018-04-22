@@ -1,53 +1,32 @@
-// Importing React since we are using React.
+// Import React
 import React from 'react';
-// Importing UI components from material-ui-next.
-import Card, { CardContent } from 'material-ui/Card';
+// Import UI components and style from material-ui-next.
+import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import Divider from 'material-ui/Divider';
 
-const styles = {
-  textField: {
-    marginTop: 80,
-  },
-  // Tell Material-UI what's the font-size on the html element is.
-  typography: {
-    htmlFontSize: 40,
-  },
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  formControl: {
-    minWidth: 120,
-  },
-  button: {
-    marginTop: 5,
-    padding: 5,
-  },
-  symptom: {
-    marginTop: 20,
-  },
-};
+// Style/Theme
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3,
+  }),
+});
 
-// Symptom List component on My symptom journal page.
+// Symptom List component on the My symptom journal page.
 class SymptomList extends React.Component {
   render() {
     const { classes } = this.props;
-
     return (
-
       <div>
-        <Card>
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-            Symptoms
-            </Typography>
-            <Divider />
+        <Paper className={classes.root} elevation={4}>
+          <Typography component="p">
             <div className={classes.symptom} key={this.props._id}>
               <Typography component="p">
-                Symptom type: {this.props.type}
+                Symptom: {this.props.type}
               </Typography>
               <Typography component="p">
                 Date: {this.props.date}
@@ -60,12 +39,11 @@ class SymptomList extends React.Component {
               </Typography>
               <Button size="small" className={classes.button}>Remove</Button>
             </div>
-          </CardContent>
-        </Card>
+          </Typography>
+        </Paper>
       </div>
     );
   }
 }
 
-// Exporting the SymptomList component with styling.
 export default withStyles(styles)(SymptomList);

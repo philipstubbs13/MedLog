@@ -8,6 +8,19 @@ import SymptomTextFields from './SymptomForm';
 import SymptomList from './SymptomList';
 // Import API
 import SymptomAPI from '../../utils/SymptomAPI';
+// Import UI components and style from material-ui-next
+import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+
+//Style
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3,
+  }),
+});
 
 class SymptomJournal extends Component {
   state = {
@@ -52,6 +65,7 @@ class SymptomJournal extends Component {
     this.setState({ symptomInfo: event.target.value });
   }
 
+  // When user submits symptom form, save symptom to database.
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Adding symptom");
@@ -86,18 +100,17 @@ class SymptomJournal extends Component {
               handleSymptomInfoChange = {this.handleSymptomInfoChange} />
           </Column>
           <Column width={1/2} ml={5}>
-              {this.state.symptoms.map(symptom => {
-                return (
-                  <SymptomList
-                    _id={symptom._id}
-                    type={symptom.symptomType}
-                    date={symptom.symptomDate}
-                    time={symptom.symptomTime}
-                    info={symptom.symptomInfo}
-                  />
-                );
-              })}
-            <SymptomList />
+            {this.state.symptoms.map(symptom => {
+              return (
+                <SymptomList
+                  id={symptom._id}
+                  type={symptom.symptomType}
+                  date={symptom.symptomDate}
+                  time={symptom.symptomTime}
+                  info={symptom.symptomInfo}
+                />
+              );
+            })}  
           </Column>
         </Row>
       </div>
