@@ -1,5 +1,5 @@
 # MedLog
-test
+
 
 ## Project Plan
 
