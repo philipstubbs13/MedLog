@@ -159,3 +159,86 @@ db.HealthLog
     console.error(err);
     process.exit(1);
   });
+
+
+const symptomSeed = [
+  {
+    syptomDate: '03/17/2018',
+    symptomTime: '11:30am',
+    symptomInfo: 'Nose started running with a slight cough. Will wait to start asthma meds.',
+  },
+  {
+    syptomDate: '03/18/2018',
+    symptomTime: '06:00am',
+    symptomInfo: 'Started red zone with budesonide, albuteral and prednisolone',
+  },
+  {
+    syptomDate: '03/19/2018',
+    symptomTime: '07:30pm',
+    symptomInfo: 'Added codine, benadryl and ibuprophen to night-time routine',
+  },
+  {
+    syptomDate: '03/23/2018',
+    symptomTime: '06:00am',
+    symptomInfo: 'Still not better, called resp doc and got approval for another 2 days of prednisolone',
+  },
+];
+
+db.SymptomJournal
+  .remove({})
+  .then(() => db.SymptomJournal.collection.insertMany(symptomSeed))
+  .then((data) => {
+    console.log(data.insertedIds.length + ' symptom journal records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+const prescriptionSeed = [
+  {
+    prescriptionName: 'lansiprosole',
+    amount: '10mLs',
+    timesaday: 2,
+    dateprescribed: '10/16/16',
+    doctorprescibed: 'Dr. Kristin King',
+    generalinstructions: 'Take half hour before breakfast and dinner.',
+  },
+  {
+    prescriptionName: 'prednisolone',
+    amount: '10mLs',
+    timesaday: 2,
+    dateprescribed: '10/16/17',
+    doctorprescibed: 'Dr. Kristin King',
+    generalinstructions: 'Prescription dose increased. Take with meds, be careful about taking too close to bed time.',
+  },
+  {
+    prescriptionName: 'singulair',
+    amount: '5mL disolvable tablet',
+    timesaday: 1,
+    dateprescribed: '10/16/17',
+    doctorprescibed: 'Dr. Larry Lungs',
+    generalinstructions: 'Take at bed time. Can cause night-terrors',
+  },
+  {
+    prescriptionName: 'qnasl',
+    amount: '1 spray each nostril',
+    timesaday: 1,
+    dateprescribed: '10/16/18',
+    doctorprescibed: 'Dr. Sam Sneezy',
+    generalinstructions: 'Difficult to take, hurts at first. Do in the morning 15minutes after any other nose sprays',
+  },
+];
+
+db.PrescriptionList
+  .remove({})
+  .then(() => db.PrescriptionList.collection.insertMany(prescriptionSeed))
+  .then((data) => {
+    console.log(data.insertedIds.length + ' prescription list records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
