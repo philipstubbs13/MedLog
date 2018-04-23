@@ -246,3 +246,39 @@ db.PrescriptionList
     console.error(err);
     process.exit(1);
   });
+
+const appointmentSeed = [
+  {
+    name: 'Appointment1',
+    date: '03/17/2018',
+    time: '11:30am',
+    doctor: 'Dr. Pain',
+    clinic: 'Clinic A',
+  },
+  {
+    name: 'Appointment2',
+    date: '03/18/2018',
+    time: '11:30am',
+    doctor: 'Dr. P',
+    clinic: 'Clinic B',
+  },
+  {
+    name: 'Appointment3',
+    date: '03/19/2018',
+    time: '11:30am',
+    doctor: 'Dr. O',
+    clinic: 'Clinic C',
+  },
+];
+
+db.Appointment
+  .remove({})
+  .then(() => db.Appointment.collection.insertMany(appointmentSeed))
+  .then((data) => {
+    console.log(data.insertedIds.length + ' appointment records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
