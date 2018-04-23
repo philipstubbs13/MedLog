@@ -44,6 +44,7 @@ class HamburgerMenu extends React.Component {
                     <a href="/prescriptions" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>My prescriptions</MenuItem></a>
                     <a href="/doctors" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Doctors and clinics</MenuItem></a>
                     <a href="/search" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Search</MenuItem></a>
+                    <a href="/attachments" style={{ textDecoration: 'none' }}><MenuItem onClick={this.handleClose}>Attachments</MenuItem></a>
                 </Menu>
             </div>
         );

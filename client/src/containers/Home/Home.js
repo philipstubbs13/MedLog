@@ -9,6 +9,7 @@ import appointment from '../../assets/images/appointment.png';
 import prescription from '../../assets/images/prescription.png';
 import doctor from '../../assets/images/doctor.png';
 import search from '../../assets/images/search.png';
+import attachments from '../../assets/images/attachments.png';
 
 // Home Page
 const Home = () => [
@@ -138,6 +139,27 @@ const Home = () => [
               href="/search"
             >
               <img src={search} alt="magnifying glass and folder" />
+            </Link>
+          </Subhead>
+        </Box>
+      </Column>
+    </Row>
+    <Row mt={0}>
+      <Column width={1 / 3} >
+        <Heading
+          is="h1"
+          children="Attachments"
+          mt={4}
+          color="white"
+          fontSize={28}
+          align="center"
+        />
+        <Box p={3}>
+          <Subhead align="center">
+            <Link
+              href="/attachments"
+            >
+              <img src={attachments} alt="attachments" />
             </Link>
           </Subhead>
         </Box>
