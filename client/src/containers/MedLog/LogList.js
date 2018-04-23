@@ -1,29 +1,54 @@
-//Importing React since we are using React.
+// Import React
 import React from 'react';
-//Importing UI components from rebass.
-import { Box, Panel} from 'rebass';
+// Import UI components and style from material-ui-next.
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 
-//Medical Log List component on My medical log page.
-const LogList = () => [
-  <Panel color='black' mt={3}>
-    <Panel.Header
-      color='white'
-      bg='black'
-      fontSize={24}>
-      Doctor notes from April 13, 2018
-    </Panel.Header>
-    <Box p={3}>
-                    <div> 
-                        <p>Doctor: </p>
-                        <p>Date of doctor visit: </p>
-                        <p>Clinic: </p>
-                        <p>Reason for visit: </p>
-                        <p>Lab notes</p>
-                        <p>Height: </p>
-                        <p>Weight: </p>
-                    </div>
-            </Box>
-    </Panel>
-];
+// Style/Theme
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3,
+  }),
+});
 
-export default LogList;
+// Log List component on the My health log page.
+class LogList extends React.Component {
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <Paper className={classes.root} elevation={4}>
+          <Typography component="p">
+            <div className={classes.symptom} key={this.props._id}>
+              <Typography component="p">
+                Date: {this.props.date}
+              </Typography>
+              <Typography component="p">
+                Doctor: {this.props.doctor}
+              </Typography>
+              <Typography component="p">
+                Clinic: {this.props.clinic}
+              </Typography>
+              <Typography component="p">
+                Reason for visit: {this.props.visitPurpose}
+              </Typography>
+              <Typography component="p">
+                Height: {this.props.heightIn}
+              </Typography>
+              <Typography component="p">
+                Weight: {this.props.weightLb}
+              </Typography>
+            </div>
+          </Typography>
+        </Paper>
+      </div>
+    );
+  }
+}
+
+export default withStyles(styles)(LogList);
