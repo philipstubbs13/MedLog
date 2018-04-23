@@ -18,12 +18,14 @@ import Footer from './Components/Footer';
 import Home from './containers/Home';
 // Importing the My symptom journal page component.
 import SymptomJournal from './containers/SymptomJournal';
-// //Importing the DoctorList page component.
+// Importing the DoctorList page component.
 import DoctorList from './containers/DoctorsList';
-// //Importing the Appointments page component.
+// Importing the Appointments page component.
 import Appointments from './containers/Appointments';
-// //Importing the My health log page component.
+// Importing the My health log page component.
 import MedLog from './containers/MedLog';
+// Importing the Attachments page.
+import Attachments from './containers/Attachments';
 
 
 import Navigation from './Components/Navigation';
@@ -31,7 +33,7 @@ import LandingPage from './Components/Landing';
 import SignUpPage from './Components/SignUp';
 import SignInPage from './Components/SignIn';
 import PasswordForgetPage from './Components/PasswordForget';
-import HomePage from './Components/Home';
+// import HomePage from './Components/Home';
 import AccountPage from './Components/Account';
 import * as routes from './constants/routes';
 
@@ -48,8 +50,6 @@ const theme = createMuiTheme({
     fontSize: 18,
   },
 });
-
-
 
 class App extends Component {
   constructor(props) {
@@ -72,43 +72,42 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <NavBar />,
         <Router>
-        <Container>
-          <Navigation authUser={this.state.authUser} />
+          <Container>
+            <Navigation authUser={this.state.authUser} />
 
-      <hr/>
+            <hr />
 
-          <Route
-            exact path={routes.LANDING}
-            component={() => <LandingPage />}
-          />
-          <Route
-            exact path={routes.SIGN_UP}
-            component={() => <SignUpPage />}
-          />
-          <Route
-            exact path={routes.SIGN_IN}
-            component={() => <SignInPage />}
-          />
-          <Route
-            exact path={routes.PASSWORD_FORGET}
-            component={() => <PasswordForgetPage />}
-          />
-          <Route
-            exact path={routes.HOME}
-            component={() => <HomePage />}
-          />
-          <Route
-            exact path={routes.ACCOUNT}
-            component={() => <AccountPage />}
-          />
-        
-          
+            <Route
+              exact path={routes.LANDING}
+              component={() => <LandingPage />}
+            />
+            <Route
+              exact path={routes.SIGN_UP}
+              component={() => <SignUpPage />}
+            />
+            <Route
+              exact path={routes.SIGN_IN}
+              component={() => <SignInPage />}
+            />
+            <Route
+              exact path={routes.PASSWORD_FORGET}
+              component={() => <PasswordForgetPage />}
+            />
+            {/* <Route
+              exact path={routes.HOME}
+              component={() => <HomePage />}
+            /> */}
+            <Route
+              exact path={routes.ACCOUNT}
+              component={() => <AccountPage />}
+            />  
             <Route exact path="/" component={SignInPage} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/symptoms" component={SymptomJournal} />
             <Route exact path="/doctors" component={DoctorList} />
             <Route exact path="/appointments" component={Appointments} />
             <Route exact path="/log" component={MedLog} />
+            <Route exact path="/attachments" component={Attachments} />
           </Container>
         </Router>,
         <Footer />
