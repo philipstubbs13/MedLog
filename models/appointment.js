@@ -31,16 +31,7 @@ const AppointmentSchema = new Schema({
     trim: true,
     required: 'State is Required',
   },
-  // `zip` must be of type String
-  // `zip` will trim leading and trailing whitespace before it's saved
-  // `zip` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
-  zip: {
-    type: Number,
-    trim: true,
-    required: 'Zip is Required',
-  },
-  notes: {
+  name: {
     type: String,
     trim: true,
   },
