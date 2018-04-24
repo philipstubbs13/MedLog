@@ -1,1 +1,1 @@
-export { default } from "./MedLog";
+export { default } from './MedLog';

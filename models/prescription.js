@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // Save a reference to the Schema constructor
 const Schema = mongoose.Schema;
 
-// new SymptomSchema object for saving symptoms.
+// new prescriptionSchema object for saving prescriptions.
 const prescriptionSchema = new Schema({
   prescriptionName: {
     type: String,
@@ -14,11 +14,6 @@ const prescriptionSchema = new Schema({
     type: String,
     trim: true,
     required: 'Amount is required, please specify strength and dosing infomration',
-  },
-  timesaday: {
-    type: Number,
-    trim: true,
-    required: 'Times a day is required',
   },
   dateprescribed: {
     type: String,
