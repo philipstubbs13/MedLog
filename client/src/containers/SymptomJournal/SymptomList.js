@@ -1,7 +1,6 @@
 // Import React
 import React from 'react';
 // Import UI components and style from material-ui-next.
-import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
