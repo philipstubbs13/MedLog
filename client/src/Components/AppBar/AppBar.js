@@ -11,6 +11,7 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 // Importing HamburgerMenu component.
 import HamburgerMenu from './HamburgerMenu';
+import SignOutButton from '../SignOut';
 
 // material-ui-next styling
 const styles = {
@@ -37,7 +38,7 @@ function NavBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
             HealthTracker
           </Typography>
-          <Button color="inherit">Login</Button>
+          <SignOutButton />
         </Toolbar>
       </AppBar>
     </div>
