@@ -80,15 +80,17 @@ class MedLog extends Component {
     console.log("this.state.logHeight: ", this.state.logHeight);
     console.log("this.state.logWeight: ", this.state.logWeight);
     console.log("this.state.logNotes: ", this.state.logNotes);
-    // MedLogAPI.saveLog({
-    //   date: this.state.logDate,
-    //   doctor: this.state.logDoctor,
-    //   clinic: this.state.logClinic,
-    //   visitPurpose: this.state.logVisitReason,
-    //   heightIn: this.state.logHeight,
-    //   weightLb: this.state.logWeight,
-    //   notes: this.state.logNotes,
-    // })
+    MedLogAPI.saveLog({
+      date: this.state.logDate,
+      doctor: this.state.logDoctor,
+      clinic: this.state.logClinic,
+      visitPurpose: this.state.logVisitReason,
+      heightIn: this.state.logHeight,
+      weightLb: this.state.logWeight,
+      notes: this.state.logNotes,
+    })
+      .then(res => this.loadLogs())
+      .catch(err => console.log(err));
   };
 
   render() {

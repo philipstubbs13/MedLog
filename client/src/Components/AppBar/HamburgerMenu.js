@@ -29,7 +29,7 @@ class HamburgerMenu extends React.Component {
                     aria-haspopup="true"
                     onClick={this.handleClick} raised size="large"
                 >
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </IconButton>
                 <Menu
                     id="hamburger-menu"
