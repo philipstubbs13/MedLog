@@ -66,6 +66,19 @@ class LogForm extends React.Component {
               </FormControl> */}
 
               <TextField
+                id="select-doctor-dropdown"
+                label="Select a doctor"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.logDoctor}
+                onChange={this.props.handleLogDoctorChange}
+              />
+
+              <TextField
                 id="doctor-visit-date"
                 label="Date of doctor visit"
                 type="date"
@@ -99,6 +112,19 @@ class LogForm extends React.Component {
                   <MenuItem value={"Other"}>Other</MenuItem>
                 </Select>
               </FormControl> */}
+
+              <TextField
+                id="select-clinic-dropdown"
+                label="Select a clinic"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.logClinic}
+                onChange={this.props.handleLogClinicChange}
+              />
 
               <TextField
                 id="reason-for-visit"
