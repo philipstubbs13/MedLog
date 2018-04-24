@@ -7,7 +7,7 @@ import AttachmentsForm from  './AttachmentsForm';
 // Import AttachmentsList
 // import AttachmentsList from './AttachmentsList';
 // Import API
-import AttachmentsAPI from '../../utils/AttachmentsAPI';
+// import AttachmentsAPI from '../../utils/AttachmentsAPI';
 
 class Attachments extends Component {
   state = {

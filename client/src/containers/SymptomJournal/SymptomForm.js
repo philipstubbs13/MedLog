@@ -68,6 +68,19 @@ class SymptomTextFields extends React.Component {
 
               <TextField
                 id="symptom-day"
+                label="Select symptom"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.type}
+                onChange={this.props.handleSymptomTypeChange}
+              />
+
+              <TextField
+                id="symptom-day"
                 label="Day the symptom occurred"
                 type="date"
                 defaultValue="DD-MM-YYYY"
@@ -76,7 +89,7 @@ class SymptomTextFields extends React.Component {
                   shrink: true,
                 }}
                 fullWidth
-                value={this.props.symptomDay}
+                value={this.props.date}
                 onChange={this.props.handleSymptomDayChange}
               />
 
@@ -90,7 +103,7 @@ class SymptomTextFields extends React.Component {
                 InputLabelProps={{
                   shrink: true,
                 }}
-                value={this.props.symptomTime}
+                value={this.props.time}
                 onChange={this.props.handleSymptomTimeChange}
               />
 
@@ -107,7 +120,7 @@ class SymptomTextFields extends React.Component {
                 multiline="true"
                 rows={2}
                 rowsMax={3}
-                value={this.props.symptomInfo}
+                value={this.props.info}
                 onChange={this.props.handleSymptomInfoChange}
               />
 

@@ -8,19 +8,6 @@ import SymptomTextFields from './SymptomForm';
 import SymptomList from './SymptomList';
 // Import API
 import SymptomAPI from '../../utils/SymptomAPI';
-// Import UI components and style from material-ui-next
-import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
-
-//Style
-const styles = theme => ({
-  root: theme.mixins.gutters({
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: theme.spacing.unit * 3,
-  }),
-});
 
 class SymptomJournal extends Component {
   state = {
@@ -74,10 +61,13 @@ class SymptomJournal extends Component {
     console.log("this.state.symptomTime: ", this.state.symptomTime);
     console.log("this.state.symptomInfo: ", this.state.symptomInfo);
     SymptomAPI.saveSymptom({
-      symptomDay: this.state.symptomDay,
+      symptomType: this.state.symptomType,
+      symptomDate: this.state.symptomDay,
       symptomTime: this.state.symptomTime,
       symptomInfo: this.state.symptomInfo
     })
+      .then(res => this.loadSymptoms())
+      .catch(err => console.log(err));
   };
 
   render() {

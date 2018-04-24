@@ -7,7 +7,7 @@ import PrescriptionsForm from  './PrescriptionsForm';
 // Import PrescriptionsList
 // import PrescriptionsList from './PrescriptionsList';
 // Import API
-import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
+// import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
 
 class Prescriptions extends Component {
   state = {

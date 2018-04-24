@@ -12,6 +12,8 @@ const styles = {
   },
   copyright: {
     marginTop: 10,
+    backgroundColor: "#007AC1",
+    color: "white",
   },
   footer: {
     backgroundColor: "#007AC1",
@@ -32,7 +34,7 @@ class Footer extends React.Component {
           <Typography component="p" className={classes.footer}>
             Created by Sara, Kayla, Jerridd, and Phil at the University of Minnesota
           </Typography>
-          <Typography component="p" className={classes.copyright} className={classes.footer}>
+          <Typography component="p" className={classes.copyright}>
             Copyright 2018
           </Typography>
         </CardContent>
