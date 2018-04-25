@@ -2,8 +2,12 @@
 import React from 'react';
 // Import UI components and style from material-ui-next.
 import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import ExpansionPanel, {
+  ExpansionPanelSummary,
+  ExpansionPanelDetails,
+} from 'material-ui/ExpansionPanel';
+import List, { ListItem, ListItemText } from 'material-ui/List';
 
 // Style/Theme
 const styles = theme => ({
@@ -12,6 +16,14 @@ const styles = theme => ({
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
   }),
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+    marginLeft: 20,
+  },
+  logItem: {
+    marginTop: 20,
+  },
 });
 
 // Log List component on the My health log page.
@@ -20,30 +32,46 @@ class LogList extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <Paper className={classes.root} elevation={4}>
-          <Typography component="p">
-            <div className={classes.symptom} key={this.props._id}>
-              <Typography component="p">
-                Date: {this.props.date}
-              </Typography>
-              <Typography component="p">
-                Doctor: {this.props.doctor}
-              </Typography>
-              <Typography component="p">
-                Clinic: {this.props.clinic}
-              </Typography>
-              <Typography component="p">
-                Reason for visit: {this.props.visitPurpose}
-              </Typography>
-              <Typography component="p">
-                Height: {this.props.heightIn}
-              </Typography>
-              <Typography component="p">
-                Weight: {this.props.weightLb}
-              </Typography>
-            </div>
-          </Typography>
-        </Paper>
+        <ExpansionPanel className={classes.logItem}>
+          <ExpansionPanelSummary>
+            <i className="fas fa-plus"></i>
+            <Typography className={classes.heading}>Doctor notes from {this.props.date}</Typography>
+          </ExpansionPanelSummary>
+
+          <ExpansionPanelDetails>
+            <List>
+              <ListItem>
+                <ListItemText >
+                  Doctor: {this.props.doctor}
+                </ListItemText>
+              </ListItem>
+
+              <ListItem>
+                <ListItemText >
+                  Clinic: {this.props.clinic}
+                </ListItemText>
+              </ListItem>
+
+              <ListItem>
+                <ListItemText >
+                  Reason for visit: {this.props.visitPurpose}
+                </ListItemText>
+              </ListItem>
+
+              <ListItem>
+                <ListItemText >
+                  Height (inches): {this.props.heightIn}
+                </ListItemText>
+              </ListItem>
+
+              <ListItem>
+                <ListItemText >
+                  Weight (pounds): {this.props.weightLb}
+                </ListItemText>
+              </ListItem>
+            </List>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
       </div>
     );
   }
