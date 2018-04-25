@@ -1,4 +1,7 @@
 module.exports = {
-    "extends": "airbnb"
-    eslint linebreak-style: ["error", "windows"]
+    "extends": "airbnb",
+    "rules": {
+      "react/jsx-filename-extension": 0,
+      "linebreak-style": 0
+    }
 };

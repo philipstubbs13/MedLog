@@ -287,37 +287,20 @@ const doctorSeed = [
   {
     firstname: 'Sally',
     lastname: 'Stomach',
-    nursename: 'George',
-    specialty: 'Gastro',
     clinic: 'Clinic A',
+    phone: '666-666-6666',
   },
   {
     firstname: 'Larry',
     lastname: 'Lungs',
-    nursename: 'Rachel',
-    specialty: 'Respiratory',
     clinic: 'Clinic B',
+    phone: '555-555-5555',
   },
   {
     firstname: 'Kristin',
     lastname: 'King',
-    nursename: 'Chong',
-    specialty: 'General Pediatrician',
     clinic: 'Clinic C',
-  },
-  {
-    firstname: 'Sam',
-    lastname: 'Sneezy',
-    nursename: 'Trong',
-    specialty: 'Allergy & Immunology',
-    clinic: 'Clinic A',
-  },
-  {
-    firstname: 'Ned',
-    lastname: 'Nose',
-    nursename: 'Melissa',
-    specialty: 'ENT',
-    clinic: 'Clinic A',
+    phone: '444-444-4444',
   },
 ];
 
@@ -325,7 +308,7 @@ db.Doctor
   .remove({})
   .then(() => db.Doctor.collection.insertMany(doctorSeed))
   .then((data) => {
-    console.log(data.insertedIds.length + ' doctor records inserted!');
+    console.log(data.insertedIds.length + ' doctors inserted!');
     process.exit(0);
   })
   .catch((err) => {
