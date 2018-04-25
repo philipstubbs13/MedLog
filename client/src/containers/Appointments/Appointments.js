@@ -10,14 +10,37 @@ import AppointmentsList from './AppointmentsList';
 import AppointmentAPI from '../../utils/AppointmentAPI';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Paper from 'material-ui/Paper';
 
 //Style
 const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
+    marginTop: 40,
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
   }),
+  table: {
+    minWidth: 700,
+  },
+  row: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
 });
+
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
 class Appointments extends Component {
   state = {
@@ -111,19 +134,35 @@ class Appointments extends Component {
           <Column width={1}>
             <div className={classes.root}>
                 <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
-                {this.state.appointments.map(appointment => {
-                  return (
-                    <AppointmentsList
-                      id={appointment._id}
-                      key={appointment._id}
-                      name={appointment.name}
-                      date={appointment.date}
-                      time={appointment.time}
-                      doctor={appointment.doctor}
-                      clinic={appointment.clinic}
-                    />
-                  );
-                })}
+                <Paper className={classes.root}>
+                  <Table className={classes.table}>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell>Doctor</TableCell>
+                        <TableCell numeric>Date</TableCell>
+                        <TableCell numeric>Time</TableCell>
+                        <TableCell>Clinic</TableCell>
+                        <TableCell>Remove</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {this.state.appointments.map(appointment => {
+                        return (
+                          <AppointmentsList
+                            id={appointment._id}
+                            key={appointment._id}
+                            name={appointment.name}
+                            date={appointment.date}
+                            time={appointment.time}
+                            doctor={appointment.doctor}
+                            clinic={appointment.clinic}
+                          />
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
+                </Paper>
             </div>
           </Column>
         </Row>

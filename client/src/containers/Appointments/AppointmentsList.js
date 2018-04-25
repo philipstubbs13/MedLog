@@ -2,9 +2,8 @@
 import React from 'react';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
-import Paper from 'material-ui/Paper';
-import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import { TableCell, TableRow } from 'material-ui/Table';
 
 // Style/Theme
 const styles = theme => ({
@@ -15,37 +14,26 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   }),
+  row: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
 });
 
-// Appointments List component on My Appointments page.
+// Appointments List component on the Appointments page.
 class AppointmentsList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
-        <Paper className={classes.root} elevation={4}>
-          <Typography component="p">
-            <div className={classes.symptom} key={this.props._id}>
-              <Typography component="p">
-                Name of appointment: {this.props.name}
-              </Typography>
-              <Typography component="p">
-                Date: {this.props.date}
-              </Typography>
-              <Typography component="p">
-                Time: {this.props.time}
-              </Typography>
-              <Typography component="p">
-                Doctor: {this.props.doctor}
-              </Typography>
-              <Typography component="p">
-                Clinic: {this.props.clinic}
-              </Typography>
-              <Button size="small" className={classes.button}>Remove</Button>
-            </div>
-          </Typography>
-        </Paper>
-      </div>
+      <TableRow className={classes.row} key={this.props._id}>
+        <TableCell>{this.props.name}</TableCell>
+        <TableCell>{this.props.doctor}</TableCell>
+        <TableCell numeric>{this.props.date}</TableCell>
+        <TableCell numeric>{this.props.time}</TableCell>
+        <TableCell>{this.props.clinic}</TableCell>
+        <TableCell>Remove</TableCell>
+      </TableRow>
     );
   }
 }
