@@ -41,7 +41,7 @@ class AttachmentsForm extends React.Component {
         <Card>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
-              Add lab results
+              Add attachment
             </Typography>
             <form noValidate className={classes.root} autoComplete="off">
               {/* <FormControl className={classes.formControl} fullWidth>
@@ -80,7 +80,7 @@ class AttachmentsForm extends React.Component {
 
               <TextField
                 id="lab-date"
-                label="Lab date"
+                label="Date"
                 type="date"
                 defaultValue="MM-DD-YYYY"
                 className={classes.textField}
@@ -94,7 +94,7 @@ class AttachmentsForm extends React.Component {
 
               <TextField
                 id="lab-subject"
-                label="Lab subject"
+                label="Subject"
                 type="text"
                 className={classes.textField}
                 InputLabelProps={{
