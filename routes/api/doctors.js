@@ -1,6 +1,3 @@
-// Require all models is this the correct relative path?
-const db = require("../models");
-
 //these are required
 const router = require("express").Router();
 const doctorsController = require("../../controllers/doctorsController");

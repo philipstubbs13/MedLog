@@ -11,7 +11,7 @@ import ClinicInfo from './ClinicInfo';
 // Import ClinicForm
 import ClinicForm from './ClinicForm';
 // Import API
-// import DoctorAPI from '../../utils/DoctorAPI';
+import DoctorAPI from '../../utils/DoctorAPI';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 
@@ -33,17 +33,17 @@ class DoctorList extends Component {
     error: ""
   };
 
-  // componentDidMount() {
-  //   this.loadDoctors();
-  // }
+  componentDidMount() {
+    this.loadDoctors();
+  }
 
-  // loadDoctors = () => {
-  //   DoctorAPI.getDoctors()
-  //     .then(res =>
-  //       this.setState({ doctors: res.data })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
+  loadDoctors = () => {
+    DoctorAPI.getDoctors()
+      .then(res =>
+        this.setState({ doctors: res.data })
+      )
+      .catch(err => console.log(err));
+  };
 
   // Keep track of what user enters for doctor first name so that input can be grabbed later
   handleDoctorFirstNameChange = (event) => {
@@ -72,14 +72,14 @@ class DoctorList extends Component {
     console.log("this.state.doctorLastName: ", this.state.doctorLastName);
     console.log("this.state.doctorClinic: ", this.state.doctorClinic);
     console.log("this.state.doctorPhone: ", this.state.doctorPhone);
-    // DoctorAPI.saveDoctor({
-    //   firstname: this.state.doctorFirstName,
-    //   lastname: this.state.doctorLastName,
-    //   clinic: this.state.doctorClinic,
-    //   phone: this.state.doctorPhone,
-    // })
-    //   .then(res => this.loadDoctors())
-    //   .catch(err => console.log(err));
+    DoctorAPI.saveDoctor({
+      firstname: this.state.doctorFirstName,
+      lastname: this.state.doctorLastName,
+      clinic: this.state.doctorClinic,
+      phone: this.state.doctorPhone,
+    })
+      .then(res => this.loadDoctors())
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -105,14 +105,14 @@ class DoctorList extends Component {
           </Column>
         </Row>
 
-        <Row mt={4}>
+        {/* <Row mt={4}>
           <Column width={1 / 2} >
             <ClinicForm />
           </Column>
           <Column width={1 / 2} ml={5}>
             <ClinicInfo />
           </Column>
-        </Row>
+        </Row> */}
       </div>,
     ];
   }
