@@ -5,8 +5,8 @@ const Schema = mongoose.Schema;
 
 // more about RegEx Patterns here https://www.regexbuddy.com/regex.html
 
-// in order to create an appointment we will require the following: date, time
-// doctor, from drop down, clinic, notes.
+// To create an appointment, we will require the following: date, time
+// doctor, clinic, and name of appointment.
 // new AppointmentSchema object for login purposes
 const AppointmentSchema = new Schema({
   date: {
