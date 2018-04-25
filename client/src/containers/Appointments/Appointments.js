@@ -25,6 +25,7 @@ class Appointments extends Component {
     appointmentDoctor: "",
     appointmentDate: "",
     appointmentTime: "",
+    appointmentClinic: "",
     appointments: [],
     error: ""
   };
@@ -61,6 +62,11 @@ class Appointments extends Component {
     this.setState({ appointmentTime: event.target.value });
   }
 
+  // Keep track of what user types into clinic input field so that input can be grabbed later
+  handleAppointmentClinicChange = (event) => {
+    this.setState({ appointmentClinic: event.target.value });
+  }
+
   handleFormSubmit = event => {
     event.preventDefault();
     console.log("Adding appointment");
@@ -68,12 +74,16 @@ class Appointments extends Component {
     console.log("this.state.appointmentDoctor: ", this.state.appointmentDoctor);
     console.log("this.state.appointmentDate: ", this.state.appointmentDate);
     console.log("this.state.appointmentTime: ", this.state.appointmentTime);
+    console.log("this.state.appointmentClinic: ", this.state.appointmentClinic);
     AppointmentAPI.saveAppointment({
-      notes: this.state.appointmentName,
+      name: this.state.appointmentName,
       doctor: this.state.appointmentDoctor,
       date: this.state.appointmentDate,
       time: this.state.appointmentTime,
+      clinic: this.state.appointmentClinic,
     })
+      .then(res => this.loadAppointments())
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -92,7 +102,8 @@ class Appointments extends Component {
               handleAppointmentNameChange={this.handleAppointmentNameChange}
               handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
               handleAppointmentDateChange={this.handleAppointmentDateChange}
-              handleAppointmentTimeChange={this.handleAppointmentTimeChange}  />
+              handleAppointmentTimeChange={this.handleAppointmentTimeChange}
+              handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
           </Column>
         </Row>
 

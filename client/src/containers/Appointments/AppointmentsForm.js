@@ -82,6 +82,32 @@ class AppointmentsForm extends React.Component {
                         </FormControl> */}
 
               <TextField
+                id="appointment-doctor"
+                label="Doctor"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.appointmentDoctor}
+                onChange={this.props.handleAppointmentDoctorChange}
+              />
+
+              <TextField
+                id="appointment-clinic"
+                label="Clinic"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.appointmentClinic}
+                onChange={this.props.handleAppointmentClinicChange}
+              />
+
+              <TextField
                 id="appointment-date"
                 label="Date of appointment"
                 type="date"
