@@ -20,7 +20,7 @@ db.User
   .remove({})
   .then(() => db.User.collection.insertOne(userSeed))
   .then((data) => {
-    console.log(data.insertedCount + ' records inserted!');
+    console.log(data.insertedCount + ' user records inserted!');
     process.exit(0);
   })
   .catch((err) => {
@@ -74,7 +74,7 @@ db.Clinic
   .remove({})
   .then(() => db.Clinic.collection.insertMany(clinicSeed))
   .then((data) => {
-    console.log(data.insertedIds.length + ' records inserted!');
+    console.log('clinics of length: ' + data.insertedIds.length + ' records inserted!');
     process.exit(0);
   })
   .catch((err) => {
@@ -152,7 +152,7 @@ db.HealthLog
   .remove({})
   .then(() => db.HealthLog.collection.insertMany(healthLogSeed))
   .then((data) => {
-    console.log(data.insertedIds.length + ' records inserted!');
+    console.log('healthlogs of length: ' + data.insertedIds.length + ' records inserted!');
     process.exit(0);
   })
   .catch((err) => {
@@ -252,14 +252,14 @@ const appointmentSeed = [
     name: 'Appointment1',
     date: '03/17/2018',
     time: '11:30am',
-    doctor: 'Dr. Pain',
-    clinic: 'Clinic A',
+    doctor: 'Dr. Kristin King',
+    clinic: 'Clinic C',
   },
   {
     name: 'Appointment2',
     date: '03/18/2018',
     time: '11:30am',
-    doctor: 'Dr. P',
+    doctor: 'Dr. Sam Sneezy',
     clinic: 'Clinic B',
   },
   {
@@ -276,6 +276,56 @@ db.Appointment
   .then(() => db.Appointment.collection.insertMany(appointmentSeed))
   .then((data) => {
     console.log(data.insertedIds.length + ' appointment records inserted!');
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+
+const doctorSeed = [
+  {
+    firstname: 'Sally',
+    lastname: 'Stomach',
+    nursename: 'George',
+    specialty: 'Gastro',
+    clinic: 'Clinic A',
+  },
+  {
+    firstname: 'Larry',
+    lastname: 'Lungs',
+    nursename: 'Rachel',
+    specialty: 'Respiratory',
+    clinic: 'Clinic B',
+  },
+  {
+    firstname: 'Kristin',
+    lastname: 'King',
+    nursename: 'Chong',
+    specialty: 'General Pediatrician',
+    clinic: 'Clinic C',
+  },
+  {
+    firstname: 'Sam',
+    lastname: 'Sneezy',
+    nursename: 'Trong',
+    specialty: 'Allergy & Immunology',
+    clinic: 'Clinic A',
+  },
+  {
+    firstname: 'Ned',
+    lastname: 'Nose',
+    nursename: 'Melissa',
+    specialty: 'ENT',
+    clinic: 'Clinic A',
+  },
+];
+
+db.Doctor
+  .remove({})
+  .then(() => db.Doctor.collection.insertMany(doctorSeed))
+  .then((data) => {
+    console.log(data.insertedIds.length + ' doctor records inserted!');
     process.exit(0);
   })
   .catch((err) => {

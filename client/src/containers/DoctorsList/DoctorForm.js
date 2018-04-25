@@ -116,7 +116,6 @@ class DoctorForm extends React.Component {
                                 value={this.props.doctorPhone}
                                 onChange={this.props.handleDoctorPhoneChange}
                             />
-
                             <Button size="large" className={classes.button} color="primary" onClick={this.props.handleDoctorFormSubmit}>
                             Add doctor
                         </Button>
