@@ -33,21 +33,7 @@ const styles = {
 };
 
 class DoctorForm extends React.Component {
-    state = {
-        name: '',
-        state: '',
-        multiline: 'Controlled',
-        doctor: '',
-        clinic: '',
-    };
-
-    handleChange = name => event => {
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
-    };
-
-    render() {
+  render() {
         const { classes } = this.props;
 
         return (
@@ -69,6 +55,8 @@ class DoctorForm extends React.Component {
                                     fullWidth
                                     margin="normal"
                                     className={classes.textField}
+                                    value={this.props.doctorFirstName}
+                                    onChange={this.props.handleDoctorFirstNameChange}
                                 />
 
                                 <TextField
@@ -82,8 +70,10 @@ class DoctorForm extends React.Component {
                                     fullWidth
                                     margin="normal"
                                     className={classes.textField}
+                                    value={this.props.doctorLastName}
+                                    onChange={this.props.handleDoctorLastNameChange}
                                 />
-                                <FormControl className={classes.formControl, classes.textField} fullWidth> 
+                                {/* <FormControl className={classes.formControl, classes.textField} fullWidth> 
                                     <InputLabel htmlFor="select-clinic-dropdown">Select a clinic</InputLabel>
                                     <Select
                                         value={this.state.clinic}
@@ -100,98 +90,19 @@ class DoctorForm extends React.Component {
                                         <MenuItem value={"D"}>Clinic D</MenuItem>
                                         <MenuItem value={"Other"}>Other</MenuItem>
                                     </Select>
-                                </FormControl>
+                                </FormControl> */}
+
 
                             <TextField
-                                id="street-address"
-                                label="Street address"
+                                id="doctor-clinic"
+                                label="Clinic"
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
                                 className={classes.textField}
                                 fullWidth
-                            />
-
-                            <TextField
-                                id="doctor-city"
-                                label="City"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                className={classes.textField}
-                                fullWidth
-                            />
-                            <FormControl className={classes.formControl, classes.textField} fullWidth>
-                                <InputLabel htmlFor="select-state-dropdown">State</InputLabel>
-                                <Select
-                                    value={this.state.state}
-                                    onChange={this.handleChange}
-                                    inputProps={{
-                                        state: '',
-                                        id: 'select-state',
-                                    }}
-                                >
-                                    <MenuItem value=""></MenuItem>
-                                    <MenuItem value={"AL"}>Alabama</MenuItem>
-                                    <MenuItem value={"AK"}>Alaska</MenuItem>
-                                    <MenuItem value={"AZ"}>Arizona</MenuItem>
-                                    <MenuItem value={"CA"}>California</MenuItem>
-                                    <MenuItem value={"CO"}>Colorado</MenuItem>
-                                    <MenuItem value={"CT"}>Connecticut</MenuItem>
-                                    <MenuItem value={"DE"}>Delaware</MenuItem>
-                                    <MenuItem value={"FL"}>Florida</MenuItem>
-                                    <MenuItem value={"GA"}>Georgia</MenuItem>
-                                    <MenuItem value={"HI"}>Hawaii</MenuItem>
-                                    <MenuItem value={"ID"}>Idaho</MenuItem>
-                                    <MenuItem value={"IL"}>Illinois</MenuItem>
-                                    <MenuItem value={"IN"}>Indiana</MenuItem>
-                                    <MenuItem value={"IA"}>Iowa</MenuItem>
-                                    <MenuItem value={"KS"}>Kansas</MenuItem>
-                                    <MenuItem value={"KY"}>Kentucy</MenuItem>
-                                    <MenuItem value={"LA"}>Louisiana</MenuItem>
-                                    <MenuItem value={"ME"}>Maine</MenuItem>
-                                    <MenuItem value={"MD"}>Maryland</MenuItem>
-                                    <MenuItem value={"MA"}>Massachusetts</MenuItem>
-                                    <MenuItem value={"MI"}>Michigan</MenuItem>
-                                    <MenuItem value={"MN"}>Minnesota</MenuItem>
-                                    <MenuItem value={"MS"}>Mississppi</MenuItem>
-                                    <MenuItem value={"MO"}>Missouri</MenuItem>
-                                    <MenuItem value={"MT"}>Montana</MenuItem>
-                                    <MenuItem value={"NE"}>Nebraska</MenuItem>
-                                    <MenuItem value={"NV"}>Nevada</MenuItem>
-                                    <MenuItem value={"NH"}>New Hampshire</MenuItem>
-                                    <MenuItem value={"NJ"}>New Jersey</MenuItem>
-                                    <MenuItem value={"NM"}>New Mexico</MenuItem>
-                                    <MenuItem value={"NY"}>New York</MenuItem>
-                                    <MenuItem value={"NC"}>North Carolina</MenuItem>
-                                    <MenuItem value={"ND"}>North Dakota</MenuItem>
-                                    <MenuItem value={"OH"}>Ohio</MenuItem>
-                                    <MenuItem value={"OK"}>Oklahoma</MenuItem>
-                                    <MenuItem value={"OR"}>Oregon</MenuItem>
-                                    <MenuItem value={"PA"}>Pennsylvania</MenuItem>
-                                    <MenuItem value={"RI"}>Rhode Island</MenuItem>
-                                    <MenuItem value={"SC"}>South Carolina</MenuItem>
-                                    <MenuItem value={"SD"}>South Dakota</MenuItem>
-                                    <MenuItem value={"TN"}>Tennessee</MenuItem>
-                                    <MenuItem value={"TX"}>Texas</MenuItem>
-                                    <MenuItem value={"UT"}>Utah</MenuItem>
-                                    <MenuItem value={"VT"}>Vermont</MenuItem>
-                                    <MenuItem value={"VA"}>Virginia</MenuItem>
-                                    <MenuItem value={"WA"}>Washington</MenuItem>
-                                    <MenuItem value={"WV"}>West Virginia</MenuItem>
-                                    <MenuItem value={"WI"}>Wisconsin</MenuItem>
-                                    <MenuItem value={"WY"}>Wyoming</MenuItem>
-                                </Select>
-                            </FormControl>
-
-                            <TextField
-                                id="doctor-zip-code"
-                                label="Zip code"
-                                InputLabelProps={{
-                                    shrink: true,
-                                }}
-                                className={classes.textField}
-                                fullWidth
+                                value={this.props.doctorClinic}
+                                onChange={this.props.handleDoctorClinicChange}
                             />
 
                             <TextField
@@ -202,9 +113,11 @@ class DoctorForm extends React.Component {
                                 }}
                                 className={classes.textField}
                                 fullWidth
+                                value={this.props.doctorPhone}
+                                onChange={this.props.handleDoctorPhoneChange}
                             />
 
-                        <Button size="large" className={classes.button} color="primary">
+                            <Button size="large" className={classes.button} color="primary" onClick={this.props.handleDoctorFormSubmit}>
                             Add doctor
                         </Button>
                     </form>
