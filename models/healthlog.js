@@ -54,18 +54,12 @@ const HealthLogSchema = new Schema({
   // `specialty` will trim leading and trailing whitespace before it's saved
   // `specialty` is a required field and throws a custom error message if not supplied
   // any additional requirements for this?
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
+  
   heightIn: {
     type: Number,
     trim: true,
   },
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
+  
   weightLb: {
     type: Number,
     trim: true,

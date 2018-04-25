@@ -11,7 +11,11 @@ import ClinicInfo from './ClinicInfo';
 // Import ClinicForm
 import ClinicForm from './ClinicForm';
 // Import API
+<<<<<<< Updated upstream
 import DoctorAPI from '../../utils/DoctorAPI';
+=======
+import DoctorAPI from '../../utils/DoctorsAPI';
+>>>>>>> Stashed changes
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 
@@ -36,13 +40,21 @@ class DoctorList extends Component {
   componentDidMount() {
     this.loadDoctors();
   }
+<<<<<<< Updated upstream
 
+=======
+//for rendering doctors list 
+>>>>>>> Stashed changes
   loadDoctors = () => {
     DoctorAPI.getDoctors()
       .then(res =>
         this.setState({ doctors: res.data })
       )
+<<<<<<< Updated upstream
       .catch(err => console.log(err));
+=======
+      .catch(err => console.log('there is an issue loading doctors: ' + err));
+>>>>>>> Stashed changes
   };
 
   // Keep track of what user enters for doctor first name so that input can be grabbed later
@@ -67,7 +79,7 @@ class DoctorList extends Component {
 
   handleDoctorFormSubmit = event => {
     event.preventDefault();
-    console.log("Adding doctor");
+    console.log("Adding doctor - done in doctorslist.js");
     console.log("this.state.doctorFirstName: ", this.state.doctorFirstName);
     console.log("this.state.doctorLastName: ", this.state.doctorLastName);
     console.log("this.state.doctorClinic: ", this.state.doctorClinic);
@@ -79,7 +91,11 @@ class DoctorList extends Component {
       phone: this.state.doctorPhone,
     })
       .then(res => this.loadDoctors())
+<<<<<<< Updated upstream
       .catch(err => console.log(err));
+=======
+      .catch(err => console.log('there is a problem saving doctor: ' + err));
+>>>>>>> Stashed changes
   };
 
   render() {
