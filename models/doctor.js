@@ -21,19 +21,11 @@ const DoctorSchema = new Schema({
     trim: true,
     required: 'Last name is required',
   },
-  // `nursename` must be of type String
-  // `nursename` will trim leading and trailing whitespace before it's saved
-  // it is not required
-  // what requirements do we have for this?
-  nursename: {
+  clinic: {
     type: String,
     trim: true,
   },
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
-  specialty: {
+  phone: {
     type: String,
     trim: true,
     required: 'Specialty is Required',
