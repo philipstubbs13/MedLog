@@ -116,12 +116,7 @@ class DoctorForm extends React.Component {
                                 value={this.props.doctorPhone}
                                 onChange={this.props.handleDoctorPhoneChange}
                             />
-
-<<<<<<< Updated upstream
                             <Button size="large" className={classes.button} color="primary" onClick={this.props.handleDoctorFormSubmit}>
-=======
-                        <Button size="large" className={classes.button} color="primary" id="add-doctor">
->>>>>>> Stashed changes
                             Add doctor
                         </Button>
                     </form>
