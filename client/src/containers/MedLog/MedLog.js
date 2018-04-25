@@ -104,7 +104,7 @@ class MedLog extends Component {
 
       <div className="main-content-section">
         <Row mt={4}>
-          <Column width={1 / 2} >
+          <Column width={1} >
             <LogForm
               handleFormSubmit={this.handleFormSubmit}
               handleLogDateChange={this.handleLogDateChange}
@@ -115,7 +115,10 @@ class MedLog extends Component {
               handleLogWeightChange={this.handleLogWeightChange}
               handleLogNotesChange={this.handleLogNotesChange} />
           </Column>
-          <Column width={1 / 2}>
+        </Row>
+
+        <Row>
+          <Column width={1}>
               {this.state.logs.map(log => {
                 return (
                   <LogList
