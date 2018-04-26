@@ -2,23 +2,23 @@ import axios from 'axios';
 
 export default {
   // Gets all doctors
-  getDoctors: function () {
+  getDoctors() {
     return axios.get('/api/doctors');
   },
   // get a specific doctor's id
-  getDoctor: function (id) {
-    return axios.get('/api/doctors' + id);
+  getDoctor(id) {
+    return axios.get('/api/doctors/' + id);
   },
   // Deletes the doctor with the given id
-  deleteDoctor: function (id) {
+  deleteDoctor(id) {
     return axios.delete('/api/doctors/' + id);
   },
   // Saves a doctor to the database
-  saveDoctor: function (doctorData) {
-    return axios.post('/api/doctors', doctorData);
+  saveDoctor(doctorData) {
+    return axios.post('/api/doctors/', doctorData);
   },
-  // update a doctor in the database
-  updateDoctor: function (id) {
-    return axios.put('/api/doctors' + id);
+  // updates a doctor in the database
+  updateDoctor(id) {
+    return axios.put('/api/doctors/' + id);
   },
 };

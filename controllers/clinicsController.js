@@ -1,7 +1,7 @@
 //controller for clinics
 const db = require('../models');
 
-// Defining methods for the clinicssController
+// Defining methods for the clinicsController
 module.exports = {
   findAll: function (req, res) {
     db.Clinic
