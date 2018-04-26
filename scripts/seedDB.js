@@ -235,9 +235,9 @@ const prescriptionSeed = [
   },
 ];
 
-db.PrescriptionList
+db.Prescription
   .remove({})
-  .then(() => db.PrescriptionList.collection.insertMany(prescriptionSeed))
+  .then(() => db.Prescription.collection.insertMany(prescriptionSeed))
   .then((data) => {
     console.log(data.insertedIds.length + ' prescription list records inserted!');
     process.exit(0);
@@ -247,71 +247,71 @@ db.PrescriptionList
     process.exit(1);
   });
 
-const appointmentSeed = [
-  {
-    name: 'Appointment1',
-    date: '03/17/2018',
-    time: '11:30am',
-    doctor: 'Dr. Kristin King',
-    clinic: 'Clinic C',
-  },
-  {
-    name: 'Appointment2',
-    date: '03/18/2018',
-    time: '11:30am',
-    doctor: 'Dr. Sam Sneezy',
-    clinic: 'Clinic B',
-  },
-  {
-    name: 'Appointment3',
-    date: '03/19/2018',
-    time: '11:30am',
-    doctor: 'Dr. O',
-    clinic: 'Clinic C',
-  },
-];
+// const appointmentSeed = [
+//   {
+//     name: 'Appointment1',
+//     date: '03/17/2018',
+//     time: '11:30am',
+//     doctor: 'Dr. Kristin King',
+//     clinic: 'Clinic C',
+//   },
+//   {
+//     name: 'Appointment2',
+//     date: '03/18/2018',
+//     time: '11:30am',
+//     doctor: 'Dr. Sam Sneezy',
+//     clinic: 'Clinic B',
+//   },
+//   {
+//     name: 'Appointment3',
+//     date: '03/19/2018',
+//     time: '11:30am',
+//     doctor: 'Dr. O',
+//     clinic: 'Clinic C',
+//   },
+// ];
 
-db.Appointment
-  .remove({})
-  .then(() => db.Appointment.collection.insertMany(appointmentSeed))
-  .then((data) => {
-    console.log(data.insertedIds.length + ' appointment records inserted!');
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Appointment
+//   .remove({})
+//   .then(() => db.Appointment.collection.insertMany(appointmentSeed))
+//   .then((data) => {
+//     console.log(data.insertedIds.length + ' appointment records inserted!');
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
 
-const doctorSeed = [
-  {
-    firstname: 'Sally',
-    lastname: 'Stomach',
-    clinic: 'Clinic A',
-    phone: '666-666-6666',
-  },
-  {
-    firstname: 'Larry',
-    lastname: 'Lungs',
-    clinic: 'Clinic B',
-    phone: '555-555-5555',
-  },
-  {
-    firstname: 'Kristin',
-    lastname: 'King',
-    clinic: 'Clinic C',
-    phone: '444-444-4444',
-  },
-];
+// const doctorSeed = [
+//   {
+//     firstname: 'Sally',
+//     lastname: 'Stomach',
+//     clinic: 'Clinic A',
+//     phone: '666-666-6666',
+//   },
+//   {
+//     firstname: 'Larry',
+//     lastname: 'Lungs',
+//     clinic: 'Clinic B',
+//     phone: '555-555-5555',
+//   },
+//   {
+//     firstname: 'Kristin',
+//     lastname: 'King',
+//     clinic: 'Clinic C',
+//     phone: '444-444-4444',
+//   },
+// ];
 
-db.Doctor
-  .remove({})
-  .then(() => db.Doctor.collection.insertMany(doctorSeed))
-  .then((data) => {
-    console.log(data.insertedIds.length + ' doctors inserted!');
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+// db.Doctor
+//   .remove({})
+//   .then(() => db.Doctor.collection.insertMany(doctorSeed))
+//   .then((data) => {
+//     console.log(data.insertedIds.length + ' doctors inserted!');
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
