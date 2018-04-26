@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   // Gets all logs
-  getLog() {
+  getLogs() {
     return axios.get('/api/logs');
   },
   // Saves a log to the database

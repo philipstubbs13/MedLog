@@ -27,7 +27,7 @@ class MedLog extends Component {
   }
 
   loadLogs = () => {
-    MedLogAPI.getLog()
+    MedLogAPI.getLogs()
       .then(res =>
         this.setState({ logs: res.data })
       )
