@@ -6,7 +6,6 @@ module.exports = {
   findAll: function (req, res) {
     db.Doctor
       .find(req.query)
-      //.sort({ lastname: ? })
       .then(dbModel => res.json(dbModel))
       .catch(err => console.log('the findall doctor is not working in doctorscontroller.js error: ' + err));
         //res.status(422).json(err));

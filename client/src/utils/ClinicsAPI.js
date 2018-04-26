@@ -6,20 +6,20 @@ export default {
   getClinics() {
     return axios.get('/api/clinics');
   },
-  // Gets a specific Clinic's id
+  // Gets a specific clinic's id
   getClinic(id) {
-    return axios.get('/api/clinics' + id);
+    return axios.get(`/api/clinics/${id}`);
   },
   // Deletes the book with the given id
   deleteClinic(id) {
-    return axios.delete('/api/Clinics/' + id);
+    return axios.delete(`/api/clinics/${id}`);
   },
-  // Saves a Clinic to the database
-  saveClinic (clinicData) {
-    return axios.post('/api/clinics', clinicData);
+  // Saves a clinic to the database
+  saveClinic(clinicData) {
+    return axios.post('/api/clinics/', clinicData);
   },
-  // updates a Clinic in the database
+  // updates a clinic in the database
   updateClinic(id) {
-    return axios.put('/api/clinics' + id);
+    return axios.put(`/api/clinics/${id}`);
   },
 };
