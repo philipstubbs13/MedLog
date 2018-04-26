@@ -33,7 +33,7 @@ const prescriptionSchema = new Schema({
 });
 
 // This creates our model from the above schema, using mongoose's model method
-const PrescriptionList = mongoose.model('PrescriptionList', prescriptionSchema);
+const Prescription = mongoose.model('Prescription', prescriptionSchema);
 
 // Export the PrescriptionList model
-module.exports = PrescriptionList;
+module.exports = Prescription;
