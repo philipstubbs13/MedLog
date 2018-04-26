@@ -5,9 +5,9 @@ import { Heading, Row, Column } from 'rebass';
 // Import PrescriptionsForm
 import PrescriptionsForm from  './PrescriptionsForm';
 // Import PrescriptionsList
-// import PrescriptionsList from './PrescriptionsList';
+import PrescriptionsList from './PrescriptionsList';
 // Import API
-// import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
+import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
 
 class Prescriptions extends Component {
   state = {
@@ -20,17 +20,17 @@ class Prescriptions extends Component {
     error: ""
   };
 
-    // componentDidMount() {
-    //     this.loadPrescriptions();
-    // }
+    componentDidMount() {
+        this.loadPrescriptions();
+    }
 
-    // loadPrescriptions = () => {
-    //     Prescriptions.getPrescriptions()
-    //         .then(res =>
-    //             this.setState({ prescriptions: res.data })
-    //         )
-    //         .catch(err => console.log(err));
-    // };
+    loadPrescriptions = () => {
+        PrescriptionsAPI.getPrescriptions()
+            .then(res =>
+                this.setState({ prescriptions: res.data })
+            )
+            .catch(err => console.log(err));
+    };
 
     // Keep track of what user types for prescription name so that input can be grabbed later
     handlePrescriptionNameChange = (event) => {
@@ -66,15 +66,15 @@ class Prescriptions extends Component {
         console.log("this.state.prescriptionDate: ", this.state.prescriptionDate);
         console.log("this.state.prescriptionAmount: ", this.state.prescriptionAmount);
         console.log("this.state.prescriptionDirections: ", this.state.prescriptionDirections);
-        // PrescriptionsAPI.saveLog({
-        //     prescriptionName: this.state.prescriptionName,
-        //     doctorprescribed: this.state.prescriptionDoctor,
-        //     dateprescribed: this.state.prescriptionDate,
-        //     amount: this.state.prescriptionAmount,
-        //     generalinstructions: this.state.prescriptionDirections,
-        // })
-        //     .then(res => this.loadPrescriptions())
-        //     .catch(err => console.log(err));
+        PrescriptionsAPI.savePrescription({
+            prescriptionName: this.state.prescriptionName,
+            doctorprescribed: this.state.prescriptionDoctor,
+            dateprescribed: this.state.prescriptionDate,
+            amount: this.state.prescriptionAmount,
+            generalinstructions: this.state.prescriptionDirections,
+        })
+            .then(res => this.loadPrescriptions())
+            .catch(err => console.log(err));
     };
 
     render() {
@@ -98,7 +98,7 @@ class Prescriptions extends Component {
                             handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange} />
                     </Column>
                     <Column width={1 / 2}>
-                        {/* {this.state.prescriptions.map(prescription => {
+                        {this.state.prescriptions.map(prescription => {
                             return (
                                 <PrescriptionsList
                                     id={prescription._id}
@@ -110,7 +110,7 @@ class Prescriptions extends Component {
                                     prescriptionDirections={prescription.generalinstructions}
                                 />
                             );
-                        })} */}
+                        })}
                     </Column>
                 </Row>
             </div>,
