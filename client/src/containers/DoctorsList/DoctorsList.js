@@ -12,6 +12,7 @@ import ClinicInfo from './ClinicInfo';
 import ClinicForm from './ClinicForm';
 // Import API
 import DoctorsAPI from '../../utils/DoctorsAPI';
+import ClinicsAPI from '../../utils/ClinicsAPI';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
@@ -32,11 +33,19 @@ class DoctorList extends Component {
     doctorClinic: "",
     doctorPhone: "",
     doctors: [],
+    clinicName: "",
+    clinicAddress: "",
+    clinicCity: "",
+    clinicState: "",
+    clinicZip: "",
+    clinicPhone: "",
+    clinics: [],
     error: ""
   };
 
   componentDidMount() {
     this.loadDoctors();
+    this.loadClinics();
   }
 
 //for rendering doctors list 
@@ -44,6 +53,13 @@ class DoctorList extends Component {
     DoctorsAPI.getDoctors()
       .then(res =>
         this.setState({ doctors: res.data }))
+      .catch(err => console.log('there is an issue loading doctors: ' + err));
+  };
+
+  loadClinics = () => {
+    ClinicsAPI.getClinics()
+      .then(res =>
+        this.setState({ clinics: res.data }))
       .catch(err => console.log('there is an issue loading doctors: ' + err));
   };
 
@@ -67,6 +83,36 @@ class DoctorList extends Component {
     this.setState({ doctorPhone: event.target.value });
   }
 
+    // Keep track of what user enters for clinic name so that input can be grabbed later
+  handleClinicNameChange = (event) => {
+    this.setState({ clinicName: event.target.value });
+  }
+
+  // Keep track of what user enters for clinic address so that input can be grabbed later
+  handleClinicAddressChange = (event) => {
+    this.setState({ clinicAddress: event.target.value });
+  }
+
+  // Keep track of what user types into clinic city field so that input can be grabbed later
+  handleClinicCityChange = (event) => {
+    this.setState({ clinicCity: event.target.value });
+  }
+
+  // Keep track of what user types into clinic state field so that input can be grabbed later
+  handleClinicStateChange = (event) => {
+    this.setState({ clinicState: event.target.value });
+  }
+
+   // Keep track of what user types into zip code field so that input can be grabbed later
+  handleClinicZipChange = (event) => {
+    this.setState({ clinicZip: event.target.value });
+  }
+
+  // Keep track of what user types into phone input field so that input can be grabbed later
+  handleClinicPhoneChange = (event) => {
+    this.setState({ clinicPhone: event.target.value });
+  }
+
   handleDoctorFormSubmit = event => {
     event.preventDefault();
     console.log("Adding doctor - done in doctorslist.js");
@@ -81,6 +127,27 @@ class DoctorList extends Component {
       phone: this.state.doctorPhone,
     })
       .then(res => this.loadDoctors())
+      .catch(err => console.log('there is a problem saving doctor: ' + err));
+  };
+
+  handleClinicFormSubmit = event => {
+    event.preventDefault();
+    console.log("Adding clinic");
+    console.log("this.state.clinicName: ", this.state.clinicName);
+    console.log("this.state.clinicAddress: ", this.state.clinicAddress);
+    console.log("this.state.clinicCity: ", this.state.clinicCity);
+    console.log("this.state.clinicState: ", this.state.clinicState);
+    console.log("this.state.clinicZip: ", this.state.clinicZip);
+    console.log("this.state.clinicPhone: ", this.state.clinicPhone);
+    ClinicsAPI.saveClinic({
+      clinicname: this.state.clinicName,
+      address: this.state.clinicAddress,
+      city: this.state.clinicCity,
+      state: this.state.clinicState,
+      zip: this.state.clinicZip,
+      phone: this.state.clinicPhone,
+    })
+      .then(res => this.loadClinics())
       .catch(err => console.log('there is a problem saving doctor: ' + err));
   };
 
@@ -124,14 +191,40 @@ class DoctorList extends Component {
           </Column>
         </Row>
 
-        {/* <Row mt={4}>
+        <Row mt={4}>
           <Column width={1 / 2} >
-            <ClinicForm />
+            <ClinicForm
+              handleClinicFormSubmit={this.handleClinicFormSubmit}
+              handleClinicNameChange={this.handleClinicNameChange}
+              handleClinicAddressChange={this.handleClinicAddressChange}
+              handleClinicCityChange={this.handleClinicCityChange}
+              handleClinicStateChange={this.handleClinicStateChange}
+              handleClinicZipChange={this.handleClinicZipChange}
+              handleClinicPhoneChange={this.handleClinicPhoneChange}  />
           </Column>
           <Column width={1 / 2} ml={5}>
-            <ClinicInfo />
+            <div>
+              <Paper elevation={4}>
+                <Typography gutterBottom variant="headline" component="h2">
+                  Clinics
+                </Typography>
+                  {this.state.clinics.map(clinic => {
+                    return (
+                      <ClinicInfo 
+                        id={clinic._id}
+                        key={clinic._id}
+                        clinicName={clinic.clinicname}
+                        clinicAddress={clinic.address}
+                        clinicCity={clinic.city}
+                        clinicState={clinic.state}
+                        clinicZip={clinic.zip}
+                        clinicPhone={clinic.phone}/>
+                    );
+                  })}
+              </Paper>
+            </div>
           </Column>
-        </Row> */}
+        </Row>
       </div>,
     ];
   }

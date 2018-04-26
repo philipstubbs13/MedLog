@@ -1,39 +1,59 @@
-// Importing React since we are using React.
+// Import React
 import React from 'react';
-// Importing UI components from rebass.
-import { Box, Container, Panel } from 'rebass';
+// Import UI components and style from material-ui-next.
+import { withStyles } from 'material-ui/styles';
+import List, { ListItem, ListItemText } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
 
-// ClinicInfo component on the My doctors and clinics page.
-const ClinicInfo = () => [
-    <Panel color="black">
-        <Panel.Header
-            color='white'
-            bg='black'
-            fontSize={24}>
-            Medical clinics
-        </Panel.Header>
-        <Container>
-            <div>
-                <Box fontSize={1} >
+// Style/Theme
+const styles = theme => ({
+  root: theme.mixins.gutters({
+    paddingTop: 16,
+    paddingBottom: 16,
+    marginTop: theme.spacing.unit * 3,
+  }),
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+    marginLeft: 20,
+  },
+  logItem: {
+    marginTop: 20,
+  },
+});
 
-                </Box>
-                
-                <Box mt={5} fontSize={1}>
+// Clinic info component on the Doctors and clinics page.
+class ClinicInfo extends React.Component {
+  render() {
+    const { classes } = this.props;
+    return (
+      <div>
+        <List>
+          <ListItem>
+            <ListItemText >
+              {this.props.clinicName}
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText >
+              {this.props.clinicAddress}
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText >
+              {this.props.clinicCity}, {this.props.clinicState} {this.props.clinicZip}
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemText >
+              {this.props.clinicPhone}
+            </ListItemText>
+          </ListItem>
+        </List>
+        <Divider />
+      </div>
+    );
+  }
+}
 
-                </Box>
-                
-                <Box mt={5} fontSize={1}>
-
-                </Box>
-                <Box mt={5} fontSize={1}>
-
-                </Box>
-            </div>
-        </Container>
-    </Panel>
-
-];
-
-// Exporting the ClinicInfo component so that we can display clinics
-// on the doctors and clinics page.
-export default ClinicInfo;
+export default withStyles(styles)(ClinicInfo);
