@@ -11,9 +11,11 @@ import ClinicInfo from './ClinicInfo';
 // Import ClinicForm
 import ClinicForm from './ClinicForm';
 // Import API
-import DoctorAPI from '../../utils/DoctorsAPI';
+import DoctorsAPI from '../../utils/DoctorsAPI';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 
 //Style
 const styles = theme => ({
@@ -39,7 +41,7 @@ class DoctorList extends Component {
 
 //for rendering doctors list 
   loadDoctors = () => {
-    DoctorAPI.getDoctors()
+    DoctorsAPI.getDoctors()
       .then(res =>
         this.setState({ doctors: res.data }))
       .catch(err => console.log('there is an issue loading doctors: ' + err));
@@ -72,7 +74,7 @@ class DoctorList extends Component {
     console.log("this.state.doctorLastName: ", this.state.doctorLastName);
     console.log("this.state.doctorClinic: ", this.state.doctorClinic);
     console.log("this.state.doctorPhone: ", this.state.doctorPhone);
-    DoctorAPI.saveDoctor({
+    DoctorsAPI.saveDoctor({
       firstname: this.state.doctorFirstName,
       lastname: this.state.doctorLastName,
       clinic: this.state.doctorClinic,
@@ -101,7 +103,24 @@ class DoctorList extends Component {
               handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
           </Column>
           <Column width={1 / 2} ml={5}>
-            <DoctorInfo />
+                <div>
+                      <Paper elevation={4}>
+                        <Typography variant="headline" component="h3">
+                          Doctors
+                        </Typography>
+                          {this.state.doctors.map(doctor => {
+                            return (
+                              <DoctorInfo 
+                                id={doctor._id}
+                                key={doctor._id}
+                                doctorFirstName={doctor.firstname}
+                                doctorLastName={doctor.lastname}
+                                doctorClinic={doctor.clinic}
+                                doctorPhone={doctor.phone}/>
+                            );
+                          })}
+                      </Paper>
+                </div>
           </Column>
         </Row>
 
