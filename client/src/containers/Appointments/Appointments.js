@@ -132,38 +132,36 @@ class Appointments extends Component {
 
         <Row>
           <Column width={1}>
-            <div className={classes.root}>
-                <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
-                <Paper className={classes.root}>
-                  <Table className={classes.table}>
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Name</TableCell>
-                        <TableCell>Doctor</TableCell>
-                        <TableCell numeric>Date</TableCell>
-                        <TableCell numeric>Time</TableCell>
-                        <TableCell>Clinic</TableCell>
-                        <TableCell>Remove</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                      {this.state.appointments.map(appointment => {
-                        return (
-                          <AppointmentsList
-                            id={appointment._id}
-                            key={appointment._id}
-                            name={appointment.name}
-                            date={appointment.date}
-                            time={appointment.time}
-                            doctor={appointment.doctor}
-                            clinic={appointment.clinic}
-                          />
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </Paper>
-            </div>
+            <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
+            <Paper className={classes.root}>
+              <Table className={classes.table}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Name</TableCell>
+                    <TableCell>Doctor</TableCell>
+                    <TableCell numeric>Date</TableCell>
+                    <TableCell numeric>Time</TableCell>
+                    <TableCell>Clinic</TableCell>
+                    <TableCell>Remove</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {this.state.appointments.map(appointment => {
+                    return (
+                      <AppointmentsList
+                        id={appointment._id}
+                        key={appointment._id}
+                        name={appointment.name}
+                        date={appointment.date}
+                        time={appointment.time}
+                        doctor={appointment.doctor}
+                        clinic={appointment.clinic}
+                      />
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </Paper>
           </Column>
         </Row>
       </div>,

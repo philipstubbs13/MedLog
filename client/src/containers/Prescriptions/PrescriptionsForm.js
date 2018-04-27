@@ -28,7 +28,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -132,7 +133,7 @@ class PrescriptionsForm extends React.Component {
                 onChange={this.props.handlePrescriptionDirectionsChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleFormSubmit}>
+              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add prescription
               </Button>
             </form>

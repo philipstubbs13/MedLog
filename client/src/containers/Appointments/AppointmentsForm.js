@@ -29,7 +29,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -135,7 +136,7 @@ class AppointmentsForm extends React.Component {
                 onChange={this.props.handleAppointmentTimeChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleFormSubmit}>
+              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
               Add appointment
               </Button>
             </form>

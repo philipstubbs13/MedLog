@@ -32,7 +32,7 @@ class AppointmentsList extends React.Component {
         <TableCell numeric>{this.props.date}</TableCell>
         <TableCell numeric>{this.props.time}</TableCell>
         <TableCell>{this.props.clinic}</TableCell>
-        <TableCell>Remove</TableCell>
+        {/* <TableCell>Remove</TableCell> */}
       </TableRow>
     );
   }

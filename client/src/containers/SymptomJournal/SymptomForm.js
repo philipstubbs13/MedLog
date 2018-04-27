@@ -29,7 +29,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -124,7 +125,7 @@ class SymptomTextFields extends React.Component {
                 onChange={this.props.handleSymptomInfoChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleFormSubmit}>
+              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
               Add symptom
               </Button>
             </form>
