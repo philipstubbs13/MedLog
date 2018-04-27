@@ -172,22 +172,22 @@ class DoctorList extends Component {
               handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
           </Column>
           <Column width={1 / 2} ml={5}>
-                  <Paper elevation={4}>
-                    <Typography gutterBottom variant="headline" component="h2">
-                      Doctors list
-                    </Typography>
-                      {this.state.doctors.map(doctor => {
-                        return (
-                          <DoctorInfo 
-                            id={doctor._id}
-                            key={doctor._id}
-                            doctorFirstName={doctor.firstname}
-                            doctorLastName={doctor.lastname}
-                            doctorClinic={doctor.clinic}
-                            doctorPhone={doctor.phone}/>
-                        );
-                      })}
-                  </Paper>
+            <Paper elevation={4}>
+              <Typography gutterBottom variant="headline" component="h2">
+                Doctors list
+              </Typography>
+                {this.state.doctors.map(doctor => {
+                  return (
+                    <DoctorInfo 
+                      id={doctor._id}
+                      key={doctor._id}
+                      doctorFirstName={doctor.firstname}
+                      doctorLastName={doctor.lastname}
+                      doctorClinic={doctor.clinic}
+                      doctorPhone={doctor.phone}/>
+                  );
+                })}
+            </Paper>
           </Column>
         </Row>
 
@@ -231,4 +231,4 @@ class DoctorList extends Component {
 }
 // Exporting the DoctorList component so that the App.js file
 // can use/render the My Doctor List page.
-export default DoctorList;
+export default withStyles(styles)(DoctorList);

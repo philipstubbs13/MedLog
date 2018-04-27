@@ -23,6 +23,9 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
     marginTop: theme.spacing.unit * 3,
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderColor: '#007AC1',
   },
   formControl: {
     minWidth: 120,

@@ -43,7 +43,7 @@ class LogList extends React.Component {
           <ExpansionPanelDetails>
             <List>
               <ListItem>
-                <ListItemText >
+                <ListItemText>
                   <b>Doctor:</b> {this.props.doctor}
                 </ListItemText>
               </ListItem>
