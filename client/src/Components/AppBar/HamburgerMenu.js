@@ -53,3 +53,4 @@ class HamburgerMenu extends React.Component {
 
 //Exporting the HamburgerMenu component so that it can be rendered in the top navigation bar component.
 export default HamburgerMenu;
+

@@ -28,7 +28,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -187,7 +188,7 @@ class LogForm extends React.Component {
                 onChange={this.props.handleLogNotesChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleFormSubmit}>
+              <Button size="large" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add notes
               </Button>
             </form>

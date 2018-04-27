@@ -28,7 +28,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -105,7 +106,7 @@ class AttachmentsForm extends React.Component {
                 onChange={this.props.handleAttachmentSubjectChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleFormSubmit}>
+              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add attachment
               </Button>
             </form>

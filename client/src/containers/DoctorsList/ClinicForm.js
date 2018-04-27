@@ -28,7 +28,8 @@ const styles = {
   },
   button: {
     marginTop: 20,
-    padding: 5,
+    padding: 15,
+    backgroundColor: '#007AC1',
   },
 };
 
@@ -181,7 +182,7 @@ class ClinicForm extends React.Component {
                 onChange={this.props.handleClinicPhoneChange}
               />
 
-              <Button size="large" className={classes.button} color="primary" onClick={this.props.handleClinicFormSubmit}>
+              <Button size="large" className={classes.button} onClick={this.props.handleClinicFormSubmit}>
                 Add clinic
               </Button>
             </form>
