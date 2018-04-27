@@ -13,6 +13,12 @@ const styles = theme => ({
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
   }),
+  button: {
+    marginTop: 10,
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: '#007AC1',
+  },
 });
 
 // Symptom List component on the My symptom journal page.
@@ -20,29 +26,24 @@ class SymptomList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
         <Paper className={classes.root} elevation={4}>
           <Typography component="p">
-            <div className={classes.symptom} key={this.props._id}>
-              <Typography component="p">
-                Symptom: {this.props.type}
-              </Typography>
-              <Typography component="p">
-                Date: {this.props.date}
-              </Typography>
-              <Typography component="p">
-                Time: {this.props.time}
-              </Typography>
-              <Typography component="p">
-                More info: {this.props.info}
-              </Typography>
-              <Button size="small" className={classes.button}>Remove</Button>
-            </div>
+            <b>Symptom:</b> {this.props.type}
           </Typography>
+          <Typography component="p">
+            <b>Date:</b> {this.props.date}
+          </Typography>
+          <Typography component="p">
+            <b>Time:</b> {this.props.time}
+          </Typography>
+          <Typography component="p">
+            <b>More info:</b> {this.props.info}
+          </Typography>
+          <Button size="small" className={classes.button}>Remove</Button>
         </Paper>
-      </div>
     );
   }
 }
 
+//Export SymptomList component with styling.
 export default withStyles(styles)(SymptomList);

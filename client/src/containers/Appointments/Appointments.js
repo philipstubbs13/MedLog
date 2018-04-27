@@ -142,7 +142,7 @@ class Appointments extends Component {
                     <TableCell numeric>Date</TableCell>
                     <TableCell numeric>Time</TableCell>
                     <TableCell>Clinic</TableCell>
-                    <TableCell>Remove</TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
