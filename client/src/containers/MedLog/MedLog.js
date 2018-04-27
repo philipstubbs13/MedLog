@@ -134,16 +134,6 @@ class MedLog extends Component {
               })}  
           </Column>
         </Row>
-        <Row mt={4}>
-          <Column width={1}>
-            <Heading
-              is="h1"
-              children="Charts"
-              mt={4}
-              color="white"
-            />
-          </Column>
-        </Row>
       </div>,
     ];
   }

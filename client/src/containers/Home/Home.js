@@ -9,7 +9,9 @@ import appointment from '../../assets/images/appointment.png';
 import prescription from '../../assets/images/prescription.png';
 import doctor from '../../assets/images/doctor.png';
 import search from '../../assets/images/search.png';
+import search2 from '../../assets/images/search2.png';
 import attachments from '../../assets/images/attachments.png';
+import chart from '../../assets/images/chart.png';
 
 // Home Page
 const Home = () => [
@@ -127,27 +129,6 @@ const Home = () => [
       <Column width={1 / 3} >
         <Heading
           is="h1"
-          children="Search"
-          mt={4}
-          color="white"
-          fontSize={28}
-          align="center"
-        />
-        <Box p={3}>
-          <Subhead align="center">
-            <Link
-              href="/search"
-            >
-              <img src={search} alt="magnifying glass and folder" />
-            </Link>
-          </Subhead>
-        </Box>
-      </Column>
-    </Row>
-    <Row mt={0}>
-      <Column width={1 / 3} >
-        <Heading
-          is="h1"
           children="Attachments"
           mt={4}
           color="white"
@@ -163,6 +144,52 @@ const Home = () => [
             </Link>
           </Subhead>
         </Box>
+      </Column>
+    </Row>
+
+    <Row mt={0}>
+      <Column width={1 / 3} >
+        <Heading
+          is="h1"
+          children="Search"
+          mt={4}
+          color="white"
+          fontSize={28}
+          align="center"
+        />
+        <Box p={3}>
+          <Subhead align="center">
+            <Link
+              href="/search"
+            >
+              <img src={search2} alt="magnifying glass and folder" />
+            </Link>
+          </Subhead>
+        </Box>
+      </Column>
+
+      <Column width={1 / 3} >
+        <Heading
+          is="h1"
+          children="Charts"
+          mt={4}
+          color="white"
+          fontSize={28}
+          align="center"
+        />
+        <Box p={3}>
+          <Subhead align="center">
+            <Link
+              href="/charts"
+            >
+              <img src={chart} alt="chart" />
+            </Link>
+          </Subhead>
+        </Box>
+      </Column>
+
+      <Column width={1 / 3} >
+
       </Column>
     </Row>
   </div>,

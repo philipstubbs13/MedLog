@@ -21,6 +21,7 @@ const styles = theme => ({
     marginBottom: 5,
     padding: 10,
     backgroundColor: '#007AC1',
+    color: 'white',
   },
 });
 

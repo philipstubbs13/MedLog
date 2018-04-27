@@ -13,12 +13,12 @@ const styles = {
   copyright: {
     marginTop: 10,
     backgroundColor: "#007AC1",
-    color: "white",
+    color: 'white',
   },
   footer: {
     backgroundColor: "#007AC1",
-    color: "white",
-  }
+    color: 'white',
+  },
 };
 
 class Footer extends React.Component {
