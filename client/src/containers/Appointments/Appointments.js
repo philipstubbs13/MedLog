@@ -21,6 +21,9 @@ const styles = theme => ({
     marginTop: 40,
     width: '100%',
     marginTop: theme.spacing.unit * 3,
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderColor: '#f44e03',
   }),
   table: {
     minWidth: 700,

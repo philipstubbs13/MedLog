@@ -23,6 +23,9 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderColor: '#007AC1',
   },
   formControl: {
     minWidth: 120,
@@ -40,12 +43,12 @@ class AppointmentsForm extends React.Component {
 
     return (
       <div>
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
             Add an appointment
             </Typography>
-            <form noValidate className={classes.root} autoComplete="off">
+            <form noValidate autoComplete="off">
               <TextField
                 id="appointment-name"
                 label="Appointment name"

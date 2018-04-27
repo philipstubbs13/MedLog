@@ -22,6 +22,9 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    borderStyle: 'solid',
+    borderWidth: 3,
+    borderColor: '#007AC1',
   },
   formControl: {
     minWidth: 120,
@@ -39,12 +42,12 @@ class ClinicForm extends React.Component {
 
     return (
       <div>
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
               Add a clinic
             </Typography>
-            <form noValidate className={classes.root} autoComplete="off">
+            <form noValidate autoComplete="off">
               <TextField
                 id="clinic-name"
                 label="Name of clinic"
