@@ -19,6 +19,15 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.default,
     },
   },
+  button: {
+    marginTop: 5,
+    marginBottom: 5,
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 5,
+    paddingBottom: 5,
+    backgroundColor: '#007AC1',
+  },
 });
 
 // Appointments List component on the Appointments page.
@@ -32,7 +41,11 @@ class AppointmentsList extends React.Component {
         <TableCell numeric>{this.props.date}</TableCell>
         <TableCell numeric>{this.props.time}</TableCell>
         <TableCell>{this.props.clinic}</TableCell>
-        {/* <TableCell>Remove</TableCell> */}
+        <TableCell>
+          <Button size="large" className={classes.button}>
+            Remove
+          </Button>
+        </TableCell>
       </TableRow>
     );
   }

@@ -12,7 +12,7 @@ import Select from 'material-ui/Select';
 import Button from 'material-ui/Button';
 
 // Style
-const styles = {
+const styles = theme => ({
   textField: {
     marginTop: 80,
   },
@@ -23,6 +23,7 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    marginTop: theme.spacing.unit * 3,
   },
   formControl: {
     minWidth: 120,
@@ -32,7 +33,7 @@ const styles = {
     padding: 15,
     backgroundColor: '#007AC1',
   },
-};
+});
 
 class SymptomTextFields extends React.Component {
   render() {
@@ -40,12 +41,12 @@ class SymptomTextFields extends React.Component {
 
     return (
       <div>
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
             Add a symptom
             </Typography>
-            <form noValidate className={classes.root} autoComplete="off">
+            <form noValidate autoComplete="off">
               {/* <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="select-symptom-dropdown">Select symptom</InputLabel>
                 <Select

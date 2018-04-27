@@ -11,7 +11,7 @@ import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 
-const styles = {
+const styles = theme => ({
   textField: {
     marginTop: 40,
   },
@@ -22,6 +22,7 @@ const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
+    marginTop: theme.spacing.unit * 3,
   },
   formControl: {
     minWidth: 120,
@@ -31,20 +32,19 @@ const styles = {
     padding: 15,
     backgroundColor: '#007AC1',
   },
-};
+})
 
 class PrescriptionsForm extends React.Component {
   render() {
     const { classes } = this.props;
 
     return (
-      <div>
-        <Card>
+        <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2">
               Add a prescription
             </Typography>
-            <form noValidate className={classes.root} autoComplete="off">
+            <form noValidate autoComplete="off">
               <TextField
                 id="prescription-name"
                 label="Prescription name"
@@ -139,7 +139,6 @@ class PrescriptionsForm extends React.Component {
             </form>
           </CardContent>
         </Card>
-      </div>
     );
   }
 }
