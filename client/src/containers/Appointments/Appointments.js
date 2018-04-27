@@ -137,11 +137,11 @@ class Appointments extends Component {
               <Table className={classes.table}>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Doctor</TableCell>
-                    <TableCell numeric>Date</TableCell>
-                    <TableCell numeric>Time</TableCell>
-                    <TableCell>Clinic</TableCell>
+                    <TableCell><b>Name</b></TableCell>
+                    <TableCell><b>Doctor</b></TableCell>
+                    <TableCell numeric><b>Date</b></TableCell>
+                    <TableCell numeric><b>Time</b></TableCell>
+                    <TableCell><b>Clinic</b></TableCell>
                     <TableCell></TableCell>
                   </TableRow>
                 </TableHead>

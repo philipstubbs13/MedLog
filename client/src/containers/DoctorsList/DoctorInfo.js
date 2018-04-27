@@ -11,6 +11,8 @@ const styles = theme => ({
     paddingTop: 16,
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
+    display: 'flex',
+    flexWrap: 'wrap',
   }),
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -31,17 +33,17 @@ class DoctorInfo extends React.Component {
         <List>
           <ListItem>
             <ListItemText >
-              Doctor: {this.props.doctorFirstName} {this.props.doctorLastName}
+              <b>Doctor:</b> {this.props.doctorFirstName} {this.props.doctorLastName}
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              Clinic: {this.props.doctorClinic}
+              <b>Clinic:</b> {this.props.doctorClinic}
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              Phone: {this.props.doctorPhone}
+              <b>Phone:</b> {this.props.doctorPhone}
             </ListItemText>
           </ListItem>
         </List>
