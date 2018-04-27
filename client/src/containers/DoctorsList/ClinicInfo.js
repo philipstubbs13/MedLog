@@ -31,22 +31,19 @@ class ClinicInfo extends React.Component {
         <List>
           <ListItem>
             <ListItemText >
-              {this.props.clinicName}
+              <b>Clinic:</b> {this.props.clinicName}
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              {this.props.clinicAddress}
+              <p><b>Address:</b></p>
+              <p>{this.props.clinicAddress}</p>
+              <p>{this.props.clinicCity}, {this.props.clinicState} {this.props.clinicZip}</p>
             </ListItemText>
           </ListItem>
           <ListItem>
             <ListItemText >
-              {this.props.clinicCity}, {this.props.clinicState} {this.props.clinicZip}
-            </ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText >
-              {this.props.clinicPhone}
+              <b>Phone: </b> {this.props.clinicPhone}
             </ListItemText>
           </ListItem>
         </List>

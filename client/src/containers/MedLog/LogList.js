@@ -20,9 +20,12 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
     marginLeft: 20,
+    color: 'white',
   },
   logItem: {
     marginTop: 20,
+    backgroundColor: '#007AC1',
+    color: 'white',
   },
 });
 
@@ -31,48 +34,46 @@ class LogList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div>
         <ExpansionPanel className={classes.logItem}>
           <ExpansionPanelSummary>
             <i className="fas fa-plus"></i>
-            <Typography className={classes.heading}>Doctor notes from {this.props.date}</Typography>
+            <Typography className={classes.heading}><b>Doctor notes from {this.props.date}</b></Typography>
           </ExpansionPanelSummary>
 
           <ExpansionPanelDetails>
             <List>
               <ListItem>
                 <ListItemText >
-                  Doctor: {this.props.doctor}
+                  <b>Doctor:</b> {this.props.doctor}
                 </ListItemText>
               </ListItem>
 
               <ListItem>
                 <ListItemText >
-                  Clinic: {this.props.clinic}
+                  <b>Clinic:</b> {this.props.clinic}
                 </ListItemText>
               </ListItem>
 
               <ListItem>
                 <ListItemText >
-                  Reason for visit: {this.props.visitPurpose}
+                  <b>Reason for visit:</b> {this.props.visitPurpose}
                 </ListItemText>
               </ListItem>
 
               <ListItem>
                 <ListItemText >
-                  Height (inches): {this.props.heightIn}
+                  <b>Height (inches):</b> {this.props.heightIn}
                 </ListItemText>
               </ListItem>
 
               <ListItem>
                 <ListItemText >
-                  Weight (pounds): {this.props.weightLb}
+                  <b>Weight (pounds):</b> {this.props.weightLb}
                 </ListItemText>
               </ListItem>
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-      </div>
     );
   }
 }

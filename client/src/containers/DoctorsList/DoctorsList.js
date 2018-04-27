@@ -23,6 +23,8 @@ const styles = theme => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
+    display: 'flex',
+    flexWrap: 'wrap',
   }),
 });
 
@@ -152,12 +154,12 @@ class DoctorList extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-    const newLocal1 = <Heading is="h1" children="Doctors and clinics" mt={4} color="white" />;
-    const newLocal = newLocal1;
+    // const { classes } = this.props;
+    // const newLocal1 = <Heading is="h1" children="Doctors and clinics" mt={4} ml={4} color="white" />;
+    // const newLocal = newLocal1;
 
     return [  
-      newLocal,
+      // newLocal,
 
       <div className="main-content-section">
         <Row mt={4}>
@@ -170,24 +172,22 @@ class DoctorList extends Component {
               handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
           </Column>
           <Column width={1 / 2} ml={5}>
-                <div>
-                      <Paper elevation={4}>
-                        <Typography variant="headline" component="h3">
-                          Doctors
-                        </Typography>
-                          {this.state.doctors.map(doctor => {
-                            return (
-                              <DoctorInfo 
-                                id={doctor._id}
-                                key={doctor._id}
-                                doctorFirstName={doctor.firstname}
-                                doctorLastName={doctor.lastname}
-                                doctorClinic={doctor.clinic}
-                                doctorPhone={doctor.phone}/>
-                            );
-                          })}
-                      </Paper>
-                </div>
+                  <Paper elevation={4}>
+                    <Typography gutterBottom variant="headline" component="h2">
+                      Doctors list
+                    </Typography>
+                      {this.state.doctors.map(doctor => {
+                        return (
+                          <DoctorInfo 
+                            id={doctor._id}
+                            key={doctor._id}
+                            doctorFirstName={doctor.firstname}
+                            doctorLastName={doctor.lastname}
+                            doctorClinic={doctor.clinic}
+                            doctorPhone={doctor.phone}/>
+                        );
+                      })}
+                  </Paper>
           </Column>
         </Row>
 
