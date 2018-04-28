@@ -15,8 +15,9 @@ export default {
   },
   // Deletes the symptom with the given id
   deleteSymptom(id) {
-    return axios.delete(`/api/symptoms/${id}`);
+    return axios.delete("/api/symptoms/" + id);
   },
+
   // update a symptom in the database
   updateSymptom(id) {
     return axios.put(`/api/symptoms/${id}`);

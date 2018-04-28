@@ -30,7 +30,7 @@ const styles = theme => ({
   },
   row: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: 'theme.palette.background.default',
     },
   },
 });
@@ -55,16 +55,24 @@ class Appointments extends Component {
     appointments: [],
     error: ""
   };
-
+  // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
     this.loadAppointments();
   }
 
+  // Loads all appointments and saves them to this.state.appointments.
   loadAppointments = () => {
     AppointmentAPI.getAppointments()
       .then(res =>
         this.setState({ appointments: res.data})
       )
+      .catch(err => console.log(err));
+  };
+
+  // Deletes an appointment from the database with a given id, then reloads appointments from the db
+  deleteAppointment = id => {
+    AppointmentAPI.deleteAppointment(id)
+      .then(res => this.loadAppointments())
       .catch(err => console.log(err));
   };
 
@@ -159,6 +167,7 @@ class Appointments extends Component {
                         time={appointment.time}
                         doctor={appointment.doctor}
                         clinic={appointment.clinic}
+                        deleteAppointment={this.deleteAppointment}
                       />
                     );
                   })}

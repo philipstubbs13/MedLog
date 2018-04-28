@@ -32,7 +32,7 @@ class PrescriptionList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-        <Paper className={classes.root} elevation={4}>
+        <Paper className={classes.root} elevation={4} id={this.props.id}>
           <Typography component="p">
             <b>Name:</b> {this.props.prescriptionName}
           </Typography>
@@ -48,10 +48,11 @@ class PrescriptionList extends React.Component {
           <Typography component="p">
             <b>Directions for use:</b> {this.props.prescriptionDirections}
           </Typography>
-          <Button size="small" className={classes.button}>Remove</Button>
+          <Button size="small" className={classes.button} onClick={() => { this.props.deletePrescription(this.props.id); }}>Remove</Button>
         </Paper>
     );
   }
 }
 
+// Export PrescriptionList component with styling.
 export default withStyles(styles)(PrescriptionList);

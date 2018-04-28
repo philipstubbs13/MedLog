@@ -20,15 +20,24 @@ class Prescriptions extends Component {
     error: ""
   };
 
+    // When the component mounts, load all prescriptions and save them to this.state.prescriptions.
     componentDidMount() {
         this.loadPrescriptions();
     }
 
+    // Loads all prescriptions and saves them to this.state.prescriptions.
     loadPrescriptions = () => {
         PrescriptionsAPI.getPrescriptions()
             .then(res =>
                 this.setState({ prescriptions: res.data })
             )
+            .catch(err => console.log(err));
+    };
+
+    // Deletes a prescription from the database with a given id, then reloads prescriptions from the db
+    deletePrescription = id => {
+        PrescriptionsAPI.deletePrescription(id)
+            .then(res => this.loadPrescriptions())
             .catch(err => console.log(err));
     };
 
@@ -108,6 +117,7 @@ class Prescriptions extends Component {
                                     prescriptionDate={prescription.dateprescribed}
                                     prescriptionAmount={prescription.amount}
                                     prescriptionDirections={prescription.generalinstructions}
+                                    deletePrescription={this.deletePrescription}
                                 />
                             );
                         })}
