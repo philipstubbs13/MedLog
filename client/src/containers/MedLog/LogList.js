@@ -8,6 +8,7 @@ import ExpansionPanel, {
   ExpansionPanelDetails,
 } from 'material-ui/ExpansionPanel';
 import List, { ListItem, ListItemText } from 'material-ui/List';
+import Button from 'material-ui/Button';
 
 // Style/Theme
 const styles = theme => ({
@@ -25,6 +26,13 @@ const styles = theme => ({
   logItem: {
     marginTop: 20,
     backgroundColor: '#007AC1',
+    color: 'white',
+  },
+  button: {
+    marginTop: 10,
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: '#f44e03',
     color: 'white',
   },
 });
@@ -71,6 +79,10 @@ class LogList extends React.Component {
                   <b>Weight (pounds):</b> {this.props.weightLb}
                 </ListItemText>
               </ListItem>
+
+            <ListItem>
+              <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Remove</Button>
+            </ListItem>
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>
