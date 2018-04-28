@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
+import { Heading, Row, Column, Container} from 'rebass';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
@@ -45,21 +45,23 @@ class Login extends Component {
   };
 
   render() {
-    return [  
-      <Typography gutterBottom variant="headline" component="h2" className="header">
-        Welcome to HealthTracker!
-      </Typography>,
+    return [ 
+      <Container>
+        <Typography gutterBottom variant="headline" component="h2" className="header">
+          Welcome to HealthTracker!
+        </Typography>,
 
-      <div className="main-content-section">
-        <Row mt={4}>
-          <Column width={1} >
-            <LoginForm
-              handleFormSubmit = {this.handleFormSubmit}
-              handleUsernameChange = {this.handleUsernameChange}
-              handlePasswordChange = {this.handlePasswordChange}  />
-          </Column>
-        </Row>
-      </div>
+        <div className="main-content-section">
+          <Row>
+            <Column width={1} >
+              <LoginForm
+                handleFormSubmit = {this.handleFormSubmit}
+                handleUsernameChange = {this.handleUsernameChange}
+                handlePasswordChange = {this.handlePasswordChange}  />
+            </Column>
+          </Row>
+        </div>
+      </Container>,
     ];
   }
 }

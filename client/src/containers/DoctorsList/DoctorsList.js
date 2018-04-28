@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
+import { Heading, Row, Column, Container } from 'rebass';
 // Import DoctorForm
 import DoctorForm from './DoctorForm';
 // Import DoctorInfo
@@ -13,10 +13,12 @@ import ClinicForm from './ClinicForm';
 // Import API
 import DoctorsAPI from '../../utils/DoctorsAPI';
 import ClinicsAPI from '../../utils/ClinicsAPI';
-// Import UI components from material-ui-next.
+// Import UI components and style from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+// Import Sidebar component.
+import Sidebar from '../../Components/Sidebar';
 
 //Style
 const styles = theme => ({
@@ -26,6 +28,18 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap',
   }),
+  appFrame: {
+    zIndex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#03A9f4',
+    padding: theme.spacing.unit * 3,
+  },
 });
 
 class DoctorList extends Component {
@@ -45,6 +59,7 @@ class DoctorList extends Component {
     error: ""
   };
 
+  // When the component mounts, load all doctors and clinics and save them to this.state.doctors and this.state.clinics.
   componentDidMount() {
     this.loadDoctors();
     this.loadClinics();
@@ -61,6 +76,7 @@ class DoctorList extends Component {
       .catch(err => console.log('there is an issue loading doctors: ' + err));
   };
 
+  // Loads all clinics and saves them to this.state.clinics.
   loadClinics = () => {
     ClinicsAPI.getClinics()
       .then(res =>
@@ -133,6 +149,7 @@ class DoctorList extends Component {
     this.setState({ clinicPhone: event.target.value });
   }
 
+  // When user submits doctor form, save doctor to database.
   handleDoctorFormSubmit = event => {
     event.preventDefault();
     console.log('inside handleDoctorFormSubmit! ', event)
@@ -151,6 +168,7 @@ class DoctorList extends Component {
       .catch(err => console.log('there is a problem saving doctor: ' + err));
   };
 
+  // When user submits clinic form, save clinic to database.
   handleClinicFormSubmit = event => {
     event.preventDefault();
     console.log("Adding clinic");
@@ -173,84 +191,96 @@ class DoctorList extends Component {
   };
 
   render() {
-    // const { classes } = this.props;
+    const { classes } = this.props;
     // const newLocal1 = <Heading is="h1" children="Doctors and clinics" mt={4} ml={4} color="white" />;
     // const newLocal = newLocal1;
 
     return [  
-      // newLocal,
+      <div className={classes.appFrame}>
+        <Sidebar />
+        <main className={classes.content}>
+          <Container>
+            <Heading
+              is="h1"
+              children="Doctors and clinics"
+              color="white"
+            />,
 
-      <div className="main-content-section">
-        <Row mt={4}>
-          <Column width={1 / 2} >
-            <DoctorForm 
-              clinics = {this.state.clinics}
-              handleDoctorFormSubmit={this.handleDoctorFormSubmit}
-              handleDoctorFirstNameChange={this.handleDoctorFirstNameChange}
-              handleDoctorLastNameChange={this.handleDoctorLastNameChange}
-              handleDoctorClinicChange={this.handleDoctorClinicChange}
-              handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
-          </Column>
-          <Column width={1 / 2} ml={5}>
-            <Paper elevation={4}>
-              <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
-                Doctors list
-              </Typography>
-                {this.state.doctors.map(doctor => {
-                  return (
-                    <DoctorInfo 
-                      id={doctor._id}
-                      key={doctor._id}
-                      doctorFirstName={doctor.firstname}
-                      doctorLastName={doctor.lastname}
-                      doctorClinic={doctor.clinic}
-                      doctorPhone={doctor.phone}
-                      deleteDoctor = { this.deleteDoctor } />
-                  );
-                })}
-            </Paper>
-          </Column>
-        </Row>
+            <div className="main-content-section">
+              <Row>
+                <Column width={1 / 2} >
+                  <DoctorForm 
+                    clinics = {this.state.clinics}
+                    handleDoctorFormSubmit={this.handleDoctorFormSubmit}
+                    handleDoctorFirstNameChange={this.handleDoctorFirstNameChange}
+                    handleDoctorLastNameChange={this.handleDoctorLastNameChange}
+                    handleDoctorClinicChange={this.handleDoctorClinicChange}
+                    handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
+                </Column>
+                <Column width={1 / 2} ml={5}>
+                  <Paper elevation={4}>
+                    <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
+                      Doctors list
+                    </Typography>
+                     {this.state.doctors.map(doctor => {
+                       return (
+                        <DoctorInfo 
+                          id={doctor._id}
+                          key={doctor._id}
+                          doctorFirstName={doctor.firstname}
+                          doctorLastName={doctor.lastname}
+                          doctorClinic={doctor.clinic}
+                          doctorPhone={doctor.phone}
+                          deleteDoctor = { this.deleteDoctor } />
+                      );
+                    })}
+                  </Paper>
+                </Column>
+              </Row>
 
-        <Row mt={4}>
-          <Column width={1 / 2} >
-            <ClinicForm
-              handleClinicFormSubmit={this.handleClinicFormSubmit}
-              handleClinicNameChange={this.handleClinicNameChange}
-              handleClinicAddressChange={this.handleClinicAddressChange}
-              handleClinicCityChange={this.handleClinicCityChange}
-              handleClinicStateChange={this.handleClinicStateChange}
-              handleClinicZipChange={this.handleClinicZipChange}
-              handleClinicPhoneChange={this.handleClinicPhoneChange}  />
-          </Column>
-          <Column width={1 / 2} ml={5}>
-            <div>
-              <Paper elevation={4}>
-                <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}}>
-                  Clinics
-                </Typography>
-                  {this.state.clinics.map(clinic => {
-                    return (
-                      <ClinicInfo 
-                        id={clinic._id}
-                        key={clinic._id}
-                        clinicName={clinic.clinicname}
-                        clinicAddress={clinic.address}
-                        clinicCity={clinic.city}
-                        clinicState={clinic.state}
-                        clinicZip={clinic.zip}
-                        clinicPhone={clinic.phone}
-                        deleteClinic={this.deleteClinic} />
-                    );
-                  })}
-              </Paper>
+              <Row mt={4}>
+                <Column width={1 / 2} >
+                  <ClinicForm
+                    handleClinicFormSubmit={this.handleClinicFormSubmit}
+                    handleClinicNameChange={this.handleClinicNameChange}
+                    handleClinicAddressChange={this.handleClinicAddressChange}
+                    handleClinicCityChange={this.handleClinicCityChange}
+                    handleClinicStateChange={this.handleClinicStateChange}
+                    handleClinicZipChange={this.handleClinicZipChange}
+                    handleClinicPhoneChange={this.handleClinicPhoneChange}  />
+                </Column>
+                <Column width={1 / 2} ml={5}>
+                  <div>
+                    <Paper elevation={4}>
+                      <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}}>
+                        Clinics
+                      </Typography>
+                      {this.state.clinics.map(clinic => {
+                        return (
+                          <ClinicInfo 
+                            id={clinic._id}
+                            key={clinic._id}
+                            clinicName={clinic.clinicname}
+                            clinicAddress={clinic.address}
+                            clinicCity={clinic.city}
+                            clinicState={clinic.state}
+                            clinicZip={clinic.zip}
+                            clinicPhone={clinic.phone}
+                            deleteClinic={this.deleteClinic} />
+                        );
+                      })}
+                    </Paper>
+                  </div>
+                </Column>
+              </Row>
             </div>
-          </Column>
-        </Row>
+          </Container>
+        </main>
       </div>,
     ];
   }
 }
+
 // Exporting the DoctorList component so that the App.js file
 // can use/render the My Doctor List page.
 export default withStyles(styles)(DoctorList);

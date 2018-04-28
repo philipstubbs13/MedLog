@@ -8,10 +8,16 @@ import SymptomTextFields from './SymptomForm';
 import SymptomList from './SymptomList';
 // Import API
 import SymptomAPI from '../../utils/SymptomAPI';
+// Import UI components and styling from material-ui-next.
 import Button from 'material-ui/Button';
+import { withStyles } from 'material-ui/styles';
+// Import Sidebar component.
+import Sidebar from '../../Components/Sidebar';
+// Importing UI components from rebass.
+import { Container } from 'rebass';
 
 // Style/Theme
-const styles = {
+const styles = theme => ({
   button: {
     marginTop: 10,
     marginBottom: 5,
@@ -19,7 +25,19 @@ const styles = {
     backgroundColor: '#007AC1',
     color: 'white',
   },
-};
+  appFrame: {
+    zIndex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#03A9f4',
+    padding: theme.spacing.unit * 3,
+  },
+});
 
 class SymptomJournal extends Component {
   state = {
@@ -92,40 +110,46 @@ class SymptomJournal extends Component {
   };
 
   render() {
-    return [  
-      <Heading
-        is="h1"
-        children="My symptom journal"
-        mt={4}
-        color="white"
-      />,
+    const { classes } = this.props;
+    return [
+      <div className={classes.appFrame}>
+        <Sidebar />
+        <main className={classes.content}>
+          <Container>
+            <Heading
+              is="h1"
+              children="My symptom journal"
+              color="white"
+            />,
 
-      <div className="main-content-section">
-        <Row mt={4}>
-          <Column width={1/2} >
-            <SymptomTextFields
-              handleFormSubmit = {this.handleFormSubmit}
-              handleSymptomTypeChange = {this.handleSymptomTypeChange}
-              handleSymptomDayChange = {this.handleSymptomDayChange}
-              handleSymptomTimeChange = {this.handleSymptomTimeChange}
-              handleSymptomInfoChange = {this.handleSymptomInfoChange} />
-          </Column>
-          <Column width={1/2} ml={5}>
-            {this.state.symptoms.map(symptom => {
-              return (
-                <SymptomList
-                  id={symptom._id}
-                  key={symptom._id}
-                  type={symptom.symptomType}
-                  date={symptom.symptomDate}
-                  time={symptom.symptomTime}
-                  info={symptom.symptomInfo}
-                  deleteSymptom = {this.deleteSymptom}
-          />
-        );
-      })}  
-          </Column>
-        </Row>
+            <div className="main-content-section">
+              <Row>
+                <Column width={1/2} >
+                  <SymptomTextFields
+                    handleFormSubmit = {this.handleFormSubmit}
+                    handleSymptomTypeChange = {this.handleSymptomTypeChange}
+                    handleSymptomDayChange = {this.handleSymptomDayChange}
+                    handleSymptomTimeChange = {this.handleSymptomTimeChange}
+                    handleSymptomInfoChange = {this.handleSymptomInfoChange} />
+                </Column>
+                <Column width={1/2} ml={5}>
+                  {this.state.symptoms.map(symptom => {
+                    return (
+                      <SymptomList
+                        id={symptom._id}
+                        key={symptom._id}
+                        type={symptom.symptomType}
+                        date={symptom.symptomDate}
+                        time={symptom.symptomTime}
+                        info={symptom.symptomInfo}
+                        deleteSymptom = {this.deleteSymptom}/>
+                    );
+                  })}  
+                </Column>
+              </Row>
+            </div>
+          </Container>
+        </main>
       </div>
     ];
   }
@@ -133,4 +157,4 @@ class SymptomJournal extends Component {
 
 // Exporting the SymptomJournal component
 // so that the App.js file can render the My Symptom Journal page.
-export default SymptomJournal;
+export default withStyles(styles)(SymptomJournal);

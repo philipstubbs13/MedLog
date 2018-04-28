@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
+import { Heading, Row, Column, Container } from 'rebass';
 // Importing the AppointmentsForm component.
 import AppointmentsForm from './AppointmentsForm';
 // Importing the AppointmentsList component.
@@ -12,6 +12,8 @@ import AppointmentAPI from '../../utils/AppointmentAPI';
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+// Import Sidebar component.
+import Sidebar from '../../Components/Sidebar';
 
 //Style
 const styles = theme => ({
@@ -32,6 +34,18 @@ const styles = theme => ({
     '&:nth-of-type(odd)': {
       backgroundColor: 'theme.palette.background.default',
     },
+  },
+  appFrame: {
+    zIndex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#03A9f4',
+    padding: theme.spacing.unit * 3,
   },
 });
 
@@ -122,61 +136,69 @@ class Appointments extends Component {
 
   render() {
     const { classes } = this.props;
-    const newLocal1 = <Heading is="h1" children="Appointments" mt={4} color="white" />;
-    const newLocal = newLocal1;
+    return [
+      <div className={classes.appFrame}>
+        <Sidebar />
+        <main className={classes.content}>
+          <Container>
+            <Heading
+              is="h1"
+              children="Appointments"
+              color="white"
+            />,
 
-    return [  
-      newLocal,
+            <div className="main-content-section">
+              <Row>
+                <Column width={1} >
+                  <AppointmentsForm
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleAppointmentNameChange={this.handleAppointmentNameChange}
+                    handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
+                    handleAppointmentDateChange={this.handleAppointmentDateChange}
+                    handleAppointmentTimeChange={this.handleAppointmentTimeChange}
+                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
+                </Column>
+              </Row>
 
-      <div className="main-content-section">
-        <Row mt={4}>
-          <Column width={1} >
-            <AppointmentsForm
-              handleFormSubmit={this.handleFormSubmit}
-              handleAppointmentNameChange={this.handleAppointmentNameChange}
-              handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
-              handleAppointmentDateChange={this.handleAppointmentDateChange}
-              handleAppointmentTimeChange={this.handleAppointmentTimeChange}
-              handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
-          </Column>
-        </Row>
-
-        <Row>
-          <Column width={1}>
-            <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
-            <Paper className={classes.root}>
-              <Table className={classes.table}>
-                <TableHead>
-                  <TableRow>
-                    <TableCell><b>Name</b></TableCell>
-                    <TableCell><b>Doctor</b></TableCell>
-                    <TableCell numeric><b>Date</b></TableCell>
-                    <TableCell numeric><b>Time</b></TableCell>
-                    <TableCell><b>Clinic</b></TableCell>
-                    <TableCell></TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.appointments.map(appointment => {
-                    return (
-                      <AppointmentsList
-                        id={appointment._id}
-                        key={appointment._id}
-                        name={appointment.name}
-                        date={appointment.date}
-                        time={appointment.time}
-                        doctor={appointment.doctor}
-                        clinic={appointment.clinic}
-                        deleteAppointment={this.deleteAppointment}
-                      />
-                    );
-                  })}
-                </TableBody>
-              </Table>
-            </Paper>
-          </Column>
-        </Row>
-      </div>,
+              <Row>
+                <Column width={1}>
+                  <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
+                  <Paper className={classes.root}>
+                    <Table className={classes.table}>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell><b>Name</b></TableCell>
+                          <TableCell><b>Doctor</b></TableCell>
+                          <TableCell numeric><b>Date</b></TableCell>
+                          <TableCell numeric><b>Time</b></TableCell>
+                          <TableCell><b>Clinic</b></TableCell>
+                          <TableCell></TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {this.state.appointments.map(appointment => {
+                          return (
+                            <AppointmentsList
+                              id={appointment._id}
+                              key={appointment._id}
+                              name={appointment.name}
+                              date={appointment.date}
+                              time={appointment.time}
+                              doctor={appointment.doctor}
+                              clinic={appointment.clinic}
+                              deleteAppointment={this.deleteAppointment}
+                            />
+                          );
+                        })}
+                      </TableBody>
+                    </Table>
+                  </Paper>
+                </Column>
+              </Row>
+            </div>
+          </Container>
+        </main>
+      </div>
     ];
   }
 }
