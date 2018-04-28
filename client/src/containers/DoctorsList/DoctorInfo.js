@@ -4,6 +4,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import Button from 'material-ui/Button';
 
 // Style/Theme
 const styles = theme => ({
@@ -25,6 +26,12 @@ const styles = theme => ({
   divider: {
     backgroundColor: '#f44e03',
     height: 6,
+  },
+  button: {
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: '#007AC1',
+    color: 'white',
   },
 });
 
@@ -50,8 +57,11 @@ class DoctorInfo extends React.Component {
               <b>Phone:</b> {this.props.doctorPhone}
             </ListItemText>
           </ListItem>
+          <ListItem>
+            <Button size="small" className={classes.button} onClick={() => { this.props.deleteDoctor(this.props.id); }}>Remove</Button>
+          </ListItem>
         </List>
-        <Divider className={classes.divider}/>
+        <Divider className={classes.divider} />
       </div>
     );
   }
