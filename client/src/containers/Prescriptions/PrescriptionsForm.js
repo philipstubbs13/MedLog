@@ -24,7 +24,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: '#007AC1',
   },
   formControl: {

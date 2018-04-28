@@ -173,7 +173,7 @@ class DoctorList extends Component {
           </Column>
           <Column width={1 / 2} ml={5}>
             <Paper elevation={4}>
-              <Typography gutterBottom variant="headline" component="h2">
+              <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
                 Doctors list
               </Typography>
                 {this.state.doctors.map(doctor => {
@@ -205,7 +205,7 @@ class DoctorList extends Component {
           <Column width={1 / 2} ml={5}>
             <div>
               <Paper elevation={4}>
-                <Typography gutterBottom variant="headline" component="h2">
+                <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}}>
                   Clinics
                 </Typography>
                   {this.state.clinics.map(clinic => {
