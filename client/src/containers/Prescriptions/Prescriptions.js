@@ -66,7 +66,7 @@ class Prescriptions extends Component {
         this.setState({ prescriptionDirections: event.target.value });
     }
 
-    // When user submits prescription form, save prescription inforation to database.
+    // When user submits prescription form, save prescription information to database.
     handleFormSubmit = event => {
         event.preventDefault();
         console.log("Adding prescription information");

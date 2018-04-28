@@ -137,7 +137,10 @@ class PrescriptionsForm extends React.Component {
                 onChange={this.props.handlePrescriptionDirectionsChange}
               />
 
-              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}>
                 Add prescription
               </Button>
             </form>

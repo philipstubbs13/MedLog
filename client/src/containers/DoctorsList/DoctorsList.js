@@ -65,6 +65,20 @@ class DoctorList extends Component {
       .catch(err => console.log('there is an issue loading doctors: ' + err));
   };
 
+  // Deletes a doctor from the database with a given id, then reloads doctors from the db
+  deleteDoctor = id => {
+    DoctorsAPI.deleteDoctor(id)
+      .then(res => this.loadDoctors())
+      .catch(err => console.log(err));
+  };
+
+  // Deletes a clinic from the database with a given id, then reloads clinics from the db
+  deleteClinic = id => {
+    ClinicsAPI.deleteClinic(id)
+      .then(res => this.loadClinics())
+      .catch(err => console.log(err));
+  };
+
   // Keep track of what user enters for doctor first name so that input can be grabbed later
   handleDoctorFirstNameChange = (event) => {
     this.setState({ doctorFirstName: event.target.value });
@@ -184,7 +198,8 @@ class DoctorList extends Component {
                       doctorFirstName={doctor.firstname}
                       doctorLastName={doctor.lastname}
                       doctorClinic={doctor.clinic}
-                      doctorPhone={doctor.phone}/>
+                      doctorPhone={doctor.phone}
+                      deleteDoctor = { this.deleteDoctor } />
                   );
                 })}
             </Paper>
@@ -218,7 +233,8 @@ class DoctorList extends Component {
                         clinicCity={clinic.city}
                         clinicState={clinic.state}
                         clinicZip={clinic.zip}
-                        clinicPhone={clinic.phone}/>
+                        clinicPhone={clinic.phone}
+                        deleteClinic={this.deleteClinic} />
                     );
                   })}
               </Paper>
