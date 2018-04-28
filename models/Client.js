@@ -3,7 +3,7 @@ var mongoose = require ('mongoose');
 
 const Schema = mongoose.Schema;
 
-// the client is NOT the User
+// the Client is NOT the User
 const ClientSchema = new Schema({
   name: { type: String, unique: true, required: true },
   id: { type: String, required: true },
@@ -11,7 +11,6 @@ const ClientSchema = new Schema({
   userId: { type: String, required: true }
 });
 
+// Export the Client model
 const Client = mongoose.model('Client', ClientSchema);
-
-// Export the User model
 module.exports = Client;
