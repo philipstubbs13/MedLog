@@ -1,5 +1,5 @@
 // Importing React since we are using React.
-import React from 'react';
+import React, { Component } from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
 import { InputLabel } from 'material-ui/Input';
@@ -10,7 +10,7 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
-//import api?
+
 
 const styles = {
   textField: {
@@ -38,15 +38,21 @@ const styles = {
   },
 };
 
-// class Doctors extends Component {
-//   state = {
-//     doctors: []
-//   };
+class DoctorForm extends Component {
+  handleClinicMenuOption = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleDoctorClinicChange(event);
+    //need to make the selected item the first thing that shows on the list
+  }
 
-class DoctorForm extends React.Component {
+  state = {
+    value: '',
+  }
+
   render() {
-    const { classes } = this.props;
-
+    const { classes, clinics } = this.props;
+    
     return (
       <div>
         <Card className={classes.root}>
@@ -85,36 +91,15 @@ class DoctorForm extends React.Component {
                 onChange={this.props.handleDoctorLastNameChange}
               />
 
-              {/* <FormControl className={classes.formControl, classes.textField} fullWidth>
-                <InputLabel htmlFor="select-clinic-dropdown">Select a clinic</InputLabel>
-                <Select
-                  value={this.state.clinic}
-                  onChange={this.handleChange}
-                  inputProps={{
-                    clinic: '',
-                    id: 'select-clinic',
-                  }}
-                >
-                  <MenuItem value=""></MenuItem>
-                  <MenuItem value={"A"}>Clinic A</MenuItem>
-                  <MenuItem value={"B"}>Clinic B</MenuItem>
-                  <MenuItem value={"C"}>Clinic C</MenuItem>
-                  <MenuItem value={"D"}>Clinic D</MenuItem>
-                  <MenuItem value={"Other"}>Other</MenuItem>
-                </Select>
-              </FormControl> */}
-
-              <TextField
-                id="doctor-clinic"
-                label="Clinic"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.doctorClinic}
-                onChange={this.props.handleDoctorClinicChange}
-              />
+              <FormControl className={classes.formControl, classes.textField} fullWidth>
+                <InputLabel type="select-clinic-dropdown" label="Multiple Select" multiple>
+                </InputLabel>
+                <select value={this.state.value} onChange={this.handleClinicMenuOption}>
+                {clinics.map(clinic => {
+                  return <option value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</option>;
+                })}
+                </select>
+              </FormControl>
 
               <TextField
                 id="doctor-phone"
@@ -139,8 +124,5 @@ class DoctorForm extends React.Component {
   }
 }
 
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
-
 export default withStyles(styles)(DoctorForm);
+
