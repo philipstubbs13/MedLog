@@ -1,13 +1,33 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
+import { Heading, Row, Column, Container } from 'rebass';
 // Import LogForm
 import LogForm from './LogForm';
 // Import LogList
 import LogList from './LogList';
 // Import API
 import MedLogAPI from '../../utils/MedLogAPI';
+// Import style
+import { withStyles } from 'material-ui/styles';
+// Import Sidebar component.
+import Sidebar from '../../Components/Sidebar';
+
+// Style/Theme
+const styles = theme => ({
+  appFrame: {
+    zIndex: 1,
+    overflow: 'hidden',
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+  },
+  content: {
+    flexGrow: 1,
+    backgroundColor: '#03A9f4',
+    padding: theme.spacing.unit * 3,
+  },
+});
 
 
 class MedLog extends Component {
@@ -104,50 +124,58 @@ class MedLog extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return [ 
-      <Heading
-        is="h1"
-        children="My health log"
-        color="white"
-      />,
+      <div className={classes.appFrame}>
+        <Sidebar />
+          <main className={classes.content}>
+            <Container>
+              <Heading
+                is="h1"
+                children="My health log"
+                color="white"
+              />,
 
-      <div className="main-content-section">
-        <Row mt={4}>
-          <Column width={1} >
-            <LogForm
-              handleFormSubmit={this.handleFormSubmit}
-              handleLogDateChange={this.handleLogDateChange}
-              handleLogDoctorChange={this.handleLogDoctorChange}
-              handleLogClinicChange={this.handleLogClinicChange}
-              handleLogVisitReasonChange={this.handleLogVisitReasonChange}
-              handleLogHeightChange={this.handleLogHeightChange}
-              handleLogWeightChange={this.handleLogWeightChange}
-              handleLogNotesChange={this.handleLogNotesChange} />
-          </Column>
-        </Row>
+              <div className="main-content-section">
+                <Row>
+                  <Column width={1} >
+                    <LogForm
+                      handleFormSubmit={this.handleFormSubmit}
+                      handleLogDateChange={this.handleLogDateChange}
+                      handleLogDoctorChange={this.handleLogDoctorChange}
+                      handleLogClinicChange={this.handleLogClinicChange}
+                      handleLogVisitReasonChange={this.handleLogVisitReasonChange}
+                      handleLogHeightChange={this.handleLogHeightChange}
+                      handleLogWeightChange={this.handleLogWeightChange}
+                      handleLogNotesChange={this.handleLogNotesChange} />
+                  </Column>
+              </Row>
 
-        <Row>
-          <Column width={1}>
-              {this.state.logs.map(log => {
-                return (
-                  <LogList
-                    id={log._id}
-                    date={log.date}
-                    doctor={log.doctor}
-                    clinic={log.clinic}
-                    visitPurpose={log.visitPurpose}
-                    heightIn={log.heightIn}
-                    weightLb={log.weightLb}
-                    deleteLog={this.deleteLog}
-                  />
-                );
-              })}  
-          </Column>
-        </Row>
+              <Row>
+                <Column width={1}>
+                  {this.state.logs.map(log => {
+                    return (
+                      <LogList
+                        id={log._id}
+                        date={log.date}
+                        doctor={log.doctor}
+                        clinic={log.clinic}
+                        visitPurpose={log.visitPurpose}
+                        heightIn={log.heightIn}
+                        weightLb={log.weightLb}
+                        deleteLog={this.deleteLog}
+                      />
+                    );
+                  })}  
+                </Column>
+              </Row>
+            </div>
+          </Container>
+        </main>
       </div>,
     ];
   }
 }
 
 // Exporting the MedLog component so that the App.js file can use/render the My health log page.
-export default MedLog;
+export default withStyles(styles)(MedLog);

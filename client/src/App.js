@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // Importing material-ui theme.
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 // Importing app logo.
 // import logo from './logo.svg';
 // Importing css
@@ -32,8 +30,6 @@ import Prescriptions from './containers/Prescriptions';
 import Charts from './containers/Charts';
 // Importing the Login page
 import Login from './containers/Login';
-// Importing the side bar
-import Sidebar from './Components/Sidebar';
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -51,9 +47,8 @@ class App extends Component {
     return [
       <MuiThemeProvider theme={theme}>
         <NavBar />,
-        <Sidebar />,
-        {/* <Router>
-          <Container>
+        <Router>
+          <div>
             <Route exact path="/" component={Login} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/symptoms" component={SymptomJournal} />
@@ -63,8 +58,8 @@ class App extends Component {
             <Route exact path="/attachments" component={Attachments} />
             <Route exact path="/prescriptions" component={Prescriptions} />
             <Route exact path="/charts" component={Charts} />
-          </Container>
-        </Router>, */}
+          </div>
+        </Router>,
         <Footer />
       </MuiThemeProvider>,
     ];

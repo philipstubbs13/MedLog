@@ -8,6 +8,28 @@ import PrescriptionsForm from  './PrescriptionsForm';
 import PrescriptionsList from './PrescriptionsList';
 // Import API
 import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
+// Import style from material-ui-next
+import { withStyles } from 'material-ui/styles';
+// Import Sidebar component.
+import Sidebar from '../../Components/Sidebar';
+// Importing UI components from rebass.
+import { Container } from 'rebass';
+
+// Style/Theme
+const styles = theme => ({
+    appFrame: {
+        zIndex: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex',
+        width: '100%',
+    },
+    content: {
+        flexGrow: 1,
+        backgroundColor: '#03A9f4',
+        padding: theme.spacing.unit * 3,
+    },
+});
 
 class Prescriptions extends Component {
   state = {
@@ -87,46 +109,53 @@ class Prescriptions extends Component {
     };
 
     render() {
-        return [
-            <Heading
+      const { classes } = this.props;
+      return [
+        <div className={classes.appFrame}>
+          <Sidebar />
+          <main className={classes.content}>
+            <Container>
+              <Heading
                 is="h1"
                 children="My prescriptions"
-                mt={4}
                 color="white"
-            />,
+              />,
 
-            <div className="main-content-section">
-                <Row mt={4}>
-                    <Column width={1 / 2} >
-                        <PrescriptionsForm
-                            handleFormSubmit={this.handleFormSubmit}
-                            handlePrescriptionNameChange={this.handlePrescriptionNameChange}
-                            handlePrescriptionDoctorChange={this.handlePrescriptionDoctorChange}
-                            handlePrescriptionDateChange={this.handlePrescriptionDateChange}
-                            handlePrescriptionAmountChange={this.handlePrescriptionAmountChange}
-                            handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange} />
-                    </Column>
-                    <Column width={1 / 2}>
-                        {this.state.prescriptions.map(prescription => {
-                            return (
-                                <PrescriptionsList
-                                    id={prescription._id}
-                                    key={prescription._id}
-                                    prescriptionName={prescription.prescriptionName}
-                                    prescriptionDoctor={prescription.doctorprescribed}
-                                    prescriptionDate={prescription.dateprescribed}
-                                    prescriptionAmount={prescription.amount}
-                                    prescriptionDirections={prescription.generalinstructions}
-                                    deletePrescription={this.deletePrescription}
-                                />
-                            );
-                        })}
-                    </Column>
+              <div className="main-content-section">
+                <Row>
+                  <Column width={1 / 2} >
+                    <PrescriptionsForm
+                      handleFormSubmit={this.handleFormSubmit}
+                      handlePrescriptionNameChange={this.handlePrescriptionNameChange}
+                      handlePrescriptionDoctorChange={this.handlePrescriptionDoctorChange}
+                      handlePrescriptionDateChange={this.handlePrescriptionDateChange}
+                      handlePrescriptionAmountChange={this.handlePrescriptionAmountChange}
+                      handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange} />
+                  </Column>
+                  <Column width={1 / 2}>
+                    {this.state.prescriptions.map(prescription => {
+                      return (
+                        <PrescriptionsList
+                          id={prescription._id}
+                          key={prescription._id}
+                          prescriptionName={prescription.prescriptionName}
+                          prescriptionDoctor={prescription.doctorprescribed}
+                          prescriptionDate={prescription.dateprescribed}
+                          prescriptionAmount={prescription.amount}
+                          prescriptionDirections={prescription.generalinstructions}
+                          deletePrescription={this.deletePrescription}
+                        />
+                      );
+                    })}
+                  </Column>
                 </Row>
-            </div>,
-        ];
+              </div>
+            </Container>
+          </main>
+       </div >
+      ];
     }
-}
+  }
 
 // Exporting the Prescriptions component so that the App.js file can use/render the My prescriptions page.
-export default Prescriptions;
+export default withStyles(styles)(Prescriptions);
