@@ -23,7 +23,7 @@ const styles = {
     display: 'flex',
     flexWrap: 'wrap',
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: '#007AC1',
   },
   formControl: {

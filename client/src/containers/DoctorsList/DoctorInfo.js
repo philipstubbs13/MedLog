@@ -22,6 +22,10 @@ const styles = theme => ({
   logItem: {
     marginTop: 20,
   },
+  divider: {
+    backgroundColor: '#f44e03',
+    height: 6,
+  },
 });
 
 // Doctor info component on the Doctors and clinics page.
@@ -30,7 +34,7 @@ class DoctorInfo extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <List>
+        <List className={classes.logItem}>
           <ListItem>
             <ListItemText >
               <b>Doctor:</b> {this.props.doctorFirstName} {this.props.doctorLastName}
@@ -47,7 +51,7 @@ class DoctorInfo extends React.Component {
             </ListItemText>
           </ListItem>
         </List>
-        <Divider />
+        <Divider className={classes.divider}/>
       </div>
     );
   }

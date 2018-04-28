@@ -13,7 +13,7 @@ const styles = theme => ({
     paddingBottom: 16,
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: '#f44e03',
   }),
   button: {

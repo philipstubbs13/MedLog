@@ -22,7 +22,7 @@ const styles = theme => ({
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
-    borderWidth: 3,
+    borderWidth: 4,
     borderColor: '#f44e03',
   }),
   table: {
