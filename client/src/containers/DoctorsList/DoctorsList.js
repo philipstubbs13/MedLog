@@ -50,6 +50,9 @@ class DoctorList extends Component {
     this.loadClinics();
   }
 
+  //for loading the dropdown menus
+
+
 //for rendering doctors list 
   loadDoctors = () => {
     DoctorsAPI.getDoctors()
@@ -101,6 +104,7 @@ class DoctorList extends Component {
 
     // Keep track of what user enters for clinic name so that input can be grabbed later
   handleClinicNameChange = (event) => {
+    console.log("inside handle clinic name chang", event);
     this.setState({ clinicName: event.target.value });
   }
 
@@ -131,6 +135,7 @@ class DoctorList extends Component {
 
   handleDoctorFormSubmit = event => {
     event.preventDefault();
+    console.log('inside handleDoctorFormSubmit! ', event)
     console.log("Adding doctor - done in doctorslist.js");
     console.log("this.state.doctorFirstName: ", this.state.doctorFirstName);
     console.log("this.state.doctorLastName: ", this.state.doctorLastName);
@@ -179,6 +184,7 @@ class DoctorList extends Component {
         <Row mt={4}>
           <Column width={1 / 2} >
             <DoctorForm 
+              clinics = {this.state.clinics}
               handleDoctorFormSubmit={this.handleDoctorFormSubmit}
               handleDoctorFirstNameChange={this.handleDoctorFirstNameChange}
               handleDoctorLastNameChange={this.handleDoctorLastNameChange}
