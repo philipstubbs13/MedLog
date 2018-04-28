@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
 // const clientController = require('./controllers/client');
+// const oath2Controller = require('./controllers/oath2');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;
@@ -65,15 +66,31 @@ app.get('/user', function (req, res) {
     });
 });
 
-// route enpoints for client POST
+// route for client POST
 // app.post('/clients', function (req, res) {
 //   .route(authController.isAuthenticated, clientController.postClients);
 // });
 
-// route enpoints for client GET
+// route for client GET
 // app.get('/clients', function (req, res) {
 //   .route(authController.isAuthenticated, clientController.getClients);
 // });
+
+// route for oauth GET
+// app.get('/oauth2/authorize', function (req, res) {
+//   .route(authController.isAuthenticated, oauth2Controller.authorization);
+// });
+
+// route for oauth POST
+// app.post('./oauth2/authorize', function (req, res) {
+//   .route(authController.isAuthenticated, oauth2Controller.decision);
+// });
+
+// route for oauth token POST
+// app.post('./oauth2/token', function (req, res) {
+//   .route(authController.isClientAuthenticated, oauth2Controller.token);
+// });
+
 
 // Route for saving a new Health Log to the db and associating it with a User
 app.post('/submit', function (req, res) {
