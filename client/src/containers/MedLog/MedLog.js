@@ -108,7 +108,6 @@ class MedLog extends Component {
       <Heading
         is="h1"
         children="My health log"
-        mt={4}
         color="white"
       />,
 
