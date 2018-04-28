@@ -8,6 +8,18 @@ import SymptomTextFields from './SymptomForm';
 import SymptomList from './SymptomList';
 // Import API
 import SymptomAPI from '../../utils/SymptomAPI';
+import Button from 'material-ui/Button';
+
+// Style/Theme
+const styles = {
+  button: {
+    marginTop: 10,
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: '#007AC1',
+    color: 'white',
+  },
+};
 
 class SymptomJournal extends Component {
   state = {
@@ -19,15 +31,24 @@ class SymptomJournal extends Component {
     error: ""
   };
 
+  // When the component mounts, load all symptoms and save them to this.state.symptoms.
   componentDidMount() {
     this.loadSymptoms();
   }
 
+  // Loads all symptoms and saves them to this.state.symptoms.
   loadSymptoms = () => {
     SymptomAPI.getSymptoms()
       .then(res =>
         this.setState({ symptoms: res.data, symptomDay: "", symptomTime: "", symptomInfo: "" })
       )
+      .catch(err => console.log(err));
+  };
+
+  // Deletes a symptom from the database with a given id, then reloads symptoms from the db
+  deleteSymptom = id => {
+    SymptomAPI.deleteSymptom(id)
+      .then(res => this.loadSymptoms())
       .catch(err => console.log(err));
   };
 
@@ -94,13 +115,15 @@ class SymptomJournal extends Component {
               return (
                 <SymptomList
                   id={symptom._id}
+                  key={symptom._id}
                   type={symptom.symptomType}
                   date={symptom.symptomDate}
                   time={symptom.symptomTime}
                   info={symptom.symptomInfo}
-                />
-              );
-            })}  
+                  deleteSymptom = {this.deleteSymptom}
+          />
+        );
+      })}  
           </Column>
         </Row>
       </div>

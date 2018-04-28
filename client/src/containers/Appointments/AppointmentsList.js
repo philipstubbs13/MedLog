@@ -36,14 +36,14 @@ class AppointmentsList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <TableRow className={classes.row} key={this.props._id}>
+      <TableRow className={classes.row} key={this.props.id}>
         <TableCell>{this.props.name}</TableCell>
         <TableCell>{this.props.doctor}</TableCell>
         <TableCell numeric>{this.props.date}</TableCell>
         <TableCell numeric>{this.props.time}</TableCell>
         <TableCell>{this.props.clinic}</TableCell>
         <TableCell>
-          <Button size="large" className={classes.button}>
+          <Button size="large" className={classes.button} onClick={() => { this.props.deleteAppointment(this.props.id); }}>
             Remove
           </Button>
         </TableCell>

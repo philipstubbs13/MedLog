@@ -30,24 +30,24 @@ class SymptomList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-        <Paper className={classes.root} elevation={4}>
-          <Typography component="p">
-            <b>Symptom:</b> {this.props.type}
-          </Typography>
-          <Typography component="p">
-            <b>Date:</b> {this.props.date}
-          </Typography>
-          <Typography component="p">
-            <b>Time:</b> {this.props.time}
-          </Typography>
-          <Typography component="p">
-            <b>More info:</b> {this.props.info}
-          </Typography>
-          <Button size="small" className={classes.button}>Remove</Button>
-        </Paper>
+      <Paper className={classes.root} elevation={4} id={this.props.id}>
+        <Typography component="p">
+          <b>Symptom:</b> {this.props.type}
+        </Typography>
+        <Typography component="p">
+          <b>Date:</b> {this.props.date}
+        </Typography>
+        <Typography component="p">
+          <b>Time:</b> {this.props.time}
+        </Typography>
+        <Typography component="p">
+          <b>More info:</b> {this.props.info}
+        </Typography>
+        <Button size="small" className={classes.button} onClick={() => { this.props.deleteSymptom(this.props.id); }}>Remove</Button>
+      </Paper>
     );
   }
 }
 
-//Export SymptomList component with styling.
+// Export SymptomList component with styling.
 export default withStyles(styles)(SymptomList);
