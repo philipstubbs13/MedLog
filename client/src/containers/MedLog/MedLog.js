@@ -9,6 +9,7 @@ import LogList from './LogList';
 // Import API
 import MedLogAPI from '../../utils/MedLogAPI';
 
+
 class MedLog extends Component {
   state = {
     logDoctor: "",
@@ -22,15 +23,24 @@ class MedLog extends Component {
     error: ""
   };
 
+  // When the component mounts, load all logs and save them to this.state.logs.
   componentDidMount() {
     this.loadLogs();
   }
 
+  // Loads all logs and saves them to this.state.logs.
   loadLogs = () => {
     MedLogAPI.getLogs()
       .then(res =>
         this.setState({ logs: res.data })
       )
+      .catch(err => console.log(err));
+  };
+
+  // Deletes a log from the database with a given id, then reloads logs from the db
+  deleteLog = id => {
+    MedLogAPI.deleteLog(id)
+      .then(res => this.loadLogs())
       .catch(err => console.log(err));
   };
 
@@ -129,6 +139,7 @@ class MedLog extends Component {
                     visitPurpose={log.visitPurpose}
                     heightIn={log.heightIn}
                     weightLb={log.weightLb}
+                    deleteLog={this.deleteLog}
                   />
                 );
               })}  
