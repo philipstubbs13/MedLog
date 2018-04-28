@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+const clientController = require('./controllers/client');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;
@@ -62,6 +63,16 @@ app.get('/user', function (req, res) {
       // If an error occurs, send the error back to the client
       res.json(err);
     });
+});
+
+// route enpoints for client POST
+app.post('/clients', function (req, res) {
+  .route(authController.isAuthenticated, clientController.postClients);
+});
+
+// route enpoints for client GET
+app.get('/clients', function (req, res) {
+  .route(authController.isAuthenticated, clientController.getClients);
 });
 
 // Route for saving a new Health Log to the db and associating it with a User
