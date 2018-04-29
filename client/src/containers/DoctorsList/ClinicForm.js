@@ -51,7 +51,7 @@ class ClinicForm extends React.Component {
             <form noValidate autoComplete="off">
               <TextField
                 id="clinic-name"
-                label="Name of clinic"
+                label="Name"
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -66,7 +66,7 @@ class ClinicForm extends React.Component {
 
               <TextField
                 id="clinic-address"
-                label="Clinic address"
+                label="Address"
                 InputLabelProps={{
                   shrink: true,
                 }}

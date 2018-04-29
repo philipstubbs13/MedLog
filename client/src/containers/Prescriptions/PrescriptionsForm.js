@@ -36,7 +36,7 @@ const styles = theme => ({
     backgroundColor: '#007AC1',
     color: 'white',
   },
-})
+});
 
 class PrescriptionsForm extends React.Component {
   render() {
@@ -111,7 +111,7 @@ class PrescriptionsForm extends React.Component {
 
               <TextField
                 id="prescription-amount"
-                label="Number of tablets"
+                label="Amount"
                 type="text"
                 className={classes.textField}
                 InputLabelProps={{
@@ -137,10 +137,11 @@ class PrescriptionsForm extends React.Component {
                 onChange={this.props.handlePrescriptionDirectionsChange}
               />
 
-              <Button 
-                size="large" 
-                className={classes.button} 
-                onClick={this.props.handleFormSubmit}>
+              <Button
+                size="large"
+                className={classes.button}
+                onClick={this.props.handleFormSubmit}
+              >
                 Add prescription
               </Button>
             </form>

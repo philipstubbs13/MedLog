@@ -87,7 +87,7 @@ class SymptomTextFields extends React.Component {
 
               <TextField
                 id="symptom-day"
-                label="Day the symptom occurred"
+                label="Day symptom occurred"
                 type="date"
                 defaultValue="DD-MM-YYYY"
                 className={classes.textField}
@@ -115,7 +115,7 @@ class SymptomTextFields extends React.Component {
 
               <TextField
                 id="additional-symptom-info"
-                label="Additional information you want to share with the doctor"
+                label="Additional information you want to share with your doctor"
                 InputLabelProps={{
                   shrink: true,
                 }}

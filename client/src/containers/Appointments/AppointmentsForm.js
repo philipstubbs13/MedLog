@@ -114,7 +114,7 @@ class AppointmentsForm extends React.Component {
 
               <TextField
                 id="appointment-date"
-                label="Date of appointment"
+                label="Appointment date"
                 type="date"
                 defaultValue="MM-DD-YYYY"
                 className={classes.textField}

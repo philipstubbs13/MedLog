@@ -21,10 +21,6 @@ const styles = theme => ({
   logItem: {
     marginTop: 20,
   },
-  divider: {
-    backgroundColor: '#f44e03',
-    height: 6,
-  },
   button: {
     marginBottom: 5,
     padding: 10,
@@ -58,7 +54,7 @@ class ClinicInfo extends React.Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <Button size="small" className={classes.button} onClick={() => { this.props.deleteClinic(this.props.id); }}>Remove</Button>
+            <Button size="small" className={classes.button} onClick={() => { this.props.deleteClinic(this.props.id); }}>DELETE</Button>
           </ListItem>
         </List>
         <Divider className={classes.divider} />
