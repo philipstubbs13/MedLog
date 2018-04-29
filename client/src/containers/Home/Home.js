@@ -8,8 +8,6 @@ import journal from '../../assets/images/journal.png';
 import appointment from '../../assets/images/appointment.png';
 import prescription from '../../assets/images/prescription.png';
 import doctor from '../../assets/images/doctor.png';
-import search from '../../assets/images/search.png';
-import search2 from '../../assets/images/search2.png';
 import attachments from '../../assets/images/attachments.png';
 import chart from '../../assets/images/chart.png';
 
@@ -149,25 +147,7 @@ const Home = () => [
       </Row>
 
       <Row mt={0}>
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="Search"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
-            <Subhead align="center">
-              <Link
-                href="/search"
-              >
-                <img src={search2} alt="magnifying glass and folder" />
-              </Link>
-            </Subhead>
-          </Box>
-        </Column>
+        <Column width={1 / 3} />
 
         <Column width={1 / 3} >
           <Heading
@@ -195,5 +175,5 @@ const Home = () => [
   </Container>,
 ];
 
-// Exporting the Home component so that the App.js file can use/render the Home page.
+// Exporting the Home component so that the App.js file can render the Home page.
 export default Home;

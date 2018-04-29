@@ -47,9 +47,6 @@ class Sidebar extends React.Component {
           <ListItem button component={Link} to="/doctors">
             <ListItemText primary="Doctors and clinics" />
           </ListItem>
-          <ListItem button component={Link} to="/search">
-            <ListItemText primary="Search" />
-          </ListItem>
           <ListItem button component={Link} to="/attachments">
             <ListItemText primary="Attachments" />
           </ListItem>

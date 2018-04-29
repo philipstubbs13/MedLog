@@ -11,7 +11,7 @@ import Grid from 'material-ui/Grid';
 // Style
 const styles = theme => ({
   textField: {
-    marginTop: 80,
+    marginTop: 30,
   },
 
   root: {
@@ -21,13 +21,12 @@ const styles = theme => ({
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#f44e03',
-    
   },
   formControl: {
     minWidth: 120,
   },
   button: {
-    marginTop: 20,
+    marginTop: 40,
     padding: 15,
     backgroundColor: '#007AC1',
     color: 'white',

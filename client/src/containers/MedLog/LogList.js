@@ -24,7 +24,7 @@ const styles = theme => ({
     color: 'white',
   },
   logItem: {
-    marginTop: 20,
+    marginTop: 34,
     backgroundColor: '#007AC1',
     color: 'white',
   },
@@ -41,7 +41,7 @@ const styles = theme => ({
 class LogList extends React.Component {
   render() {
     const { classes } = this.props;
-    return (
+    return [
         <ExpansionPanel className={classes.logItem}>
           <ExpansionPanelSummary>
             <i className="fas fa-plus"></i>
@@ -80,13 +80,14 @@ class LogList extends React.Component {
                 </ListItemText>
               </ListItem>
 
-            <ListItem>
-              <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Remove</Button>
-            </ListItem>
+              {/* <ListItem>
+                <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Remove</Button>
+              </ListItem> */}
             </List>
           </ExpansionPanelDetails>
-        </ExpansionPanel>
-    );
+        </ExpansionPanel>,
+        <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Delete</Button>
+    ];
   }
 }
 
