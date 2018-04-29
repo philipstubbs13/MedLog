@@ -1,7 +1,11 @@
+// Import React
 import React from 'react';
+// Import material-ui-next components and styling.
 import { withStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List, { ListItem, ListItemText } from 'material-ui/List';
+// import third-party routing library (react-router-dom)
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -25,50 +29,32 @@ class Sidebar extends React.Component {
       >
         <div className={classes.toolbar} />
         <List>
-          <ListItem button >
-            <a href="/home">
-              <ListItemText primary="Home" />
-            </a>
+          <ListItem button component={Link} to="/home" >
+            <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button>
-            <a href="/log">
-              <ListItemText primary="My health log" />
-            </a>
+          <ListItem button component={Link} to="/log">
+            <ListItemText primary="My health log" />
           </ListItem>
-          <ListItem button>
-            <a href="/symptoms">
-              <ListItemText primary="My symptom journal" />
-            </a>
+          <ListItem button component={Link} to="/symptoms">
+            <ListItemText primary="My symptom journal" />
           </ListItem>
-          <ListItem button>
-            <a href="/appointments">
-              <ListItemText primary="Appointments" />
-            </a>
+          <ListItem button component={Link} to="/appointments">
+            <ListItemText primary="Appointments" />
           </ListItem>
-          <ListItem button>
-            <a href="/prescriptions">
-              <ListItemText primary="Prescriptions" />
-            </a>
+          <ListItem button component={Link} to="/prescriptions">
+            <ListItemText primary="Prescriptions" />
           </ListItem>
-          <ListItem button>
-            <a href="/doctors">
-              <ListItemText primary="Doctors and clinics" />
-            </a>
+          <ListItem button component={Link} to="/doctors">
+            <ListItemText primary="Doctors and clinics" />
           </ListItem>
-          <ListItem button>
-            <a href="/search">
-              <ListItemText primary="Search" />
-            </a>
+          <ListItem button component={Link} to="/search">
+            <ListItemText primary="Search" />
           </ListItem>
-          <ListItem button>
-            <a href="/attachments">
-              <ListItemText primary="Attachments" />
-            </a>
+          <ListItem button component={Link} to="/attachments">
+            <ListItemText primary="Attachments" />
           </ListItem>
-          <ListItem button>
-            <a href="/charts">
-              <ListItemText primary="Charts" />
-            </a>
+          <ListItem button component={Link} to="/charts">
+            <ListItemText primary="Charts" />
           </ListItem>
         </List>
       </Drawer>
