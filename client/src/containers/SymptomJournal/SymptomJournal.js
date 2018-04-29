@@ -11,6 +11,7 @@ import SymptomAPI from '../../utils/SymptomAPI';
 // Import UI components and styling from material-ui-next.
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing UI components from rebass.
@@ -116,14 +117,12 @@ class SymptomJournal extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Heading
-              is="h1"
-              children="My symptom journal"
-              color="white"
-            />,
+            <Typography variant="display1" align="left">
+              My symptom journal
+            </Typography>
 
             <div className="main-content-section">
-              <Row>
+              <Row mt={4}>
                 <Column width={1/2} >
                   <SymptomTextFields
                     handleFormSubmit = {this.handleFormSubmit}

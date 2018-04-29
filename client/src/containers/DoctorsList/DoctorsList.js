@@ -205,14 +205,12 @@ class DoctorList extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Heading
-              is="h1"
-              children="Doctors and clinics"
-              color="white"
-            />,
+              <Typography variant="display1" align="left">
+                Doctors and clinics
+              </Typography>
 
             <div className="main-content-section">
-              <Row>
+              <Row mt={4}>
                 <Column width={1 / 2} >
                   <DoctorForm 
                     clinics = {this.state.clinics}

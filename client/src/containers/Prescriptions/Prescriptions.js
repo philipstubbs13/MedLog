@@ -8,8 +8,9 @@ import PrescriptionsForm from  './PrescriptionsForm';
 import PrescriptionsList from './PrescriptionsList';
 // Import API
 import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
-// Import style from material-ui-next
+// Import style and components from material-ui-next
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing UI components from rebass.
@@ -115,14 +116,12 @@ class Prescriptions extends Component {
           <Sidebar />
           <main className={classes.content}>
             <Container>
-              <Heading
-                is="h1"
-                children="My prescriptions"
-                color="white"
-              />,
+              <Typography variant="display1" align="left">
+                My prescriptions
+              </Typography>
 
               <div className="main-content-section">
-                <Row>
+                <Row mt={4}>
                   <Column width={1 / 2} >
                     <PrescriptionsForm
                       handleFormSubmit={this.handleFormSubmit}

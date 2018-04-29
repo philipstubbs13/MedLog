@@ -10,6 +10,7 @@ import AttachmentsForm from  './AttachmentsForm';
 // import AttachmentsAPI from '../../utils/AttachmentsAPI';
 // import style from material-ui-next.
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -81,14 +82,12 @@ class Attachments extends Component {
       <Sidebar />
       <main className={classes.content}>
         <Container>
-          <Heading
-            is="h1"
-            children="Attachments"
-            color="white"
-          />,
+          <Typography variant="display1" align="left">
+            Attachments
+          </Typography>
 
           <div className="main-content-section">
-            <Row>
+            <Row mt={4}>
               <Column width={1 / 2} >
                 <AttachmentsForm
                   handleFormSubmit={this.handleFormSubmit}
