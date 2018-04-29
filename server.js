@@ -3,8 +3,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
-// const clientController = require('./controllers/client');
-// const oath2Controller = require('./controllers/oath2');
+
+// USER AUTH REQUIREMENTS:
+// const passport = require('./passport');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;
@@ -25,6 +26,9 @@ if (process.env.NODE_ENV === 'production') {
 
 // Add routes, both API and view
 app.use(routes);
+
+// USE PASSPORT:
+// app.use(passport.initialize());
 
 
 // When the server starts, create and save a new User document to the db
@@ -65,31 +69,6 @@ app.get('/user', function (req, res) {
       res.json(err);
     });
 });
-
-// route for client POST
-// app.post('/clients', function (req, res) {
-//   .route(authController.isAuthenticated, clientController.postClients);
-// });
-
-// route for client GET
-// app.get('/clients', function (req, res) {
-//   .route(authController.isAuthenticated, clientController.getClients);
-// });
-
-// route for oauth GET
-// app.get('/oauth2/authorize', function (req, res) {
-//   .route(authController.isAuthenticated, oauth2Controller.authorization);
-// });
-
-// route for oauth POST
-// app.post('./oauth2/authorize', function (req, res) {
-//   .route(authController.isAuthenticated, oauth2Controller.decision);
-// });
-
-// route for oauth token POST
-// app.post('./oauth2/token', function (req, res) {
-//   .route(authController.isClientAuthenticated, oauth2Controller.token);
-// });
 
 
 // Route for saving a new Health Log to the db and associating it with a User
