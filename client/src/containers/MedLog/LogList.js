@@ -79,14 +79,10 @@ class LogList extends React.Component {
                   <b>Weight (pounds):</b> {this.props.weightLb}
                 </ListItemText>
               </ListItem>
-
-              {/* <ListItem>
-                <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Remove</Button>
-              </ListItem> */}
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>,
-        <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Delete</Button>
+        <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Delete</Button>,
     ];
   }
 }

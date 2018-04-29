@@ -8,8 +8,9 @@ import LogForm from './LogForm';
 import LogList from './LogList';
 // Import API
 import MedLogAPI from '../../utils/MedLogAPI';
-// Import style
+// Import style and UI components from material-ui-next
 import { withStyles } from 'material-ui/styles';
+import Typography from 'material-ui/Typography';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -130,14 +131,12 @@ class MedLog extends Component {
         <Sidebar />
           <main className={classes.content}>
             <Container>
-              <Heading
-                is="h1"
-                children="My health log"
-                color="white"
-              />,
+              <Typography variant="display1" align="left">
+               My health log
+              </Typography>
 
             <div className="main-content-section">
-              <Row>
+              <Row mt={4}>
                 <Column width={1 / 2} >
                   <LogForm
                     handleFormSubmit={this.handleFormSubmit}

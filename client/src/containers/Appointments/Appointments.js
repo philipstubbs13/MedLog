@@ -12,6 +12,7 @@ import AppointmentAPI from '../../utils/AppointmentAPI';
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -141,14 +142,12 @@ class Appointments extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Heading
-              is="h1"
-              children="Appointments"
-              color="white"
-            />,
+            <Typography variant="display1" align="left">
+              Appointments
+            </Typography>
 
             <div className="main-content-section">
-              <Row>
+              <Row mt={4}>
                 <Column width={1} >
                   <AppointmentsForm
                     handleFormSubmit={this.handleFormSubmit}
@@ -162,7 +161,9 @@ class Appointments extends Component {
 
               <Row>
                 <Column width={1}>
-                  <Heading is="h1" children="Upcoming appointments" mt={4} color="white" />
+                   <Typography variant="display1" align="left">
+                     Upcoming appointments
+                   </Typography>
                   <Paper className={classes.root}>
                     <Table className={classes.table}>
                       <TableHead>
