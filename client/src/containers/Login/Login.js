@@ -47,9 +47,12 @@ class Login extends Component {
   render() {
     return [ 
       <Container>
-        <Typography gutterBottom variant="headline" component="h2" className="header">
-          Welcome to HealthTracker!
-        </Typography>,
+        <Heading
+          is="h1"
+          children="Welcome to HealthTracker"
+          color="white"
+          mt={4}
+        />,
 
         <div className="main-content-section">
           <Row>
