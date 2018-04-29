@@ -136,23 +136,21 @@ class MedLog extends Component {
                 color="white"
               />,
 
-              <div className="main-content-section">
-                <Row>
-                  <Column width={1} >
-                    <LogForm
-                      handleFormSubmit={this.handleFormSubmit}
-                      handleLogDateChange={this.handleLogDateChange}
-                      handleLogDoctorChange={this.handleLogDoctorChange}
-                      handleLogClinicChange={this.handleLogClinicChange}
-                      handleLogVisitReasonChange={this.handleLogVisitReasonChange}
-                      handleLogHeightChange={this.handleLogHeightChange}
-                      handleLogWeightChange={this.handleLogWeightChange}
-                      handleLogNotesChange={this.handleLogNotesChange} />
-                  </Column>
-              </Row>
-
+            <div className="main-content-section">
               <Row>
-                <Column width={1}>
+                <Column width={1 / 2} >
+                  <LogForm
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleLogDateChange={this.handleLogDateChange}
+                    handleLogDoctorChange={this.handleLogDoctorChange}
+                    handleLogClinicChange={this.handleLogClinicChange}
+                    handleLogVisitReasonChange={this.handleLogVisitReasonChange}
+                    handleLogHeightChange={this.handleLogHeightChange}
+                    handleLogWeightChange={this.handleLogWeightChange}
+                    handleLogNotesChange={this.handleLogNotesChange} />
+                </Column>
+                  
+                <Column width={1 / 2}>
                   {this.state.logs.map(log => {
                     return (
                       <LogList

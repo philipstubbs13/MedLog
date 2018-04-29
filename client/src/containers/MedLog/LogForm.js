@@ -179,7 +179,7 @@ class LogForm extends React.Component {
 
               <TextField
                 id="log-notes"
-                label="Doctor visit notes"
+                label="Visit notes"
                 InputLabelProps={{
                   shrink: true,
                 }}

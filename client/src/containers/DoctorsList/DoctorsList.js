@@ -40,6 +40,11 @@ const styles = theme => ({
     backgroundColor: '#03A9f4',
     padding: theme.spacing.unit * 3,
   },
+  doctorClinicList: {
+    borderStyle: 'solid',
+    borderWidth: 4,
+    borderColor: '#f44e03',
+  },
 });
 
 class DoctorList extends Component {
@@ -218,7 +223,7 @@ class DoctorList extends Component {
                     handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
                 </Column>
                 <Column width={1 / 2} ml={5}>
-                  <Paper elevation={4}>
+                  <Paper elevation={4} className={classes.doctorClinicList}>
                     <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
                       Doctors list
                     </Typography>
@@ -251,7 +256,7 @@ class DoctorList extends Component {
                 </Column>
                 <Column width={1 / 2} ml={5}>
                   <div>
-                    <Paper elevation={4}>
+                    <Paper elevation={4} className={classes.doctorClinicList}>
                       <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}}>
                         Clinics
                       </Typography>

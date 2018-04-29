@@ -83,7 +83,7 @@ class Attachments extends Component {
         <Container>
           <Heading
             is="h1"
-            children="My attachments"
+            children="Attachments"
             color="white"
           />,
 

@@ -25,6 +25,9 @@ const styles = {
     marginRight: 20,
     backgroundColor: 'white',
   },
+  button: {
+    color: 'white',
+  },
 };
 
 function NavBar(props) {
@@ -37,7 +40,7 @@ function NavBar(props) {
           <Typography variant="title" color="inherit" className={classes.flex}>
             HealthTracker
           </Typography>
-          <Button >
+          <Button className={classes.button}>
             Logout
           </Button>
         </Toolbar>

@@ -42,7 +42,7 @@ class Sidebar extends React.Component {
             <ListItemText primary="Appointments" />
           </ListItem>
           <ListItem button component={Link} to="/prescriptions">
-            <ListItemText primary="Prescriptions" />
+            <ListItemText primary="My prescriptions" />
           </ListItem>
           <ListItem button component={Link} to="/doctors">
             <ListItemText primary="Doctors and clinics" />
