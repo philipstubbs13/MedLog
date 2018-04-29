@@ -4,12 +4,13 @@ import React from 'react';
 import Typography from 'material-ui/Typography';
 import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
-import { FormControl } from 'material-ui/Form';
-import Select from 'material-ui/Select';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+// Import react-drop-to-upload component
+// https://www.npmjs.com/package/react-drop-to-upload
+import DropToUpload from 'react-drop-to-upload';
 
 const styles = {
   textField: {
@@ -30,10 +31,16 @@ const styles = {
     minWidth: 120,
   },
   button: {
-    marginTop: 20,
+    marginTop: 40,
     padding: 15,
     backgroundColor: '#007AC1',
     color: 'white',
+  },
+  dragndrop: {
+    borderStyle: 'dashed',
+    padding: 35,
+    marginTop: 35,
+    textAlign: 'center',
   },
 };
 
@@ -109,6 +116,13 @@ class AttachmentsForm extends React.Component {
                 value={this.props.attachmentSubject}
                 onChange={this.props.handleAttachmentSubjectChange}
               />
+
+              <DropToUpload
+                onDrop={this.handleDrop}
+                className={classes.dragndrop}
+              >
+              Drop file here to upload
+              </DropToUpload>
 
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add attachment

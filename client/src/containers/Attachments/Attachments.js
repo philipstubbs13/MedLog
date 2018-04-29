@@ -96,7 +96,8 @@ class Attachments extends Component {
                   handleAttachmentDateChange={this.handleAttachmentDateChange}
                   handleAttachmentSubjectChange={this.handleAttachmentSubjectChange}/>
               </Column>
-              <Column width={1 / 2} />
+              <Column width={1 / 2} >
+              </Column>
             </Row>
           </div>
         </Container>
