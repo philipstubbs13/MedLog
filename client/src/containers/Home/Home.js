@@ -1,7 +1,11 @@
 // Importing React since we are using React.
-import React from 'react';
+import React, { Component } from 'react';
 // Importing UI components from rebass.
-import { Heading, Row, Column, Box, Subhead, Link, Container } from 'rebass';
+import { Subhead, Link } from 'rebass';
+// Import UI components from material-ui-next.
+import { withStyles } from 'material-ui/styles';
+import Grid from 'material-ui/Grid';
+import Typography from 'material-ui/Typography';
 // Importing icons/images
 import report from '../../assets/images/medical_report.png';
 import journal from '../../assets/images/journal.png';
@@ -11,28 +15,33 @@ import doctor from '../../assets/images/doctor.png';
 import attachments from '../../assets/images/attachments.png';
 import chart from '../../assets/images/chart.png';
 
-// Home Page
-const Home = () => [
-  <Container>
-    <Heading
-      is="h1"
-      children="What would you like to do today?"
-      mt={4}
-      color="white"
-    />,
+const styles = {
+  root: {
+    flexGrow: 1,
+  },
+  headline: {
+    marginTop: 30,
+  },
+};
 
-    <div className="main-content-section">
-      <Row mt={4}>
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="My health log"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+class Home extends Component {
+  render() {
+    const { classes } = this.props;
+    return [
+      <Grid container spacing={24} className={classes.root}>
+        <Grid item xs={12} className={classes.headline}>
+          <Typography variant="display1" align="center">
+            What would you like to do today?
+          </Typography>
+        </Grid>
+      </Grid>,
+
+      <div className="main-content-section">
+        <Grid container spacing={24} className={classes.root}>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              My health log
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/log"
@@ -40,19 +49,11 @@ const Home = () => [
                 <img src={report} alt="clipboard" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
-
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="My symptom journal"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              My symptom journal
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/symptoms"
@@ -60,19 +61,12 @@ const Home = () => [
                 <img src={journal} alt="health journal" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
+          </Grid>
 
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="Appointments"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              Appointments
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/appointments"
@@ -80,41 +74,24 @@ const Home = () => [
                 <img src={appointment} alt="calendar" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
-      </Row>,
-
-      <Row mt={0}>
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="My prescriptions"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              My prescriptions
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/prescriptions"
               >
-                <img src={prescription} alt="prescription label" />
+                <img src={prescription} alt="prescription card" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
+          </Grid>
 
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="Doctors and clinics"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              Doctors and clinics
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/doctors"
@@ -122,58 +99,42 @@ const Home = () => [
                 <img src={doctor} alt="doctor" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
+          </Grid>
 
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="Attachments"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              Attachments
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/attachments"
               >
-                <img src={attachments} alt="attachments" />
+                <img src={attachments} alt="documents" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
-      </Row>
+          </Grid>
 
-      <Row mt={0}>
-        <Column width={1 / 3} />
+          <Grid item xs={12} sm={6} md={4} />
 
-        <Column width={1 / 3} >
-          <Heading
-            is="h1"
-            children="Charts"
-            mt={4}
-            color="white"
-            fontSize={28}
-            align="center"
-          />
-          <Box p={3}>
+          <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Typography variant="headline" align="center">
+              Charts
+            </Typography>
             <Subhead align="center">
               <Link
                 href="/charts"
               >
-                <img src={chart} alt="chart" />
+                <img src={chart} alt="bar graph" />
               </Link>
             </Subhead>
-          </Box>
-        </Column>
+          </Grid>
 
-        <Column width={1 / 3} />
-      </Row>
-    </div>
-  </Container>,
-];
+          <Grid item xs={12} sm={6} md={4} />
+        </Grid>
+      </div>,
+    ];
+  }
+}
 
 // Exporting the Home component so that the App.js file can render the Home page.
-export default Home;
+export default withStyles(styles)(Home);
