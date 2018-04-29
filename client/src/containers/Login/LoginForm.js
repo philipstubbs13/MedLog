@@ -6,7 +6,6 @@ import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import Grid from 'material-ui/Grid';
 
 // Style
 const styles = theme => ({
@@ -41,7 +40,7 @@ class LoginForm extends React.Component {
       <div>
         <Card className={classes.root}>
           <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
+            <Typography gutterBottom variant="headline" component="h2" align="center">
             Login
             </Typography>
             <form noValidate autoComplete="off">

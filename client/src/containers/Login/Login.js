@@ -1,18 +1,21 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
-// Importing UI components from rebass.
-import { Heading, Row, Column, Container} from 'rebass';
-// Importing UI components from material-ui-next
+// Importing UI components and style from material-ui-next
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
+// Importing UI components from rebass.
+import { Container } from 'rebass';
 // Import LoginForm
 import LoginForm from './LoginForm';
 
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
-  typography: {
-    htmlFontSize: 40,
-    color: 'white',
+  root: {
+    flexGrow: 1,
+  },
+  headline: {
+    marginTop: 30,
   },
 };
 
@@ -45,24 +48,26 @@ class Login extends Component {
   };
 
   render() {
-    return [ 
+    const { classes } = this.props;
+    return [
       <Container>
-        <Heading
-          is="h1"
-          children="Welcome to HealthTracker"
-          color="white"
-          mt={4}
-        />,
+        <Grid item xs={12} className={classes.headline}>
+          <Grid container spacing={16} className={classes.root} justify="center">
+            <Typography variant="display1">
+              Welcome to HealthTracker
+            </Typography>
+          </Grid>
+        </Grid>,
 
         <div className="main-content-section">
-          <Row>
-            <Column width={1} >
+          <Grid item xs={12} className={classes.headline}>
+            <Grid container spacing={16} className={classes.root} justify="center">
               <LoginForm
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
                 handlePasswordChange = {this.handlePasswordChange}  />
-            </Column>
-          </Row>
+            </Grid>
+          </Grid>
         </div>
       </Container>,
     ];
