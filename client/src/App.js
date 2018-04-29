@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return [
       <MuiThemeProvider theme={theme}>
-        <NavBar />,
+        <NavBar />
         <Router>
           <div>
             <Route exact path="/" component={Login} />
@@ -59,7 +59,7 @@ class App extends Component {
             <Route exact path="/prescriptions" component={Prescriptions} />
             <Route exact path="/charts" component={Charts} />
           </div>
-        </Router>,
+        </Router>
         <Footer />
       </MuiThemeProvider>,
     ];
