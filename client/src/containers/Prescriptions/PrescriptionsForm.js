@@ -39,8 +39,19 @@ const styles = theme => ({
 });
 
 class PrescriptionsForm extends React.Component {
+  handleDoctorMenuOption = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handlePrescriptionDoctorChange(event);
+  }
+
+  state = {
+    value: '',
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, doctors } = this.props;
+    console.log(doctors);
 
     return (
         <Card className={classes.root}>
@@ -61,39 +72,15 @@ class PrescriptionsForm extends React.Component {
                 value={this.props.prescriptionName}
                 onChange={this.props.handlePrescriptionNameChange}
               />
-              {/* <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="select-doctor-dropdown">Select a doctor</InputLabel>
-                <Select
-                  value={this.props.prescriptionDoctor}
-                  onChange={this.props.handlePrescriptionDoctorChange}
-                  inputProps={{
-                    doctor: '',
-                    id: 'select-doctor',
-                  }}
-                >
-                  <MenuItem value="" />
-                  <MenuItem value="Pain">Dr. Pain</MenuItem>
-                  <MenuItem value="Joins">Dr. Jones</MenuItem>
-                  <MenuItem value="Johnson">Dr. Johnson</MenuItem>
-                  <MenuItem value="Smith">Dr. Smith</MenuItem>
-                  <MenuItem value="Phil">Dr. Phil</MenuItem>
-                  <MenuItem value="J"></MenuItem>Dr. J</MenuItem>
-                  <MenuItem value="Other">Other</MenuItem>
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel type="select-doctors-dropdown" label="Multiple Select" multiple>
+                </InputLabel>
+                <Select value={this.state.value} onChange={this.handleDoctorMenuOption}>
+                  {doctors.map(doctor => {
+                  return <option value={doctor.lastname}>{doctor.lastname}</option>;
+                  })}
                 </Select>
-              </FormControl> */}
-
-              <TextField
-                id="select-doctor-dropdown"
-                label="Select a doctor"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.prescriptionDoctor}
-                onChange={this.props.handlePrescriptionDoctorChange}
-              />
+              </FormControl>
 
               <TextField
                 id="date-prescribed"
@@ -111,7 +98,11 @@ class PrescriptionsForm extends React.Component {
 
               <TextField
                 id="prescription-amount"
+<<<<<<< Updated upstream
                 label="Amount"
+=======
+                label="Dose Amount"
+>>>>>>> Stashed changes
                 type="text"
                 className={classes.textField}
                 InputLabelProps={{

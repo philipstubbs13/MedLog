@@ -8,6 +8,7 @@ router.route("/")
 
 // Matches with "/api/prescriptions/:id"
 router.route("/:id")
-    .delete(prescriptionsController.remove);
-
+    .delete(prescriptionsController.remove)
+    .get(prescriptionsController.findById)
+    .put(prescriptionsController.update);
 module.exports = router;
