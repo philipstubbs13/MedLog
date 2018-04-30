@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column, Container } from 'rebass';
+import { Container } from 'rebass';
 // Import DoctorForm
 import DoctorForm from './DoctorForm';
 // Import DoctorInfo
@@ -17,6 +17,7 @@ import ClinicsAPI from '../../utils/ClinicsAPI';
 import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -44,6 +45,9 @@ const styles = theme => ({
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#f44e03',
+  },
+  clinicSection: {
+    marginTop: 45,
   },
 });
 
@@ -205,13 +209,17 @@ class DoctorList extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-              <Typography variant="display1" align="left">
-                Doctors and clinics
-              </Typography>
+            <Grid container spacing={24}>
+              <Grid item xs={12}>
+                <Typography variant="display1" align="left">
+                  Doctors and clinics
+                </Typography>
+              </Grid>
+            </Grid>
 
             <div className="main-content-section">
-              <Row mt={4}>
-                <Column width={1 / 2} >
+              <Grid container spacing={16}>
+                <Grid item xs={12} sm={12} md={6}>
                   <DoctorForm 
                     clinics = {this.state.clinics}
                     handleDoctorFormSubmit={this.handleDoctorFormSubmit}
@@ -219,8 +227,8 @@ class DoctorList extends Component {
                     handleDoctorLastNameChange={this.handleDoctorLastNameChange}
                     handleDoctorClinicChange={this.handleDoctorClinicChange}
                     handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
-                </Column>
-                <Column width={1 / 2} ml={5}>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6}>
                   <Paper elevation={4} className={classes.doctorClinicList}>
                     <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}} >
                       Doctors list
@@ -238,11 +246,11 @@ class DoctorList extends Component {
                       );
                     })}
                   </Paper>
-                </Column>
-              </Row>
+                </Grid>
+              </Grid>
 
-              <Row mt={4}>
-                <Column width={1 / 2} >
+              <Grid container spacing={16} className={classes.clinicSection}>
+                <Grid item xs={12} sm={12} md={6}>
                   <ClinicForm
                     handleClinicFormSubmit={this.handleClinicFormSubmit}
                     handleClinicNameChange={this.handleClinicNameChange}
@@ -251,8 +259,8 @@ class DoctorList extends Component {
                     handleClinicStateChange={this.handleClinicStateChange}
                     handleClinicZipChange={this.handleClinicZipChange}
                     handleClinicPhoneChange={this.handleClinicPhoneChange}  />
-                </Column>
-                <Column width={1 / 2} ml={5}>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6}>
                   <div>
                     <Paper elevation={4} className={classes.doctorClinicList}>
                       <Typography gutterBottom variant="headline" component="h2" style={{textAlign: 'center'}}>
@@ -274,8 +282,8 @@ class DoctorList extends Component {
                       })}
                     </Paper>
                   </div>
-                </Column>
-              </Row>
+                </Grid>
+              </Grid>
             </div>
           </Container>
         </main>

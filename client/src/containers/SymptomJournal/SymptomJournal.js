@@ -1,7 +1,5 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
-// Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
 // Import SymptomForm
 import SymptomTextFields from './SymptomForm';
 // Import SymptomList
@@ -12,6 +10,7 @@ import SymptomAPI from '../../utils/SymptomAPI';
 import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing UI components from rebass.
@@ -117,21 +116,26 @@ class SymptomJournal extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Typography variant="display1" align="left">
-              My symptom journal
-            </Typography>
+            <Grid container spacing={24}>
+              <Grid item xs={12}>
+                <Typography variant="display1" align="left">
+                  My symptom journal
+                </Typography>
+              </Grid>
+            </Grid>
 
             <div className="main-content-section">
-              <Row mt={4}>
-                <Column width={1/2} >
+              <Grid container spacing={16}>
+                <Grid item xs={12} sm={12} md={6}>
                   <SymptomTextFields
                     handleFormSubmit = {this.handleFormSubmit}
                     handleSymptomTypeChange = {this.handleSymptomTypeChange}
                     handleSymptomDayChange = {this.handleSymptomDayChange}
                     handleSymptomTimeChange = {this.handleSymptomTimeChange}
                     handleSymptomInfoChange = {this.handleSymptomInfoChange} />
-                </Column>
-                <Column width={1/2} ml={5}>
+                </Grid>  
+
+                <Grid item xs={12} sm={12} md={6}>
                   {this.state.symptoms.map(symptom => {
                     return (
                       <SymptomList
@@ -144,8 +148,8 @@ class SymptomJournal extends Component {
                         deleteSymptom = {this.deleteSymptom}/>
                     );
                   })}  
-                </Column>
-              </Row>
+                </Grid>
+              </Grid>
             </div>
           </Container>
         </main>

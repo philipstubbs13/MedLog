@@ -1,7 +1,5 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
-// Importing UI components from rebass.
-import { Heading, Row, Column } from 'rebass';
 // Import PrescriptionsForm
 import PrescriptionsForm from  './PrescriptionsForm';
 // Import PrescriptionsList
@@ -11,6 +9,7 @@ import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
 // Import style and components from material-ui-next
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 // Importing UI components from rebass.
@@ -116,13 +115,17 @@ class Prescriptions extends Component {
           <Sidebar />
           <main className={classes.content}>
             <Container>
-              <Typography variant="display1" align="left">
-                My prescriptions
-              </Typography>
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Typography variant="display1" align="left">
+                    My prescriptions
+                  </Typography>
+                </Grid>
+              </Grid>
 
               <div className="main-content-section">
-                <Row mt={4}>
-                  <Column width={1 / 2} >
+                <Grid container spacing={16}>
+                  <Grid item xs={12} sm={12} md={6}>
                     <PrescriptionsForm
                       handleFormSubmit={this.handleFormSubmit}
                       handlePrescriptionNameChange={this.handlePrescriptionNameChange}
@@ -130,8 +133,8 @@ class Prescriptions extends Component {
                       handlePrescriptionDateChange={this.handlePrescriptionDateChange}
                       handlePrescriptionAmountChange={this.handlePrescriptionAmountChange}
                       handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange} />
-                  </Column>
-                  <Column width={1 / 2}>
+                  </Grid>
+                  <Grid item xs={12} sm={12} md={6}>
                     {this.state.prescriptions.map(prescription => {
                       return (
                         <PrescriptionsList
@@ -146,8 +149,8 @@ class Prescriptions extends Component {
                         />
                       );
                     })}
-                  </Column>
-                </Row>
+                  </Grid>
+                </Grid>
               </div>
             </Container>
           </main>
