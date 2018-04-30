@@ -6,12 +6,9 @@ import PrescriptionsForm from  './PrescriptionsForm';
 import PrescriptionsList from './PrescriptionsList';
 // Import API
 import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
-<<<<<<< Updated upstream
 // Import style and components from material-ui-next
-=======
 import DoctorsAPI from '../../utils/DoctorsAPI';
 // Import style from material-ui-next
->>>>>>> Stashed changes
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
