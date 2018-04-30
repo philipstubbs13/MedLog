@@ -98,11 +98,7 @@ class PrescriptionsForm extends React.Component {
 
               <TextField
                 id="prescription-amount"
-<<<<<<< Updated upstream
-                label="Amount"
-=======
                 label="Dose Amount"
->>>>>>> Stashed changes
                 type="text"
                 className={classes.textField}
                 InputLabelProps={{
