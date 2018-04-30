@@ -20,9 +20,6 @@ import Sidebar from '../../Components/Sidebar';
 //Style
 const styles = theme => ({
   root: theme.mixins.gutters({
-    paddingTop: 16,
-    paddingBottom: 16,
-    marginTop: 40,
     width: '100%',
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
@@ -31,6 +28,9 @@ const styles = theme => ({
   }),
   table: {
     minWidth: 700,
+  },
+  tableWrapper: {
+    overflowX: 'auto',
   },
   row: {
     '&:nth-of-type(odd)': {
@@ -171,34 +171,36 @@ class Appointments extends Component {
                    </Typography>
  
                   <Paper className={classes.root}>
-                    <Table className={classes.table}>
-                      <TableHead>
-                        <TableRow>
-                          <TableCell><b>Name</b></TableCell>
-                          <TableCell><b>Doctor</b></TableCell>
-                          <TableCell numeric><b>Date</b></TableCell>
-                          <TableCell numeric><b>Time</b></TableCell>
-                          <TableCell><b>Clinic</b></TableCell>
-                          <TableCell></TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {this.state.appointments.map(appointment => {
-                          return (
-                            <AppointmentsList
-                              id={appointment._id}
-                              key={appointment._id}
-                              name={appointment.name}
-                              date={appointment.date}
-                              time={appointment.time}
-                              doctor={appointment.doctor}
-                              clinic={appointment.clinic}
-                              deleteAppointment={this.deleteAppointment}
-                            />
-                          );
-                        })}
-                      </TableBody>
-                    </Table>
+                    <div className={classes.tableWrapper}>
+                      <Table className={classes.table}>
+                        <TableHead>
+                          <TableRow>
+                            <TableCell><b>Name</b></TableCell>
+                            <TableCell><b>Doctor</b></TableCell>
+                            <TableCell numeric><b>Date</b></TableCell>
+                            <TableCell numeric><b>Time</b></TableCell>
+                            <TableCell><b>Clinic</b></TableCell>
+                            <TableCell></TableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody className={classes.tabledata}>
+                          {this.state.appointments.map(appointment => {
+                            return (
+                              <AppointmentsList
+                                id={appointment._id}
+                                key={appointment._id}
+                                name={appointment.name}
+                                date={appointment.date}
+                                time={appointment.time}
+                                doctor={appointment.doctor}
+                                clinic={appointment.clinic}
+                                deleteAppointment={this.deleteAppointment}
+                              />
+                            );
+                          })}
+                        </TableBody>
+                      </Table>
+                    </div>
                   </Paper>
                 </Grid>
               </Grid>
