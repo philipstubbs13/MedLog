@@ -30,6 +30,7 @@ const styles = theme => ({
 // Prescription List component on the My prescriptions page.
 class PrescriptionList extends React.Component {
   render() {
+    console.log("the prescription list is here but not working");
     const { classes } = this.props;
     return (
         <Paper className={classes.root} elevation={4} id={this.props.id}>

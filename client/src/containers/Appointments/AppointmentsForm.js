@@ -39,8 +39,19 @@ const styles = {
 };
 
 class AppointmentsForm extends React.Component {
+  handleDoctorMenuOption = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleAppointmentDoctorChange(event);
+  }
+
+  state = {
+    value: '',
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, doctors } = this.props;
+    console.log(doctors);
 
     return (
       <div>
@@ -65,39 +76,15 @@ class AppointmentsForm extends React.Component {
                 onChange={this.props.handleAppointmentNameChange}
               />
 
-                        {/* <FormControl className={classes.formControl} fullWidth>
-                            <InputLabel htmlFor="select-doctor-dropdown">Select a doctor</InputLabel>
-                            <Select
-                                value={this.props.appointmentDoctor}
-                                onChange={this.handleAppointmentDoctorChange}
-                                inputProps={{
-                                doctor: '',
-                                id: 'select-doctor',
-                                }}
-                            >
-                                <MenuItem value=""></MenuItem>
-                                <MenuItem value={"Pain"}>Dr. Pain</MenuItem>
-                                <MenuItem value={"Joins"}>Dr. Jones</MenuItem>
-                                <MenuItem value={"Johnson"}>Dr. Johnson</MenuItem>
-                                <MenuItem value={"Smith"}>Dr. Smith</MenuItem>
-                                <MenuItem value={"Phil"}>Dr. Phil</MenuItem>
-                                <MenuItem value={"J"}>Dr. J</MenuItem>
-                                <MenuItem value={"Other"}>Other</MenuItem>
-                            </Select>
-                        </FormControl> */}
-
-              <TextField
-                id="appointment-doctor"
-                label="Doctor"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.appointmentDoctor}
-                onChange={this.props.handleAppointmentDoctorChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel type="select-doctors-dropdown" label="Multiple Select" multiple>
+                </InputLabel>
+                <Select value={this.state.value} onChange={this.handleDoctorMenuOption}>
+                  {doctors.map(doctor => {
+                    return <option value={doctor.lastname}>{doctor.lastname}</option>;
+                  })}
+                </Select>
+              </FormControl>
 
               <TextField
                 id="appointment-clinic"

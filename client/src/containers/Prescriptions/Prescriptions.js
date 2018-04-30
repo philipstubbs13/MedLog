@@ -7,6 +7,8 @@ import PrescriptionsList from './PrescriptionsList';
 // Import API
 import PrescriptionsAPI from '../../utils/PrescriptionsAPI';
 // Import style and components from material-ui-next
+import DoctorsAPI from '../../utils/DoctorsAPI';
+// Import style from material-ui-next
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
@@ -39,21 +41,31 @@ class Prescriptions extends Component {
     prescriptionAmount: "",
     prescriptionDirections: "",
     prescriptions: [],
-    error: ""
+    error: "",
+    doctors: [],
   };
 
     // When the component mounts, load all prescriptions and save them to this.state.prescriptions.
     componentDidMount() {
         this.loadPrescriptions();
+        this.loadDoctors();
     }
 
     // Loads all prescriptions and saves them to this.state.prescriptions.
     loadPrescriptions = () => {
         PrescriptionsAPI.getPrescriptions()
             .then(res =>
-                this.setState({ prescriptions: res.data })
-            )
-            .catch(err => console.log(err));
+              this.setState({ prescriptions: res.data}))
+            .catch(err => console.log('loading prescriptions is not working: ' + err));
+    };
+
+    //Loads all doctors and saves them to this.state.doctors.
+    loadDoctors = () => {
+      DoctorsAPI.getDoctors()
+        .then(res =>
+          this.setState({ doctors: res.data })
+        )
+        .catch(err => console.log('getting doctors did not work: ', err));
     };
 
     // Deletes a prescription from the database with a given id, then reloads prescriptions from the db
@@ -105,7 +117,7 @@ class Prescriptions extends Component {
             generalinstructions: this.state.prescriptionDirections,
         })
             .then(res => this.loadPrescriptions())
-            .catch(err => console.log(err));
+            .catch(err => console.log('there is an error in saving the prescription', err));
     };
 
     render() {
@@ -127,6 +139,7 @@ class Prescriptions extends Component {
                 <Grid container spacing={16}>
                   <Grid item xs={12} sm={12} md={6}>
                     <PrescriptionsForm
+                      doctors={this.state.doctors}
                       handleFormSubmit={this.handleFormSubmit}
                       handlePrescriptionNameChange={this.handlePrescriptionNameChange}
                       handlePrescriptionDoctorChange={this.handlePrescriptionDoctorChange}
