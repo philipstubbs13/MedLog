@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column, Container } from 'rebass';
+import { Container } from 'rebass';
 // Import LogForm
 import LogForm from './LogForm';
 // Import LogList
@@ -11,6 +11,7 @@ import MedLogAPI from '../../utils/MedLogAPI';
 // Import style and UI components from material-ui-next
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -131,42 +132,46 @@ class MedLog extends Component {
         <Sidebar />
           <main className={classes.content}>
             <Container>
-              <Typography variant="display1" align="left">
-               My health log
-              </Typography>
-
-            <div className="main-content-section">
-              <Row mt={4}>
-                <Column width={1 / 2} >
-                  <LogForm
-                    handleFormSubmit={this.handleFormSubmit}
-                    handleLogDateChange={this.handleLogDateChange}
-                    handleLogDoctorChange={this.handleLogDoctorChange}
-                    handleLogClinicChange={this.handleLogClinicChange}
-                    handleLogVisitReasonChange={this.handleLogVisitReasonChange}
-                    handleLogHeightChange={this.handleLogHeightChange}
-                    handleLogWeightChange={this.handleLogWeightChange}
-                    handleLogNotesChange={this.handleLogNotesChange} />
-                </Column>
-                  
-                <Column width={1 / 2}>
-                  {this.state.logs.map(log => {
-                    return (
-                      <LogList
-                        id={log._id}
-                        date={log.date}
-                        doctor={log.doctor}
-                        clinic={log.clinic}
-                        visitPurpose={log.visitPurpose}
-                        heightIn={log.heightIn}
-                        weightLb={log.weightLb}
-                        deleteLog={this.deleteLog}
-                      />
-                    );
-                  })}  
-                </Column>
-              </Row>
-            </div>
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
+                  <Typography variant="display1" align="left">
+                    My health log
+                  </Typography>
+                </Grid>
+              </Grid>
+             
+              <div className="main-content-section">
+                <Grid container spacing={16}>
+                  <Grid item xs={12} sm={12} md={6}>
+                    <LogForm
+                      handleFormSubmit={this.handleFormSubmit}
+                      handleLogDateChange={this.handleLogDateChange}
+                      handleLogDoctorChange={this.handleLogDoctorChange}
+                      handleLogClinicChange={this.handleLogClinicChange}
+                      handleLogVisitReasonChange={this.handleLogVisitReasonChange}
+                      handleLogHeightChange={this.handleLogHeightChange}
+                      handleLogWeightChange={this.handleLogWeightChange}
+                      handleLogNotesChange={this.handleLogNotesChange} />
+                  </Grid>
+                      
+                  <Grid item xs={12} sm={12} md={6}>
+                    {this.state.logs.map(log => {
+                      return (
+                        <LogList
+                          id={log._id}
+                          date={log.date}
+                          doctor={log.doctor}
+                          clinic={log.clinic}
+                          visitPurpose={log.visitPurpose}
+                          heightIn={log.heightIn}
+                          weightLb={log.weightLb}
+                          deleteLog={this.deleteLog}
+                        />
+                      );
+                    })}  
+                  </Grid>
+                </Grid>
+              </div>
           </Container>
         </main>
       </div>,

@@ -1,10 +1,11 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
 // Importing UI components from rebass.
-import { Row, Column, Container } from 'rebass';
+import { Container } from 'rebass';
 // Import style and components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -32,15 +33,21 @@ class Charts extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Typography variant="display1" align="left">
-              Charts
-            </Typography>
+            <Grid container spacing={24}>
+              <Grid item xs={12}>
+                <Typography variant="display1" align="left">
+                  Charts
+                </Typography>
+              </Grid>
+            </Grid>
 
             <div className="main-content-section">
-              <Row mt={4}>
-                <Column width={1 / 2} />
-                <Column width={1 / 2} />
-              </Row>
+              <Grid container spacing={16}>
+                <Grid item xs={12} sm={12} md={6}>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6}>
+                </Grid>
+              </Grid>
             </div>
           </Container>
         </main>

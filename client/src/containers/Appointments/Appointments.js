@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
 // Importing UI components from rebass.
-import { Heading, Row, Column, Container } from 'rebass';
+import { Container } from 'rebass';
 // Importing the AppointmentsForm component.
 import AppointmentsForm from './AppointmentsForm';
 // Importing the AppointmentsList component.
@@ -13,6 +13,7 @@ import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
 
@@ -142,13 +143,17 @@ class Appointments extends Component {
         <Sidebar />
         <main className={classes.content}>
           <Container>
-            <Typography variant="display1" align="left">
-              Appointments
-            </Typography>
+            <Grid container spacing={24}>
+              <Grid item xs={12}>
+                <Typography variant="display1" align="left">
+                  Appointments
+                </Typography>
+              </Grid>
+            </Grid>
 
             <div className="main-content-section">
-              <Row mt={4}>
-                <Column width={1} >
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
                   <AppointmentsForm
                     handleFormSubmit={this.handleFormSubmit}
                     handleAppointmentNameChange={this.handleAppointmentNameChange}
@@ -156,14 +161,15 @@ class Appointments extends Component {
                     handleAppointmentDateChange={this.handleAppointmentDateChange}
                     handleAppointmentTimeChange={this.handleAppointmentTimeChange}
                     handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
-                </Column>
-              </Row>
+                </Grid>
+              </Grid>
 
-              <Row>
-                <Column width={1}>
+              <Grid container spacing={24}>
+                <Grid item xs={12}>
                    <Typography variant="display1" align="left">
                      Upcoming appointments
                    </Typography>
+ 
                   <Paper className={classes.root}>
                     <Table className={classes.table}>
                       <TableHead>
@@ -194,8 +200,8 @@ class Appointments extends Component {
                       </TableBody>
                     </Table>
                   </Paper>
-                </Column>
-              </Row>
+                </Grid>
+              </Grid>
             </div>
           </Container>
         </main>
