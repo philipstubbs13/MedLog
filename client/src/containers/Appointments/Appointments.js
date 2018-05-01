@@ -9,6 +9,7 @@ import AppointmentsList from './AppointmentsList';
 // Import API
 import AppointmentAPI from '../../utils/AppointmentAPI';
 import DoctorsAPI from '../../utils/DoctorsAPI';
+import ClinicsAPI from '../../utils/ClinicsAPI';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
@@ -71,12 +72,14 @@ class Appointments extends Component {
     appointmentClinic: "",
     appointments: [],
     doctors: [],
+    clinics: [],
     error: ""
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
     this.loadAppointments();
     this.loadDoctors();
+    this.loadClinics();
   }
 
   // Loads all appointments and saves them to this.state.appointments.
@@ -102,6 +105,15 @@ class Appointments extends Component {
         this.setState({ doctors: res.data })
       )
       .catch(err => console.log('getting doctors did not work: ', err));
+  };
+
+  //Loads all clinics and saves them to this.state.clinics.
+  loadClinics = () => {
+    ClinicsAPI.getClinics()
+      .then(res =>
+        this.setState({ clinics: res.data })
+      )
+      .catch(err => console.log('getting clinics did not work: ', err));
   };
 
   // Keep track of what user enters for appointment name so that input can be grabbed later
@@ -168,6 +180,7 @@ class Appointments extends Component {
                 <Grid item xs={12}>
                   <AppointmentsForm
                     doctors={this.state.doctors}
+                    clinics={this.state.clinics}
                     handleFormSubmit={this.handleFormSubmit}
                     handleAppointmentNameChange={this.handleAppointmentNameChange}
                     handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}

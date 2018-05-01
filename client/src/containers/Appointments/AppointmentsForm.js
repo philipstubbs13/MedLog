@@ -45,13 +45,20 @@ class AppointmentsForm extends React.Component {
     this.props.handleAppointmentDoctorChange(event);
   }
 
+  handleClinicMenuOption = event => {
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleAppointmentClinicChange(event);
+  }
+
   state = {
     value: '',
   }
 
   render() {
-    const { classes, doctors } = this.props;
+    const { classes, doctors, clinics } = this.props;
     console.log(doctors);
+    console.log(clinics);
 
     return (
       <div>
@@ -77,28 +84,29 @@ class AppointmentsForm extends React.Component {
               />
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel type="select-doctors-dropdown" label="Multiple Select" multiple>
-                </InputLabel>
-                <Select value={this.state.value} onChange={this.handleDoctorMenuOption}>
+                <InputLabel InputLabelProps={{
+                  shrink: true,
+                }}
+                >Select a Doctor</InputLabel>
+                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{value: 'value'}} >
                   {doctors.map(doctor => {
-                    return <option value={doctor.lastname}>{doctor.lastname}</option>;
+                    return <MenuItem value={doctor.lastname}>{doctor.lastname}</MenuItem>;
                   })}
                 </Select>
               </FormControl>
-
-              <TextField
-                id="appointment-clinic"
-                label="Clinic"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.appointmentClinic}
-                onChange={this.props.handleAppointmentClinicChange}
-              />
-
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel>Select a Clinic</InputLabel>
+                <Select  
+                  value={this.state.value}
+                  inputProps={{
+                    name: 'value'
+                  }} 
+                  onChange={this.handleClinicMenuOption}>
+                  {clinics.map(clinic => {
+                    return <MenuItem value={clinic.clinicname}>{clinic.clinicname}</MenuItem>;
+                  })}
+                </Select>
+              </FormControl>
               <TextField
                 id="appointment-date"
                 label="Appointment date"

@@ -92,13 +92,13 @@ class DoctorForm extends Component {
               />
 
               <FormControl className={classes.formControl, classes.textField} fullWidth>
-                <InputLabel type="select-clinic-dropdown" label="Multiple Select" multiple>
+                <InputLabel>Select a Clinic
                 </InputLabel>
-                <select value={this.state.value} onChange={this.handleClinicMenuOption}>
+                <Select value={this.state.value} onChange={this.handleClinicMenuOption}>
                 {clinics.map(clinic => {
-                  return <option value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</option>;
+                  return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
                 })}
-                </select>
+                </Select>
               </FormControl>
 
               <TextField
