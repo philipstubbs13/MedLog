@@ -79,6 +79,12 @@ class LogList extends React.Component {
                   <b>Weight (pounds):</b> {this.props.weightLb}
                 </ListItemText>
               </ListItem>
+
+              <ListItem>
+                <ListItemText >
+                  <b>Visit notes:</b> {this.props.visitNotes}
+                </ListItemText>
+              </ListItem>
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>,

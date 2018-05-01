@@ -165,6 +165,7 @@ class MedLog extends Component {
                           visitPurpose={log.visitPurpose}
                           heightIn={log.heightIn}
                           weightLb={log.weightLb}
+                          visitNotes={log.notes}
                           deleteLog={this.deleteLog}
                         />
                       );
