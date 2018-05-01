@@ -30,6 +30,7 @@ const styles = theme => ({
   }),
   table: {
     minWidth: 700,
+    tableLayout: 'auto',
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -50,6 +51,9 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: '#03A9f4',
     padding: theme.spacing.unit * 3,
+  },
+  heading: {
+    marginTop: 40,
   },
 });
 
@@ -178,24 +182,6 @@ class Appointments extends Component {
             <div className="main-content-section">
               <Grid container spacing={24}>
                 <Grid item xs={12}>
-                  <AppointmentsForm
-                    doctors={this.state.doctors}
-                    clinics={this.state.clinics}
-                    handleFormSubmit={this.handleFormSubmit}
-                    handleAppointmentNameChange={this.handleAppointmentNameChange}
-                    handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
-                    handleAppointmentDateChange={this.handleAppointmentDateChange}
-                    handleAppointmentTimeChange={this.handleAppointmentTimeChange}
-                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={24}>
-                <Grid item xs={12}>
-                   <Typography variant="display1" align="left">
-                     Upcoming appointments
-                   </Typography>
- 
                   <Paper className={classes.root}>
                     <div className={classes.tableWrapper}>
                       <Table className={classes.table}>
@@ -228,6 +214,20 @@ class Appointments extends Component {
                       </Table>
                     </div>
                   </Paper>
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={24} className={classes.heading}>
+                <Grid item xs={12}>
+                  <AppointmentsForm
+                    doctors={this.state.doctors}
+                    clinics={this.state.clinics}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleAppointmentNameChange={this.handleAppointmentNameChange}
+                    handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
+                    handleAppointmentDateChange={this.handleAppointmentDateChange}
+                    handleAppointmentTimeChange={this.handleAppointmentTimeChange}
+                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
                 </Grid>
               </Grid>
             </div>
