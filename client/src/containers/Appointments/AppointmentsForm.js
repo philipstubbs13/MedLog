@@ -40,6 +40,7 @@ const styles = {
 
 class AppointmentsForm extends React.Component {
   handleDoctorMenuOption = event => {
+    this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
     console.log(event.target.value);
     this.props.handleAppointmentDoctorChange(event);
@@ -47,6 +48,8 @@ class AppointmentsForm extends React.Component {
 
   handleClinicMenuOption = event => {
     event.preventDefault();
+    
+    this.setState({ [event.target.name]: event.target.value });
     console.log(event.target.value);
     this.props.handleAppointmentClinicChange(event);
   }
@@ -70,7 +73,7 @@ class AppointmentsForm extends React.Component {
             <form noValidate autoComplete="off">
               <TextField
                 id="appointment-name"
-                label="Appointment name"
+                label="Reason for Visit"
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -88,24 +91,26 @@ class AppointmentsForm extends React.Component {
                   shrink: true,
                 }}
                 >Select a Doctor</InputLabel>
-                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{value: 'value'}} >
+                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{name: 'value'}} >
                   {doctors.map(doctor => {
                     return <MenuItem value={doctor.lastname}>{doctor.lastname}</MenuItem>;
                   })}
                 </Select>
               </FormControl>
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel>Select a Clinic</InputLabel>
-                <Select  
-                  value={this.state.value}
-                  inputProps={{
-                    name: 'value'
-                  }} 
-                  onChange={this.handleClinicMenuOption}>
-                  {clinics.map(clinic => {
+              <TextField 
+                id='clinic'
+                select label='Select a Clinic'
+                className={classes.textField} 
+                value={this.state.value}
+                onChange={this.handleDoctorMenuOption} 
+                SelectProps={{ name: 'value'}} 
+                helperText='Please select the clinic'
+                margin="normal">
+                {clinics.map(clinic => {
                     return <MenuItem value={clinic.clinicname}>{clinic.clinicname}</MenuItem>;
                   })}
-                </Select>
+                </TextField>
               </FormControl>
               <TextField
                 id="appointment-date"
