@@ -40,6 +40,7 @@ const styles = theme => ({
 
 class PrescriptionsForm extends React.Component {
   handleDoctorMenuOption = event => {
+    this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
     console.log(event.target.value);
     this.props.handlePrescriptionDoctorChange(event);
@@ -73,11 +74,11 @@ class PrescriptionsForm extends React.Component {
                 onChange={this.props.handlePrescriptionNameChange}
               />
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel type="select-doctors-dropdown" label="Multiple Select" multiple>
+                <InputLabel>Doctor who prescribed
                 </InputLabel>
-                <Select value={this.state.value} onChange={this.handleDoctorMenuOption}>
+                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{name: 'value'}}>
                   {doctors.map(doctor => {
-                  return <option value={doctor.lastname}>{doctor.lastname}</option>;
+                  return <MenuItem value={doctor.lastname}>{doctor.lastname}</MenuItem>;
                   })}
                 </Select>
               </FormControl>

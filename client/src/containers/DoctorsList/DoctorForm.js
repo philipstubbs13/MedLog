@@ -40,6 +40,7 @@ const styles = {
 
 class DoctorForm extends Component {
   handleClinicMenuOption = event => {
+    this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
     console.log(event.target.value);
     this.props.handleDoctorClinicChange(event);
@@ -94,7 +95,7 @@ class DoctorForm extends Component {
               <FormControl className={classes.formControl, classes.textField} fullWidth>
                 <InputLabel>Select a Clinic
                 </InputLabel>
-                <Select value={this.state.value} onChange={this.handleClinicMenuOption}>
+                <Select value={this.state.value} onChange={this.handleClinicMenuOption}inputProps={{name: 'value'}}>
                 {clinics.map(clinic => {
                   return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
                 })}
