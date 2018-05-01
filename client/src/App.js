@@ -48,9 +48,9 @@ class App extends Component {
   render() {
     return [
       <MuiThemeProvider theme={theme}>
-        <NavBar />
         <Router>
           <div>
+            <NavBar />
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/home" component={Home} />

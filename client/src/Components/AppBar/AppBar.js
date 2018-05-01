@@ -11,6 +11,8 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 // Importing HamburgerMenu component.
 import HamburgerMenu from './HamburgerMenu';
+// import third-party routing library (react-router-dom)
+import { Link } from 'react-router-dom';
 
 // material-ui-next styling
 const styles = {
@@ -36,9 +38,9 @@ function NavBar(props) {
       <AppBar position="static" className="appBar">
         <Toolbar>
           <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
-          <Typography variant="title" color="inherit" className={classes.flex}>
-            HealthTracker
-          </Typography>
+            <Typography variant="title" color="inherit" className={classes.flex} button component={Link} to="/home">
+              HealthTracker
+            </Typography>
           <Button className={classes.button}>
             Logout
           </Button>

@@ -44,7 +44,7 @@ class PrescriptionList extends React.Component {
             <b>Date prescribed:</b> {this.props.prescriptionDate}
           </Typography>
           <Typography component="p">
-            <b>Number of tablets:</b> {this.props.prescriptionAmount}
+            <b>Amount:</b> {this.props.prescriptionAmount}
           </Typography>
           <Typography component="p">
             <b>Directions for use:</b> {this.props.prescriptionDirections}
