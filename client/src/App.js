@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
 // Importing React Router to add page routes.
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Importing material-ui theme.
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // Importing app logo.
@@ -30,6 +30,8 @@ import Prescriptions from './containers/Prescriptions';
 import Charts from './containers/Charts';
 // Importing the Login page
 import Login from './containers/Login';
+// Importing the 404 page
+import NoMatch from './containers/NoMatch';
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -49,15 +51,18 @@ class App extends Component {
         <NavBar />
         <Router>
           <div>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/symptoms" component={SymptomJournal} />
-            <Route exact path="/doctors" component={DoctorList} />
-            <Route exact path="/appointments" component={Appointments} />
-            <Route exact path="/log" component={MedLog} />
-            <Route exact path="/attachments" component={Attachments} />
-            <Route exact path="/prescriptions" component={Prescriptions} />
-            <Route exact path="/charts" component={Charts} />
+            <Switch>
+              <Route exact path="/" component={Login} />
+              <Route exact path="/home" component={Home} />
+              <Route exact path="/symptoms" component={SymptomJournal} />
+              <Route exact path="/doctors" component={DoctorList} />
+              <Route exact path="/appointments" component={Appointments} />
+              <Route exact path="/log" component={MedLog} />
+              <Route exact path="/attachments" component={Attachments} />
+              <Route exact path="/prescriptions" component={Prescriptions} />
+              <Route exact path="/charts" component={Charts} />
+              <Route component={NoMatch} />
+            </Switch>
           </div>
         </Router>
         <Footer />
