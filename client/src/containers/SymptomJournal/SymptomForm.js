@@ -14,7 +14,7 @@ import Button from 'material-ui/Button';
 // Style
 const styles = theme => ({
   textField: {
-    marginTop: 80,
+    marginTop: 40,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -40,6 +40,17 @@ const styles = theme => ({
 });
 
 class SymptomTextFields extends React.Component {
+  handleSymptomSelectChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleSymptomTypeChange(event);
+  }
+
+  state = {
+    value: '',
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -51,39 +62,29 @@ class SymptomTextFields extends React.Component {
             Add a symptom
             </Typography>
             <form noValidate autoComplete="off">
-              {/* <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="select-symptom-dropdown">Select symptom</InputLabel>
-                <Select
-                  value={this.props.symptomType}
-                  onChange={this.props.handleSymptomTypeChange}
-                  inputProps={{
-                    symptom: 'symptom',
-                    id: 'select-symptom',
+              <FormControl className={classes.formControl} fullWidth>
+                <TextField 
+                  id='select-sympptom'
+                  select
+                  label='Select symptom'
+                  InputLabelProps={{
+                    shrink: true,
                   }}
-                >
-                  <MenuItem value=""></MenuItem>
-                  <MenuItem value="Dizzy">Dizzy</MenuItem>
-                  <MenuItem value="Shortness of breath">Shortness of breath</MenuItem>
-                  <MenuItem value="Fainted">Fainted</MenuItem>
-                  <MenuItem value="Swelling">Swelling</MenuItem>
-                  <MenuItem value="Heart Fluttering">Heart Fluttering</MenuItem>
-                  <MenuItem value="Fatigue">Fatigue</MenuItem>
-                  <MenuItem value="Other">Other</MenuItem>
-                </Select>
-              </FormControl> */}
-
-              <TextField
-                id="symptom-day"
-                label="Select symptom"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.type}
-                onChange={this.props.handleSymptomTypeChange}
-              />
+                  className={classes.textField} 
+                  value={this.state.value}
+                  onChange={this.handleSymptomSelectChange}
+                  SelectProps={{ name: 'value'}} 
+                  margin="normal">
+                    <MenuItem value=""></MenuItem>
+                    <MenuItem value="Dizzy">Dizzy</MenuItem>
+                    <MenuItem value="Shortness of breath">Shortness of breath</MenuItem>
+                    <MenuItem value="Fainted">Fainted</MenuItem>
+                    <MenuItem value="Swelling">Swelling</MenuItem>
+                    <MenuItem value="Heart Fluttering">Heart Fluttering</MenuItem>
+                    <MenuItem value="Fatigue">Fatigue</MenuItem>
+                    <MenuItem value="Other">Other</MenuItem>
+                </TextField>
+              </FormControl>
 
               <TextField
                 id="symptom-day"
