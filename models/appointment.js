@@ -25,12 +25,7 @@ const AppointmentSchema = new Schema({
     trim: true,
     required: 'Address is required',
   },
-  // this is populated by dropdown
-  clinic: {
-    type: String,
-    trim: true,
-    required: 'State is Required',
-  },
+
   name: {
     type: String,
     trim: true,
