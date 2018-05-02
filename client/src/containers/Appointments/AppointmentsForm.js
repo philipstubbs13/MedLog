@@ -46,13 +46,13 @@ class AppointmentsForm extends React.Component {
     this.props.handleAppointmentDoctorChange(event);
   }
 
-  handleClinicMenuOption = event => {
-    event.preventDefault();
+  // handleClinicMenuOption = event => {
+  //   event.preventDefault();
     
-    this.setState({ [event.target.name]: event.target.value });
-    console.log(event.target.value);
-    this.props.handleAppointmentClinicChange(event);
-  }
+  //   this.setState({ [event.target.name]: event.target.value });
+  //   console.log(event.target.value);
+  //   this.props.handleAppointmentClinicChange(event);
+  // }
 
   state = {
     value: '',
@@ -87,17 +87,24 @@ class AppointmentsForm extends React.Component {
               />
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel InputLabelProps={{
+              <TextField 
+                id='doctor'
+                select
+                label='Select a doctor'
+                InputLabelProps={{
                   shrink: true,
                 }}
-                >Select a Doctor</InputLabel>
-                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{name: 'value'}} >
+                className={classes.textField} 
+                value={this.state.value}
+                onChange={this.handleDoctorMenuOption} 
+                SelectProps={{ name: 'value'}} 
+                margin="normal">
                   {doctors.map(doctor => {
-                    return <MenuItem value={doctor.lastname}>{doctor.lastname}</MenuItem>;
+                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                   })}
-                </Select>
+                </TextField>
               </FormControl>
-              <FormControl className={classes.formControl} fullWidth>
+              {/* <FormControl className={classes.formControl} fullWidth>
               <TextField 
                 id='clinic'
                 select label='Select a Clinic'
@@ -111,7 +118,7 @@ class AppointmentsForm extends React.Component {
                     return <MenuItem value={clinic.clinicname}>{clinic.clinicname}</MenuItem>;
                   })}
                 </TextField>
-              </FormControl>
+              </FormControl> */}
               <TextField
                 id="appointment-date"
                 label="Appointment date"
@@ -150,9 +157,5 @@ class AppointmentsForm extends React.Component {
     );
   }
 }
-
-// AppointmentsForm.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(AppointmentsForm);

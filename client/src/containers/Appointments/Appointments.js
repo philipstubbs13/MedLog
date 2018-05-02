@@ -152,13 +152,11 @@ class Appointments extends Component {
     console.log("this.state.appointmentDoctor: ", this.state.appointmentDoctor);
     console.log("this.state.appointmentDate: ", this.state.appointmentDate);
     console.log("this.state.appointmentTime: ", this.state.appointmentTime);
-    console.log("this.state.appointmentClinic: ", this.state.appointmentClinic);
     AppointmentAPI.saveAppointment({
       name: this.state.appointmentName,
       doctor: this.state.appointmentDoctor,
       date: this.state.appointmentDate,
       time: this.state.appointmentTime,
-      clinic: this.state.appointmentClinic,
     })
       .then(res => this.loadAppointments())
       .catch(err => console.log(err));
@@ -191,7 +189,6 @@ class Appointments extends Component {
                             <TableCell><b>Doctor</b></TableCell>
                             <TableCell numeric><b>Date</b></TableCell>
                             <TableCell numeric><b>Time</b></TableCell>
-                            <TableCell><b>Clinic</b></TableCell>
                             <TableCell></TableCell>
                           </TableRow>
                         </TableHead>
