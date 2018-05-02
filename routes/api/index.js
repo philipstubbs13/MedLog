@@ -5,6 +5,7 @@ const doctorRoutes = require('./doctors');
 const clinicRoutes = require('./clinics');
 const logRoutes = require('./logs');
 const prescriptionRoutes = require('./prescriptions');
+const Auth = require('./Auth');
 
 // Symptoms 
 router.use('/symptoms', symptomRoutes);

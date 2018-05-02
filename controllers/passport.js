@@ -1,59 +1,81 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
-const passport = require('passport')
-const session = require('express-session')
+// application framework for node.js which we'll use to create our server
+const express = require('express');
+// mongoose is a library which allows you to easily interact
+// with a MongoDB database
+const mongoose = require('mongoose');
+// bodyParser is middleware which we will use to parse POST requests
+// to our server
+// req.body.username => stephen
+// req.body.password => strange
+const bodyParser = require('body-parser');
+// passport is what we will use for authentication
+const passport = require('passport');
+// a middleware which sets up sessions
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+// this allows us to create an authentication system
+// with a username and password
+const LocalStrategy = require('passport-local');
+// this is our mongoose User model
+const User = require('./models/user');
 
-const User = require('./models/user')
+// we create a mongoose connection to our "test" database
+// running on our system
+mongoose.connect('mongodb://localhost/test');
 
-var passport = require('passport-strategy')
+// we name our mongoose connection
+const db = mongoose.connection;
 
-mongoose.connect('mongodb://localhost/test')
-
-
+// log an error if there's an error
 db.on('error', console.error.bind(console, 'connection error:'));
+
+// log a message to the terminal when database connection is "open"
 db.once('open', function() {
-  console.log('You are connected!')
+  console.log('You are connected!');
 });
 
-const app = express()
+// express() returns an "express application" which we are calling "app"
+const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+// tells bodyParser that you don't want to parse nested objects
+// from post request
+app.use(bodyParser.urlencoded({ extended: false }));
+// tells bodyParser that you want to use JSON
+app.use(bodyParser.json());
 
-app.use(session({secret: 'fuzzy wuzzy was a bear'}))
-app.use(passport.initialize())
-app.use(passport.session())
+// set session secret used to sign session ID cookie
+app.use(
+  session({
+    secret: 'french toast',
+    store: new MongoStore({
+      mongooseConnection: db,
+      touchAfter: 24 * 3600,
+      autoRemove: 'disabled'
+    }),
+    resave: false,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-
-passport.use(new BearerStrategy(
-  function(token, done) {
-    User.findOne({ token: token }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      return done(null, user, { scope: 'all' });
+passport.use(
+  new LocalStrategy(function(username, password, done) {
+    User.findOne({ username: username }, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false);
+      }
+      if (!(user.password === password)) {
+        return done(null, false);
+      }
+      return done(null, user);
     });
-  }
-));
+  })
+);
 
-
-
-function Strategy(options, verify) {
-  if (typeof options == 'function') {
-    verify = options;
-    options = {};
-  }
-  if (!verify) { throw new TypeError('HTTPBearerStrategy requires a verify callback'); }
-  
-  passport.Strategy.call(this);
-  this.name = 'bearer';
-  this._verify = verify;
-  this._realm = options.realm || 'Users';
-  if (options.scope) {
-    this._scope = (Array.isArray(options.scope)) ? options.scope : [ options.scope ];
-  }
-  this._passReqToCallback = options.passReqToCallback;
-}
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
@@ -63,3 +85,5 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
+module.exports = Passport;

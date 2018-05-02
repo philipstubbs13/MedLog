@@ -7,7 +7,7 @@ import { withStyles } from 'material-ui/styles';
 // Importing UI components from rebass.
 import { Container } from 'rebass';
 // Import LoginForm
-import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 import axios from 'axios';
 
 const styles = {
@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-class Login extends Component {
+class Signup extends Component {
   state = {
     username: "",
     password: "",
@@ -43,10 +43,10 @@ class Login extends Component {
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Authenticating user...");
+    console.log("Adding user...");
     console.log("this.state.username: ", this.state.username);
     console.log("this.state.password: ", this.state.password);
-    axios.post('/login', { username: this.state.username, password: this.state.password })
+    axios.post('/Signup', { username: this.state.username, password: this.state.password })
       .then((res) => {
         console.log(res.data);
       });
@@ -67,7 +67,7 @@ class Login extends Component {
         <div className="main-content-section">
           <Grid item xs={12} className={classes.headline}>
             <Grid container spacing={16} className={classes.root} justify="center">
-              <LoginForm
+              <SignupForm
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
                 handlePasswordChange = {this.handlePasswordChange}  />
@@ -80,5 +80,5 @@ class Login extends Component {
 }
 
 // Exporting the Login component
-// so that the App.js file can render the Login page.
-export default withStyles(styles)(Login);
+// so that the App.js file can render the Signup page.
+export default withStyles(styles)(Signup);

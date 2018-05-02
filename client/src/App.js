@@ -30,6 +30,8 @@ import Prescriptions from './containers/Prescriptions';
 import Charts from './containers/Charts';
 // Importing the Login page
 import Login from './containers/Login';
+// Importing the Signup page
+import Signup from './containers/Signup';
 // Importing the 404 page
 import NoMatch from './containers/NoMatch';
 
@@ -53,6 +55,7 @@ class App extends Component {
             <NavBar />
             <Switch>
               <Route exact path="/" component={Login} />
+              <Route exact path="/Signup" component={Signup} />
               <Route exact path="/home" component={Home} />
               <Route exact path="/symptoms" component={SymptomJournal} />
               <Route exact path="/doctors" component={DoctorList} />
