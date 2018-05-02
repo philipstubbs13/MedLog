@@ -38,8 +38,19 @@ const styles = {
 };
 
 class LogForm extends React.Component {
+  handleDoctorMenuOption = event => {
+    this.setState({ [event.target.name]: event.target.value });
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleLogDoctorChange(event);
+  }
+
+  state = {
+    value: '',
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, doctors } = this.props;
 
     return (
       <div>
@@ -49,28 +60,26 @@ class LogForm extends React.Component {
               Add doctor notes
             </Typography>
             <form noValidate autoComplete="off">
-              {/* <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="select-doctor-dropdown">Select a doctor</InputLabel>
-                <Select
-                  value={this.props.logDoctor}
-                  onChange={this.props.handleLogDoctorChange}
-                  inputProps={{
-                    doctor: '',
-                    id: 'select-doctor',
-                  }}
-                >
-                  <MenuItem value="" />
-                  <MenuItem value="Pain">Dr. Pain</MenuItem>
-                  <MenuItem value="Joins">Dr. Jones</MenuItem>
-                  <MenuItem value="Johnson">Dr. Johnson</MenuItem>
-                  <MenuItem value="Smith">Dr. Smith</MenuItem>
-                  <MenuItem value="Phil">Dr. Phil</MenuItem>
-                  <MenuItem value="J"></MenuItem>Dr. J</MenuItem>
-                  <MenuItem value="Other">Other</MenuItem>
-                </Select>
-              </FormControl> */}
+              <FormControl className={classes.formControl} fullWidth>
+              <TextField 
+                id='doctor'
+                select
+                label='Select a doctor'
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField} 
+                value={this.state.value}
+                onChange={this.handleDoctorMenuOption} 
+                SelectProps={{ name: 'value'}} 
+                margin="normal">
+                  {doctors.map(doctor => {
+                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                  })}
+                </TextField>
+              </FormControl>
 
-              <TextField
+              {/* <TextField
                 id="select-doctor-dropdown"
                 label="Select a doctor"
                 type="text"
@@ -81,7 +90,7 @@ class LogForm extends React.Component {
                 fullWidth
                 value={this.props.logDoctor}
                 onChange={this.props.handleLogDoctorChange}
-              />
+              /> */}
 
               <TextField
                 id="doctor-visit-date"
@@ -95,40 +104,6 @@ class LogForm extends React.Component {
                 fullWidth
                 value={this.props.logDate}
                 onChange={this.props.handleLogDateChange}
-              />
-
-              {/* <FormControl className={classes.formControl, classes.textField} fullWidth>
-                <InputLabel htmlFor="select-clinic-dropdown">Select a clinic</InputLabel>
-                <Select
-                  value={this.props.logClinic}
-                  onChange={this.props.handleLogClinicChange}
-                  inputProps={{
-                    clinic: '',
-                    id: 'select-clinic',
-                  }}
-                >
-                  <MenuItem value=""></MenuItem>
-                  <MenuItem value={"A"}>Clinic A</MenuItem>
-                  <MenuItem value={"B"}>Clinic B</MenuItem>
-                  <MenuItem value={"C"}>Clinic C</MenuItem>
-                  <MenuItem value={"D"}>Clinic D</MenuItem>
-                  <MenuItem value={"E"}>Clinic E</MenuItem>
-                  <MenuItem value={"F"}>Clinic F</MenuItem>
-                  <MenuItem value={"Other"}>Other</MenuItem>
-                </Select>
-              </FormControl> */}
-
-              <TextField
-                id="select-clinic-dropdown"
-                label="Select a clinic"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.logClinic}
-                onChange={this.props.handleLogClinicChange}
               />
 
               <TextField

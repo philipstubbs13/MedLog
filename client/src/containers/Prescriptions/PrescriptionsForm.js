@@ -73,14 +73,24 @@ class PrescriptionsForm extends React.Component {
                 value={this.props.prescriptionName}
                 onChange={this.props.handlePrescriptionNameChange}
               />
+
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel>Doctor who prescribed
-                </InputLabel>
-                <Select value={this.state.value} onChange={this.handleDoctorMenuOption} inputProps={{name: 'value'}}>
+              <TextField 
+                id='prescribedDoctor'
+                select
+                label='Doctor who prescribed'
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField} 
+                value={this.state.value}
+                onChange={this.handleDoctorMenuOption} 
+                SelectProps={{ name: 'value'}} 
+                margin="normal">
                   {doctors.map(doctor => {
-                  return <MenuItem value={doctor.lastname}>{doctor.lastname}</MenuItem>;
+                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                   })}
-                </Select>
+                </TextField>
               </FormControl>
 
               <TextField

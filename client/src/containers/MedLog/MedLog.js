@@ -8,6 +8,7 @@ import LogForm from './LogForm';
 import LogList from './LogList';
 // Import API
 import MedLogAPI from '../../utils/MedLogAPI';
+import DoctorsAPI from '../../utils/DoctorsAPI';
 // Import style and UI components from material-ui-next
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
@@ -42,12 +43,15 @@ class MedLog extends Component {
     logWeight: "",
     logNotes: "",
     logs: [],
+    doctors: [],
     error: ""
   };
 
   // When the component mounts, load all logs and save them to this.state.logs.
+  // When the component mounts, load all doctors and save them to this.state.doctors.
   componentDidMount() {
     this.loadLogs();
+    this.loadDoctors();
   }
 
   // Loads all logs and saves them to this.state.logs.
@@ -66,6 +70,15 @@ class MedLog extends Component {
       .catch(err => console.log(err));
   };
 
+  //Loads all doctors and saves them to this.state.doctors.
+  loadDoctors = () => {
+    DoctorsAPI.getDoctors()
+      .then(res =>
+        this.setState({ doctors: res.data })
+      )
+      .catch(err => console.log('getting doctors did not work: ', err));
+  };
+
   // Keep track of what user selects from doctor drop-down list so that input can be grabbed later
   handleLogDoctorChange = (event) => {
     this.setState({ logDoctor: event.target.value });
@@ -74,11 +87,6 @@ class MedLog extends Component {
   // Keep track of what user enters into the log day input field so that input can be grabbed later
   handleLogDateChange = (event) => {
     this.setState({ logDate: event.target.value });
-  }
-
-  // Keep track of what user types into log clinic input field so that input can be grabbed later
-  handleLogClinicChange = (event) => {
-    this.setState({ logClinic: event.target.value });
   }
 
   // Keep track of what user types into reason for visit input field so that input can be grabbed later
@@ -107,7 +115,6 @@ class MedLog extends Component {
     console.log("Adding health log information");
     console.log("this.state.logDoctor: ", this.state.logDoctor);
     console.log("this.state.logDate: ", this.state.logDate);
-    console.log("this.state.logClinic: ", this.state.logClinic);
     console.log("this.state.logVisitReason: ", this.state.logVisitReason);
     console.log("this.state.logHeight: ", this.state.logHeight);
     console.log("this.state.logWeight: ", this.state.logWeight);
@@ -115,7 +122,6 @@ class MedLog extends Component {
     MedLogAPI.saveLog({
       date: this.state.logDate,
       doctor: this.state.logDoctor,
-      clinic: this.state.logClinic,
       visitPurpose: this.state.logVisitReason,
       heightIn: this.state.logHeight,
       weightLb: this.state.logWeight,
@@ -144,10 +150,10 @@ class MedLog extends Component {
                 <Grid container spacing={16}>
                   <Grid item xs={12} sm={12} md={6}>
                     <LogForm
+                      doctors={this.state.doctors}
                       handleFormSubmit={this.handleFormSubmit}
                       handleLogDateChange={this.handleLogDateChange}
                       handleLogDoctorChange={this.handleLogDoctorChange}
-                      handleLogClinicChange={this.handleLogClinicChange}
                       handleLogVisitReasonChange={this.handleLogVisitReasonChange}
                       handleLogHeightChange={this.handleLogHeightChange}
                       handleLogWeightChange={this.handleLogWeightChange}
@@ -161,7 +167,6 @@ class MedLog extends Component {
                           id={log._id}
                           date={log.date}
                           doctor={log.doctor}
-                          clinic={log.clinic}
                           visitPurpose={log.visitPurpose}
                           heightIn={log.heightIn}
                           weightLb={log.weightLb}

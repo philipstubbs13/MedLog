@@ -58,12 +58,6 @@ class LogList extends React.Component {
 
               <ListItem>
                 <ListItemText >
-                  <b>Clinic:</b> {this.props.clinic}
-                </ListItemText>
-              </ListItem>
-
-              <ListItem>
-                <ListItemText >
                   <b>Reason for visit:</b> {this.props.visitPurpose}
                 </ListItemText>
               </ListItem>

@@ -24,42 +24,20 @@ const HealthLogSchema = new Schema({
     trim: true,
     required: 'First name is required',
   },
-  // `nursename` must be of type String
-  // `nursename` will trim leading and trailing whitespace before it's saved
-  // it is not required
-  // what requirements do we have for this?
-  clinic: {
-    type: String,
-    trim: true,
-  },
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
   visitPurpose: {
     type: String,
     trim: true,
     required: 'Specialty is Required',
   },
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
   notes: {
     type: String,
     trim: true,
     required: 'Specialty is Required',
-  },
-  // `specialty` must be of type String
-  // `specialty` will trim leading and trailing whitespace before it's saved
-  // `specialty` is a required field and throws a custom error message if not supplied
-  // any additional requirements for this?
-  
+  }, 
   heightIn: {
     type: Number,
     trim: true,
   },
-  
   weightLb: {
     type: Number,
     trim: true,
