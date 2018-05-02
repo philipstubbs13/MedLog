@@ -92,14 +92,23 @@ class DoctorForm extends Component {
                 onChange={this.props.handleDoctorLastNameChange}
               />
 
-              <FormControl className={classes.formControl, classes.textField} fullWidth>
-                <InputLabel>Select a Clinic
-                </InputLabel>
-                <Select value={this.state.value} onChange={this.handleClinicMenuOption}inputProps={{name: 'value'}}>
-                {clinics.map(clinic => {
-                  return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
-                })}
-                </Select>
+              <FormControl className={classes.formControl} fullWidth>
+              <TextField 
+                id='clinic'
+                select
+                label='Select a clinic'
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                className={classes.textField} 
+                value={this.state.value}
+                onChange={this.handleClinicMenuOption} 
+                SelectProps={{ name: 'value'}} 
+                margin="normal">
+                  {clinics.map(clinic => {
+                    return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
+                  })}
+                </TextField>
               </FormControl>
 
               <TextField
