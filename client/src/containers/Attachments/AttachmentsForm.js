@@ -10,7 +10,7 @@ import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 // Import react-drop-to-upload component
 // https://www.npmjs.com/package/react-drop-to-upload
-import DropToUpload from 'react-drop-to-upload';
+// import DropToUpload from 'react-drop-to-upload';
 
 const styles = {
   textField: {
@@ -117,12 +117,12 @@ class AttachmentsForm extends React.Component {
                 onChange={this.props.handleAttachmentSubjectChange}
               />
 
-              <DropToUpload
+              {/* <DropToUpload
                 onDrop={this.handleDrop}
                 className={classes.dragndrop}
               >
               Drop file here to upload
-              </DropToUpload>
+              </DropToUpload> */}
 
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add attachment
