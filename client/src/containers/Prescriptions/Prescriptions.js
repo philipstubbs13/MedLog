@@ -55,7 +55,9 @@ class Prescriptions extends Component {
     loadPrescriptions = () => {
         PrescriptionsAPI.getPrescriptions()
             .then(res =>
-              this.setState({ prescriptions: res.data}))
+              this.setState({ 
+                prescriptions: res.data
+              }))
             .catch(err => console.log('loading prescriptions is not working: ' + err));
     };
 
