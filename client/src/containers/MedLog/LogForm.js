@@ -106,6 +106,19 @@ class LogForm extends React.Component {
                 onChange={this.props.handleLogDateChange}
               />
 
+//               <TextField
+//                 id="select-clinic-dropdown"
+//                 label="Select a clinic"
+//                 type="text"
+//                 className={classes.textField}
+//                 InputLabelProps={{
+//                   shrink: true,
+//                 }}
+//                 fullWidth
+//                 value={this.props.logClinic}
+//                 onChange={this.props.handleLogClinicChange}
+//               />
+
               <TextField
                 id="reason-for-visit"
                 label="Reason for visit"

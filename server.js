@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const routes = require('./routes');
 
 // USER AUTH REQUIREMENTS:
-// const passport = require('./passport');
+//const passport = require('./passport');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;

@@ -1,13 +1,24 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
+
 // Importing UI components from rebass.
 import { Container } from 'rebass';
+// Import API
+import MedLogAPI from '../../utils/MedLogAPI';
+
+// Import ChartsHeight which uses chartist
+import ChartsHeight from './ChartsHeight';
+
+// Import ChartsWeight which uses chartist
+import ChartsWeight from './ChartsWeight';
+
 // Import style and components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-// Import Sidebar component.
+
 import Sidebar from '../../Components/Sidebar';
+import ReactFC from 'react-fusioncharts';
 
 // Style/Theme
 const styles = theme => ({
@@ -26,6 +37,27 @@ const styles = theme => ({
 });
 
 class Charts extends Component {
+  state = {
+    logs: [],
+    error: "",
+  };
+  // When the component mounts, load all medlogs and save them to this.state.appointments.
+  componentDidMount() {
+    this.loadLogs();
+    //call graph
+  }
+
+  // Loads all logs and saves them to this.state.logs.
+  loadLogs = () => {
+    MedLogAPI.getLogs()
+      .then(res =>
+        this.setState({ logs: res.data }, 
+        function() {logs => console.log('logging from charts.js ' + logs)})
+      )
+      .catch(err => console.log(err));
+  };
+  
+
   render() {
     const { classes } = this.props;
     return [
@@ -43,9 +75,15 @@ class Charts extends Component {
 
             <div className="main-content-section">
               <Grid container spacing={16}>
-                <Grid item xs={12} sm={12} md={6}>
+                <Grid item xs={12} sm={12} md={12}>
+                  <ChartsWeight
+                  logs={this.state.logs}
+                  />
                 </Grid>
-                <Grid item xs={12} sm={12} md={6}>
+                <Grid item xs={12} sm={12} md={12}>
+                  <ChartsHeight
+                  logs={this.state.logs} 
+                  />
                 </Grid>
               </Grid>
             </div>
