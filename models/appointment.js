@@ -25,10 +25,6 @@ const AppointmentSchema = new Schema({
     trim: true,
     required: 'Address is required',
   },
-<<<<<<< Updated upstream
-
-  name: {
-=======
   // this is populated by dropdown
   clinic: {
     type: String,
@@ -37,7 +33,6 @@ const AppointmentSchema = new Schema({
   },
   //this is reason for visit
   appointmentName: {
->>>>>>> Stashed changes
     type: String,
     trim: true,
   },
