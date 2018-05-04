@@ -12,11 +12,8 @@
         "react": "^16.3.1",
         "react-chartist": "^0.13.1",
         "react-dom": "^16.3.1",
-<<<<<<< Updated upstream
-=======
         "react-drop-to-upload": "^1.0.1",
         "react-fusioncharts": "^1.0.5",
->>>>>>> Stashed changes
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",
         "react-scripts": "1.1.4",
