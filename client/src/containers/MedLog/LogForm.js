@@ -60,7 +60,6 @@ class LogForm extends React.Component {
               Add doctor notes
             </Typography>
             <form noValidate autoComplete="off">
-<<<<<<< Updated upstream
               <FormControl className={classes.formControl} fullWidth>
               <TextField 
                 id='doctor'
@@ -81,9 +80,6 @@ class LogForm extends React.Component {
               </FormControl>
 
               {/* <TextField
-=======
-              <TextField
->>>>>>> Stashed changes
                 id="select-doctor-dropdown"
                 label="Select a doctor"
                 type="text"
@@ -109,8 +105,7 @@ class LogForm extends React.Component {
                 value={this.props.logDate}
                 onChange={this.props.handleLogDateChange}
               />
-<<<<<<< Updated upstream
-=======
+
               <TextField
                 id="select-clinic-dropdown"
                 label="Select a clinic"
@@ -123,7 +118,6 @@ class LogForm extends React.Component {
                 value={this.props.logClinic}
                 onChange={this.props.handleLogClinicChange}
               />
->>>>>>> Stashed changes
 
               <TextField
                 id="reason-for-visit"
