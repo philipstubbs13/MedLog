@@ -7,11 +7,9 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "firebase": "^4.13.1",
     "mongoose": "^5.0.15",
     "morgan": "^1.9.0",
-    "react-router-dom": "^4.2.2",
-    "react-router-firebase-auth-guard": "^1.1.0"
+    "react-router-dom": "^4.2.2"
   },
   "scripts": {
     "server": "node server.js",
