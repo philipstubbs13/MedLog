@@ -15,12 +15,12 @@ const UserSchema = new Schema({
   firstname: {
     type: String,
     trim: true,
-    required: 'First name is required',
+    // required: 'First name is required',
   },
   lastname: {
     type: String,
     trim: true,
-    required: 'Last name is required',
+    // required: 'Last name is required',
   },
   // `username` must be of type String
   // `username` will trim leading and trailing whitespace before it's saved

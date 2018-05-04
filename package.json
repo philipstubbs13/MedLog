@@ -6,13 +6,25 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.1",
     "express": "^4.15.4",
+<<<<<<< 737939dc4c61363af8071d601b04b70e2d33e07e
     "mongoose": "^5.0.15",
     "morgan": "^1.9.0",
     "react-router-dom": "^4.2.2"
+=======
+    "express-session": "^1.15.6",
+    "firebase": "^4.13.1",
+    "mongoose": "^5.0.15",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-firebase-auth-guard": "^1.1.0"
+>>>>>>> partial auth
   },
   "scripts": {
-    "server": "node server.js",
+    "server": "nodemon server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
