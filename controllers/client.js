@@ -1,5 +1,5 @@
 // required packages
-//const Client = require('../models/Client');
+const Client = require('../models/Client');
 const db = require('../models/Client');
 
 // api endpoint for client POST
