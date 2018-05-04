@@ -8,6 +8,7 @@
     "body-parser": "^1.18.2",
     "chartist": "^0.11.0",
     "express": "^4.15.4",
+<<<<<<< HEAD
     "firebase": "^4.13.1",
     "fusioncharts": "^3.12.2",
     "mongoose": "^5.0.15",
@@ -16,6 +17,19 @@
     "react-fusioncharts": "^1.0.5",
     "react-router-dom": "^4.2.2",
     "react-router-firebase-auth-guard": "^1.1.0"
+=======
+<<<<<<< HEAD
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.15",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+=======
+    "mongoose": "^5.0.15",
+    "morgan": "^1.9.0",
+>>>>>>> auth working, routes pr
+    "react-router-dom": "^4.2.2"
+>>>>>>> auth working, routes pr
   },
   "scripts": {
     "server": "node server.js",
