@@ -8,11 +8,15 @@
         "connect-mongo": "^2.0.1",
         "express-session": "^1.15.6",
         "material-ui": "^1.0.0-beta.42",
+<<<<<<< HEAD
 <<<<<<< 737939dc4c61363af8071d601b04b70e2d33e07e
         "moment": "^2.22.1",
 =======
         "passport-local": "^1.0.0",
 >>>>>>> partial auth
+=======
+        "passport-local": "^1.0.0",
+>>>>>>> 5fa9f178ad6a462bc8a66cf489965b88e189dda9
         "react": "^16.3.1",
         "react-dom": "^16.3.1",
         "react-router": "^4.2.0",
