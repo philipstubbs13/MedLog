@@ -2,10 +2,9 @@
 import React from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import { InputLabel, InputAdornment } from 'material-ui/Input';
+import { InputAdornment } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
-import Select from 'material-ui/Select';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
@@ -106,7 +105,7 @@ class LogForm extends React.Component {
                 onChange={this.props.handleLogDateChange}
               />
 
-//               <TextField
+{/* //               <TextField
 //                 id="select-clinic-dropdown"
 //                 label="Select a clinic"
 //                 type="text"
@@ -117,7 +116,7 @@ class LogForm extends React.Component {
 //                 fullWidth
 //                 value={this.props.logClinic}
 //                 onChange={this.props.handleLogClinicChange}
-//               />
+//               /> */}
 
               <TextField
                 id="reason-for-visit"
