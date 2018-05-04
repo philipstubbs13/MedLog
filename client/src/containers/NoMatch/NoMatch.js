@@ -58,7 +58,7 @@ class NoMatch extends Component {
                   Sorry, this page could not be found.
               </Typography>
               <Typography variant="subheading" className={classes.text}>
-                There are a lot of potential reasons why this page is <a href="https://en.wikipedia.org/wiki/HTTP_404" target="_blank">404 (not found)</a>. It could be because of a mistyped URL, a faulty referral from another site, an out-of-date search engine listing, or we simply deleted a file. Don't waste your time trying to figure it out. Instead, let's get you back to the home page. To get back to the home page, click the button below.
+                There are a lot of potential reasons why this page is <a href="https://en.wikipedia.org/wiki/HTTP_404" target="_blank" rel="noopener noreferrer">404 (not found)</a>. It could be because of a mistyped URL, a faulty referral from another site, an out-of-date search engine listing, or we simply deleted a file. Don't waste your time trying to figure it out. Instead, let's get you back to the home page. To get back to the home page, click the button below.
               </Typography>
               <Button variant="raised" color="primary" className={classes.button} component={Link} to="/home">
                 Take me home

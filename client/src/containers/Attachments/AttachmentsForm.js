@@ -2,8 +2,6 @@
 import React from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import { InputLabel } from 'material-ui/Input';
-import { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
