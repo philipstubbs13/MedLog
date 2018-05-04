@@ -7,7 +7,6 @@ import SymptomList from './SymptomList';
 // Import API
 import SymptomAPI from '../../utils/SymptomAPI';
 // Import UI components and styling from material-ui-next.
-import Button from 'material-ui/Button';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';

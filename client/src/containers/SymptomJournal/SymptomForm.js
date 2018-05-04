@@ -5,10 +5,8 @@ import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
-import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
-import Select from 'material-ui/Select';
 import Button from 'material-ui/Button';
 
 // Style
