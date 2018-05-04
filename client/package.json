@@ -5,10 +5,18 @@
     "proxy": "http://localhost:3001/",
     "dependencies": {
         "axios": "^0.18.0",
+        "chartist": "^0.11.0",
+        "fusioncharts": "^3.12.2",
         "material-ui": "^1.0.0-beta.42",
         "moment": "^2.22.1",
         "react": "^16.3.1",
+        "react-chartist": "^0.13.1",
         "react-dom": "^16.3.1",
+<<<<<<< Updated upstream
+=======
+        "react-drop-to-upload": "^1.0.1",
+        "react-fusioncharts": "^1.0.5",
+>>>>>>> Stashed changes
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",
         "react-scripts": "1.1.4",

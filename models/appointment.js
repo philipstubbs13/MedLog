@@ -25,8 +25,19 @@ const AppointmentSchema = new Schema({
     trim: true,
     required: 'Address is required',
   },
+<<<<<<< Updated upstream
 
   name: {
+=======
+  // this is populated by dropdown
+  clinic: {
+    type: String,
+    trim: true,
+    required: 'State is Required',
+  },
+  //this is reason for visit
+  appointmentName: {
+>>>>>>> Stashed changes
     type: String,
     trim: true,
   },

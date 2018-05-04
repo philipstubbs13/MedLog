@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const oath2Controller = require('./controllers/oath2');
-const clientController = require('./controllers/client');
-const authController = require('???????????????');
+const oath2Controller = require('../../controllers/oath2');
+const clientController = require('./../controllers/client');
+const authController = require('../../controllers/authController');
 
 
 // CLIENT AUTH ROUTES:
@@ -22,3 +22,5 @@ router.route('/oauth2/authorize')
 //route for token POST
 router.route('./oauth2/token')
   .post(authController.isClientAuthenticated, oauth2Controller.token);
+
+module.exports = router;

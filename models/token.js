@@ -6,9 +6,11 @@ const Schema = mongoose.Schema;
 const TokenSchema = new Schema({
   value: { type: String, required: true },
   userId: { type: String, required: true },
-  clientId: { type: String, required, true },
+  clientId: { type: String, required: true },
 });
 
-// Export the token model
+// This creates our model from the above schema, using mongoose's model method
 const Token = mongoose.model('Token', TokenSchema);
+
+// Export the token model
 module.exports = Token;

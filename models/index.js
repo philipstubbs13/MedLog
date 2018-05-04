@@ -8,4 +8,7 @@ module.exports = {
   Appointment: require('./Appointment'),
   SymptomJournal: require('./Symptom'),
   Prescription: require('./Prescription'),
+  //Code: require('./Code'),
+  //Token: require('./token'),
+  //Client: require('./Client'),
 };
