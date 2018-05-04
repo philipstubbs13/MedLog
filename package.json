@@ -8,11 +8,6 @@
     "body-parser": "^1.18.2",
     "chartist": "^0.11.0",
     "express": "^4.15.4",
-<<<<<<< Updated upstream
-    "mongoose": "^5.0.15",
-    "morgan": "^1.9.0",
-    "react-router-dom": "^4.2.2"
-=======
     "firebase": "^4.13.1",
     "fusioncharts": "^3.12.2",
     "mongoose": "^5.0.15",
@@ -21,7 +16,6 @@
     "react-fusioncharts": "^1.0.5",
     "react-router-dom": "^4.2.2",
     "react-router-firebase-auth-guard": "^1.1.0"
->>>>>>> Stashed changes
   },
   "scripts": {
     "server": "node server.js",
