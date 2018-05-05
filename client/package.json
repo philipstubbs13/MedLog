@@ -5,12 +5,8 @@
     "proxy": "http://localhost:3001/",
     "dependencies": {
         "axios": "^0.18.0",
-<<<<<<< Updated upstream
-        "chartist": "^0.11.0",
         "connect-mongo": "^2.0.1",
         "express-session": "^1.15.6",
-=======
->>>>>>> Stashed changes
         "fusioncharts": "^3.12.2",
         "material-ui": "^1.0.0-beta.42",
         "moment": "^2.22.1",
