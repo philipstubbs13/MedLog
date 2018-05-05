@@ -1,5 +1,9 @@
 // Importing React since we are using React.
 import React from 'react';
+
+// Import API
+import MedLogAPI from '../../utils/MedLogAPI';
+
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
@@ -45,90 +49,73 @@ const styles = {
 
 class ChartsWeight extends React.Component {
   
-  render() {
+  state = {
+    logs: [],
+    weightArray: [],
+    dateArray: [],
+  }
+  componentDidMount() {
+    this.loadLogs();
+  }
 
-    const { classes, logs } = this.props;
-    console.log('here is the logs from chartsweight.js ' + logs);
-
-    const weight = logs.map(log => log.weightLb);
-    console.log('here is the weights array ' + weight);
-
-    const date = logs.map(log => log.date);
-    console.log('here is the dates array ' + date)
-    
-    // // const weightArray = [];
-    // // for (let i = 0; i < weight.length; i++) {
-    // //   weightArray[i] = weight[i] + (i > 0 ? weightArray[i - 1] : 0);
-    // //}   
-
-    // // const dates = Array(...{ length: (weight.length) + 1 }).map((val, i) => i + 1);
-
-    const weightChartConfigs = {
+  loadWeightChart(data) {
+    console.log("I got to the charts area");
+    //console.log(weightArray);
+    const weightChart = new FusionCharts({
       type: 'line',
+      renderAt: 'chartContainer',
       className: 'line',
       //  ReactJS attribute-name for DOM classes
       dataFormat: 'JSON',
       width: 850,
       height: 400,
       dataSource: {
-        chart: {
-          xaxisname: 'Date',
-          yaxisname: "Weight (In pounds)",
-          linecolor: "#008ee4",
-          plotgradientcolor: "",
-          bgcolor: "FFFFFF",
-          showalternatehgridcolor: "0",
-          divlinecolor: "#008ee4",
-          showvalues: "0",
-          showcanvasborder: "0",
-          canvasborderalpha: "0",
-          canvasbordercolor: "CCCCCC",
-          canvasborderthickness: "1",
-          captionpadding: "30",
-          linethickness: "3",
-          legendshadow: "0",
-          legendborderalpha: "0",
-          palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
-          showborder: "0",
-        },
-        data: [
-          {
-            label: date[0],
-            value: weight[0],
+          chart: {
+            xaxisname: 'Date',
+            yaxisname: "Weight (In pounds)",
+            linecolor: "#008ee4",
+            plotgradientcolor: "",
+            bgcolor: "FFFFFF",
+            showalternatehgridcolor: "0",
+            divlinecolor: "#008ee4",
+            showvalues: "0",
+            showcanvasborder: "0",
+            canvasborderalpha: "0",
+            canvasbordercolor: "CCCCCC",
+            canvasborderthickness: "1",
+            captionpadding: "30",
+            linethickness: "3",
+            legendshadow: "0",
+            legendborderalpha: "0",
+            palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
+            showborder: "0",
           },
-          {
-            label: date[1],
-            value: weight[1],
-          },
-          {
-            label: date[2],
-            value: weight[2],
-          },
-          {
-            label: date[3],
-            value: weight[3],
-          },
-          {
-            label: date[4],
-            value: weight[4],
-          },
-          {
-            label: date[5],
-            value: weight[5],
-          },
-        ],
-      }
-    }
+          data: data
+        }
+    });
+    weightChart.render();
+  }
+  
+  // Loads all logs and saves them to this.state.logs.
+  loadLogs = () => {
+    MedLogAPI.getLogs()
+      .then(res => {
+        this.setState({ logs: res.data });
+        console.log("here are the logs", this.state.logs);
+        const data = this.state.logs.map(log => {return {label: log.date, value: log.weightLb}});
+        console.log(data);
+        this.loadWeightChart(data);
+      })
+      .catch(err => console.log(err));
+  };
 
+  render() {
+    //const { classes } = this.props.classe;
+    //<ReactFC {...weightChartConfigs} />
     return (
       <div>
-        <Card className={classes.root}>
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              Weight Chart
-            </Typography>
-            <ReactFC {...weightChartConfigs} />
-          </CardContent>
+        <Card className={this.props.classes.root}>
+          <div id='chartContainer'></div>
         </Card>
       </div>
     );
