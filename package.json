@@ -9,11 +9,6 @@
     "chartist": "^0.11.0",
     "connect-mongo": "^2.0.1",
     "express": "^4.15.4",
-<<<<<<< Updated upstream
-=======
-    "express-session": "^1.15.6",
-    "firebase": "^4.13.1",
->>>>>>> Stashed changes
     "fusioncharts": "^3.12.2",
     "mongoose": "^5.0.15",
     "morgan": "^1.9.0",
