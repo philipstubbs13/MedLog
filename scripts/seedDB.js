@@ -315,3 +315,23 @@ db.Prescription
 //     console.error(err);
 //     process.exit(1);
 //   });
+
+// const attachmentSeed = [
+//   {
+//     doctorname: 'Kristin King',
+//     contentdate: '03/17/2018',
+//     attachmentsubject: 'chest x-ray',
+//   },
+// ];
+
+// db.Attachments
+//   .remove({})
+//   .then(() => db.Attachments.collection.insertMany(attachmentSeed))
+//   .then((data) => {
+//     console.log(data.insertedIds.length + ' attachment inserted!');
+//     process.exit(0);
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
