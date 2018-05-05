@@ -8,8 +8,8 @@ import Hidden from 'material-ui/Hidden';
 // import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
 
-//Original drawer width: 240
-const drawerWidth = 210;
+// Original drawer width: 240
+const drawerWidth = 220;
 
 const styles = {
   drawerPaper: {
@@ -33,28 +33,44 @@ class Sidebar extends React.Component {
           <div className={classes.toolbar} />
           <List>
             <ListItem button component={Link} to="/home" >
-              <ListItemText primary="Home" />
+              <ListItemText>
+                Home <i className="fas fa-home" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/log">
-              <ListItemText primary="My health log" />
+              <ListItemText>
+                My health log <i className="fas fa-notes-medical" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/symptoms">
-              <ListItemText primary="My symptom journal" />
+              <ListItemText>
+                My symptom journal <i className="fas fa-sticky-note" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/appointments">
-              <ListItemText primary="Appointments" />
+              <ListItemText>
+                Appointments  <i className="fas fa-calendar-alt" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/prescriptions">
-              <ListItemText primary="My prescriptions" />
+              <ListItemText>
+                Prescriptions <i className="fas fa-prescription-bottle" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/doctors">
-              <ListItemText primary="Doctors and clinics" />
+              <ListItemText>
+                Doctors and clinics <i className="fas fa-user-md" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/attachments">
-              <ListItemText primary="Attachments" />
+              <ListItemText>
+                Attachments <i className="fas fa-file-alt" />
+              </ListItemText>
             </ListItem>
             <ListItem button component={Link} to="/charts">
-              <ListItemText primary="Charts" />
+              <ListItemText>
+                Charts <i className="fas fa-chart-bar" />
+              </ListItemText>
             </ListItem>
           </List>
         </Drawer>

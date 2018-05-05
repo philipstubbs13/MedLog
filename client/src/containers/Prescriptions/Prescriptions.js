@@ -132,7 +132,7 @@ class Prescriptions extends Component {
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">
-                    My prescriptions
+                    Prescriptions
                   </Typography>
                 </Grid>
               </Grid>

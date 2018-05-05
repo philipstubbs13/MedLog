@@ -24,6 +24,7 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#007AC1',
+    maxWidth: '85%',
   },
   formControl: {
     minWidth: 120,

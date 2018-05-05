@@ -5,7 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import { TableCell, TableRow } from 'material-ui/Table';
 // Import moment js library to format appointment date in table.
-import moment from 'moment'
+import moment from 'moment';
 
 // Style/Theme
 const styles = theme => ({
@@ -41,7 +41,7 @@ class AppointmentsList extends React.Component {
       <TableRow className={classes.row} key={this.props.id}>
         <TableCell>{this.props.name}</TableCell>
         <TableCell>{this.props.doctor}</TableCell>
-        <TableCell numeric>{moment(this.props.date).format("DD MMM YYYY")}</TableCell>
+        <TableCell numeric>{moment(this.props.date).format('DD MMM YYYY')}</TableCell>
         <TableCell numeric>{this.props.time}</TableCell>
         <TableCell>
           <Button size="small" onClick={() => { this.props.deleteAppointment(this.props.id); }}>
