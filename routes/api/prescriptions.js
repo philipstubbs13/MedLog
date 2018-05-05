@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const prescriptionsController = require("../../controllers/prescriptionsController");
+const isAuthenticated = require('../isAuthenticated')
 
+module.exports = function(passport){
 // Matches with "/api/prescriptions"
 router.route("/")
     .get(prescriptionsController.findAll)
@@ -11,4 +13,7 @@ router.route("/:id")
     .delete(prescriptionsController.remove)
     .get(prescriptionsController.findById)
     .put(prescriptionsController.update);
-module.exports = router;
+
+    return router;
+}
+// module.exports = router;

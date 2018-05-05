@@ -3,9 +3,10 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+const User = require('./models/User')
 
 // USER AUTH REQUIREMENTS:
-//const passport = require('./passport');
+// const passport = require('./passport');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;
@@ -23,9 +24,6 @@ const db = require('./models');
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
-
-// Add routes, both API and view
-app.use(routes);
 
 // USE PASSPORT:
 // app.use(passport.initialize());
@@ -49,11 +47,6 @@ app.use(routes);
 //   });
 
 
-// Send every request to the React app
-// Define any API routes before this runs
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
 
 
 // Route for retrieving all Users from the db
@@ -112,16 +105,21 @@ app.get('/populateduser', function (req, res) {
 });
 
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
 
-// If deployed, use the deployed database. Otherwise use the local reacthealthtracker database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reacthealthtracker";
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
+// configurePassport
+const configurePassport = require('./controllers/passport')
+
+const passport = configurePassport(app, mongoose, User)
+
+// Add routes, both API and view
+app.use(routes(passport, User));
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
 
 
