@@ -1,49 +1,44 @@
+// yarn add react-dropzone
 // import React
 import React, { Component } from 'react';
-// import react-drop-to-upload npm package.
-// https://www.npmjs.com/package/react-drop-to-upload
-// import DropToUpload from 'react-drop-to-upload';
+import Dropzone from 'react-dropzone'
 
-// class UploadAttachment extends Component {
-//   constructor(props) {
-//     super(props);
+// Please note that onDrop method will always be called regardless if dropped file was accepted or rejected. The onDropAccepted method will be called if all dropped files were accepted and the onDropRejected method will be called if any of the dropped files was rejected.
+function onDrop(acceptedFiles, rejectedFiles) {
+  // do stuff with files...
+}
 
-//     this.handleDrop = this.handleDrop.bind(this);
-//     this.handleDropArrayBuffer = this.handleDropArrayBuffer.bind(this);
-//     this.handleDropDataURI = this.handleDropDataURI.bind(this);
-//   }
 
-//   handleDrop(files) {
-//     console.log(files.length > 0); // true
-//     console.log(files[0] instanceof File); // true
-//   }
+class Basic extends React.Component {
+  constructor() {
+    super()
+    this.state = { files: [] }
+  }
 
-//   handleDropArrayBuffer(arrayBuffers, files) {
-//     console.log(files.length > 0); // true
-//     console.log(files.length === arrayBuffers.length); // true
-//     console.log(files[0] instanceof File); // true
-//     console.log(arrayBuffers[0] instanceof ArrayBuffer); // true
-//   }
+  onDrop(files) {
+    this.setState({
+      files
+    });
+  }
 
-//   handleDropDataURI(dataURIs, files) {
-//     console.log(files.length > 0); // true
-//     console.log(files.length === dataURIs.length); // true
-//     console.log(files[0] instanceof File); // true
-//     console.log(typeof dataURIs[0] === 'string'); // true
-//     console.log(/^data:(.*);(.*),/.test(dataURIs[0])); // true
-//   }
-
-//   render() {
-//     return (
-//       <DropToUpload
-//         onDrop={this.handleDrop}
-//         onDropArrayBuffer={this.handleDropArrayBuffer}
-//         onDropDataURI={this.handleDropDataURI}
-//       >
-//         Drop file here to upload
-//       </DropToUpload>
-//     );
-//   }
-// }
-
-// export default UploadAttachment;
+  render() {
+    return (
+      <section>
+        <div className="dropzone">
+          <Dropzone onDrop={this.onDrop.bind(this)}>
+            <p>Try dropping some files here, or click to select files to upload.</p>
+          </Dropzone>
+        </div>
+        <aside>
+          <h2>Dropped files</h2>
+          <ul>
+            {
+              this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+            }
+          </ul>
+        </aside>
+      </section>
+    );
+  }
+}
+<Basic />
