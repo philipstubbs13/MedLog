@@ -129,8 +129,11 @@ class SymptomTextFields extends React.Component {
                 onChange={this.props.handleSymptomInfoChange}
               />
 
-              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
-              Add symptom
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}>
+                  Add symptom
               </Button>
             </form>
           </CardContent>

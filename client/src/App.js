@@ -34,6 +34,8 @@ import Login from './containers/Login';
 import Signup from './containers/Signup';
 // Importing the 404 page
 import NoMatch from './containers/NoMatch';
+// Importing app setup page
+import Welcome from './containers/Welcome';
 
 // App theme customization.
 const theme = createMuiTheme({
@@ -64,6 +66,7 @@ class App extends Component {
               <Route exact path="/attachments" component={Attachments} />
               <Route exact path="/prescriptions" component={Prescriptions} />
               <Route exact path="/charts" component={Charts} />
+              <Route exact path="/welcome" component={Welcome} />
               <Route component={NoMatch} />
             </Switch>
           </div>
