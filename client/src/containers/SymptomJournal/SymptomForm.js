@@ -123,8 +123,8 @@ class SymptomTextFields extends React.Component {
                 fullWidth
                 className={classes.textField}
                 multiline="true"
-                rows={2}
-                rowsMax={3}
+                rows={3}
+                rowsMax={4}
                 value={this.props.info}
                 onChange={this.props.handleSymptomInfoChange}
               />

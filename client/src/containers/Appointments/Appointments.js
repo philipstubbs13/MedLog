@@ -22,15 +22,20 @@ import Sidebar from '../../Components/Sidebar';
 //Style
 const styles = theme => ({
   root: theme.mixins.gutters({
-    width: '100%',
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#f44e03',
+    display: 'block',
+    overflowX: 'auto',
+    maxWidth: '80%',
   }),
   table: {
     minWidth: 700,
     tableLayout: 'auto',
+    display: 'block',
+    width: '100%',
+    overflowX: 'auto',
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -188,7 +193,7 @@ class Appointments extends Component {
                             <TableCell><b>Name</b></TableCell>
                             <TableCell><b>Doctor</b></TableCell>
                             <TableCell numeric><b>Date</b></TableCell>
-                            <TableCell numeric><b>Time</b></TableCell>
+                            <TableCell numeric><b>Time (HH:MM)</b></TableCell>
                             <TableCell></TableCell>
                           </TableRow>
                         </TableHead>
