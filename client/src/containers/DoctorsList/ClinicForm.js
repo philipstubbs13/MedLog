@@ -182,7 +182,13 @@ class ClinicForm extends React.Component {
                 onChange={this.props.handleClinicPhoneChange}
               />
 
-              <Button size="large" className={classes.button} onClick={this.props.handleClinicFormSubmit}>
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleClinicFormSubmit}
+                color="primary" 
+                variant="raised"
+              >
                 Add clinic
               </Button>
             </form>

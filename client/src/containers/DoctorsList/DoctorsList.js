@@ -201,8 +201,6 @@ class DoctorList extends Component {
 
   render() {
     const { classes } = this.props;
-    // const newLocal1 = <Heading is="h1" children="Doctors and clinics" mt={4} ml={4} color="white" />;
-    // const newLocal = newLocal1;
 
     return [  
       <div className={classes.appFrame}>

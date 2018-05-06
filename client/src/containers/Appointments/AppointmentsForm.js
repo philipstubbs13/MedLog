@@ -45,14 +45,6 @@ class AppointmentsForm extends React.Component {
     this.props.handleAppointmentDoctorChange(event);
   }
 
-  // handleClinicMenuOption = event => {
-  //   event.preventDefault();
-    
-  //   this.setState({ [event.target.name]: event.target.value });
-  //   console.log(event.target.value);
-  //   this.props.handleAppointmentClinicChange(event);
-  // }
-
   state = {
     value: '',
   }
@@ -103,21 +95,7 @@ class AppointmentsForm extends React.Component {
                   })}
                 </TextField>
               </FormControl>
-              {/* <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='clinic'
-                select label='Select a Clinic'
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleDoctorMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                helperText='Please select the clinic'
-                margin="normal">
-                {clinics.map(clinic => {
-                    return <MenuItem value={clinic.clinicname}>{clinic.clinicname}</MenuItem>;
-                  })}
-                </TextField>
-              </FormControl> */}
+
               <TextField
                 id="appointment-date"
                 label="Appointment date"
@@ -146,8 +124,14 @@ class AppointmentsForm extends React.Component {
                 onChange={this.props.handleAppointmentTimeChange}
               />
 
-              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
-              Add appointment
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}
+                color="primary" 
+                variant="raised"
+              >
+                Add appointment
               </Button>
             </form>
           </CardContent>

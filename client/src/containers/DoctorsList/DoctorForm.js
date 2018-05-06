@@ -121,7 +121,12 @@ class DoctorForm extends Component {
                 onChange={this.props.handleDoctorPhoneChange}
               />
 
-              <Button size="large" className={classes.button} onClick={this.props.handleDoctorFormSubmit}>
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleDoctorFormSubmit}
+                color="primary" 
+                variant="raised">
                 Add doctor
               </Button>
             </form>

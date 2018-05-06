@@ -82,7 +82,7 @@ class LogList extends React.Component {
             </List>
           </ExpansionPanelDetails>
         </ExpansionPanel>,
-        <Button size="small" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Delete</Button>,
+        <Button size="small" color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deleteLog(this.props.id); }}>Delete</Button>,
     ];
   }
 }

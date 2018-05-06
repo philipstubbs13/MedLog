@@ -132,7 +132,9 @@ class SymptomTextFields extends React.Component {
               <Button 
                 size="large" 
                 className={classes.button} 
-                onClick={this.props.handleFormSubmit}>
+                onClick={this.props.handleFormSubmit}
+                color="primary" 
+                variant="raised">
                   Add symptom
               </Button>
             </form>
@@ -142,9 +144,5 @@ class SymptomTextFields extends React.Component {
     );
   }
 }
-
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(SymptomTextFields);
