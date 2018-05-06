@@ -1,9 +1,28 @@
+// //these are required
+// const router = require("express").Router();
+// const clinicsController = require("../../controllers/clinicsController");
+// const isAuthenticated = require('../isAuthenticated')
+
+// module.exports = function(passport){
+// // Matches with "/api/clinics"
+// router.route("/")
+//   .get(clinicsController.findAll)
+//   .post(clinicsController.create);
+
+// // Matches with "/api/clinics/:id"
+// router.route("/:id")
+//   .get(isAuthenticated, clinicsController.findById)
+//   .put(clinicsController.update)
+//   .delete(clinicsController.remove);
+
+//   return router;
+// }
+// // module.exports = router;
+
 //these are required
 const router = require("express").Router();
 const clinicsController = require("../../controllers/clinicsController");
-const isAuthenticated = require('../isAuthenticated')
 
-module.exports = function(passport){
 // Matches with "/api/clinics"
 router.route("/")
   .get(clinicsController.findAll)
@@ -11,10 +30,8 @@ router.route("/")
 
 // Matches with "/api/clinics/:id"
 router.route("/:id")
-  .get(isAuthenticated, clinicsController.findById)
+  .get(clinicsController.findById)
   .put(clinicsController.update)
   .delete(clinicsController.remove);
 
-  return router;
-}
-// module.exports = router;
+module.exports = router;
