@@ -23,7 +23,8 @@ const styles = {
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
-    htmlFontSize: 40,
+    htmlFontSize: 30,
+    marginTop: 30,
   },
   root: {
     display: 'flex',
@@ -31,6 +32,7 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#007AC1',
+    marginBottom: 40,
   },
   formControl: {
     minWidth: 120,
@@ -59,23 +61,25 @@ class ChartsHeight extends React.Component {
     console.log(data);
     const heightChart = new FusionCharts({
       type: 'line',
-      renderAt: 'abcdContainer',
+      renderAt: 'heightContainer',
       className: 'line',
       //  ReactJS attribute-name for DOM classes
       dataFormat: 'JSON',
-      width: 850,
-      height: 400,
+      width: '90%',
+      height: '50%',
       dataSource: {
         chart: {
           xaxisname: 'Date',
           yaxisname: "Height (In inches)",
+          yAxisNamePadding: "30",
+          chartTopMargin: "40",
           linecolor: "#f8bd19",
           plotgradientcolor: "",
-          bgcolor: "FFFFFF",
-          showalternatehgridcolor: "0",
+          bgcolor: "#fcdb88",
+          showalternatehgridcolor: "0", canvasPadding: "30",
           divlinecolor: "#f8bd19",
           showvalues: "0",
-          showcanvasborder: "0",
+          showcanvasborder: "1",
           canvasborderalpha: "0",
           canvasbordercolor: "CCCCCC",
           canvasborderthickness: "1",
@@ -85,6 +89,11 @@ class ChartsHeight extends React.Component {
           legendborderalpha: "0",
           palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
           showborder: "0",
+          anchorRadius: "5",
+          anchorHoverRadius: "8",
+          anchorHoverColor: "#f8bd19",
+          anchorBgColor: "",
+          anchorBgHoverColor: "#f8bd19",
         },
         data: data
       }
@@ -106,11 +115,14 @@ class ChartsHeight extends React.Component {
   };
 
   render() {
-
+    const { classes } = this.props;
     return (
       <div>
+        <Typography gutterBottom variant="headline" component="h2" className={classes.typography}>
+          Height Chart
+        </Typography>
         <Card className={this.props.classes.root}>
-          <div id='abcdContainer'></div>
+          <div id='heightContainer'></div>
         </Card>
       </div>
     );
