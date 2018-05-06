@@ -35,32 +35,14 @@ const styles = theme => ({
     backgroundColor: '#03A9f4',
     padding: theme.spacing.unit * 3,
   },
+  Charts: {
+    marginTop: 30,
+    color: 'white',
+  },
+
 });
 
-class Charts extends Component {
-    // state = {
-    //   logs: [],
-    //   error: "",
-    // };
-    // // When the component mounts, load all medlogs and save them to this.state.appointments.
-    // componentDidMount() {
-    //   this.loadLogs();
-
-    // }
-
-    // Loads all logs and saves them to this.state.logs.
-    loadLogs = () => {
-      MedLogAPI.getLogs()
-        .then(res =>
-          this.setState({ logs: res.data }, 
-          function() {logs => console.log('logging from charts.js ' + logs)})
-        )
-        .catch(err => console.log(err));
-    };
-
-  // loadWeights= (logs) => {
-  //   const weights = logs.map(log => log.weightLb);
-  // };  
+class Charts extends Component { 
 
   render() {
     const { classes } = this.props;
@@ -79,17 +61,11 @@ class Charts extends Component {
 
             <div className="main-content-section">
               <Grid container spacing={16}>
-                <Grid item xs={12} sm={12} md={12}>
-                  <Typography gutterBottom variant="headline" component="h2">
-                    Weight Chart
-                  </Typography>
+                <Grid item xs={11}>
                   <ChartsWeight
                   />
                 </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                  <Typography gutterBottom variant="headline" component="h2">
-                    Height Chart
-                  </Typography>
+                <Grid item xs={11}>
                   <ChartsHeight
                   />
                 </Grid>

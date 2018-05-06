@@ -8,7 +8,7 @@ const prescriptionSchema = new Schema({
   prescriptionName: {
     type: String,
     trim: true,
-    required: 'Prescription is required.',
+    required: 'Prescription name is required.',
   },
   amount: {
     type: String,
@@ -18,7 +18,6 @@ const prescriptionSchema = new Schema({
   dateprescribed: {
     type: String,
     trim: true,
-    required: 'Date prescribed is required',
   },
   doctorprescribed: {
     type: String,
@@ -28,7 +27,6 @@ const prescriptionSchema = new Schema({
   generalinstructions: {
     type: String,
     trim: true,
-    required: 'General prescription instructions are required',
   },
 });
 
