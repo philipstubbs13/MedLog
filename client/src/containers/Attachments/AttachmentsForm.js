@@ -122,7 +122,7 @@ class AttachmentsForm extends React.Component {
               Drop file here to upload
               </DropToUpload> */}
 
-              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
+              <Button size="large" color="primary" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
                 Add attachment
               </Button>
             </form>

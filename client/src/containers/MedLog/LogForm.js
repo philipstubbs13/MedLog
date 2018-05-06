@@ -78,19 +78,6 @@ class LogForm extends React.Component {
                 </TextField>
               </FormControl>
 
-              {/* <TextField
-                id="select-doctor-dropdown"
-                label="Select a doctor"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.logDoctor}
-                onChange={this.props.handleLogDoctorChange}
-              /> */}
-
               <TextField
                 id="doctor-visit-date"
                 label="Date of doctor visit"
@@ -104,19 +91,6 @@ class LogForm extends React.Component {
                 value={this.props.logDate}
                 onChange={this.props.handleLogDateChange}
               />
-
-{/* //               <TextField
-//                 id="select-clinic-dropdown"
-//                 label="Select a clinic"
-//                 type="text"
-//                 className={classes.textField}
-//                 InputLabelProps={{
-//                   shrink: true,
-//                 }}
-//                 fullWidth
-//                 value={this.props.logClinic}
-//                 onChange={this.props.handleLogClinicChange}
-//               /> */}
 
               <TextField
                 id="reason-for-visit"
@@ -179,7 +153,13 @@ class LogForm extends React.Component {
                 onChange={this.props.handleLogNotesChange}
               />
 
-              <Button size="large" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
+              <Button 
+                size="large" 
+                variant="raised" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}
+                color="primary"
+              >
                 Add notes
               </Button>
             </form>
@@ -189,9 +169,5 @@ class LogForm extends React.Component {
     );
   }
 }
-
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(LogForm);

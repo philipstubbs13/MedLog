@@ -137,6 +137,8 @@ class PrescriptionsForm extends React.Component {
                 size="large"
                 className={classes.button}
                 onClick={this.props.handleFormSubmit}
+                color="primary" 
+                variant="raised"
               >
                 Add prescription
               </Button>

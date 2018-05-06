@@ -43,7 +43,7 @@ class SymptomList extends React.Component {
         <Typography component="p">
           <b>More info:</b> {this.props.info}
         </Typography>
-        <Button size="small" className={classes.button} onClick={() => { this.props.deleteSymptom(this.props.id); }}>Remove</Button>
+        <Button size="small" color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deleteSymptom(this.props.id); }}>Remove</Button>
       </Paper>
     );
   }

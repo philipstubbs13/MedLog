@@ -49,7 +49,7 @@ class PrescriptionList extends React.Component {
           <Typography component="p">
             <b>Directions for use:</b> {this.props.prescriptionDirections}
           </Typography>
-          <Button size="small" className={classes.button} onClick={() => { this.props.deletePrescription(this.props.id); }}>Remove</Button>
+          <Button size="small" color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deletePrescription(this.props.id); }}>Remove</Button>
         </Paper>
     );
   }
