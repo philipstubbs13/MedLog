@@ -94,6 +94,10 @@ Many people visit the doctor office on a regular basis (sometimes multiple times
  This is where HealthTracker comes in. HealthTracker is a web application that allows you to log and keep track of health information so that you can easily share and discuss that information with your doctor(s) during your next visit. It is <b>one app</b> that you can use to create and maintain a health journal for yourself or for another person. No more having to carry around bulky notebooks, papers, and files to each and every doctor visit. Instead, all you need to do is bring your tablet to the doctor office, open up the application, and all the relevant information is there for the doctor to see.
 
 ### <a name="how-the-app-is-built"></a> How the app is built
+On the front end side, this project is built using React, which is an open-source Javascript library developed at Facebook specifically for the task of developing user interfaces. React relies on a component-based architecture where elements of the user interface are broken into small chunks of code called components. To build these components, Material UI was used. Material UI is a React component library that implements Google’s material design.
+
+On the back end side, this project uses MongoDB, Node, Express, Mongoose ORM (Object Relational Mapper), Amazon S3, and various third party packages. Node, MongoDB, and Mongoose are used to query and route data in the application. Express is the backend web framework used for this application. Amazon S3 is a cloud storage service that allows users of the app to upload attachments from the app to an S3 bucket. 
+
 
 ### <a name="project-structure"></a> Structure of the project
 
@@ -165,7 +169,7 @@ For more information about yarn and other installation options, see the yarn doc
   <li><b>fusioncharts</b></li>
   <li><b>chartist</b></li>
   <li><b>react-chartist</b></li>
-  <li><b>material-ui</b></li>
+  <li><b>material-ui</b> - a React component library that implements Google's material design (https://material-ui-next.com)</li>
   <li><b>moment</b></li>
   <li><b>passport</b></l>
   <li><b>passport-local</b></li>
@@ -219,9 +223,7 @@ For more information about yarn and other installation options, see the yarn doc
 
 This app is deployed to Heroku. To deploy the app, you will need to build a production version of the app as well as have Heroku CLI installed.
 
-1. Download and install the Heroku CLI.
-
-<p>You can install the Heroku CLI <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</p>
+1. Download and install the Heroku CLI. You can install the Heroku CLI <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</p>
 
 2. If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
 <pre>heroku login</pre>
