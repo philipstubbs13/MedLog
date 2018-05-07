@@ -10,6 +10,7 @@ HealthTracker is a MERN stack application that allows you to log and keep track 
 * [Screenshots](#screenshots)
 * [About this project](#about-this-project)
   * [How the app is built](#how-the-app-is-built)
+  * [Structure of the project](#project-structure)
 * [Getting started](#getting-started)
 * [Deploying the application](#deployment)
 * [Technologies used to create app](#technologies-used)
@@ -33,16 +34,13 @@ The HealthTracker app was created by a team of 4 developers at the University of
 <a href="https://github.com/2crazyflowers">Sara Bracewell</a>
 <p>Defined database architecture/models and developed data visualization charts to track height and weight measurements over time.</p>
 <br>
-<br>
 
 <a href="https://github.com/kkotewall">Kayla Kotewall</a>
 <p>Developed feature that allows attachments (for example, lab reports) to be uploaded to Amazon S3 and helped implement user authentication using Passport.js.</p>
 <br>
-<br>
 
 <a href="https://github.com/TowerGuy2909">Jerridd Speidel</a>
 <p>Developed user authentication using Passport.js, which ensures that a user is always authenticated when using the app and the user’s health information is protected.</p>
-<br>
 <br>
 
 <a href="https://github.com/philipstubbs13/">Phil Stubbs</a>
@@ -97,6 +95,25 @@ Many people visit the doctor office on a regular basis (sometimes multiple times
 
 ### <a name="how-the-app-is-built"></a> How the app is built
 
+### <a name="project-structure"></a> Structure of the project
+
+<p>After you clone the repository, navigate to the project root directory (MedLog). The project directory structure is set up as follows:</p>
+<ul>
+  </li>
+    <p><b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.</p>
+  </li>
+  <li>
+    <p><b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.</p>
+    <ul>
+      <li><b>index.js:</b> The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.</li>
+      <li><b>App.js:</b> The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.</li>
+      <li><b>Components:</b> The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.</li>
+  </li>
+  <li><b>package.json</b>: Lists the project dependencies and their version numbers.</li>
+  <li><b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub when code is committed.</li>
+  <li><b>yarn.lock</b>: Dependency tree for the project. Lists all the dependencies and their versions.</li>
+</ul>
+
 ## <a name="getting-started"></a> Getting started
 
 The following section will take you through the steps of setting up this application and getting it running locally on your computer.
@@ -117,7 +134,7 @@ To set up this application locally on your computer, perform the following steps
 ###  <a name="clone-repository"></a> 1. Clone the repository.
 The first step is to clone the project repository to a local directory on your computer. To clone the repository, run the following commands:
 <pre>
-https://github.com/philipstubbs13/MedLog.git
+git clone https://github.com/philipstubbs13/MedLog.git
 cd ./MedLog
 </pre>
 
@@ -126,6 +143,12 @@ cd ./MedLog
 <p>If you don't already have Node.js installed on your computer, you can install the latest version <a href="https://nodejs.org/en/">here</a>.</p>
 
 ### <a name="install-yarn"></a> 3. Install yarn
+To be able to install the dependencies and start the application locally, you will need to install yarn. Yarn is a package manager like npm.
+
+To install yarn, run the following command:
+<pre>npm install -g yarn</pre>
+
+For more information about yarn and other installation options, see the yarn documentation: https://yarnpkg.com/en/.
 
 ###  <a name="dependencies"></a> 4. Install the project dependencies.
 
@@ -155,6 +178,8 @@ cd ./MedLog
   <li><b>react-scripts</b></li>
   <li><b>rebass</b></li>
 </ul>
+
+<p>Version information for each of these packages is available in the <b>package.json<b> file in the project root directory and in the <b>client</b> directory.</p>
 
 <p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required packages:</p>
 <pre>yarn install</pre>
@@ -188,7 +213,7 @@ cd ./MedLog
 <p>After performing all of the setup steps in the <b>Getting started</b> section, navigate to the project root directory (<b>MedLog</b>) and run the following command to start the Express server and React development server.</p>
 <pre>yarn start</pre>
 
-<p>After the development server has started, a Chrome browser window should open, and you should see the login screen for the application. If the browser does not automatically oepn after the server starts, you can verify that the application is working locally on your computer by opening Chrome and go to <a href="http://localhost:3000">http://localhost:3000</a>.
+<p>After the development server has started, a Chrome browser window should open, and you should see the login screen for the application. If the browser does not automatically open after the server starts, you can verify that the application is working locally on your computer by opening Chrome and going to <a href="http://localhost:3000">http://localhost:3000</a>.
 
 ## <a name="deployment"></a> Deploying the app
 
@@ -251,10 +276,6 @@ git push heroku master
 * React (<https://reactjs.org/>)
 * Material UI Next (<https://material-ui-next.com/>)
 
-## <a name ="Issues"></a> Issues
-
-<p>If you find an issue while using the app or have a request, <a href="<https://github.com/philipstubbs13/MedLog/issues/>" target="_blank">log the issue or request here</a>. These issues will be addressed in a future code update.</p>
-
 ## <a name="future"></a> Direction for future development
 Source code will be developed over time to handle bug fixes and new features.
 
@@ -267,3 +288,8 @@ The following is a list of potential enhancements for future code development.
 * <b>Insurance</b> - Add page that has information about a user's insurance company, including company name, policy holder name, policy number, insurance company contact information, and comments.
 
 * <b>Health goals</b> - Add page where you can set health goals for yourself and keep track of your progress, making it easier to accomplish your goals.
+
+## <a name ="Issues"></a> Issues
+
+<p>If you find an issue while using the app or have a request, <a href="<https://github.com/philipstubbs13/MedLog/issues/>" target="_blank">log the issue or request here</a>. These issues will be addressed in a future code update.</p>
+
