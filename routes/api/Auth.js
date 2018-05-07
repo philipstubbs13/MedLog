@@ -9,31 +9,33 @@ module.exports = function(passport, User){
     
     router.post(
       '/login',
-      passport.authenticate('local', { failureRedirect: '/Signup' }),
+      passport.authenticate('local'),
       (req, res) => res.json('logged in!')
     );
     
     router.post('/logout', (req, res) => {
       req.logout();
-      res.redirect('/');
+      res.json("signed out");
     });
     
 
     router.post('/signup', (req, res, next) => {
-      console.log("inside signup routes!")
       var user = new User({
         username: req.body.username,
         password: req.body.password,
         email: req.body.email
       });
+      console.log("user is " + user);
       user
         .save()
-        .then(data => console.log(res.json("sign up worked! all good"), data))
-        .catch(err => console.log(res.json("sign up didn't work."), err));
+        .then(data => {
+          
+          res.json("everything is good in signup");
+        })
+        .catch(err => res.json(err));
       // res.redirect('/');
 
 
-      
     });
 
   return router;

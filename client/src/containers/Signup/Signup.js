@@ -24,6 +24,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    email: "",
     credentials: [],
     error: ""
   };
@@ -39,6 +40,11 @@ class Signup extends Component {
     this.setState({ password: event.target.value });
   }
 
+  // Keep track of what user enters into email input field so that input can be grabbed later
+  handleEmailChange = (event) => {
+    this.setState({ email: event.target.value });
+  }
+
 
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
@@ -46,7 +52,8 @@ class Signup extends Component {
     console.log("Adding user...");
     console.log("this.state.username: ", this.state.username);
     console.log("this.state.password: ", this.state.password);
-    axios.post('/Signup', { username: this.state.username, password: this.state.password })
+    console.log("this.state.email: ", this.state.email);
+    axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
       .then((res) => {
         console.log(res.data);
       });
@@ -70,7 +77,8 @@ class Signup extends Component {
               <SignupForm
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
-                handlePasswordChange = {this.handlePasswordChange}  />
+                handlePasswordChange = {this.handlePasswordChange}
+                handleEmailChange = {this.handleEmailChange}   />
             </Grid>
           </Grid>
         </div>

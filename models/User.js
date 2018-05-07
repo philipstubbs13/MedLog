@@ -15,12 +15,12 @@ const UserSchema = new Schema({
   firstname: {
     type: String,
     trim: true,
-    required: 'First name is required',
+    // required: 'First name is required',
   },
   lastname: {
     type: String,
     trim: true,
-    required: 'Last name is required',
+    // required: 'Last name is required',
   },
   // `username` must be of type String
   // `username` will trim leading and trailing whitespace before it's saved
@@ -51,6 +51,7 @@ const UserSchema = new Schema({
   // `email` must be of type String
   // `email` must be unique
   // `email` must match the regex pattern below and throws a custom error message if it does not
+  // meaning it must have the normal email formating.
   email: {
     type: String,
     unique: true,

@@ -8,7 +8,7 @@ import { withStyles } from 'material-ui/styles';
 import { Container } from 'rebass';
 // Import LoginForm
 import LoginForm from './LoginForm';
-
+import axios from 'axios';
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
   root: {
@@ -45,6 +45,10 @@ class Login extends Component {
     console.log("Authenticating user...");
     console.log("this.state.username: ", this.state.username);
     console.log("this.state.password: ", this.state.password);
+    axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   render() {

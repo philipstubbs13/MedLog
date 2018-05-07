@@ -25,30 +25,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// USE PASSPORT:
-// app.use(passport.initialize());
-
-
-// When the server starts, create and save a new User document to the db
-// The "unique" rule in the User model's schema will prevent
-// duplicate users from being added to the server
-// db.User.create({
-//   firstname: 'John',
-//   lastname: 'Doe',
-//   username: 'myusername',
-//   password: 'mypassword',
-//   email: 'myemail@gmail.com',
-//  })
-//   .then(function(dbUser)
-//     console.log(dbUser);
-//   })
-//   .catch(function(err) {
-//     console.log(err.message);
-//   });
-
-
-
-
 // Route for retrieving all Users from the db
 app.get('/user', function (req, res) {
   // Find all Users
