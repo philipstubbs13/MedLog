@@ -179,7 +179,7 @@ For more information about yarn and other installation options, see the yarn doc
   <li><b>rebass</b></li>
 </ul>
 
-<p>Version information for each of these packages is available in the <b>package.json<b> file in the project root directory and in the <b>client</b> directory.</p>
+<p>Version information for each of these packages is available in the <b>package.json</b> file in the project root directory and in the <b>client</b> directory.</p>
 
 <p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required packages:</p>
 <pre>yarn install</pre>
