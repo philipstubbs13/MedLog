@@ -1,6 +1,6 @@
-# MedLog
+# HealthTracker
 
-A MERN stack application that allows you to log and keep track of your health information so that you can easily share and discuss that information with your doctor at your next visit.
+HealthTracker is a MERN stack application that allows you to log and keep track of your health information so that you can easily share and discuss that information with your doctor at your next visit.
 
 ## Table of contents
 
@@ -9,6 +9,7 @@ A MERN stack application that allows you to log and keep track of your health in
 * [Contributors](#contributors)
 * [Screenshots](#screenshots)
 * [About this project](#about-this-project)
+  * [How the app is built](#how-the-app-is-built)
 * [Getting started](#getting-started)
 * [Deploying the application](#deployment)
 * [Technologies used to create app](#technologies-used)
@@ -23,21 +24,27 @@ A MERN stack application that allows you to log and keep track of your health in
 ## <a name="presentation"></a>Presentation
 <p>The app was presented at the University of Minnesota Coding Bootcamp Demo Day on May 10, 2018.</p>
 
-<p>The slides from that presentation are available [here](https://docs.google.com/presentation/d/10fSN9kcjoPq1m--SUcrzG1SD8DN-avFuZrVtKLj7_k8/edit?usp=sharing).</p>
+<p>The slides from that presentation are available <a href="https://docs.google.com/presentation/d/10fSN9kcjoPq1m--SUcrzG1SD8DN-avFuZrVtKLj7_k8/edit?usp=sharing">here</a>.</p>
 
 ## <a name="contributors"></a>Contributors
 The HealthTracker app was created by a team of 4 developers at the University of Minnesota.
 
-* <a href="https://github.com/2crazyflowers">Sara Bracewell</a>
+<a href="https://github.com/2crazyflowers">Sara Bracewell</a>
 <p>Defined database architecture/models and developed data visualization charts to track height and weight measurements over time.</p>
+<br>
+<br>
 
-* <a href="https://github.com/kkotewall">Kayla Kotewall</a>
+<a href="https://github.com/kkotewall">Kayla Kotewall</a>
 <p>Developed feature that allows attachments (for example, lab reports) to be uploaded to Amazon S3 and helped implement user authentication using Passport.js.</p>
+<br>
+<br>
 
-* <a href="https://github.com/TowerGuy2909">Jerridd Speidel</a>
+<a href="https://github.com/TowerGuy2909">Jerridd Speidel</a>
 <p>Developed user authentication using Passport.js, which ensures that a user is always authenticated when using the app and the user’s health information is protected.</p>
+<br>
+<br>
 
-* <a href="https://github.com/philipstubbs13/">Phil Stubbs</a>
+<a href="https://github.com/philipstubbs13/">Phil Stubbs</a>
 <p>Designed UX flow, developed UI using React, and helped managed project using GitHub task board/agile methodology.</p>
 
 ## <a name="screenshots"></a> Screenshots
@@ -78,6 +85,17 @@ The HealthTracker app was created by a team of 4 developers at the University of
 
 <img src="./readme_images/charts.png">
 
+## <a name="about-this-project></a> About this project
+Many people visit the doctor office on a regular basis (sometimes multiple times per week) and have no way of accurately and efficiently keeping track of their health information, such as upcoming appointments, prescriptions, symptoms they experience away from the doctor office, notes from their doctors, and height and weight measurements. 
+
+ Managing all that information can be quite the challenge because it is often written on paper and scattered across multiple documents and files. Also, information often comes from multiple doctors and clinics. Plus, there is no one, central location to store the information. For example, appointments might be scheduled on a paper calendar, but the notes from that appointment are located in a separate notebook. You might experience a symptom away from the doctor office, but you don't write it down and forget to tell your doctor at your next visit.  As you can see, there are many problems with managing your health. keeping track of this information is a time-consuming, manual process. As a result, this information can easily be lost, misplaced, or forgotten over time.
+
+ So, it is safe to say that managing our health information is difficult. It gets even more complex and challenging when trying to manage that inforation for someone else (for example, a child or grandparent).
+
+ This is where HealthTracker comes in. HealthTracker is a web application that allows you to log and keep track of health information so that you can easily share and discuss that information with your doctor(s) during your next visit. It is one app that you can use to create and maintain a health journal for yourself or for another person. No more having to carry around bulky notebooks, papers, and files to each and every doctor visit. Instead, all you need to do is bring your tablet to the doctor office, open up the application, and all the relevant information is there for the doctor to see.
+
+### <a name="how-the-app-is-built"></a> How the app is built
+
 ## <a name="getting-started"></a> Getting started
 
 The following section will take you through the steps of setting up this application and getting it running locally on your computer.
@@ -88,11 +106,12 @@ To set up this application locally on your computer, perform the following steps
   1. [Clone the repository](#clone-repository)
   2. [Install Node.js](#install-node)
   3. [Install the project dependencies](#dependencies)
-  4. [Install MongoDB](#install-mongo)
-  5. [Start the daemon for MongoDB](#mongod)
-  6. [Start the MongoDB shell](#mongoshell)
-  7. [Install Robo 3T](#install-robo)
-  8. [Start the Express server and React development server](#start-server)
+  4. [Install yarn](#install-yarn)
+  5. [Install MongoDB](#install-mongo)
+  6. [Start the daemon for MongoDB](#mongod)
+  7. [Start the MongoDB shell](#mongoshell)
+  8. [Install Robo 3T](#install-robo)
+  9. [Start the Express server and React development server](#start-server)
 
 ###  <a name="clone-repository"></a> 1. Clone the repository.
 The first step is to clone the project repository to a local directory on your computer. To clone the repository, run the following commands:
@@ -105,38 +124,66 @@ cd ./MedLog
 
 <p>If you don't already have Node.js installed on your computer, you can install the latest version <a href="https://nodejs.org/en/">here</a>.</p>
 
-###  <a name="dependencies"></a> 3. Install the project dependencies.
+### <a name="install-yarn"></a> 3. Install yarn
+
+###  <a name="dependencies"></a> 4. Install the project dependencies.
 
 <p>The following packages are dependencies to the project.<p>
+
+<ul>
+	<li><b>express</b> -  a Node.js web application framework (https://www.npmjs.com/package/express).</li>
+	<li><b>body-parser</b> - a package used to parse incoming request bodies in a middleware. (https://www.npmjs.com/package/body-parser)</li>
+  <li><b>axios</b> - a promise based HTTP client for the browser and node.js (https://www.npmjs.com/package/axios)</li>
+  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database(https://www.npmjs.com/package/mongoose).</li>
+  <li><b>morgan</b> - an HTML request logger middleware for Node.js that is used to log requests to your application (https://www.npmjs.com/package/morgan).</li>
+  <li><b>connect-mongo</b></li>
+  <li><b>express-session</b></li>
+  <li><b>fusioncharts</b></li>
+  <li><b>chartist</b></li>
+  <li><b>react-chartist</b></li>
+  <li><b>material-ui</b></li>
+  <li><b>moment</b></li>
+  <li><b>passport</b></l>
+  <li><b>passport-local</b></li>
+  <li><b>react</b></li>
+  <li><b>react-dom</b></li>
+  <li><b>react-drop-to-upload</b></li>
+  <li><b>react-fusioncharts</b></li>
+  <li><b>react-router</b></li>
+  <li><b>react-router-dom</b></li>
+  <li><b>react-scripts</b></li>
+  <li><b>rebass</b></li>
+</ul>
 
 <p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required packages:</p>
 <pre>yarn install</pre>
 
-<p>Change directory to the MedLog/client directory and run the following command to install the client dependencies:</p>
+<p>Change directory to the MedLog/client directory and run the following command to install the client dependencies.</p>
+
 <pre>yarn install</pre>
 
-###  <a name="install-mongo"></a> 4. Install MongoDB
+###  <a name="install-mongo"></a> 5. Install MongoDB
 
 <p>For installation instructions, see <a href="https://github.com/philipstubbs13/coding-tips-tricks-resources/blob/master/MongoDB/Installing-MongoDB.md">Installing MongoDB</a>.</p>
 
-###  <a name="mongod"></a> 5. Start the daemon for MongoDB
+###  <a name="mongod"></a> 6. Start the daemon for MongoDB
 
 <p>Open another terminal window and run the following command to start the daemon process for MongoDB, which handles data requests, manages data access, and performs background management operations.</p>
 <pre>mongod</pre>
 
 <p><b>Note:</b> You want to keep the mongod process running in the background during development.</p>
 
-###  <a name="mongoshell"></a> 6. Start the MongoDB shell
+###  <a name="mongoshell"></a> 7. Start the MongoDB shell
 <p>In a separate terminal window, run the following command to start up the MongoDB shell.</p>
 <pre>mongo</pre>
 
-###  <a name="install-robo"></a> 7. Install Robo 3T
+###  <a name="install-robo"></a> 8. Install Robo 3T
 
 <p>If you don't already have Robo 3T installed on your computer, you can install the latest version [here](https://robomongo.org/download).</p>
 
 <p>For this project, Robo 3T is similar to MySQL Workbench (if you are used to working with MySQL databases). Robo 3T is not required. But, similar to MySQL Workbench, it is a graphical user interface that is used to visually see the database and database collections (as opposed to using the command line interface for MongoDB).</p>
 
-###  <a name="start-server"></a> 8. Start the Express server and React development server.
+###  <a name="start-server"></a> 9. Start the Express server and React development server.
 <p>After performing all of the setup steps in the <b>Getting started</b> section, navigate to the project root directory (<b>MedLog</b>) and run the following command to start the Express server and React development server.</p>
 <pre>yarn start</pre>
 
@@ -172,12 +219,12 @@ git push heroku master
 <pre>heroku logs</pre>
 
 <p>There are also a lot of other resources, such as Stackoverflow and blog posts, that provide some useful information on deploying to Heroku. Here are just a few:</p>
-* <https://coursework.vschool.io/deploying-mern-with-heroku/>
-* <https://medium.com/@s1akr/deploying-a-mern-mongo-express-react-node-stack-web-app-on-to-heroku-d6a7745f88ba>
-* <https://github.com/nodejs/node-v0.x-archive/issues/6000>
-* <https://github.com/heroku/heroku-buildpack-nodejs>
-* <https://github.com/react-boilerplate/react-boilerplate/blob/master/docs/general/deployment.md>
-* <http://decoding.software/how-to-setup-mlab-cloud-based-mongodb-on-heroku/>
+* https://coursework.vschool.io/deploying-mern-with-heroku/
+* https://medium.com/@s1akr/deploying-a-mern-mongo-express-react-node-stack-web-app-on-to-heroku-d6a7745f88ba
+* https://github.com/nodejs/node-v0.x-archive/issues/6000
+* https://github.com/heroku/heroku-buildpack-nodejs
+* https://github.com/react-boilerplate/react-boilerplate/blob/master/docs/general/deployment.md
+* http://decoding.software/how-to-setup-mlab-cloud-based-mongodb-on-heroku/
 
 
 ## <a name="technologies-used"></a> Technologies used to create app
