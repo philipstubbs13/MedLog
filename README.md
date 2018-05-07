@@ -15,6 +15,7 @@ HealthTracker is a MERN stack application that allows you to log and keep track 
 * [Technologies used to create app](#technologies-used)
   * [Backend technologies](#Backend)
   * [Frontend technologies](#Frontend)
+* [Direction for future development](#future)
 * [Issues](#Issues)
 
 ## <a name="live"></a>Live
@@ -85,14 +86,14 @@ The HealthTracker app was created by a team of 4 developers at the University of
 
 <img src="./readme_images/charts.png">
 
-## <a name="about-this-project></a> About this project
+## <a name="about-this-project"></a> About this project
 Many people visit the doctor office on a regular basis (sometimes multiple times per week) and have no way of accurately and efficiently keeping track of their health information, such as upcoming appointments, prescriptions, symptoms they experience away from the doctor office, notes from their doctors, and height and weight measurements. 
 
- Managing all that information can be quite the challenge because it is often written on paper and scattered across multiple documents and files. Also, information often comes from multiple doctors and clinics. Plus, there is no one, central location to store the information. For example, appointments might be scheduled on a paper calendar, but the notes from that appointment are located in a separate notebook. You might experience a symptom away from the doctor office, but you don't write it down and forget to tell your doctor at your next visit.  As you can see, there are many problems with managing your health. keeping track of this information is a time-consuming, manual process. As a result, this information can easily be lost, misplaced, or forgotten over time.
+ Managing all that information can be quite the challenge because it is often written on paper and scattered across multiple documents and files. Also, information often comes from multiple doctors and clinics. Plus, there is no one, central location to store the information. For example, appointments might be scheduled on a paper calendar, but the notes from that appointment are located in a separate notebook. You might experience a symptom away from the doctor office, but you don't write it down and forget to tell your doctor at your next visit.  As you can see, there are many problems with the current methods for managing one's health. Keeping track of this information is a time-consuming, manual process. As a result, this information can easily be lost, misplaced, or forgotten over time.
 
  So, it is safe to say that managing our health information is difficult. It gets even more complex and challenging when trying to manage that inforation for someone else (for example, a child or grandparent).
 
- This is where HealthTracker comes in. HealthTracker is a web application that allows you to log and keep track of health information so that you can easily share and discuss that information with your doctor(s) during your next visit. It is one app that you can use to create and maintain a health journal for yourself or for another person. No more having to carry around bulky notebooks, papers, and files to each and every doctor visit. Instead, all you need to do is bring your tablet to the doctor office, open up the application, and all the relevant information is there for the doctor to see.
+ This is where HealthTracker comes in. HealthTracker is a web application that allows you to log and keep track of health information so that you can easily share and discuss that information with your doctor(s) during your next visit. It is <b>one app</b> that you can use to create and maintain a health journal for yourself or for another person. No more having to carry around bulky notebooks, papers, and files to each and every doctor visit. Instead, all you need to do is bring your tablet to the doctor office, open up the application, and all the relevant information is there for the doctor to see.
 
 ### <a name="how-the-app-is-built"></a> How the app is built
 
@@ -134,7 +135,7 @@ cd ./MedLog
 	<li><b>express</b> -  a Node.js web application framework (https://www.npmjs.com/package/express).</li>
 	<li><b>body-parser</b> - a package used to parse incoming request bodies in a middleware. (https://www.npmjs.com/package/body-parser)</li>
   <li><b>axios</b> - a promise based HTTP client for the browser and node.js (https://www.npmjs.com/package/axios)</li>
-  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database(https://www.npmjs.com/package/mongoose).</li>
+  <li><b>mongoose</b> - an ORM that allows you to connect to your MongoDB database and allows you to have access to the MongoDB commands to perform create, read, update, and delete operations on the database (https://www.npmjs.com/package/mongoose).</li>
   <li><b>morgan</b> - an HTML request logger middleware for Node.js that is used to log requests to your application (https://www.npmjs.com/package/morgan).</li>
   <li><b>connect-mongo</b></li>
   <li><b>express-session</b></li>
@@ -158,7 +159,7 @@ cd ./MedLog
 <p>After you clone the repository to a local directory, change directory to the project root directory and run the following command to install the required packages:</p>
 <pre>yarn install</pre>
 
-<p>Change directory to the MedLog/client directory and run the following command to install the client dependencies.</p>
+<p>Change directory to the <b>MedLog/client</b> directory and run the following command to install the client dependencies.</p>
 
 <pre>yarn install</pre>
 
@@ -179,7 +180,7 @@ cd ./MedLog
 
 ###  <a name="install-robo"></a> 8. Install Robo 3T
 
-<p>If you don't already have Robo 3T installed on your computer, you can install the latest version [here](https://robomongo.org/download).</p>
+<p>If you don't already have Robo 3T installed on your computer, you can install the latest version <a href"https://robomongo.org/download">here</a>.</p>
 
 <p>For this project, Robo 3T is similar to MySQL Workbench (if you are used to working with MySQL databases). Robo 3T is not required. But, similar to MySQL Workbench, it is a graphical user interface that is used to visually see the database and database collections (as opposed to using the command line interface for MongoDB).</p>
 
@@ -187,7 +188,7 @@ cd ./MedLog
 <p>After performing all of the setup steps in the <b>Getting started</b> section, navigate to the project root directory (<b>MedLog</b>) and run the following command to start the Express server and React development server.</p>
 <pre>yarn start</pre>
 
-<p>To verify that the server has started and the application is working locally on your computer, open Chrome and go to <a href="http://localhost:3000">http://localhost:3000</a>.
+<p>After the development server has started, a Chrome browser window should open, and you should see the login screen for the application. If the browser does not automatically oepn after the server starts, you can verify that the application is working locally on your computer by opening Chrome and go to <a href="http://localhost:3000">http://localhost:3000</a>.
 
 ## <a name="deployment"></a> Deploying the app
 
@@ -200,13 +201,13 @@ This app is deployed to Heroku. To deploy the app, you will need to build a prod
 2. If you haven't already, log in to your Heroku account and follow the prompts to create a new SSH public key.
 <pre>heroku login</pre>
 
-3. Change directory to the project root directory (MedLog).
+3. Change directory to the project root directory (<b>MedLog</b>).
 
-4. If you have deployed the app before, delete the MedLog/client/build folder.
+4. If you have deployed the app before, delete the <b>MedLog/client/build</b> folder.
 
 5. Run the following command to build a production version of the app.
 <pre>yarn build</pre>
-<p>This command creates a folder called build inside of the client folder. </p>
+<p>This command creates a folder called <b>build</b> inside of the <b>client</b> folder. </p>
 
 6. Deploy your changes
 <pre>
@@ -219,13 +220,14 @@ git push heroku master
 <pre>heroku logs</pre>
 
 <p>There are also a lot of other resources, such as Stackoverflow and blog posts, that provide some useful information on deploying to Heroku. Here are just a few:</p>
-* https://coursework.vschool.io/deploying-mern-with-heroku/
-* https://medium.com/@s1akr/deploying-a-mern-mongo-express-react-node-stack-web-app-on-to-heroku-d6a7745f88ba
-* https://github.com/nodejs/node-v0.x-archive/issues/6000
-* https://github.com/heroku/heroku-buildpack-nodejs
-* https://github.com/react-boilerplate/react-boilerplate/blob/master/docs/general/deployment.md
-* http://decoding.software/how-to-setup-mlab-cloud-based-mongodb-on-heroku/
-
+<ul>
+  <li>https://coursework.vschool.io/deploying-mern-with-heroku/</li>
+  <li>https://medium.com/@s1akr/deploying-a-mern-mongo-express-react-node-stack-web-app-on-to-heroku-d6a7745f88ba</li>
+  <li>https://github.com/nodejs/node-v0.x-archive/issues/6000</li>
+  <li>https://github.com/heroku/heroku-buildpack-nodejs</li>
+  <li>https://github.com/react-boilerplate/react-boilerplate/blob/master/docs/general/deployment.md</li>
+  <li>http://decoding.software/how-to-setup-mlab-cloud-based-mongodb-on-heroku/</li>
+</ul>
 
 ## <a name="technologies-used"></a> Technologies used to create app
 
@@ -247,8 +249,21 @@ git push heroku master
 * CSS
 * Javascript
 * React (<https://reactjs.org/>)
-* material-ui-next (<https://material-ui-next.com/>)
+* Material UI Next (<https://material-ui-next.com/>)
 
 ## <a name ="Issues"></a> Issues
 
 <p>If you find an issue while using the app or have a request, <a href="<https://github.com/philipstubbs13/MedLog/issues/>" target="_blank">log the issue or request here</a>. These issues will be addressed in a future code update.</p>
+
+## <a name="future"></a> Direction for future development
+Source code will be developed over time to handle bug fixes and new features.
+
+The following is a list of potential enhancements for future code development.
+
+* <b>Physical activity</b> - Add page that allows users to track physical health information, such as heart rate, number of steps, distance, calories burned, etc.
+
+* <b>Allergy information</b> - Add page that allows users to keep a list of medicine and food allergies.
+
+* <b>Insurance</b> - Add page that has information about a user's insurance company, including company name, policy holder name, policy number, insurance company contact information, and comments.
+
+* <b>Health goals</b> - Add page where you can set health goals for yourself and keep track of your progress, making it easier to accomplish your goals.
