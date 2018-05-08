@@ -5,14 +5,9 @@ const isAuthenticated = require('../isAuthenticated')
 
 module.exports = function(passport){
   // Matches with "/api/doctors"
-  console.log('inside doctors controller!')
   router.route("/")
-    .get( isAuthenticated,  () => {
-      console.log('Executing find all');
-      doctorsController.findAll();
-    })
+    .get(isAuthenticated, doctorsController.findAll)
     .post(doctorsController.create);
-    console.log()
 
   // Matches with "/api/doctors/:id"
   router.route("/:id")
@@ -20,6 +15,5 @@ module.exports = function(passport){
     .put(doctorsController.update)
     .delete(doctorsController.remove);
 
-    return router;
+  return router;
 }
-// module.exports = router;
