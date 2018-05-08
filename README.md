@@ -105,27 +105,40 @@ After you clone the repository, navigate to the project root directory (MedLog).
 
 * <b>client</b>
   * <b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.
-  * <b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.
+  * <b>src</b>: The src folder is where the React app components reside.
+    * <b>assets</b>: Contains the images used in the app.
     * <b>index.js</b>: The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
     * <b>App.js</b>: The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.
-    * <b>Components</b>: The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.
+    * <b>Components</b>: The Components folder is where the app components that are reused across the app are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.
+    * <b>containers</b>: Holds all the pages of the app and the child components within those pages.
+    * <b>utils</b>: Contains all the axios requests used to get health information from the database.
+    * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
   * <b>package.json</b>: Lists the project dependencies and their version numbers.
+  * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
+* <b>Controllers</b>: The controllers are the routes that are used to pass information to and from the view and model objects.
+* <b>models</b>: The models define the database schema or structure of the database.
+* <b>routes</b>: These files are the key to how the back end and front end can communicate with each other. They give the server a map of how to respond when users visit or request data from various URLs.
+* <b>scripts</b>
+  * <b>build.js</b>: Run <b>yarn build</b> in the project root directory to create a production build of the app, which you can use to deploy the app to Heroku.
+  * <b>seedDB.js</b>: Run <b>yarn seed</b> to populate your development database with information.
+  * <b>start-client</b>: Script used to start the React development server.
+* <b>.eslintrc.js</b>: List of rules and their definitions for ESLint.
+* <b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub when code is committed.
+* <b>package.json</b>: Lists the project dependencies and their version numbers. It also contains various scripts to start the server, create a production build, seed the database, etc.
+* <b>Procfile</b>: This file tells Heroku to run the server file with node once it's built.
+* <b>server.js</b>: This file does the following:
+  * Defines and requires the dependencies, including express, body-parser, and mongoose.
+  * Sets up the Express server to handle data parsing using body-parser.
+  * Points the server to the API routes, which gives the server a map of how to respond when users visit or request data from various URLs.
+  * Defines the port the server is listening on.
+  * Starts the server and React server.
+  * Allows the app to serve static content.
+  * Uses Mongoose (orm) to connect to MongoDB, which allows us to have access to the MongoDB commands to perform various operations.
+* <b>yarn.lock</b>: Dependency tree for the project. Lists the project dependencies and their versions.
   
-<ul>
-  </li>
-    <p><b>client/public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.</p>
-  </li>
-  <li>
-    <p><b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.</p>
-    <ul>
-      <li><b>index.js</b>: The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.</li>
-      <li><b>App.js</b>: The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.</li>
-      <li><b>Components</b>: The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.</li>
-  </li>
-  <li><b>package.json</b>: Lists the project dependencies and their version numbers.</li>
+
   <li><b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub when code is committed.</li>
-  <li><b>yarn.lock</b>: Dependency tree for the project. Lists all the dependencies and their versions.</li>
-</ul>
+
 
 ## <a name="getting-started"></a> Getting started
 
@@ -175,21 +188,21 @@ For more information about yarn and other installation options, see the yarn doc
   <li><b>morgan</b> - an HTML request logger middleware for Node.js that is used to log requests to your application (https://www.npmjs.com/package/morgan).</li>
   <li><b>connect-mongo</b></li>
   <li><b>express-session</b></li>
-  <li><b>fusioncharts</b></li>
+  <li><b>fusioncharts</b>: package that includes simple and complex charts (https://www.npmjs.com/package/fusioncharts).</li>
   <li><b>chartist</b></li>
   <li><b>react-chartist</b></li>
   <li><b>material-ui</b> - a React component library that implements Google's material design (https://material-ui-next.com)</li>
-  <li><b>moment</b></li>
+  <li><b>moment</b> - package used for formatting dates (https://www.npmjs.com/package/moment)</li>
   <li><b>passport</b></l>
   <li><b>passport-local</b></li>
   <li><b>react</b></li>
-  <li><b>react-dom</b></li>
+  <li><b>react-dom</b> - serves as the entry point of the DOM-related rendering paths (https://www.npmjs.com/package/react-dom).</li>
   <li><b>react-drop-to-upload</b></li>
   <li><b>react-fusioncharts</b></li>
-  <li><b>react-router</b></li>
+  <li><b>react-router</b> - package that provides the core routing functionality (https://www.npmjs.com/package/react-router).</li>
   <li><b>react-router-dom</b></li>
-  <li><b>react-scripts</b></li>
-  <li><b>rebass</b></li>
+  <li><b>react-scripts</b>: package that includes scripts and configuration used by Create React App (https://www.npmjs.com/package/react-scripts)</li>
+  <li><b>rebass</b> - library of UI components for React (https://www.npmjs.com/package/rebass)</li>
 </ul>
 
 <p>Version information for each of these packages is available in the <b>package.json</b> file in the project root directory and in the <b>client</b> directory.</p>
