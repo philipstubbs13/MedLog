@@ -9,11 +9,13 @@ import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 // Style for add appointments form.
 const styles = {
   textField: {
-    marginTop: 50,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -65,7 +67,16 @@ class AppointmentsForm extends React.Component {
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="appointment-name">Appointment name</InputLabel>
+                <InputLabel htmlFor="appointment-name">
+                  <span>
+                    Appointment name
+                    <Tooltip  
+                      title="Specify a name for the appointment to help identify the appointment later."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="appointment-name"
                   InputLabelProps={{
@@ -79,7 +90,16 @@ class AppointmentsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="select-doctor">Select a doctor</InputLabel>
+                <InputLabel htmlFor="select-doctor">
+                  <span>
+                    Select a doctor
+                    <Tooltip  
+                      title="Select the doctor associated with the scheduled appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField 
                   id='doctor'
                   select
@@ -98,7 +118,16 @@ class AppointmentsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="appointment-date">Appointment date</InputLabel>
+                <InputLabel htmlFor="appointment-date">
+                  <span>
+                    Appointment date
+                    <Tooltip  
+                      title="Use the date picker to specify the date of the appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="appointment-date"
                   type="date"
@@ -113,7 +142,16 @@ class AppointmentsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="appointment-time">Appointment time</InputLabel>
+                <InputLabel htmlFor="appointment-time">
+                  <span>
+                    Appointment time (HH:MM)
+                    <Tooltip  
+                      title="Use the time picker to specify the time of the appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="appointment-time"
                   type="time"

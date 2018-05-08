@@ -9,10 +9,12 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 const styles = {
   textField: {
-    marginTop: 50,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -61,7 +63,16 @@ class LogForm extends React.Component {
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="doctor">Select a doctor</InputLabel>
+                <InputLabel htmlFor="doctor">
+                  <span>
+                    Select a doctor 
+                    <Tooltip  
+                      title="Select a doctor to associate with this note."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField 
                   id='doctor'
                   select
@@ -80,7 +91,16 @@ class LogForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="doctor visit date">Date of doctor visit</InputLabel>
+                <InputLabel htmlFor="doctor visit date">
+                  <span>
+                    Date of doctor visit 
+                    <Tooltip  
+                      title="Use the date picker to specify the date of the doctor visit."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="doctor-visit-date"
                   type="date"
@@ -95,7 +115,16 @@ class LogForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="reason for visit">Reason for visit</InputLabel>
+                <InputLabel htmlFor="reason for visit">
+                  <span>
+                    Reason for visit
+                    <Tooltip  
+                      title="Specify the reason for visiting the doctor. For example, 3 month follow up."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>  
+                </InputLabel>
                 <TextField
                   id="reason-for-visit"
                   InputLabelProps={{
@@ -109,7 +138,15 @@ class LogForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="height">Height (inches)</InputLabel>
+                <InputLabel htmlFor="height">
+                  <span>
+                    Height (inches) 
+                    <Tooltip  
+                      title="Enter the height measurement taken at the doctor's office."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span></InputLabel>
                 <TextField
                   id="height"
                   InputLabelProps={{
@@ -123,7 +160,16 @@ class LogForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="weight">Weight (pounds)</InputLabel>
+                <InputLabel htmlFor="weight">
+                  <span>
+                    Weight (pounds) 
+                    <Tooltip  
+                      title="Enter the weight measurment taken at the doctor's office."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>  
+                </InputLabel>
                 <TextField
                   id="weight"
                   InputLabelProps={{
@@ -138,7 +184,16 @@ class LogForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="notes">Visit notes</InputLabel>
+                <InputLabel htmlFor="notes">
+                  <span>
+                    Visit notes 
+                    <Tooltip  
+                      title="Enter any additional information regarding your visit to the doctor."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="log-notes"
                   InputLabelProps={{
