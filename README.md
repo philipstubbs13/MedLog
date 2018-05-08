@@ -94,24 +94,33 @@ Many people visit the doctor office on a regular basis (sometimes multiple times
  This is where HealthTracker comes in. HealthTracker is a web application that allows you to log and keep track of health information so that you can easily share and discuss that information with your doctor(s) during your next visit. It is <b>one app</b> that you can use to create and maintain a health journal for yourself or for another person. No more having to carry around bulky notebooks, papers, and files to each and every doctor visit. Instead, all you need to do is bring your tablet to the doctor office, open up the application, and all the relevant information is there for the doctor to see.
 
 ### <a name="how-the-app-is-built"></a> How the app is built
-On the front end side, this project is built using React, which is an open-source Javascript library developed at Facebook specifically for the task of developing user interfaces. React relies on a component-based architecture where elements of the user interface are broken into small chunks of code called components. To build these components, Material UI was used. Material UI is a React component library that implements Google’s material design.
+On the front end side, this project is built using React, which is an open-source Javascript library developed at Facebook specifically for the task of developing user interfaces. React relies on a component-based architecture where elements of the user interface are broken into small chunks of code called components. Material UI is a css framework that helps with building these components. Material UI is a React component library that implements Google’s material design.
 
-On the back end side, this project uses MongoDB, Node, Express, Mongoose ORM (Object Relational Mapper), Amazon S3, and various third party packages. Node, MongoDB, and Mongoose are used to query and route data in the application. Express is the backend web framework used for this application. Amazon S3 is a cloud storage service that allows users of the app to upload attachments from the app to an S3 bucket. 
+On the back end side, this project uses MongoDB, Node, Express, Mongoose ORM (Object Relational Mapper), Amazon S3, and various third party packages. Node, MongoDB, and Mongoose are used to query and route data in the app. Express is the backend web framework used for this app. Amazon S3 is a cloud storage service that allows users of the app to upload attachments from the app to an S3 bucket. 
 
 
 ### <a name="project-structure"></a> Structure of the project
 
-<p>After you clone the repository, navigate to the project root directory (MedLog). The project directory structure is set up as follows:</p>
+After you clone the repository, navigate to the project root directory (MedLog). The project directory structure is set up as follows:
+
+* <b>client</b>
+  * <b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.
+  * <b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.
+    * <b>index.js</b>: The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.
+    * <b>App.js</b>: The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.
+    * <b>Components</b>: The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.
+  * <b>package.json</b>: Lists the project dependencies and their version numbers.
+  
 <ul>
   </li>
-    <p><b>public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.</p>
+    <p><b>client/public</b>: The public folder contains the index.html file. This HTML file is a template. The file is empty. So, if you open it directly in a browser, you will get an empty page. Rather than placing the HTML code directly in index.html, this application uses a React component-based architecture to create, build, and render UI components to the page.</p>
   </li>
   <li>
     <p><b>src</b>: In the src folder, there are 4 main parts of the application to pay attention to.</p>
     <ul>
-      <li><b>index.js:</b> The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.</li>
-      <li><b>App.js:</b> The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.</li>
-      <li><b>Components:</b> The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.</li>
+      <li><b>index.js</b>: The index.js file is the top level file of the React application. In index.js, the App.js file is imported, and the ReactDOM.render method is used to render App.js to the page.</li>
+      <li><b>App.js</b>: The App.js file is where the application components are imported and rendered, such as the navigation bar, footer, and various pages.</li>
+      <li><b>Components</b>: The Components folder is where the app components are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.</li>
   </li>
   <li><b>package.json</b>: Lists the project dependencies and their version numbers.</li>
   <li><b>.gitignore</b>: Anything listed inside this file (for example, node_modules) will not be tracked by GitHub when code is committed.</li>
