@@ -14,8 +14,8 @@ HealthTracker is a MERN stack application that allows you to log and keep track 
 * [Getting started](#getting-started)
 * [Deploying the application](#deployment)
 * [Technologies used to create app](#technologies-used)
-  * [Backend technologies](#Backend)
-  * [Frontend technologies](#Frontend)
+  * [Back end technologies](#Backend)
+  * [Front end technologies](#Frontend)
 * [Direction for future development](#future)
 * [Issues](#Issues)
 
@@ -157,7 +157,7 @@ To set up this application locally on your computer, perform the following steps
   8. [Install Robo 3T](#install-robo)
   9. [Start the Express server and React development server](#start-server)
 
-###  <a name="clone-repository"></a> 1. Clone the repository.
+###  <a name="clone-repository"></a> 1. Clone the repository
 The first step is to clone the project repository to a local directory on your computer. To clone the repository, run the following commands:
 <pre>
 git clone https://github.com/philipstubbs13/MedLog.git
@@ -189,16 +189,16 @@ For more information about yarn and other installation options, see the yarn doc
   <li><b>connect-mongo</b></li>
   <li><b>express-session</b></li>
   <li><b>fusioncharts</b>: package that includes simple and complex charts (https://www.npmjs.com/package/fusioncharts).</li>
-  <li><b>chartist</b></li>
-  <li><b>react-chartist</b></li>
+  <li><b>chartist</b>: package for creating customizable, responsive charts (https://gionkunz.github.io/chartist-js/)</li>
+  <li><b>react-chartist</b>: package for creating React chart components (https://www.npmjs.com/package/react-chartist)</li>
   <li><b>material-ui</b> - a React component library that implements Google's material design (https://material-ui-next.com)</li>
   <li><b>moment</b> - package used for formatting dates (https://www.npmjs.com/package/moment)</li>
-  <li><b>passport</b></l>
-  <li><b>passport-local</b></li>
-  <li><b>react</b></li>
+  <li><b>passport</b> - package used for authenticating requests (https://www.npmjs.com/package/passport)</li>
+  <li><b>passport-local</b> - package that allows you to authenticate using a username and password in a Node.js application (https://www.npmjs.com/package/passport-local)</li>
+  <li><b>react</b> - package for accessing React (https://www.npmjs.com/package/react)</li>
   <li><b>react-dom</b> - serves as the entry point of the DOM-related rendering paths (https://www.npmjs.com/package/react-dom).</li>
   <li><b>react-drop-to-upload</b></li>
-  <li><b>react-fusioncharts</b></li>
+  <li><b>react-fusioncharts</b> - React component for FusionCharts (https://www.npmjs.com/package/react-fusioncharts)</li>
   <li><b>react-router</b> - package that provides the core routing functionality (https://www.npmjs.com/package/react-router).</li>
   <li><b>react-router-dom</b></li>
   <li><b>react-scripts</b>: package that includes scripts and configuration used by Create React App (https://www.npmjs.com/package/react-scripts)</li>
@@ -231,7 +231,7 @@ For more information about yarn and other installation options, see the yarn doc
 
 ###  <a name="install-robo"></a> 8. Install Robo 3T
 
-<p>If you don't already have Robo 3T installed on your computer, you can install the latest version <a href"https://robomongo.org/download">here</a>.</p>
+<p>If you don't already have Robo 3T installed on your computer, you can install the latest version <a href="https://robomongo.org/download">here</a>.</p>
 
 <p>For this project, Robo 3T is similar to MySQL Workbench (if you are used to working with MySQL databases). Robo 3T is not required. But, similar to MySQL Workbench, it is a graphical user interface that is used to visually see the database and database collections (as opposed to using the command line interface for MongoDB).</p>
 
@@ -280,10 +280,10 @@ git push heroku master
 
 ## <a name="technologies-used"></a> Technologies used to create app
 
-* [Backend technolgies](#Backend)
-* [Frontend technologies](#Frontend)
+* [Back end technolgies](#Backend)
+* [Front end technologies](#Frontend)
 
-### <a name ="Backend"></a> Backend technologies
+### <a name ="Backend"></a> Back end technologies
 
 * Node.js (<https://nodejs.org/en/>)
 * MongoDB (<https://www.mongodb.com/>)
@@ -291,8 +291,9 @@ git push heroku master
 * Mongoose ORM (<http://mongoosejs.com/>)
 * Javascript
 * AWS S3 Buckets (<https://aws.amazon.com/s3/>)
+* FusionCharts (https://www.fusioncharts.com/)
 
-### <a name="Frontend"></a> Frontend technologies
+### <a name="Frontend"></a> Front end technologies
 
 * HTML
 * CSS
@@ -312,6 +313,8 @@ The following is a list of potential enhancements for future code development.
 * <b>Insurance</b> - Add page that has information about a user's insurance company, including company name, policy holder name, policy number, insurance company contact information, and comments.
 
 * <b>Health goals</b> - Add page where you can set health goals for yourself and keep track of your progress, making it easier to accomplish your goals.
+
+* <b>Additional Charting Options</b> - Ability to chart blood pressure, blood sugar, and other important information that will help you and  your doctor better track your health. 
 
 ## <a name ="Issues"></a> Issues
 
