@@ -9,11 +9,13 @@ import Typography from 'material-ui/Typography';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 // Style
 const styles = theme => ({
   textField: {
-    marginTop: 50,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -62,8 +64,17 @@ class SymptomTextFields extends React.Component {
             Add a symptom
             </Typography>
             <form noValidate autoComplete="off">
-              <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="select-symptom">Select symptom</InputLabel>
+              <FormControl className={classes.formControl} fullWidth>     
+                <InputLabel htmlFor="select-symptom">
+                  <span>
+                    Select symptom  
+                    <Tooltip  
+                      title="Select a symptom from the drop-down list."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>     
                 <TextField 
                   id='select-sympptom'
                   select
@@ -87,7 +98,16 @@ class SymptomTextFields extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="symptom-day">Day symptom occurred</InputLabel>
+                <InputLabel htmlFor="symptom-day">
+                  <span>
+                    Day symptom occurred
+                    <Tooltip  
+                      title="Use the date picker to enter the day when the symptom occurred."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="symptom-day"
                   type="date"
@@ -102,7 +122,16 @@ class SymptomTextFields extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="symptom-time">Time symptom occurred</InputLabel>
+                <InputLabel htmlFor="symptom-time">
+                  <span>
+                    Time symptom occurred (HH:MM)
+                    <Tooltip  
+                      title="Use the time picker to enter the time when the symptom occurred."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="symptom-time"
                   type="timedatetime-local"
@@ -117,7 +146,16 @@ class SymptomTextFields extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="additional-symptom-info">Additional information you want to share with your doctor</InputLabel>
+                <InputLabel htmlFor="additional-symptom-info">
+                  <span>
+                    Additional information you want to share with your doctor
+                    <Tooltip 
+                      title="Enter any additional notes to discuss with your doctor."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="additional-symptom-info"
                   InputLabelProps={{

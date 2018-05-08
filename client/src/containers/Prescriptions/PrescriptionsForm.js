@@ -9,10 +9,12 @@ import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 const styles = theme => ({
   textField: {
-    marginTop: 50,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -62,7 +64,16 @@ class PrescriptionsForm extends React.Component {
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="prescription-name">Prescription name</InputLabel>
+                <InputLabel htmlFor="prescription-name">
+                  <span>
+                    Name
+                    <Tooltip  
+                      title="Enter the name of the prescription to help identify the prescription later."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="prescription-name"
                   type="text"
@@ -76,7 +87,16 @@ class PrescriptionsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="prescribing-doctor">Doctor who prescribed</InputLabel>
+                <InputLabel htmlFor="prescribing-doctor">
+                  <span>
+                    Doctor who prescribed
+                    <Tooltip  
+                      title="Use the drop-down list to select the name of the prescribing doctor."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField 
                   id='prescribedDoctor'
                   select
@@ -95,7 +115,16 @@ class PrescriptionsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="date-prescribed">Date prescribed</InputLabel>
+                <InputLabel htmlFor="date-prescribed">
+                  <span>
+                    Date prescribed
+                    <Tooltip  
+                      title="Use the date picker to enter the date when the prescription was prescribed."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="date-prescribed"
                   type="date"
@@ -110,7 +139,16 @@ class PrescriptionsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="prescription-amount">Dose amount</InputLabel>
+                <InputLabel htmlFor="prescription-amount">
+                  <span>
+                    Dose amount
+                    <Tooltip  
+                      title="Enter the amount that was prescribed. For example, 10mLs."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="prescription-amount"
                   type="text"
@@ -124,7 +162,16 @@ class PrescriptionsForm extends React.Component {
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="prescription-directions">Directions for use</InputLabel>
+                <InputLabel htmlFor="prescription-directions">
+                  <span>
+                    Directions for use
+                    <Tooltip  
+                      title="Enter specific directions, warnings, or other information regarding this prescription."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
                 <TextField
                   id="prescription-directions"
                   InputLabelProps={{
