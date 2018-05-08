@@ -2,6 +2,7 @@
 import React from 'react';
 // Importing material-ui components and style.
 import TextField from 'material-ui/TextField';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
@@ -12,7 +13,7 @@ import Button from 'material-ui/Button';
 // Style
 const styles = theme => ({
   textField: {
-    marginTop: 40,
+    marginTop: 50,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -28,6 +29,7 @@ const styles = theme => ({
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -61,10 +63,10 @@ class SymptomTextFields extends React.Component {
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="select-symptom">Select symptom</InputLabel>
                 <TextField 
                   id='select-sympptom'
                   select
-                  label='Select symptom'
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -84,50 +86,51 @@ class SymptomTextFields extends React.Component {
                 </TextField>
               </FormControl>
 
-              <TextField
-                id="symptom-day"
-                label="Day symptom occurred"
-                type="date"
-                defaultValue="DD-MM-YYYY"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.date}
-                onChange={this.props.handleSymptomDayChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="symptom-day">Day symptom occurred</InputLabel>
+                <TextField
+                  id="symptom-day"
+                  type="date"
+                  defaultValue="DD-MM-YYYY"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={this.props.date}
+                  onChange={this.props.handleSymptomDayChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="symptom-time"
-                label="Time symptom occurred"
-                type="timedatetime-local"
-                defaultValue="10:30"
-                className={classes.textField}
-                fullWidth
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                value={this.props.time}
-                onChange={this.props.handleSymptomTimeChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="symptom-time">Time symptom occurred</InputLabel>
+                <TextField
+                  id="symptom-time"
+                  type="timedatetime-local"
+                  defaultValue="10:30"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={this.props.time}
+                  onChange={this.props.handleSymptomTimeChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="additional-symptom-info"
-                label="Additional information you want to share with your doctor"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                className={classes.textField}
-                multiline="true"
-                rows={3}
-                rowsMax={4}
-                value={this.props.info}
-                onChange={this.props.handleSymptomInfoChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="additional-symptom-info">Additional information you want to share with your doctor</InputLabel>
+                <TextField
+                  id="additional-symptom-info"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField}
+                  multiline="true"
+                  rows={3}
+                  rowsMax={4}
+                  value={this.props.info}
+                  onChange={this.props.handleSymptomInfoChange}
+                />
+              </FormControl>
 
               <Button 
                 size="large" 

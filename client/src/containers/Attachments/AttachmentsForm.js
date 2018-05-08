@@ -6,13 +6,15 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import { FormControl } from 'material-ui/Form';
 // Import react-drop-to-upload component
 // https://www.npmjs.com/package/react-drop-to-upload
 // import DropToUpload from 'react-drop-to-upload';
 
 const styles = {
   textField: {
-    marginTop: 40,
+    marginTop: 50,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -27,6 +29,7 @@ const styles = {
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 40,
@@ -74,46 +77,49 @@ class AttachmentsForm extends React.Component {
                   <MenuItem value="Other">Other</MenuItem>
                 </Select>
               </FormControl> */}
+              
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="select-doctor">Select a doctor</InputLabel>
+                <TextField
+                  id="select-doctor-dropdown"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.attachmentDoctor}
+                  onChange={this.props.handleAttachmentDoctorChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="select-doctor-dropdown"
-                label="Select a doctor"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.attachmentDoctor}
-                onChange={this.props.handleAttachmentDoctorChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="lab-date">Date</InputLabel>
+                <TextField
+                  id="lab-date"
+                  type="date"
+                  defaultValue="MM-DD-YYYY"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.attachentDate}
+                  onChange={this.props.handleAttachmentDateChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="lab-date"
-                label="Date"
-                type="date"
-                defaultValue="MM-DD-YYYY"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.attachentDate}
-                onChange={this.props.handleAttachmentDateChange}
-              />
-
-              <TextField
-                id="lab-subject"
-                label="Subject"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.attachmentSubject}
-                onChange={this.props.handleAttachmentSubjectChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="lab-subject">Subject</InputLabel>
+                <TextField
+                  id="lab-subject"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.attachmentSubject}
+                  onChange={this.props.handleAttachmentSubjectChange}
+                />
+              </FormControl>
 
               {/* <DropToUpload
                 onDrop={this.handleDrop}
