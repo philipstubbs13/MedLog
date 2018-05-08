@@ -8,10 +8,11 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 
 const styles = theme => ({
   textField: {
-    marginTop: 40,
+    marginTop: 50,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -27,6 +28,7 @@ const styles = theme => ({
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -59,79 +61,81 @@ class PrescriptionsForm extends React.Component {
               Add a prescription
             </Typography>
             <form noValidate autoComplete="off">
-              <TextField
-                id="prescription-name"
-                label="Prescription name"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.prescriptionName}
-                onChange={this.props.handlePrescriptionNameChange}
-              />
-
               <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='prescribedDoctor'
-                select
-                label='Doctor who prescribed'
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleDoctorMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                margin="normal">
-                  {doctors.map(doctor => {
-                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
-                  })}
-                </TextField>
+                <InputLabel htmlFor="prescription-name">Prescription name</InputLabel>
+                <TextField
+                  id="prescription-name"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.prescriptionName}
+                  onChange={this.props.handlePrescriptionNameChange}
+                />
               </FormControl>
 
-              <TextField
-                id="date-prescribed"
-                label="Date prescribed"
-                type="date"
-                defaultValue="MM-DD-YYYY"
-                className={classes.textField}
-                InputLabelProps={{
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="prescribing-doctor">Doctor who prescribed</InputLabel>
+                <TextField 
+                  id='prescribedDoctor'
+                  select
+                  InputLabelProps={{
                     shrink: true,
-                }}
-                fullWidth
-                value={this.props.prescriptionDate}
-                onChange={this.props.handlePrescriptionDateChange}
-              />
+                  }}
+                  className={classes.textField} 
+                  value={this.state.value}
+                  onChange={this.handleDoctorMenuOption} 
+                  SelectProps={{ name: 'value'}} 
+                  margin="normal">
+                    {doctors.map(doctor => {
+                      return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                    })}
+                  </TextField>
+              </FormControl>
 
-              <TextField
-                id="prescription-amount"
-                label="Dose Amount"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                fullWidth
-                value={this.props.prescriptionAmount}
-                onChange={this.props.handlePrescriptionAmountChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="date-prescribed">Date prescribed</InputLabel>
+                <TextField
+                  id="date-prescribed"
+                  type="date"
+                  defaultValue="MM-DD-YYYY"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.prescriptionDate}
+                  onChange={this.props.handlePrescriptionDateChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="prescription-directions"
-                label="Directions for use"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.prescriptionDirections}
-                onChange={this.props.handlePrescriptionDirectionsChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="prescription-amount">Dose amount</InputLabel>
+                <TextField
+                  id="prescription-amount"
+                  type="text"
+                  className={classes.textField}
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  value={this.props.prescriptionAmount}
+                  onChange={this.props.handlePrescriptionAmountChange}
+                />
+              </FormControl>
+
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="prescription-directions">Directions for use</InputLabel>
+                <TextField
+                  id="prescription-directions"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.prescriptionDirections}
+                  onChange={this.props.handlePrescriptionDirectionsChange}
+                />
+              </FormControl>
 
               <Button
                 size="large"

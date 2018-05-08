@@ -6,10 +6,12 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import { FormControl } from 'material-ui/Form';
 
 const styles = {
   textField: {
-    marginTop: 40,
+    marginTop: 50,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -24,6 +26,7 @@ const styles = {
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -45,44 +48,45 @@ class ClinicForm extends React.Component {
               Add a clinic
             </Typography>
             <form noValidate autoComplete="off">
-              <TextField
-                id="clinic-name"
-                label="Name"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.clinicName}
-                onChange={this.props.handleClinicNameChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-name">Name</InputLabel>
+                <TextField
+                  id="clinic-name"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.clinicName}
+                  onChange={this.props.handleClinicNameChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="clinic-address"
-                label="Address"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.clinicAddress}
-                onChange={this.props.handleClinicAddressChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-address">Address</InputLabel>
+                <TextField
+                  id="clinic-address"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.clinicAddress}
+                  onChange={this.props.handleClinicAddressChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="clinic-city"
-                label="City"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.clinicCity}
-                onChange={this.props.handleClinicCityChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-city">City</InputLabel>
+                <TextField
+                  id="clinic-city"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.clinicCity}
+                  onChange={this.props.handleClinicCityChange}
+                />
+              </FormControl>
               {/* <FormControl className={classes.formControl, classes.textField} fullWidth>
                 <InputLabel htmlFor="select-state-dropdown">State</InputLabel>
                 <Select
@@ -146,41 +150,44 @@ class ClinicForm extends React.Component {
                 </Select>
               </FormControl> */}
 
-              <TextField
-                id="clinic-state"
-                label="State"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.clinicState}
-                onChange={this.props.handleClinicStateChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-state">State</InputLabel>
+                <TextField
+                  id="clinic-state"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.clinicState}
+                  onChange={this.props.handleClinicStateChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="clinic-zip-code"
-                label="Zip code"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.clinicZip}
-                onChange={this.props.handleClinicZipChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-zip-code">Zip code</InputLabel>
+                <TextField
+                  id="clinic-zip-code"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.clinicZip}
+                  onChange={this.props.handleClinicZipChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="clinic-phone"
-                label="Phone number"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.clinicPhone}
-                onChange={this.props.handleClinicPhoneChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic-phone">Phone number</InputLabel>
+                <TextField
+                  id="clinic-phone"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.clinicPhone}
+                  onChange={this.props.handleClinicPhoneChange}
+                />
+              </FormControl>
 
               <Button 
                 size="large" 
@@ -198,9 +205,5 @@ class ClinicForm extends React.Component {
     );
   }
 }
-
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(ClinicForm);
