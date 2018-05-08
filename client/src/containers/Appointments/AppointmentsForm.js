@@ -64,7 +64,7 @@ class AppointmentsForm extends React.Component {
             <form noValidate autoComplete="off">
               <TextField
                 id="appointment-name"
-                label="Reason for Visit"
+                label="Appointment name"
                 InputLabelProps={{
                   shrink: true,
                 }}

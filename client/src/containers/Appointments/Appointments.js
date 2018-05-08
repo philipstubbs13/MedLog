@@ -62,16 +62,6 @@ const styles = theme => ({
   },
 });
 
-const CustomTableCell = withStyles(theme => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
 class Appointments extends Component {
   state = {
     appointmentName: "",
@@ -158,7 +148,7 @@ class Appointments extends Component {
     console.log("this.state.appointmentDate: ", this.state.appointmentDate);
     console.log("this.state.appointmentTime: ", this.state.appointmentTime);
     AppointmentAPI.saveAppointment({
-      name: this.state.appointmentName,
+      appointmentName: this.state.appointmentName,
       doctor: this.state.appointmentDoctor,
       date: this.state.appointmentDate,
       time: this.state.appointmentTime,
@@ -203,7 +193,7 @@ class Appointments extends Component {
                               <AppointmentsList
                                 id={appointment._id}
                                 key={appointment._id}
-                                name={appointment.name}
+                                name={appointment.appointmentName}
                                 date={appointment.date}
                                 time={appointment.time}
                                 doctor={appointment.doctor}
