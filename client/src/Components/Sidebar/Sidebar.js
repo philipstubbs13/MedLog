@@ -7,9 +7,11 @@ import List, { ListItem, ListItemText } from 'material-ui/List';
 import Hidden from 'material-ui/Hidden';
 // import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 // Original drawer width: 240
-const drawerWidth = 220;
+const drawerWidth = 150;
 
 const styles = {
   drawerPaper: {
@@ -17,6 +19,9 @@ const styles = {
     width: drawerWidth,
     backgroundColor: '#007AC1',
   },
+  navItem: {
+    marginTop: 8,
+  }
 };
 
 class Sidebar extends React.Component {
@@ -32,44 +37,76 @@ class Sidebar extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
-            <ListItem button component={Link} to="/home" >
+            <ListItem className={classes.navItem} component={Link} to="/home" >
               <ListItemText>
-                Home <i className="fas fa-home" />
+                <Tooltip  
+                  title="Home"
+                  placement="top">
+                  <IconButton> <i className="fas fa-home" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/log">
+            <ListItem className={classes.navItem} component={Link} to="/log">
               <ListItemText>
-                My health log <i className="fas fa-notes-medical" />
+                <Tooltip  
+                  title="My health log"
+                  placement="top">
+                  <IconButton>  <i className="fas fa-notes-medical" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/symptoms">
+            <ListItem className={classes.navItem} component={Link} to="/symptoms">
               <ListItemText>
-                My symptom journal <i className="fas fa-sticky-note" />
+                <Tooltip  
+                  title="My symptom journal"
+                  placement="top">
+                  <IconButton><i className="fas fa-sticky-note" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/appointments">
+            <ListItem className={classes.navItem} component={Link} to="/appointments">
               <ListItemText>
-                Appointments  <i className="fas fa-calendar-alt" />
+                <Tooltip  
+                  title="Appointments"
+                  placement="top">
+                  <IconButton><i className="fas fa-calendar-alt" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/prescriptions">
+            <ListItem className={classes.navItem} component={Link} to="/prescriptions">
               <ListItemText>
-                Prescriptions <i className="fas fa-prescription-bottle" />
+                <Tooltip  
+                  title="Prescriptions"
+                  placement="top">
+                  <IconButton><i className="fas fa-prescription-bottle" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/doctors">
+            <ListItem className={classes.navItem} component={Link} to="/doctors">
               <ListItemText>
-                Doctors and clinics <i className="fas fa-user-md" />
+                <Tooltip  
+                  title="Doctors and clinics"
+                  placement="top">
+                  <IconButton><i className="fas fa-user-md" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/attachments">
+            <ListItem className={classes.navItem} component={Link} to="/attachments">
               <ListItemText>
-                Attachments <i className="fas fa-file-alt" />
+                <Tooltip  
+                  title="Attachments"
+                  placement="top">
+                  <IconButton><i className="fas fa-file-alt" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/charts">
+            <ListItem className={classes.navItem} component={Link} to="/charts">
               <ListItemText>
-                Charts <i className="fas fa-chart-bar" />
+                <Tooltip  
+                  title="Charts"
+                  placement="top">
+                  <IconButton><i className="fas fa-chart-bar" /></IconButton>
+                </Tooltip>
               </ListItemText>
             </ListItem>
           </List>
