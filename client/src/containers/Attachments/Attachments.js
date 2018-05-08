@@ -3,7 +3,11 @@ import React, { Component } from "react";
 // Importing UI components from rebass.
 import { Container } from 'rebass';
 // Import AttachmentsForm
-import AttachmentsForm from  './AttachmentsForm';
+// import AttachmentsForm from  './AttachmentsForm';
+
+// s3 testing
+import TestAttachmentsForm from  './TestAttachmentsForm';
+import TestAttachments from  './TestAttachments';
 // Import AttachmentsList
 // import AttachmentsList from './AttachmentsList';
 // Import API
@@ -66,7 +70,7 @@ class Attachments extends Component {
     handleAttachmentSubjectChange = (event) => {
         this.setState({ attachmentSubject: event.target.value });
     }
- 
+
     // When user submits attachment form, save attachment inforation to database.
     handleFormSubmit = event => {
         event.preventDefault();
