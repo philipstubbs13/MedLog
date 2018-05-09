@@ -44,14 +44,16 @@ class Login extends Component {
 
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
-    const { history } = this.props;
+    const { history, setUser } = this.props;
     event.preventDefault();
     console.log("Authenticating user...");
     console.log("this.state.username: ", this.state.username);
     console.log("this.state.password: ", this.state.password);
+    setUser("i am the user")
     axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
       .then((res) => {
         console.log(res.data);
+        setUser(res.data.userId)
         history.push('/home')
         
       })
@@ -59,7 +61,7 @@ class Login extends Component {
   };
 
   render() {
-    const { classes, history } = this.props;
+    const { classes, history, setUser } = this.props;
     return [
       <Container>
         <Grid item xs={12} className={classes.headline}>
