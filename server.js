@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const routes = require('./routes');
+const User = require('./models/User')
 
 // USER AUTH REQUIREMENTS:
 //const passport = require('./passport');
@@ -24,37 +25,8 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// Add routes, both API and view
-app.use(routes);
-
-// USE PASSPORT:
-// app.use(passport.initialize());
-
-
-// When the server starts, create and save a new User document to the db
-// The "unique" rule in the User model's schema will prevent
-// duplicate users from being added to the server
-// db.User.create({
-//   firstname: 'John',
-//   lastname: 'Doe',
-//   username: 'myusername',
-//   password: 'mypassword',
-//   email: 'myemail@gmail.com',
-//  })
-//   .then(function(dbUser)
-//     console.log(dbUser);
-//   })
-//   .catch(function(err) {
-//     console.log(err.message);
-//   });
-
-
-// Send every request to the React app
-// Define any API routes before this runs
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
-
+// // Add routes, both API and view
+// app.use(routes);
 
 // Route for retrieving all Users from the db
 app.get('/user', function (req, res) {
@@ -124,6 +96,19 @@ mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
+// configurePassport
+const configurePassport = require('./controllers/passport')
+
+const passport = configurePassport(app, mongoose, User)
+
+// Add routes, both API and view
+app.use(routes(passport, User));
+
+// Send every request to the React app
+// Define any API routes before this runs
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -12,7 +12,12 @@ import { withStyles } from 'material-ui/styles';
 // Importing HamburgerMenu component.
 import HamburgerMenu from './HamburgerMenu';
 // import third-party routing library (react-router-dom)
-import { Link } from 'react-router-dom';
+import { Link, withRouter, Redirect} from 'react-router-dom';
+import axios from 'axios';
+
+
+
+
 
 // material-ui-next styling
 const styles = {
@@ -31,24 +36,31 @@ const styles = {
   },
 };
 
-function NavBar(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" className="appBar">
-        <Toolbar>
-          <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
-            <Typography variant="title" color="inherit" className={classes.flex} button component={Link} to="/home">
-              HealthTracker
-            </Typography>
-          <Button className={classes.button}>
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-}
+  function NavBar(props) {
+    const { classes } = props;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" className="appBar">
+          <Toolbar>
+            <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
+              <Typography variant="title" color="inherit" className={classes.flex} button component={Link} to="/home">
+                HealthTracker
+              </Typography>
+            <Button className={classes.button} onClick={() => {
+              
+               axios.post('/Auth/logout').then(data => console.log(data))
+                .then((res) => {
+                  window.location = '/';
+                })
+               }}>
+               
+              Logout
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    );
+  }
 
 // Exporting the NavBar component with styling.
 export default withStyles(styles)(NavBar);

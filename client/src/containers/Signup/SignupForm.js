@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
         <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2" align="center">
-            Login
+            SIGNUP
             </Typography>
             <form noValidate autoComplete="off">
               <TextField
@@ -71,8 +71,21 @@ class LoginForm extends React.Component {
                 onChange={this.props.handlePasswordChange}
               />
 
+                 <TextField
+                id="email"
+                label="email"
+                type="text"
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                fullWidth
+                value={this.props.email}
+                onChange={this.props.handleEmailChange}
+              />
+
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
-              LOGIN
+              SIGNUP
               </Button>
             </form>
           </CardContent>

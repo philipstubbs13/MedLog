@@ -9,6 +9,7 @@ import { Container } from 'rebass';
 // Import LoginForm
 import SignupForm from './SignupForm';
 import axios from 'axios';
+import {withRouter, Redirect} from 'react-router-dom'
 
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
@@ -24,6 +25,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    email: "",
     credentials: [],
     error: ""
   };
@@ -39,17 +41,30 @@ class Signup extends Component {
     this.setState({ password: event.target.value });
   }
 
+  // Keep track of what user enters into email input field so that input can be grabbed later
+  handleEmailChange = (event) => {
+    this.setState({ email: event.target.value });
+  }
+
 
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
+    const { history } = this.props;
     event.preventDefault();
     console.log("Adding user...");
     console.log("this.state.username: ", this.state.username);
     console.log("this.state.password: ", this.state.password);
-    axios.post('/Signup', { username: this.state.username, password: this.state.password })
+    console.log("this.state.email: ", this.state.email);
+    axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
       .then((res) => {
         console.log(res.data);
-      });
+      })
+      .catch(err => console.log(err))
+      axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
+      .then((res) => {
+        console.log(res.data);
+        history.push('/home')
+      })
   };
 
   render() {
@@ -70,7 +85,8 @@ class Signup extends Component {
               <SignupForm
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
-                handlePasswordChange = {this.handlePasswordChange}  />
+                handlePasswordChange = {this.handlePasswordChange}
+                handleEmailChange = {this.handleEmailChange}   />
             </Grid>
           </Grid>
         </div>
@@ -81,4 +97,4 @@ class Signup extends Component {
 
 // Exporting the Login component
 // so that the App.js file can render the Signup page.
-export default withStyles(styles)(Signup);
+export default withRouter(withStyles(styles)(Signup));
