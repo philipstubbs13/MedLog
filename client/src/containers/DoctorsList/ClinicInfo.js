@@ -54,7 +54,7 @@ class ClinicInfo extends React.Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <Button size="small" className={classes.button} onClick={() => { this.props.deleteClinic(this.props.id); }}>DELETE</Button>
+            <Button size="small" color="primary" variant="raised" className={classes.button} onClick={() => { this.props.deleteClinic(this.props.id); }}>DELETE</Button>
           </ListItem>
         </List>
         <Divider className={classes.divider} />

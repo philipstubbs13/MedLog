@@ -8,11 +8,14 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 // Style for add appointments form.
 const styles = {
   textField: {
-    marginTop: 40,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -28,6 +31,7 @@ const styles = {
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -44,14 +48,6 @@ class AppointmentsForm extends React.Component {
     console.log(event.target.value);
     this.props.handleAppointmentDoctorChange(event);
   }
-
-  // handleClinicMenuOption = event => {
-  //   event.preventDefault();
-    
-  //   this.setState({ [event.target.name]: event.target.value });
-  //   console.log(event.target.value);
-  //   this.props.handleAppointmentClinicChange(event);
-  // }
 
   state = {
     value: '',
@@ -70,84 +66,113 @@ class AppointmentsForm extends React.Component {
             Add an appointment
             </Typography>
             <form noValidate autoComplete="off">
-              <TextField
-                id="appointment-name"
-                label="Reason for Visit"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.appointmentName}
-                onChange={this.props.handleAppointmentNameChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="appointment-name">
+                  <span>
+                    Appointment name
+                    <Tooltip  
+                      title="Specify a name for the appointment to help identify the appointment later."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="appointment-name"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.appointmentName}
+                  onChange={this.props.handleAppointmentNameChange}
+                />
+              </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='doctor'
-                select
-                label='Select a doctor'
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleDoctorMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                margin="normal">
-                  {doctors.map(doctor => {
-                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
-                  })}
-                </TextField>
+                <InputLabel htmlFor="select-doctor">
+                  <span>
+                    Select a doctor
+                    <Tooltip  
+                      title="Select the doctor associated with the scheduled appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField 
+                  id='doctor'
+                  select
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField} 
+                  value={this.state.value}
+                  onChange={this.handleDoctorMenuOption} 
+                  SelectProps={{ name: 'value'}} 
+                  margin="normal">
+                    {doctors.map(doctor => {
+                      return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                    })}
+                  </TextField>
               </FormControl>
-              {/* <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='clinic'
-                select label='Select a Clinic'
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleDoctorMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                helperText='Please select the clinic'
-                margin="normal">
-                {clinics.map(clinic => {
-                    return <MenuItem value={clinic.clinicname}>{clinic.clinicname}</MenuItem>;
-                  })}
-                </TextField>
-              </FormControl> */}
-              <TextField
-                id="appointment-date"
-                label="Appointment date"
-                type="date"
-                defaultValue="MM-DD-YYYY"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.appointmentDate}
-                onChange={this.props.handleAppointmentDateChange}
-              />
 
-              <TextField
-                id="appointment-time"
-                label="Appointment time"
-                type="time"
-                defaultValue="10:30"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.appointmentTime}
-                onChange={this.props.handleAppointmentTimeChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="appointment-date">
+                  <span>
+                    Appointment date
+                    <Tooltip  
+                      title="Use the date picker to specify the date of the appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="appointment-date"
+                  type="date"
+                  defaultValue="MM-DD-YYYY"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={this.props.appointmentDate}
+                  onChange={this.props.handleAppointmentDateChange}
+                />
+              </FormControl>
 
-              <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
-              Add appointment
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="appointment-time">
+                  <span>
+                    Appointment time (HH:MM)
+                    <Tooltip  
+                      title="Use the time picker to specify the time of the appointment."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="appointment-time"
+                  type="time"
+                  defaultValue="10:30"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={this.props.appointmentTime}
+                  onChange={this.props.handleAppointmentTimeChange}
+                />
+              </FormControl>
+
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}
+                color="primary" 
+                variant="raised"
+              >
+                Add appointment
               </Button>
             </form>
           </CardContent>

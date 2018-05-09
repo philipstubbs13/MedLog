@@ -2,17 +2,19 @@
 import React from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import { InputAdornment } from 'material-ui/Input';
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
+import Tooltip from 'material-ui/Tooltip';
+import IconButton from 'material-ui/IconButton';
 
 const styles = {
   textField: {
-    marginTop: 40,
+    marginTop: 60,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -27,6 +29,7 @@ const styles = {
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -60,126 +63,156 @@ class LogForm extends React.Component {
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='doctor'
-                select
-                label='Select a doctor'
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleDoctorMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                margin="normal">
-                  {doctors.map(doctor => {
-                    return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
-                  })}
-                </TextField>
+                <InputLabel htmlFor="doctor">
+                  <span>
+                    Select a doctor 
+                    <Tooltip  
+                      title="Select a doctor to associate with this note."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField 
+                  id='doctor'
+                  select
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField} 
+                  value={this.state.value}
+                  onChange={this.handleDoctorMenuOption} 
+                  SelectProps={{ name: 'value'}} 
+                  margin="normal">
+                    {doctors.map(doctor => {
+                      return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                    })}
+                  </TextField>
               </FormControl>
 
-              {/* <TextField
-                id="select-doctor-dropdown"
-                label="Select a doctor"
-                type="text"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.logDoctor}
-                onChange={this.props.handleLogDoctorChange}
-              /> */}
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="doctor visit date">
+                  <span>
+                    Date of doctor visit 
+                    <Tooltip  
+                      title="Use the date picker to specify the date of the doctor visit."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="doctor-visit-date"
+                  type="date"
+                  defaultValue="MM-DD-YYYY"
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  value={this.props.logDate}
+                  onChange={this.props.handleLogDateChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="doctor-visit-date"
-                label="Date of doctor visit"
-                type="date"
-                defaultValue="MM-DD-YYYY"
-                className={classes.textField}
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                fullWidth
-                value={this.props.logDate}
-                onChange={this.props.handleLogDateChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="reason for visit">
+                  <span>
+                    Reason for visit
+                    <Tooltip  
+                      title="Specify the reason for visiting the doctor. For example, 3 month follow up."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>  
+                </InputLabel>
+                <TextField
+                  id="reason-for-visit"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.logVisitReason}
+                  onChange={this.props.handleLogVisitReasonChange}
+                />
+              </FormControl>
 
-{/* //               <TextField
-//                 id="select-clinic-dropdown"
-//                 label="Select a clinic"
-//                 type="text"
-//                 className={classes.textField}
-//                 InputLabelProps={{
-//                   shrink: true,
-//                 }}
-//                 fullWidth
-//                 value={this.props.logClinic}
-//                 onChange={this.props.handleLogClinicChange}
-//               /> */}
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="height">
+                  <span>
+                    Height (inches) 
+                    <Tooltip  
+                      title="Enter the height measurement taken at the doctor's office."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span></InputLabel>
+                <TextField
+                  id="height"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.logHeight}
+                  onChange={this.props.handleLogHeightChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="reason-for-visit"
-                label="Reason for visit"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.logVisitReason}
-                onChange={this.props.handleLogVisitReasonChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="weight">
+                  <span>
+                    Weight (pounds) 
+                    <Tooltip  
+                      title="Enter the weight measurment taken at the doctor's office."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>  
+                </InputLabel>
+                <TextField
+                  id="weight"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  endAdornment={<InputAdornment position="end">pounds</InputAdornment>}
+                  value={this.props.logWeight}
+                  onChange={this.props.handleLogWeightChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="height"
-                label="Height (inches)"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.logHeight}
-                onChange={this.props.handleLogHeightChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="notes">
+                  <span>
+                    Visit notes 
+                    <Tooltip  
+                      title="Enter any additional information regarding your visit to the doctor."
+                      placement="top">
+                      <IconButton> <i className="material-icons">help</i></IconButton>
+                    </Tooltip>
+                  </span>
+                </InputLabel>
+                <TextField
+                  id="log-notes"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.logNotes}
+                  onChange={this.props.handleLogNotesChange}
+                />
+              </FormControl>
 
-              <TextField
-                id="weight"
-                label="Weight (pounds)"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                endAdornment={<InputAdornment position="end">pounds</InputAdornment>}
-                value={this.props.logWeight}
-                onChange={this.props.handleLogWeightChange}
-              />
-
-              <TextField
-                id="log-notes"
-                label="Visit notes"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.logNotes}
-                onChange={this.props.handleLogNotesChange}
-              />
-
-              <Button size="large" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
+              <Button 
+                size="large" 
+                variant="raised" 
+                className={classes.button} 
+                onClick={this.props.handleFormSubmit}
+                color="primary"
+              >
                 Add notes
               </Button>
             </form>
@@ -189,9 +222,5 @@ class LogForm extends React.Component {
     );
   }
 }
-
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
 
 export default withStyles(styles)(LogForm);

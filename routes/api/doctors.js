@@ -11,9 +11,18 @@ module.exports = function(passport){
 
   // Matches with "/api/doctors/:id"
   router.route("/:id")
-    .get(isAuthenticated, doctorsController.findById)
+    .get(doctorsController.findById)
     .put(doctorsController.update)
     .delete(doctorsController.remove);
 
   return router;
 }
+
+  
+// // Matches with "/api/doctors"
+// router.route("/")
+//   .get(doctorsController.findAll)
+//   .post(doctorsController.create);
+
+// module.exports = router;
+

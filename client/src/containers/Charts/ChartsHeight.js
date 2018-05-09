@@ -1,5 +1,9 @@
 // Importing React since we are using React.
 import React from 'react';
+
+// Import API
+import MedLogAPI from '../../utils/MedLogAPI';
+
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
@@ -19,7 +23,8 @@ const styles = {
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
-    htmlFontSize: 40,
+    htmlFontSize: 30,
+    marginTop: 30,
   },
   root: {
     display: 'flex',
@@ -27,6 +32,7 @@ const styles = {
     borderStyle: 'solid',
     borderWidth: 4,
     borderColor: '#007AC1',
+    marginBottom: 40,
   },
   formControl: {
     minWidth: 120,
@@ -41,43 +47,39 @@ const styles = {
 
 class ChartsHeight extends React.Component {
 
-  render() {
+  state = {
+    logs: [],
+    heightArray: [],
+    dateArray: [],
+  }
+  componentDidMount() {
+    this.loadLogs();
+  }
 
-    const { classes, logs } = this.props;
-
-    //console.log('here is the logs from chartsheight.js ' + logs);
-
-    const height = logs.map(log => log.heightIn);
-    console.log('here is the heights array ' + height);
-
-    // const heightArray = [];
-    // for (let i = 0; i < height.length; i++) {
-    //   heightArray[i] = height[i] + (i > 0 ? heightArray[i - 1] : 0);
-    //}
-
-    const date = logs.map(log => log.date);
-    console.log('here is the dates array ' + date)
-
-    // const dates = Array(...{ length: (weight.length) + 1 }).map((val, i) => i + 1);
-
-    const heightChartConfigs = {
+  loadHeightChart(data) {
+    console.log("I got to the charts area");
+    console.log(data);
+    const heightChart = new FusionCharts({
       type: 'line',
+      renderAt: 'heightContainer',
       className: 'line',
       //  ReactJS attribute-name for DOM classes
       dataFormat: 'JSON',
-      width: 850,
-      height: 400,
+      width: '90%',
+      height: '50%',
       dataSource: {
         chart: {
           xaxisname: 'Date',
-          yaxisname: "Height (in inches)",
+          yaxisname: "Height (In inches)",
+          yAxisNamePadding: "30",
+          chartTopMargin: "40",
           linecolor: "#f8bd19",
           plotgradientcolor: "",
-          bgcolor: "FFFFFF",
-          showalternatehgridcolor: "0",
+          bgcolor: "#fcdb88",
+          showalternatehgridcolor: "0", canvasPadding: "30",
           divlinecolor: "#f8bd19",
           showvalues: "0",
-          showcanvasborder: "0",
+          showcanvasborder: "1",
           canvasborderalpha: "0",
           canvasbordercolor: "CCCCCC",
           canvasborderthickness: "1",
@@ -87,49 +89,46 @@ class ChartsHeight extends React.Component {
           legendborderalpha: "0",
           palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
           showborder: "0",
+          anchorRadius: "5",
+          anchorHoverRadius: "8",
+          anchorHoverColor: "#f8bd19",
+          anchorBgColor: "",
+          anchorBgHoverColor: "#f8bd19",
         },
-        data: [
-          {
-            label: date[0],
-            value: height[0],
-          },
-          {
-            label: date[1],
-            value: height[1],
-          },
-          {
-            label: date[2],
-            value: height[2],
-          },
-          {
-            label: date[3],
-            value: height[3],
-          },
-          {
-            label: date[4],
-            value: height[4],
-          },
-          {
-            label: date[5],
-            value: height[5],
-          },
-        ],
+        data: data
       }
-    }
+    });
+    heightChart.render();
+  }
 
+  // Loads all logs and saves them to this.state.logs.
+  loadLogs = () => {
+    MedLogAPI.getLogs()
+      .then(res => {
+        this.setState({ logs: res.data });
+        console.log("here are the logs", this.state.logs);
+        const data = this.state.logs.map(log => { return { label: log.date, value: log.heightIn } });
+        console.log(data);
+        this.loadHeightChart(data);
+      })
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    const { classes } = this.props;
     return (
       <div>
-        <Card className={classes.root}>
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              Height Chart
-            </Typography>
-            <ReactFC {...heightChartConfigs} />
-          </CardContent>
+        <Typography gutterBottom variant="headline" component="h2" className={classes.typography}>
+          Height Chart
+        </Typography>
+        <Card className={this.props.classes.root}>
+          <div id='heightContainer'></div>
         </Card>
       </div>
     );
   }
 }
 
+
 export default withStyles(styles)(ChartsHeight);
+

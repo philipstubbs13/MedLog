@@ -35,7 +35,7 @@ class Footer extends React.Component {
             Created by Sara, Kayla, Jerridd, and Phil at the University of Minnesota
           </Typography>
           <Typography component="p" className={classes.copyright}>
-            Copyright 2018
+            Copyright &copy; 2018
           </Typography>
         </CardContent>
       </Card>

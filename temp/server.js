@@ -6,7 +6,7 @@ const routes = require('./routes');
 const User = require('./models/User')
 
 // USER AUTH REQUIREMENTS:
-//const passport = require('./passport');
+// const passport = require('./passport');
 
 // Server will use port 3001.
 const PORT = process.env.PORT || 3001;
@@ -25,8 +25,29 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// // Add routes, both API and view
-// app.use(routes);
+// USE PASSPORT:
+// app.use(passport.initialize());
+
+
+// When the server starts, create and save a new User document to the db
+// The "unique" rule in the User model's schema will prevent
+// duplicate users from being added to the server
+// db.User.create({
+//   firstname: 'John',
+//   lastname: 'Doe',
+//   username: 'myusername',
+//   password: 'mypassword',
+//   email: 'myemail@gmail.com',
+//  })
+//   .then(function(dbUser)
+//     console.log(dbUser);
+//   })
+//   .catch(function(err) {
+//     console.log(err.message);
+//   });
+
+
+
 
 // Route for retrieving all Users from the db
 app.get('/user', function (req, res) {
@@ -84,17 +105,8 @@ app.get('/populateduser', function (req, res) {
 });
 
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/reacthealthtracker');
 
-// If deployed, use the deployed database. Otherwise use the local reacthealthtracker database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/reacthealthtracker";
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useMongoClient: true
-});
 
 // configurePassport
 const configurePassport = require('./controllers/passport')
@@ -109,6 +121,7 @@ app.use(routes(passport, User));
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, './client/build/index.html'));
 });
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -46,6 +46,16 @@
 // };
 
 // class AttachmentsForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     state = {
+//       value: '',
+//       // not sure about rending image due to privacy issue?
+//       // uploadURL: '',
+//     }
+//     this.handleUpload = this.handleUpload.bind(this);
+//   }
+  
 //   render() {
 //     const { classes } = this.props;
 
@@ -77,7 +87,7 @@
 //                   <MenuItem value="Other">Other</MenuItem>
 //                 </Select>
 //               </FormControl> */}
-              
+
 //               <FormControl className={classes.formControl} fullWidth>
 //                 <InputLabel htmlFor="select-doctor">Select a doctor</InputLabel>
 //                 <TextField
@@ -121,16 +131,30 @@
 //                 />
 //               </FormControl>
 
-//               {/* <DropToUpload
-//                 onDrop={this.handleDrop}
-//                 className={classes.dragndrop}
-//               >
-//               Drop file here to upload
-//               </DropToUpload> */}
-
-//               <Button size="large" color="primary" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
-//                 Add attachment
+//               <Button size="large" color="primary" variant="raised" className={classes.button} onClick={this.props.handleConfirm}>
+//                 Confirm Information
 //               </Button>
+
+//               // Upload attachment
+//               <Uploadform onSubmit={this.handleUpload}>
+//                 <div>
+//                   <input ref={(ref) => { this.uploadInput = ref; }} type="file-input" />
+//                 </div>
+//                 <div>
+//                 // future either uses uuid (webpack problems last try) or this will be assigned the Mongo ID
+//                   <input ref={(ref) => { this.fileName = ref; }} type="text" placeholder="Enter file key name" />
+//                 </div>
+//                 <br />
+//                 <div>
+//                   <Button size="large" color="primary" variant="raised" className={classes.button} onClick={this.props.handleFormSubmit}>
+//                     Add attachment
+//                   </Button>
+//                 </div>
+//                 // may not want to render preview because we have to "destroy" it later so it isn't saved in cookies/may result privacy leaks... need more info
+//                 // <img src={this.state.uploadURL} alt="img" />
+//               </form>
+
+
 //             </form>
 //           </CardContent>
 //         </Card>
@@ -139,4 +163,4 @@
 //   }
 // }
 
-// export default withStyles(styles)(AttachmentsForm);
+// export default withStyles(styles)(TestAttachmentsForm);

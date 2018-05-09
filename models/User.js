@@ -95,12 +95,37 @@ const UserSchema = new Schema({
       ref: 'HealthLog',
     },
   ],
+  // `prescriptions` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated prescriptions
   prescriptions: [
     {
       // Store ObjectIds in the array
       type: Schema.Types.ObjectId,
       // The ObjectIds will refer to the ids in the Note model
       ref: 'Prescription',
+    },
+  ],
+    // `attachment` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated attachment
+  attachments: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Attachement',
+    },
+  ],
+    // `symptoms` is an array that stores ObjectIds
+  // The ref property links these ObjectIds to the Note model
+  // This allows us to populate the User with any associated symptoms
+  symptoms: [
+    {
+      // Store ObjectIds in the array
+      type: Schema.Types.ObjectId,
+      // The ObjectIds will refer to the ids in the Note model
+      ref: 'Symptoms',
     },
   ],
 });

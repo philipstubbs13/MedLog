@@ -1,5 +1,9 @@
 // Importing React since we are using React.
 import React from 'react';
+
+// Import API
+import MedLogAPI from '../../utils/MedLogAPI';
+
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
@@ -23,7 +27,8 @@ const styles = {
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
-    htmlFontSize: 40,
+    htmlFontSize: 30,
+    marginTop: 20,
   },
   root: {
     display: 'flex',
@@ -41,99 +46,96 @@ const styles = {
     backgroundColor: '#007AC1',
     color: 'white',
   },
+  weightContainer: {
+    marginBottom: 10,
+  },
 };
 
 class ChartsWeight extends React.Component {
   
-  render() {
+  state = {
+    logs: [],
+    weightArray: [],
+    dateArray: [],
+  }
+  componentDidMount() {
+    this.loadLogs();
+  }
 
-    const { classes, logs } = this.props;
-    console.log('here is the logs from chartsweight.js ' + logs);
-
-    const weight = logs.map(log => log.weightLb);
-    console.log('here is the weights array ' + weight);
-
-    const date = logs.map(log => log.date);
-    console.log('here is the dates array ' + date)
-    
-    // // const weightArray = [];
-    // // for (let i = 0; i < weight.length; i++) {
-    // //   weightArray[i] = weight[i] + (i > 0 ? weightArray[i - 1] : 0);
-    // //}   
-
-    // // const dates = Array(...{ length: (weight.length) + 1 }).map((val, i) => i + 1);
-
-    const weightChartConfigs = {
+  loadWeightChart(data) {
+    console.log("I got to the charts area");
+    //console.log(weightArray);
+    const weightChart = new FusionCharts({
       type: 'line',
+      renderAt: 'weightContainer',
       className: 'line',
       //  ReactJS attribute-name for DOM classes
       dataFormat: 'JSON',
-      width: 850,
-      height: 400,
+      width: '90%',
+      height: '50%',
       dataSource: {
-        chart: {
-          xaxisname: 'Date',
-          yaxisname: "Weight (In pounds)",
-          linecolor: "#008ee4",
-          plotgradientcolor: "",
-          bgcolor: "FFFFFF",
-          showalternatehgridcolor: "0",
-          divlinecolor: "#008ee4",
-          showvalues: "0",
-          showcanvasborder: "0",
-          canvasborderalpha: "0",
-          canvasbordercolor: "CCCCCC",
-          canvasborderthickness: "1",
-          captionpadding: "30",
-          linethickness: "3",
-          legendshadow: "0",
-          legendborderalpha: "0",
-          palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
-          showborder: "0",
-        },
-        data: [
-          {
-            label: date[0],
-            value: weight[0],
-          },
-          {
-            label: date[1],
-            value: weight[1],
-          },
-          {
-            label: date[2],
-            value: weight[2],
-          },
-          {
-            label: date[3],
-            value: weight[3],
-          },
-          {
-            label: date[4],
-            value: weight[4],
-          },
-          {
-            label: date[5],
-            value: weight[5],
-          },
-        ],
-      }
-    }
+          chart: {
+            xaxisname: 'Date',
+            yaxisname: "Weight (In pounds)",
+            yAxisNamePadding: "30",
+            chartTopMargin: "40",
+            linecolor: "#008ee4",
+            plotgradientcolor: "",
+            bgcolor: "#008ee4",
+            showalternatehgridcolor: "0",
+            divlinecolor: "#008ee4",
+            showHoverEffect: "1",
+            canvasPadding: "30",
+            showvalues: "0",
+            showcanvasborder: "1",
+            canvasborderalpha: "0",
+            canvasbordercolor: "CCCCCC",
+            canvasborderthickness: "1",
+            captionpadding: "30",
+            linethickness: "3",
+            legendshadow: "0",
+            legendborderalpha: "0",
+            palettecolors: "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
+            showborder: "0",
+            anchorRadius: "5",
+            anchorHoverRadius: "8",
+            anchorHoverColor: "#008ee4",
+            anchorBgColor: "",
+            anchorBgHoverColor: "#008ee4",
 
+          },
+          data: data
+        }
+    });
+    weightChart.render();
+  }
+  
+  // Loads all logs and saves them to this.state.logs.
+  loadLogs = () => {
+    MedLogAPI.getLogs()
+      .then(res => {
+        this.setState({ logs: res.data });
+        console.log("here are the logs", this.state.logs);
+        const data = this.state.logs.map(log => {return {label: log.date, value: log.weightLb}});
+        console.log(data);
+        this.loadWeightChart(data);
+      })
+      .catch(err => console.log(err));
+  };
+
+  render() {
+    const { classes } = this.props;
     return (
       <div>
+        <Typography gutterBottom variant="headline" component="h2" className={classes.typography}>
+          Weight Chart
+        </Typography>
         <Card className={classes.root}>
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              Weight Chart
-            </Typography>
-            <ReactFC {...weightChartConfigs} />
-          </CardContent>
+          <div id='weightContainer'></div>
         </Card>
       </div>
     );
   }
 }
-
 
 export default withStyles(styles)(ChartsWeight);

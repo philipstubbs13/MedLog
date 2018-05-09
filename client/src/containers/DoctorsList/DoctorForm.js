@@ -8,11 +8,11 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
-
+import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 
 const styles = {
   textField: {
-    marginTop: 40,
+    marginTop: 50,
   },
   // Tell Material-UI what's the font-size on the html element is.
   typography: {
@@ -27,6 +27,7 @@ const styles = {
   },
   formControl: {
     minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
@@ -60,68 +61,72 @@ class DoctorForm extends Component {
               Add a doctor
             </Typography>
             <form noValidate autoComplete="off">
-              <TextField
-                id="first-name"
-                label="First name"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.doctorFirstName}
-                onChange={this.props.handleDoctorFirstNameChange}
-              />
-
-              <TextField
-                id="last-name"
-                label="Last name"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                placeholder=""
-                helperText=""
-                fullWidth
-                margin="normal"
-                className={classes.textField}
-                value={this.props.doctorLastName}
-                onChange={this.props.handleDoctorLastNameChange}
-              />
-
               <FormControl className={classes.formControl} fullWidth>
-              <TextField 
-                id='clinic'
-                select
-                label='Select a clinic'
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                className={classes.textField} 
-                value={this.state.value}
-                onChange={this.handleClinicMenuOption} 
-                SelectProps={{ name: 'value'}} 
-                margin="normal">
-                  {clinics.map(clinic => {
-                    return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
-                  })}
-                </TextField>
+                <InputLabel htmlFor="first-name">First name</InputLabel>
+                <TextField
+                  id="first-name"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.doctorFirstName}
+                  onChange={this.props.handleDoctorFirstNameChange}
+                />
               </FormControl>
 
-              <TextField
-                id="doctor-phone"
-                label="Phone number"
-                InputLabelProps={{
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="last-name">Last name</InputLabel>
+                <TextField
+                  id="last-name"
+                  InputLabelProps={{
                     shrink: true,
-                }}
-                className={classes.textField}
-                fullWidth
-                value={this.props.doctorPhone}
-                onChange={this.props.handleDoctorPhoneChange}
-              />
+                  }}
+                  margin="normal"
+                  className={classes.textField}
+                  value={this.props.doctorLastName}
+                  onChange={this.props.handleDoctorLastNameChange}
+                />
+              </FormControl>
 
-              <Button size="large" className={classes.button} onClick={this.props.handleDoctorFormSubmit}>
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="clinic">Select a clinic</InputLabel>
+                <TextField 
+                  id='clinic'
+                  select
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  className={classes.textField} 
+                  value={this.state.value}
+                  onChange={this.handleClinicMenuOption} 
+                  SelectProps={{ name: 'value'}} 
+                  margin="normal">
+                    {clinics.map(clinic => {
+                      return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
+                    })}
+                  </TextField>
+              </FormControl>
+
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="doctor-phone">Phone number</InputLabel>
+                <TextField
+                  id="doctor-phone"
+                  InputLabelProps={{
+                      shrink: true,
+                  }}
+                  className={classes.textField}
+                  value={this.props.doctorPhone}
+                  onChange={this.props.handleDoctorPhoneChange}
+                />
+              </FormControl>
+
+              <Button 
+                size="large" 
+                className={classes.button} 
+                onClick={this.props.handleDoctorFormSubmit}
+                color="primary" 
+                variant="raised">
                 Add doctor
               </Button>
             </form>
