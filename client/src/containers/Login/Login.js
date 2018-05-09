@@ -9,6 +9,9 @@ import { Container } from 'rebass';
 // Import LoginForm
 import LoginForm from './LoginForm';
 import axios from 'axios';
+import {withRouter, Redirect} from 'react-router-dom'
+
+
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
   root: {
@@ -41,6 +44,7 @@ class Login extends Component {
 
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
+    const { history } = this.props;
     event.preventDefault();
     console.log("Authenticating user...");
     console.log("this.state.username: ", this.state.username);
@@ -48,11 +52,14 @@ class Login extends Component {
     axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
       .then((res) => {
         console.log(res.data);
-      });
+        history.push('/home')
+        
+      })
+      .catch(err => console.log(err))
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, history } = this.props;
     return [
       <Container>
         <Grid item xs={12} className={classes.headline}>
@@ -80,4 +87,4 @@ class Login extends Component {
 
 // Exporting the Login component
 // so that the App.js file can render the Login page.
-export default withStyles(styles)(Login);
+export default withRouter(withStyles(styles)(Login));

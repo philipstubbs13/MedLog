@@ -9,6 +9,7 @@ import { Container } from 'rebass';
 // Import LoginForm
 import SignupForm from './SignupForm';
 import axios from 'axios';
+import {withRouter, Redirect} from 'react-router-dom'
 
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.
@@ -48,6 +49,7 @@ class Signup extends Component {
 
   // When user enters credentials and clicks LOG IN button to log in.
   handleFormSubmit = event => {
+    const { history } = this.props;
     event.preventDefault();
     console.log("Adding user...");
     console.log("this.state.username: ", this.state.username);
@@ -56,7 +58,13 @@ class Signup extends Component {
     axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
       .then((res) => {
         console.log(res.data);
-      });
+      })
+      .catch(err => console.log(err))
+      axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
+      .then((res) => {
+        console.log(res.data);
+        history.push('/home')
+      })
   };
 
   render() {
@@ -89,4 +97,4 @@ class Signup extends Component {
 
 // Exporting the Login component
 // so that the App.js file can render the Signup page.
-export default withStyles(styles)(Signup);
+export default withRouter(withStyles(styles)(Signup));

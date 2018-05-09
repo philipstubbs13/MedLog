@@ -12,8 +12,9 @@ import { withStyles } from 'material-ui/styles';
 // Importing HamburgerMenu component.
 import HamburgerMenu from './HamburgerMenu';
 // import third-party routing library (react-router-dom)
-import { Link } from 'react-router-dom';
+import { Link, withRouter, Redirect} from 'react-router-dom';
 import axios from 'axios';
+
 
 
 
@@ -46,7 +47,13 @@ const styles = {
                 HealthTracker
               </Typography>
             <Button className={classes.button} onClick={() => {
-               axios.post('/Auth/logout').then(data => console.log(data))}}>
+              
+               axios.post('/Auth/logout').then(data => console.log(data))
+                .then((res) => {
+                  window.location = '/';
+                })
+               }}>
+               
               Logout
             </Button>
           </Toolbar>
