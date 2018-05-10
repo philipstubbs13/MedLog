@@ -17,8 +17,13 @@ import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 
-import Sidebar from '../../Components/Sidebar';
 import ReactFC from 'react-fusioncharts';
+
+// Import Sidebar component
+import Sidebar from '../../Components/Sidebar';
+
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 
 
 // Style/Theme
@@ -42,11 +47,11 @@ const styles = theme => ({
 
 });
 
-class Charts extends Component { 
-
+class Charts extends Component {
   render() {
     const { classes } = this.props;
     return [
+      <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>
@@ -62,8 +67,7 @@ class Charts extends Component {
             <div className="main-content-section">
               <Grid container spacing={16}>
                 <Grid item xs={12}>
-                  <ChartsWeight
-                  />
+                  <ChartsWeight />
                 </Grid>
                 <Grid item xs={12}>
                   <ChartsHeight

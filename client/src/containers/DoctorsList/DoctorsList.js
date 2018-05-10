@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 // Importing UI components from rebass.
 import { Container } from 'rebass';
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 // Import DoctorForm
 import DoctorForm from './DoctorForm';
 // Import DoctorInfo
@@ -202,7 +204,8 @@ class DoctorList extends Component {
   render() {
     const { classes } = this.props;
 
-    return [  
+    return [
+      <NavBar />,  
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>

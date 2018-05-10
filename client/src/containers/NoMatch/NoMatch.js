@@ -3,6 +3,8 @@
 
 // Importing React since we are using React.
 import React, { Component } from 'react';
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 // Importing UI components and style from material-ui-next
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
@@ -42,6 +44,7 @@ class NoMatch extends Component {
   render() {
     const { classes } = this.props;
     return [
+      <NavBar />,
       <Container>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">

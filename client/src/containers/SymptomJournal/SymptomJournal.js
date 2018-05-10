@@ -1,5 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 // Import SymptomForm
 import SymptomTextFields from './SymptomForm';
 // Import SymptomList
@@ -111,6 +113,7 @@ class SymptomJournal extends Component {
   render() {
     const { classes } = this.props;
     return [
+      <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>

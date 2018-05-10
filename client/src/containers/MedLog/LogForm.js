@@ -30,6 +30,9 @@ const styles = {
   formControl: {
     minWidth: 120,
     marginTop: 30,
+  },  formControl: {
+    minWidth: 120,
+    marginTop: 30,
   },
   button: {
     marginTop: 20,
