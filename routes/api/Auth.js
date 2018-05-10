@@ -10,7 +10,10 @@ module.exports = function(passport, User){
     router.post(
       '/login',
       passport.authenticate('local'),
-      (req, res) => res.json('logged in!')
+      (req, res) => {
+        console.log(req.user)
+        res.json({message: "The user is logged in", userId: req.user._id})
+      } 
     );
     
     router.post('/logout', (req, res) => {
