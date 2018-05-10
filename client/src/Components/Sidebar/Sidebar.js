@@ -91,21 +91,12 @@ class Sidebar extends React.Component {
                 </Tooltip>
               </ListItemText>
             </ListItem>
-            <ListItem className={classes.navItem} component={Link} to="/attachments">
-              <ListItemText>
-                <Tooltip  
-                  title="Attachments"
-                  placement="top">
-                  <IconButton><i className="fas fa-file-alt" /></IconButton>
-                </Tooltip>
-              </ListItemText>
-            </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/charts">
               <ListItemText>
                 <Tooltip  
                   title="Charts"
                   placement="top">
-                  <IconButton><i className="fas fa-chart-bar" /></IconButton>
+                  <IconButton><i class="fas fa-chart-line"></i></IconButton >
                 </Tooltip>
               </ListItemText>
             </ListItem>

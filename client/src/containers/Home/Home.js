@@ -12,8 +12,7 @@ import journal from '../../assets/images/journal.png';
 import appointment from '../../assets/images/appointment.png';
 import prescription from '../../assets/images/prescription.png';
 import doctor from '../../assets/images/doctor.png';
-import attachments from '../../assets/images/attachments.png';
-import chart from '../../assets/images/chart.png';
+import chart from '../../assets/images/chart2.png';
 // Importing Navbar component.
 import NavBar from '../../Components/AppBar';
 
@@ -54,7 +53,7 @@ class Home extends Component {
                 </Link>
               </Subhead>
             </Grid>
-            <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Grid item xs={12} sm={6} md={4} md={4} className={classes.headline}>
               <Typography variant="headline" align="center">
                 My symptom journal
               </Typography>
@@ -79,6 +78,7 @@ class Home extends Component {
                 </Link>
               </Subhead>
             </Grid>
+
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
               <Typography variant="headline" align="center">
                 My prescriptions
@@ -92,7 +92,7 @@ class Home extends Component {
               </Subhead>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={4} className={classes.headline}>
+            <Grid item xs={12} sm={6} md={4}className={classes.headline}>
               <Typography variant="headline" align="center">
                 Doctors and clinics
               </Typography>
@@ -107,33 +107,16 @@ class Home extends Component {
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
               <Typography variant="headline" align="center">
-                Attachments
-              </Typography>
-              <Subhead align="center">
-                <Link
-                  href="/attachments"
-                >
-                  <img src={attachments} alt="documents" />
-                </Link>
-              </Subhead>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={4} />
-
-            <Grid item xs={12} sm={6} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
                 Charts
               </Typography>
               <Subhead align="center">
                 <Link
                   href="/charts"
                 >
-                  <img src={chart} alt="bar graph" />
+                  <img src={chart} alt="line graph" />
                 </Link>
               </Subhead>
             </Grid>
-
-            <Grid item xs={12} sm={6} md={4} />
           </Grid>
         </div>,
       </Container>,

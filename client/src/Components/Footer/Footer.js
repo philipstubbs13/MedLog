@@ -5,8 +5,6 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-// import third-party routing library (react-router-dom)
-import { Link, withRouter, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -24,9 +22,9 @@ const styles = {
     color: 'white',
   },
   button: {
-      color: 'white',
-      float: 'right',
-      marginBottom: 60,
+    color: 'white',
+    float: 'right',
+    marginBottom: 60,
   },
 };
 
@@ -51,7 +49,8 @@ class Footer extends React.Component {
                 .then((res) => {
                 window.location = '/';
               });
-            }}>
+            }}
+            >
               Logout
             </Button>
         </CardContent>
