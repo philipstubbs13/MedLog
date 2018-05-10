@@ -55,7 +55,7 @@ The HealthTracker app was created by a team of 4 developers at the University of
 
 ### Sign up page
 
-<img src="./readme_images/signup.png">
+<img src="./readme_images/signup2.png">
 
 ### Home page
 
@@ -91,7 +91,7 @@ The HealthTracker app was created by a team of 4 developers at the University of
 
 ### 404 Not found page
 
-<img src="./readme_images/404.png">
+<img src="./readme_images/notfound.png">
 
 ## <a name="about-this-project"></a> About this project
 Many people visit the doctor office on a regular basis (sometimes multiple times per week) and have no way of accurately and efficiently keeping track of their health information, such as upcoming appointments, prescriptions, symptoms they experience away from the doctor office, notes from their doctors, and height and weight measurements. 
@@ -110,16 +110,16 @@ On the back end side, this project uses MongoDB, Node, Express, Mongoose ORM (Ob
 ### <a name="workflow"></a> App workflow
 
 #### Authentication
-When you first visit the app, you will be prompted to log in (if you have already created an account) or sign up (if you are a new user.). To sign up, you will need to provide an email address as well as create a username and password. Authentication is required because it ensures that a user's health information is protected and blocked from other users.
+When you first visit the app, you will be prompted to log in (if you have already created an account) or sign up (if you are a new user). To sign up, you will need to provide an email address as well as create a username and password. Authentication is required because it ensures that a user's health information is protected and blocked from other users.
 
 #### Home 
 After you authenticate, you are taken to the Home/Landing page. From this page, you can navigate to all the different pages with the app to keep track of your health information.
 
 #### My health log
-The My health log page is where you can manually record doctor appointment information including doctor being seen, date of visit, reason for visit, weight, height, and visit notes. You can track these measurements over time.
+The My health log page is where you can manually record doctor appointment information, including doctor being seen, date of visit, reason for visit, weight, height, and visit notes. You can track your height and weight measurements over time from the Charts page.
 
 #### My symptom journal
-The My symptom journal page is a log of symptoms that you can share with your doctor at your next doctor visit. You can record symptoms you experience away from the doctor office, the time when the symptom occurred, and add comments to each entry. You have a list of symptoms to choose from (for example, Dizzy, Shortness of Breath, Fainted, Swelling, Heart Fluttering, Fatigue, Other). You have text field where you can enter more information about a symptom and list any useful information that will help you remember details of the symptom when you see the doctor at your next visit.
+The My symptom journal page is a log of symptoms that you can share with your doctor at your next doctor visit. You can record symptoms you experience away from the doctor office, the time when the symptom occurred, and add comments to each entry. You have a list of symptoms to choose from (for example, Dizzy, Shortness of Breath, Fainted, Swelling, Heart Fluttering, Fatigue, Other). You have a text field where you can enter more information about a symptom and list any useful information that will help you remember details of the symptom when you see your doctor at your next visit.
 
 #### Appointments
 The Appointments page lists your upcoming appoinments and related information in table format. You can add and remove appointments from this page.
@@ -145,7 +145,7 @@ After you clone the repository, navigate to the project root directory (MedLog).
     * <b>App.js</b>: The App.js file is where the app components are imported and rendered, such as the navigation bar, footer, and various pages.
     * <b>Components</b>: The Components folder is where the app components that are reused across the app are located. Each file represents a separate component. For example, AppBar.js is the top navigation bar component.
     * <b>containers</b>: Holds all the pages of the app and the child components within those pages. For example, inside of the containers folder, there is an Appointments folder. The Appointments folder contains a top-level parent container/page called Appointments.js that has two child containers (AppointmentsForm.js and AppointmentsList.js).
-.    * <b>utils</b>: Contains all the axios requests used to get health information from the database.
+    * <b>utils</b>: Contains all the axios requests used to get health information from the database.
     * <b>App.css</b> and <b>index.css</b>: The external css stylesheets for the app.
   * <b>package.json</b>: Lists the project dependencies and their version numbers.
   * <b>yarn.lock</b>: Dependency tree for the project. Lists all the client dependencies and their versions.
@@ -175,7 +175,7 @@ After you clone the repository, navigate to the project root directory (MedLog).
 
 The following section will take you through the steps of setting up this app and getting it running locally on your computer.
 
-If you don't want to set up this project locally and just want to see the deployed application, go to <https://http://myhealthtracker.herokuapp.com/>.
+If you don't want to set up this project locally and just want to see the deployed application, go to <https://myhealthtracker.herokuapp.com/>.
 
 To set up this application locally on your computer, perform the following steps:
   1. [Clone the repository](#clone-repository)
