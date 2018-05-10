@@ -65,8 +65,8 @@ class ChartsHeight extends React.Component {
       className: 'line',
       //  ReactJS attribute-name for DOM classes
       dataFormat: 'JSON',
-      width: '90%',
-      height: '50%',
+      width: '66%',
+      height: '40%',
       dataSource: {
         chart: {
           xaxisname: 'Date',

@@ -61,11 +61,11 @@ class Charts extends Component {
 
             <div className="main-content-section">
               <Grid container spacing={16}>
-                <Grid item xs={11}>
+                <Grid item xs={12}>
                   <ChartsWeight
                   />
                 </Grid>
-                <Grid item xs={11}>
+                <Grid item xs={12}>
                   <ChartsHeight
                   />
                 </Grid>
