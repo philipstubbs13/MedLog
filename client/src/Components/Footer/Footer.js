@@ -3,7 +3,11 @@ import React from 'react';
 // Importing UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
+import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+// import third-party routing library (react-router-dom)
+import { Link, withRouter, Redirect} from 'react-router-dom';
+import axios from 'axios';
 
 
 const styles = {
@@ -18,6 +22,11 @@ const styles = {
   footer: {
     backgroundColor: '#007AC1',
     color: 'white',
+  },
+  button: {
+      color: 'white',
+      float: 'right',
+      marginBottom: 60,
   },
 };
 
@@ -37,6 +46,14 @@ class Footer extends React.Component {
           <Typography component="p" className={classes.copyright}>
             Copyright &copy; 2018
           </Typography>
+            <Button className={classes.button} onClick={() => {
+              axios.post('/Auth/logout').then(data => console.log(data))
+                .then((res) => {
+                window.location = '/';
+              });
+            }}>
+              Logout
+            </Button>
         </CardContent>
       </Card>
     );

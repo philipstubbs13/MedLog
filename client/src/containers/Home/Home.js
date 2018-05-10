@@ -14,6 +14,8 @@ import prescription from '../../assets/images/prescription.png';
 import doctor from '../../assets/images/doctor.png';
 import attachments from '../../assets/images/attachments.png';
 import chart from '../../assets/images/chart.png';
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 
 const styles = {
   root: {
@@ -28,6 +30,7 @@ class Home extends Component {
   render() {
     const { classes } = this.props;
     return [
+      <NavBar />,
       <Container>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={24} className={classes.root} justify="center">

@@ -1,5 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 // Import PrescriptionsForm
 import PrescriptionsForm from  './PrescriptionsForm';
 // Import PrescriptionsList
@@ -125,6 +127,7 @@ class Prescriptions extends Component {
     render() {
       const { classes } = this.props;
       return [
+        <NavBar />,
         <div className={classes.appFrame}>
           <Sidebar />
           <main className={classes.content}>

@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 // Importing UI components from rebass.
 import { Container } from 'rebass';
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 // Import LogForm
 import LogForm from './LogForm';
 // Import LogList
@@ -133,7 +135,8 @@ class MedLog extends Component {
 
   render() {
     const { classes } = this.props;
-    return [ 
+    return [
+      <NavBar />, 
       <div className={classes.appFrame}>
         <Sidebar />
           <main className={classes.content}>

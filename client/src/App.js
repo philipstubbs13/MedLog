@@ -8,8 +8,6 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 // import logo from './logo.svg';
 // Importing css
 import './App.css';
-// Importing Navbar component.
-import NavBar from './Components/AppBar';
 // Importing Footer component.
 import Footer from './Components/Footer';
 // Importing Home page component.
@@ -65,7 +63,6 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Router>
           <div>
-            <NavBar />
             <Switch>
               <Route exact path="/" render={props => <Login {...props} setUser={this.setUser}></Login>}/>
               <Route exact path="/signup" component={Signup} 

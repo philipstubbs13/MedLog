@@ -18,6 +18,8 @@ import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
+// Importing Navbar component.
+import NavBar from '../../Components/AppBar';
 
 //Style
 const styles = theme => ({
@@ -160,6 +162,7 @@ class Appointments extends Component {
   render() {
     const { classes } = this.props;
     return [
+      <NavBar />,
       <div className={classes.appFrame}>
         <Sidebar />
         <main className={classes.content}>
