@@ -6,6 +6,7 @@ import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import { Link } from 'react-router-dom';
 
 
 // Style
@@ -86,6 +87,9 @@ class LoginForm extends React.Component {
 
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit}>
               SIGNUP
+              </Button>
+              <Button size="large" className={classes.button} component={Link} to="/">
+              LOGIN
               </Button>
             </form>
           </CardContent>
