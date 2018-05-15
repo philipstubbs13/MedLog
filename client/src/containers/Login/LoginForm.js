@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
                 <InputLabel htmlFor="password">Password</InputLabel>
                 <TextField
                   id="password"
-                  type="text"
+                  type="password"
                   className={classes.textField}
                   InputLabelProps={{
                     shrink: true,
