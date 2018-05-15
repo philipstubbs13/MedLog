@@ -76,7 +76,7 @@ class SymptomTextFields extends React.Component {
                   </span>
                 </InputLabel>     
                 <TextField 
-                  id='select-sympptom'
+                  id='select-symptom'
                   select
                   InputLabelProps={{
                     shrink: true,

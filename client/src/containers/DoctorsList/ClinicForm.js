@@ -8,7 +8,9 @@ import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
+import { MenuItem } from 'material-ui/Menu';
 
+//Styling
 const styles = {
   textField: {
     marginTop: 50,
@@ -37,6 +39,20 @@ const styles = {
 };
 
 class ClinicForm extends React.Component {
+  // Keep track of what user selects from clinic state drop down menu so that input can be grabbed later.
+  handleStateSelectChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+    event.preventDefault();
+    console.log(event.target.value);
+    this.props.handleClinicStateChange(event);
+  }
+
+  state = {
+    value: '',
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -87,15 +103,20 @@ class ClinicForm extends React.Component {
                   onChange={this.props.handleClinicCityChange}
                 />
               </FormControl>
-              {/* <FormControl className={classes.formControl, classes.textField} fullWidth>
+              <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="select-state-dropdown">State</InputLabel>
-                <Select
-                  value=""
-                  onChange={this.handleChange}
+                <TextField
+                  select
+                  className={classes.textField}
+                  value={this.state.value}
+                  onChange={this.handleStateSelectChange}
                   inputProps={{
                     state: '',
                     id: 'select-clinic-state',
                   }}
+                  SelectProps = {
+                    {name: 'value'}
+                  }
                 >
                   <MenuItem value='' />
                   <MenuItem value='AL'>Alabama</MenuItem>
@@ -147,20 +168,7 @@ class ClinicForm extends React.Component {
                   <MenuItem value='WV'>West Virginia</MenuItem>
                   <MenuItem value='WI'>Wisconsin</MenuItem>
                   <MenuItem value='WY'>Wyoming</MenuItem>
-                </Select>
-              </FormControl> */}
-
-              <FormControl className={classes.formControl} fullWidth>
-                <InputLabel htmlFor="clinic-state">State</InputLabel>
-                <TextField
-                  id="clinic-state"
-                  InputLabelProps={{
-                      shrink: true,
-                  }}
-                  className={classes.textField}
-                  value={this.props.clinicState}
-                  onChange={this.props.handleClinicStateChange}
-                />
+                </TextField>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -206,4 +214,5 @@ class ClinicForm extends React.Component {
   }
 }
 
+// Export clinic form component with styling.
 export default withStyles(styles)(ClinicForm);
