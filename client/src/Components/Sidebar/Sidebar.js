@@ -11,7 +11,7 @@ import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 
 // Original drawer width: 240
-const drawerWidth = 150;
+const drawerWidth = 110;
 
 const styles = {
   drawerPaper: {
@@ -21,7 +21,7 @@ const styles = {
   },
   navItem: {
     marginTop: 8,
-  }
+  },
 };
 
 class Sidebar extends React.Component {
@@ -37,66 +37,73 @@ class Sidebar extends React.Component {
         >
           <div className={classes.toolbar} />
           <List>
-            <ListItem className={classes.navItem} component={Link} to="/home" >
+            <ListItem className={classes.navItem} component={Link} to="/home">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="Home"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton> <i className="fas fa-home" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/log">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="My health log"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton>  <i className="fas fa-notes-medical" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/symptoms">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="My symptom journal"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton><i className="fas fa-sticky-note" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/appointments">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="Appointments"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton><i className="fas fa-calendar-alt" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/prescriptions">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="Prescriptions"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton><i className="fas fa-prescription-bottle" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/doctors">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="Doctors and clinics"
-                  placement="top">
+                  placement="top"
+                >
                   <IconButton><i className="fas fa-user-md" /></IconButton>
                 </Tooltip>
               </ListItemText>
             </ListItem>
             <ListItem className={classes.navItem} component={Link} to="/charts">
               <ListItemText>
-                <Tooltip  
+                <Tooltip
                   title="Charts"
-                  placement="top">
-                  <IconButton><i class="fas fa-chart-line"></i></IconButton >
+                  placement="top"
+                >
+                  <IconButton><i className="fas fa-chart-line" /></IconButton >
                 </Tooltip>
               </ListItemText>
             </ListItem>
