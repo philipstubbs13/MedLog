@@ -14,11 +14,11 @@ const styles = {
   },
   copyright: {
     marginTop: 10,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
   footer: {
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
   button: {
@@ -44,15 +44,6 @@ class Footer extends React.Component {
           <Typography component="p" className={classes.copyright}>
             Copyright &copy; 2018
           </Typography>
-            <Button className={classes.button} onClick={() => {
-              axios.post('/Auth/logout').then(data => console.log(data))
-                .then((res) => {
-                window.location = '/';
-              });
-            }}
-            >
-              Logout
-            </Button>
         </CardContent>
       </Card>
     );

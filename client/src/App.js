@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Importing material-ui theme.
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-// Importing app logo.
-// import logo from './logo.svg';
 // Importing css
 import './App.css';
 // Importing Footer component.

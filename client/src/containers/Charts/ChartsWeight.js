@@ -35,7 +35,7 @@ const styles = {
     flexWrap: 'wrap',
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#007AC1',
+    borderColor: '#33658A',
   },
   formControl: {
     minWidth: 120,
@@ -81,7 +81,7 @@ class ChartsWeight extends React.Component {
             chartTopMargin: "40",
             linecolor: "#008ee4",
             plotgradientcolor: "",
-            bgcolor: "#008ee4",
+            bgcolor: "#86BBD8",
             showalternatehgridcolor: "0",
             divlinecolor: "#008ee4",
             showHoverEffect: "1",

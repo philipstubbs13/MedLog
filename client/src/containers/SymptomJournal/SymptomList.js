@@ -14,13 +14,13 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#f44e03',
+    borderColor: '#F26419',
   }),
   button: {
     marginTop: 10,
     marginBottom: 5,
     padding: 10,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
 });

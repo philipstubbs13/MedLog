@@ -26,7 +26,7 @@ const styles = theme => ({
   button: {
     marginBottom: 5,
     padding: 10,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
 });

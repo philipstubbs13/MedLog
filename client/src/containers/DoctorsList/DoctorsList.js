@@ -40,13 +40,13 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    backgroundColor: '#03A9f4',
+    backgroundColor: '#86BBD8',
     padding: theme.spacing.unit * 3,
   },
   doctorClinicList: {
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#f44e03',
+    borderColor: '#F26419',
   },
   clinicSection: {
     marginTop: 45,

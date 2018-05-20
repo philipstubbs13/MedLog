@@ -31,7 +31,7 @@ const styles = {
     flexWrap: 'wrap',
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#007AC1',
+    borderColor: '#33658A',
     marginBottom: 40,
   },
   formControl: {

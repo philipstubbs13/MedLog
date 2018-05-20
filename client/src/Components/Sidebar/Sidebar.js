@@ -11,13 +11,13 @@ import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 
 // Original drawer width: 240
-const drawerWidth = 110;
+const drawerWidth = 120;
 
 const styles = {
   drawerPaper: {
     position: 'relative',
     width: drawerWidth,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
   },
   navItem: {
     marginTop: 8,

@@ -25,14 +25,14 @@ const styles = theme => ({
   },
   logItem: {
     marginTop: 34,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
   button: {
     marginTop: 10,
     marginBottom: 5,
     padding: 10,
-    backgroundColor: '#f44e03',
+    backgroundColor: '#F26419',
     color: 'white',
   },
 });
