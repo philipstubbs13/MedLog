@@ -22,7 +22,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#f44e03',
+    borderColor: '#F26419',
   },
   formControl: {
     minWidth: 120,
@@ -31,13 +31,13 @@ const styles = theme => ({
   button: {
     marginTop: 40,
     padding: 15,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
   signUpButton: {
     marginTop: 40,
     padding: 15,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
     float: 'right',
   },

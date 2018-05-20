@@ -1,3 +1,6 @@
+  /* Color Scheme */
+  /* https://coolors.co/33658a-86bbd8-2f4858-f6ae2d-f26419*/
+  
   /*Sticky footer*/
 .Site {
   /* display: flex; */
@@ -7,18 +10,22 @@
 
 .main-content-section {
   flex: 1;
-  min-height: 115vh;
+  min-height: 75vh;
   margin-bottom: 40px;
+  margin-top: 10px;
 }
 
 /* Color of site background */
+/* #03A9f4*/
 body {
-  background-color: #03A9f4;
+  background-color: #86BBD8;
 }
 
 /* Color of top navigation bar */
+/*#007AC1*/
 .appBar {
-  background-color: #007AC1 !important;
+  background-color: #33658A !important;
+  padding-bottom: 20px;
 }
 
 /* Color of headers */

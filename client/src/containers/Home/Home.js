@@ -21,7 +21,7 @@ const styles = {
     flexGrow: 1,
   },
   headline: {
-    marginTop: 30,
+    marginTop: 50,
   },
 };
 

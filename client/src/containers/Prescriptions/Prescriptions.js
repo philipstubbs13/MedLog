@@ -30,7 +30,7 @@ const styles = theme => ({
     },
     content: {
         flexGrow: 1,
-        backgroundColor: '#03A9f4',
+        backgroundColor: '#86BBD8',
         padding: theme.spacing.unit * 3,
     },
 });

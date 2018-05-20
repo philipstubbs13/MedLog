@@ -28,7 +28,7 @@ const styles = theme => ({
     paddingRight: 20,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
 });

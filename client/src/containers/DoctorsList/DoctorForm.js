@@ -23,7 +23,7 @@ const styles = {
     flexWrap: 'wrap',
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#007AC1',
+    borderColor: '#33658A',
   },
   formControl: {
     minWidth: 120,
@@ -32,7 +32,7 @@ const styles = {
   button: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#007AC1',
+    backgroundColor: '#33658A',
     color: 'white',
   },
 };
