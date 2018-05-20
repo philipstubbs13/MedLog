@@ -14,7 +14,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#F26419',
+    borderColor: '#33658A',
   }),
   button: {
     marginTop: 20,

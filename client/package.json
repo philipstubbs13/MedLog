@@ -4,6 +4,7 @@
     "private": true,
     "proxy": "http://localhost:3001/",
     "dependencies": {
+        "@material-ui/icons": "^1.0.0",
         "axios": "^0.18.0",
         "connect-mongo": "^2.0.1",
         "express-session": "^1.15.6",

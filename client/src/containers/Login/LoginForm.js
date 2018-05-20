@@ -9,6 +9,9 @@ import Button from 'material-ui/Button';
 import { Link } from 'react-router-dom';
 import { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
+import InputAdornment from 'material-ui/Input/InputAdornment';
+import Input from 'material-ui/Input';
+import IconButton from 'material-ui/IconButton';
 
 // Style
 const styles = theme => ({
@@ -22,7 +25,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#F26419',
+    borderColor: '#2F4858',
   },
   formControl: {
     minWidth: 120,
@@ -44,6 +47,22 @@ const styles = theme => ({
 });
 
 class LoginForm extends React.Component {
+  // State to toggle password visibility.
+  state = {
+    password: '',
+    showPassword: false,
+  };
+
+  // Toggle password visibility
+  handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
+
+  // Toggle password visiblity
+  handleClickShowPassword = () => {
+    this.setState({ showPassword: !this.state.showPassword });
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -60,29 +79,40 @@ class LoginForm extends React.Component {
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="Username">Username</InputLabel>
-                <TextField
+                <Input
                   id="username"
                   type="text"
+                  value={this.props.username}
+                  onChange={this.props.handleUsernameChange}
                   className={classes.textField}
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  value={this.props.username}
-                  onChange={this.props.handleUsernameChange}
                 />
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="password">Password</InputLabel>
-                <TextField
+                <Input
                   id="password"
-                  type="password"
+                  type={this.state.showPassword ? 'text' : 'password'}
+                  value={this.props.password}
+                  onChange={this.props.handlePasswordChange}
                   className={classes.textField}
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  value={this.props.password}
-                  onChange={this.props.handlePasswordChange}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                        onMouseDown={this.handleMouseDownPassword}
+                      >
+                        {this.state.showPassword ? <i className="fas fa-eye-slash" /> : <i className="fas fa-eye" />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 />
               </FormControl>
 
@@ -100,8 +130,5 @@ class LoginForm extends React.Component {
   }
 }
 
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// };
-
+// Export the LoginForm component with styling.
 export default withStyles(styles)(LoginForm);

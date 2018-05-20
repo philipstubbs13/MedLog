@@ -26,6 +26,7 @@ body {
 .appBar {
   background-color: #33658A !important;
   padding-bottom: 20px;
+  border-bottom: 8px solid #2F4858;
 }
 
 /* Color of headers */
@@ -36,6 +37,12 @@ body {
 /* Remove any text decoration from links.*/
 a {
   text-decoration: none;
+}
+
+.footer {
+  background-color: #33658A !important;
+  color: 'white';
+  border-top: 8px solid #2F4858;
 }
 
 
