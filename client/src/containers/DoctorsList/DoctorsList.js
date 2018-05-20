@@ -46,7 +46,7 @@ const styles = theme => ({
   doctorClinicList: {
     borderStyle: 'solid',
     borderWidth: 4,
-    borderColor: '#F26419',
+    borderColor: '#33658A',
   },
   clinicSection: {
     marginTop: 45,

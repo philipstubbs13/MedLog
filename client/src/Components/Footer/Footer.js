@@ -17,7 +17,7 @@ const styles = {
     backgroundColor: '#33658A',
     color: 'white',
   },
-  footer: {
+  footerContent: {
     backgroundColor: '#33658A',
     color: 'white',
   },
@@ -33,12 +33,12 @@ class Footer extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Card className={classes.footer}>
+      <Card className="footer">
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2" className={classes.footer}>
+          <Typography gutterBottom variant="headline" component="h2" className={classes.footerContent}>
             HealthTracker
           </Typography>
-          <Typography component="p" className={classes.footer}>
+          <Typography component="p" className={classes.footerContent}>
             Created by Sara, Kayla, Jerridd, and Phil at the University of Minnesota
           </Typography>
           <Typography component="p" className={classes.copyright}>

@@ -23,6 +23,9 @@ const styles = {
   headline: {
     marginTop: 50,
   },
+  heading: {
+    fontSize: 35,
+  }
 };
 
 class Home extends Component {
@@ -42,7 +45,7 @@ class Home extends Component {
         <div className="main-content-section">
           <Grid container spacing={24} className={classes.root}>
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 My health log
               </Typography>
               <Subhead align="center">
@@ -54,7 +57,7 @@ class Home extends Component {
               </Subhead>
             </Grid>
             <Grid item xs={12} sm={6} md={4} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 My symptom journal
               </Typography>
               <Subhead align="center">
@@ -67,7 +70,7 @@ class Home extends Component {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 Appointments
               </Typography>
               <Subhead align="center">
@@ -80,7 +83,7 @@ class Home extends Component {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 My prescriptions
               </Typography>
               <Subhead align="center">
@@ -93,7 +96,7 @@ class Home extends Component {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4}className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 Doctors and clinics
               </Typography>
               <Subhead align="center">
@@ -106,7 +109,7 @@ class Home extends Component {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className={classes.headline}>
-              <Typography variant="headline" align="center">
+              <Typography align="center" className={classes.heading}>
                 Charts
               </Typography>
               <Subhead align="center">
