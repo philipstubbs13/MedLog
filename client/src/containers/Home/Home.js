@@ -1,7 +1,7 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
 // Importing UI components from rebass.
-import { Subhead, Link, Container } from 'rebass';
+import { Subhead, Link } from 'rebass';
 // Import UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -33,7 +33,7 @@ class Home extends Component {
     const { classes } = this.props;
     return [
       <NavBar />,
-      <Container>
+      <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={24} className={classes.root} justify="center">
             <Typography variant="display1" align="center">
@@ -122,7 +122,7 @@ class Home extends Component {
             </Grid>
           </Grid>
         </div>,
-      </Container>,
+      </div>,
     ];
   }
 }
