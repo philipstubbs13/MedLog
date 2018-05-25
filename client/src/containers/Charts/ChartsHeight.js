@@ -6,13 +6,11 @@ import MedLogAPI from '../../utils/MedLogAPI';
 
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import Card, { CardContent } from 'material-ui/Card';
+import Card from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
-import ReactDOM from 'react-dom';
 import FusionCharts from 'fusioncharts';
 // Load the charts module
 import Charts from 'fusioncharts/fusioncharts.charts';
-import ReactFC from 'react-fusioncharts';
 // Pass fusioncharts as a dependency of charts
 Charts(FusionCharts);
 

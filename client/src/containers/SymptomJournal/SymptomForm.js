@@ -2,7 +2,7 @@
 import React from 'react';
 // Importing material-ui components and style.
 import TextField from 'material-ui/TextField';
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import { InputLabel } from 'material-ui/Input';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';

@@ -56,7 +56,7 @@ class Home extends Component {
                 </Link>
               </Subhead>
             </Grid>
-            <Grid item xs={12} sm={6} md={4} md={4} className={classes.headline}>
+            <Grid item xs={12} sm={6} md={4} className={classes.headline}>
               <Typography align="center" className={classes.heading}>
                 My symptom journal
               </Typography>

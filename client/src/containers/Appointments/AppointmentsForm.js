@@ -8,7 +8,7 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
+import { InputLabel } from 'material-ui/Input';
 import Tooltip from 'material-ui/Tooltip';
 import IconButton from 'material-ui/IconButton';
 

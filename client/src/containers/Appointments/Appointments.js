@@ -1,7 +1,5 @@
 // Importing React since we are using React.
 import React, { Component } from "react";
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 // Importing the AppointmentsForm component.
 import AppointmentsForm from './AppointmentsForm';
 // Importing the AppointmentsList component.

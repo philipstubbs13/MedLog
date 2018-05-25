@@ -1,11 +1,6 @@
 // Importing React since we are using React.
 import React, { Component } from 'react';
 
-// Importing UI components from rebass.
-import { Container } from 'rebass';
-// Import API
-import MedLogAPI from '../../utils/MedLogAPI';
-
 // Import ChartsHeight which uses chartist
 import ChartsHeight from './ChartsHeight';
 
@@ -16,8 +11,6 @@ import ChartsWeight from './ChartsWeight';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
-
-import ReactFC from 'react-fusioncharts';
 
 // Import Sidebar component
 import Sidebar from '../../Components/Sidebar';

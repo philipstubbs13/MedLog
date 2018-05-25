@@ -12,7 +12,7 @@ import { withStyles } from 'material-ui/styles';
 // Importing HamburgerMenu component.
 import HamburgerMenu from './HamburgerMenu';
 // import third-party routing library (react-router-dom)
-import { Link, withRouter, Redirect} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 // material-ui-next styling
