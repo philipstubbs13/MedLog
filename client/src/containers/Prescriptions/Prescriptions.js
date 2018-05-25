@@ -16,8 +16,6 @@ import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 // Import Sidebar component.
 import Sidebar from '../../Components/Sidebar';
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 
 // Style/Theme
 const styles = theme => ({

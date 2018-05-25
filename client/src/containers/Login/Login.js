@@ -4,12 +4,10 @@ import React, { Component } from "react";
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 // Import LoginForm
 import LoginForm from './LoginForm';
 import axios from 'axios';
-import {withRouter, Redirect} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 
 const styles = {
@@ -61,7 +59,7 @@ class Login extends Component {
   };
 
   render() {
-    const { classes, history, setUser } = this.props;
+    const { classes } = this.props;
     return [
       <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>

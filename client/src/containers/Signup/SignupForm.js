@@ -1,7 +1,6 @@
 // Importing React since we are using React.
 import React from 'react';
 // Importing material-ui components and style.
-import TextField from 'material-ui/TextField';
 import Card, { CardContent } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';

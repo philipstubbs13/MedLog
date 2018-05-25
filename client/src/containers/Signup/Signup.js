@@ -4,12 +4,10 @@ import React, { Component } from "react";
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 // Import LoginForm
 import SignupForm from './SignupForm';
 import axios from 'axios';
-import {withRouter, Redirect} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const styles = {
   // Tell Material-UI what's the font-size on the html element is.

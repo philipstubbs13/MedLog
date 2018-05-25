@@ -3,10 +3,7 @@ import React from 'react';
 // Importing UI components from material-ui-next.
 import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import axios from 'axios';
-
 
 const styles = {
   root: {

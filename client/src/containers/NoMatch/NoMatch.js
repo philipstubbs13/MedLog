@@ -10,8 +10,6 @@ import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
-// Importing UI components from rebass.
-import { Container } from 'rebass';
 // import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
 
