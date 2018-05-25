@@ -140,7 +140,7 @@ class MedLog extends Component {
       <div className={classes.appFrame}>
         <Sidebar />
           <main className={classes.content}>
-            <Container>
+            <div style={{ padding: 70 }}>
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                   <Typography variant="display1" align="left">
@@ -181,7 +181,7 @@ class MedLog extends Component {
                   </Grid>
                 </Grid>
               </div>
-          </Container>
+          </div>
         </main>
       </div>,
     ];

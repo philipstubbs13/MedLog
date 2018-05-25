@@ -70,7 +70,7 @@ class Signup extends Component {
   render() {
     const { classes } = this.props;
     return [
-      <Container>
+      <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
             <Typography variant="display1">
@@ -90,7 +90,7 @@ class Signup extends Component {
             </Grid>
           </Grid>
         </div>
-      </Container>,
+      </div>,
     ];
   }
 }

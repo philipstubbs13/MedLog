@@ -63,7 +63,7 @@ class Login extends Component {
   render() {
     const { classes, history, setUser } = this.props;
     return [
-      <Container>
+      <div style={{ padding: 70 }}>
         <Grid item xs={12} className={classes.headline}>
           <Grid container spacing={16} className={classes.root} justify="center">
             <Typography variant="display1">
@@ -82,7 +82,7 @@ class Login extends Component {
             </Grid>
           </Grid>
         </div>
-      </Container>,
+      </div>,
     ];
   }
 }
