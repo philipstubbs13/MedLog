@@ -115,6 +115,11 @@ class LoginForm extends React.Component {
                 />
               </FormControl>
 
+              <Button size="large" className={classes.button} onClick={this.handleClickShowPassword} onMouseDown={this.handleMouseDownPassword}variant="raised" color="primary">
+              {this.state.showPassword ? "HIDE PASSWORD" : "SHOW PASSWORD"}
+              </Button>
+              <br />
+
               <Button size="large" className={classes.button} onClick={this.props.handleFormSubmit} variant="raised" color="primary">
               LOG IN
               </Button>
