@@ -55,8 +55,6 @@ class ChartsHeight extends React.Component {
   }
 
   loadHeightChart(data) {
-    console.log("I got to the charts area");
-    console.log(data);
     const heightChart = new FusionCharts({
       type: 'line',
       renderAt: 'heightContainer',

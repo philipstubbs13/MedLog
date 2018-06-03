@@ -93,11 +93,6 @@ class SymptomJournal extends Component {
   // When user submits symptom form, save symptom to database.
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Adding symptom");
-    console.log("this.state.symptomType: ", this.state.symptomType);
-    console.log("this.state.symptomDay: ", this.state.symptomDay);
-    console.log("this.state.symptomTime: ", this.state.symptomTime);
-    console.log("this.state.symptomInfo: ", this.state.symptomInfo);
     SymptomAPI.saveSymptom({
       symptomType: this.state.symptomType,
       symptomDate: this.state.symptomDay,

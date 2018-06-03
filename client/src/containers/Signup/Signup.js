@@ -49,10 +49,6 @@ class Signup extends Component {
   handleFormSubmit = event => {
     const { history } = this.props;
     event.preventDefault();
-    console.log("Adding user...");
-    console.log("this.state.username: ", this.state.username);
-    console.log("this.state.password: ", this.state.password);
-    console.log("this.state.email: ", this.state.email);
     axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
       .then((res) => {
         console.log(res.data);

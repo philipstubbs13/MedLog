@@ -44,7 +44,6 @@ class PrescriptionsForm extends React.Component {
   handleDoctorMenuOption = event => {
     this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
-    console.log(event.target.value);
     this.props.handlePrescriptionDoctorChange(event);
   }
 
