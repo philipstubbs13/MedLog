@@ -13,6 +13,7 @@ import { withStyles } from 'material-ui/styles';
 import HamburgerMenu from './HamburgerMenu';
 // import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
+// Import axios
 import axios from 'axios';
 
 // material-ui-next styling

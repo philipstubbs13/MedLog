@@ -45,7 +45,6 @@ class SymptomTextFields extends React.Component {
   handleSymptomSelectChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
-    console.log(event.target.value);
     this.props.handleSymptomTypeChange(event);
   }
 

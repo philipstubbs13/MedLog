@@ -41,7 +41,6 @@ class DoctorForm extends Component {
   handleClinicMenuOption = event => {
     this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
-    console.log(event.target.value);
     this.props.handleDoctorClinicChange(event);
     //need to make the selected item the first thing that shows on the list
   }

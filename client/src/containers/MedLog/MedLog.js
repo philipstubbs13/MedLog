@@ -112,13 +112,6 @@ class MedLog extends Component {
   // When user submits health log form, save health log inforation to database.
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Adding health log information");
-    console.log("this.state.logDoctor: ", this.state.logDoctor);
-    console.log("this.state.logDate: ", this.state.logDate);
-    console.log("this.state.logVisitReason: ", this.state.logVisitReason);
-    console.log("this.state.logHeight: ", this.state.logHeight);
-    console.log("this.state.logWeight: ", this.state.logWeight);
-    console.log("this.state.logNotes: ", this.state.logNotes);
     MedLogAPI.saveLog({
       date: this.state.logDate,
       doctor: this.state.logDoctor,

@@ -14,10 +14,6 @@ import Charts from 'fusioncharts/fusioncharts.charts';
 // Pass fusioncharts as a dependency of charts
 Charts(FusionCharts);
 
-
-// this is using fushion charts
-
-
 // Style for add appointments form.
 const styles = {
   textField: {
@@ -61,8 +57,6 @@ class ChartsWeight extends React.Component {
   }
 
   loadWeightChart(data) {
-    console.log("I got to the charts area");
-    //console.log(weightArray);
     const weightChart = new FusionCharts({
       type: 'line',
       renderAt: 'weightContainer',
@@ -113,9 +107,7 @@ class ChartsWeight extends React.Component {
     MedLogAPI.getLogs()
       .then(res => {
         this.setState({ logs: res.data });
-        console.log("here are the logs", this.state.logs);
         const data = this.state.logs.map(log => {return {label: log.date, value: log.weightLb}});
-        console.log(data);
         this.loadWeightChart(data);
       })
       .catch(err => console.log(err));

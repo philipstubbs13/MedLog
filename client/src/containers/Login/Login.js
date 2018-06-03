@@ -44,9 +44,6 @@ class Login extends Component {
   handleFormSubmit = event => {
     const { history, setUser } = this.props;
     event.preventDefault();
-    console.log("Authenticating user...");
-    console.log("this.state.username: ", this.state.username);
-    console.log("this.state.password: ", this.state.password);
     setUser("i am the user")
     axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
       .then((res) => {

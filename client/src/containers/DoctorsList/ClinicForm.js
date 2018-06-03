@@ -45,7 +45,6 @@ class ClinicForm extends React.Component {
       [event.target.name]: event.target.value
     });
     event.preventDefault();
-    console.log(event.target.value);
     this.props.handleClinicStateChange(event);
   }
 

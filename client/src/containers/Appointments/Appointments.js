@@ -142,11 +142,6 @@ class Appointments extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("Adding appointment");
-    console.log("this.state.appointmentName: ", this.state.appointmentName);
-    console.log("this.state.appointmentDoctor: ", this.state.appointmentDoctor);
-    console.log("this.state.appointmentDate: ", this.state.appointmentDate);
-    console.log("this.state.appointmentTime: ", this.state.appointmentTime);
     AppointmentAPI.saveAppointment({
       appointmentName: this.state.appointmentName,
       doctor: this.state.appointmentDoctor,

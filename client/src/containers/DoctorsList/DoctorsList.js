@@ -74,9 +74,6 @@ class DoctorList extends Component {
     this.loadClinics();
   }
 
-  //for loading the dropdown menus
-
-
 //for rendering doctors list 
   loadDoctors = () => {
     DoctorsAPI.getDoctors()
@@ -129,7 +126,6 @@ class DoctorList extends Component {
 
     // Keep track of what user enters for clinic name so that input can be grabbed later
   handleClinicNameChange = (event) => {
-    console.log("inside handle clinic name chang", event);
     this.setState({ clinicName: event.target.value });
   }
 
@@ -161,12 +157,6 @@ class DoctorList extends Component {
   // When user submits doctor form, save doctor to database.
   handleDoctorFormSubmit = event => {
     event.preventDefault();
-    console.log('inside handleDoctorFormSubmit! ', event)
-    console.log("Adding doctor - done in doctorslist.js");
-    console.log("this.state.doctorFirstName: ", this.state.doctorFirstName);
-    console.log("this.state.doctorLastName: ", this.state.doctorLastName);
-    console.log("this.state.doctorClinic: ", this.state.doctorClinic);
-    console.log("this.state.doctorPhone: ", this.state.doctorPhone);
     DoctorsAPI.saveDoctor({
       firstname: this.state.doctorFirstName,
       lastname: this.state.doctorLastName,
@@ -180,13 +170,6 @@ class DoctorList extends Component {
   // When user submits clinic form, save clinic to database.
   handleClinicFormSubmit = event => {
     event.preventDefault();
-    console.log("Adding clinic");
-    console.log("this.state.clinicName: ", this.state.clinicName);
-    console.log("this.state.clinicAddress: ", this.state.clinicAddress);
-    console.log("this.state.clinicCity: ", this.state.clinicCity);
-    console.log("this.state.clinicState: ", this.state.clinicState);
-    console.log("this.state.clinicZip: ", this.state.clinicZip);
-    console.log("this.state.clinicPhone: ", this.state.clinicPhone);
     ClinicsAPI.saveClinic({
       clinicname: this.state.clinicName,
       address: this.state.clinicAddress,

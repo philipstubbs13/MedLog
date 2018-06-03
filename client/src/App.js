@@ -53,7 +53,6 @@ class App extends Component {
   }
   setUser = userId => {
     this.setState ({ currentlyLoggedInUser: userId})
-    console.log(userId)
   }
 
   render() {

@@ -105,12 +105,6 @@ class Prescriptions extends Component {
     // When user submits prescription form, save prescription information to database.
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log("Adding prescription information");
-        console.log("this.state.prescriptionName: ", this.state.prescriptionName);
-        console.log("this.state.prescriptionDoctor: ", this.state.prescriptionDoctor);
-        console.log("this.state.prescriptionDate: ", this.state.prescriptionDate);
-        console.log("this.state.prescriptionAmount: ", this.state.prescriptionAmount);
-        console.log("this.state.prescriptionDirections: ", this.state.prescriptionDirections);
         PrescriptionsAPI.savePrescription({
             prescriptionName: this.state.prescriptionName,
             doctorprescribed: this.state.prescriptionDoctor,
