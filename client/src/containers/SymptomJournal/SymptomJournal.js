@@ -130,7 +130,7 @@ class SymptomJournal extends Component {
     // if the symptom time field is empty when user submits form, show error.
     if (this.state.symptomTime === "") {
       this.setState({
-        symptomTimeError: "Use the time picker to select the time when the symptom occurred using the HH:MM format."
+        symptomTimeError: "Use the time picker to select the time when the symptom occurred using the HH:MM AM/PM format."
       })
     }
 

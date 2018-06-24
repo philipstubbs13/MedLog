@@ -43,6 +43,9 @@ const styles = theme => ({
     color: 'white',
     float: 'right',
   },
+  formError: {
+    color: 'red',
+  }
 });
 
 class LoginForm extends React.Component {
@@ -88,6 +91,7 @@ class LoginForm extends React.Component {
                     shrink: true,
                   }}
                 />
+                <Typography className={classes.formError} component="p">{this.props.usernameMissingError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -113,6 +117,7 @@ class LoginForm extends React.Component {
                     </InputAdornment>
                   }
                 />
+                <Typography className={classes.formError} component="p">{this.props.passwordMissingError}</Typography>
               </FormControl>
 
               <Button size="large" className={classes.button} onClick={this.handleClickShowPassword} onMouseDown={this.handleMouseDownPassword}variant="raised" color="primary">

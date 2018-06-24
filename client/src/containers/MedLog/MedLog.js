@@ -37,14 +37,18 @@ class MedLog extends Component {
   state = {
     logDoctor: "",
     logDate: "",
-    logClinic: "",
     logVisitReason: "",
     logHeight: "",
     logWeight: "",
     logNotes: "",
     logs: [],
     doctors: [],
-    error: ""
+    logDoctorError: "",
+    logDateError: "",
+    logVisitReasonError: "",
+    logHeightError: "",
+    logWeightError: "",
+    logNotesError: "",
   };
 
   // When the component mounts, load all logs and save them to this.state.logs.
@@ -80,38 +84,104 @@ class MedLog extends Component {
   };
 
   // Keep track of what user selects from doctor drop-down list so that input can be grabbed later
+    // If form validation error is showing, remove error from page when user starts typing.
   handleLogDoctorChange = (event) => {
-    this.setState({ logDoctor: event.target.value });
+    this.setState({ 
+      logDoctor: event.target.value,
+      logDoctorError: "" 
+    });
   }
 
-  // Keep track of what user enters into the log day input field so that input can be grabbed later
+  // Keep track of what user enters into the log day input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleLogDateChange = (event) => {
-    this.setState({ logDate: event.target.value });
+    this.setState({ 
+      logDate: event.target.value,
+      logDateError: "" 
+    });
   }
 
-  // Keep track of what user types into reason for visit input field so that input can be grabbed later
+  // Keep track of what user types into reason for visit input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleLogVisitReasonChange = (event) => {
-    this.setState({ logVisitReason: event.target.value });
+    this.setState({ 
+      logVisitReason: event.target.value,
+      logVisitReasonError: "" 
+    });
   }
 
-  // Keep track of what user types into height input field so that input can be grabbed later
+  // Keep track of what user types into height input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleLogHeightChange = (event) => {
-    this.setState({ logHeight: event.target.value });
+    this.setState({ 
+      logHeight: event.target.value,
+      logHeightError: "" 
+    });
   }
 
-  // Keep track of what user types into weight input field so that input can be grabbed later
+  // Keep track of what user types into weight input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleLogWeightChange = (event) => {
-    this.setState({ logWeight: event.target.value });
+    this.setState({ 
+      logWeight: event.target.value,
+      logWeightError: "" 
+    });
   }
 
   // Keep track of what user types into notes input field so that input can be grabbed later
+  // If form validation error is showing, remove error from page when user starts typing.
   handleLogNotesChange = (event) => {
-    this.setState({ logNotes: event.target.value });
+    this.setState({ 
+      logNotes: event.target.value,
+      logNotesError: ""
+     });
   }
 
   // When user submits health log form, save health log inforation to database.
   handleFormSubmit = event => {
     event.preventDefault();
+
+    // If select doctor field is empty when user submits form, show error.
+    if (this.state.logDoctor === "") {
+      this.setState({
+        logDoctorError: "Select a doctor from the drop-down list."
+      })
+    }
+
+    // If the log date field is empty when user submits form, show error.
+    if (this.state.logDate === "" || this.state.logDate === "mm/dd/yyy") {
+      this.setState({
+        logDateError: "Use the date picker to select the date of the doctor visit."
+      })
+    }
+
+    // if the visit reason field is empty when user submits form, show error.
+    if (this.state.logVisitReason === "") {
+      this.setState({
+        logVisitReasonError: "Specify the reason for visiting."
+      })
+    }
+
+    // if the height field is empty when user submits form, show error.
+    if (this.state.logHeight === "") {
+      this.setState({
+        logHeightError: "Enter a value for height (in inches)."
+      })
+    }
+
+    // if the weight field is empty when user submits form, show error.
+    if (this.state.logWeight === "") {
+      this.setState({
+        logWeightError: "Enter a value for weight (in pounds)."
+      })
+    }
+
+    // if the visit notes field is empty when user submits form, show error.
+    if (this.state.logNotes === "") {
+      this.setState({
+        logNotesError: "Enter any additional notes to associate with this doctor visit. If you don't have any additional notes to record, type N/A."
+      })
+    }
     MedLogAPI.saveLog({
       date: this.state.logDate,
       doctor: this.state.logDoctor,
@@ -151,7 +221,13 @@ class MedLog extends Component {
                       handleLogVisitReasonChange={this.handleLogVisitReasonChange}
                       handleLogHeightChange={this.handleLogHeightChange}
                       handleLogWeightChange={this.handleLogWeightChange}
-                      handleLogNotesChange={this.handleLogNotesChange} />
+                      handleLogNotesChange={this.handleLogNotesChange}
+                      logDoctorError={this.state.logDoctorError}
+                      logDateError = {this.state.logDateError}
+                      logVisitReasonError = {this.state.logVisitReasonError}
+                      logHeightError = {this.state.logHeightError}
+                      logWeightError = {this.state.logWeightError}
+                      logNotesError = {this.state.logNotesError} />
                   </Grid>
                       
                   <Grid item xs={12} sm={12} md={6}>

@@ -25,18 +25,27 @@ class Login extends Component {
     username: "",
     password: "",
     credentials: [],
-    error: ""
+    usernameMissingError: "",
+    passwordMissingError: "",
   };
 
 
-  // Keep track of what user enters for username so that input can be grabbed later
+  // Keep track of what user enters for username so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleUsernameChange = (event) => {
-    this.setState({username: event.target.value });
+    this.setState({
+      username: event.target.value,
+      usernameMissingError: "",
+    });
   }
 
-  // Keep track of what user enters into password input field so that input can be grabbed later
+  // Keep track of what user enters into password input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value });
+    this.setState({ 
+      password: event.target.value,
+      passwordMissingError: "",
+    });
   }
 
 
@@ -44,6 +53,21 @@ class Login extends Component {
   handleFormSubmit = event => {
     const { history, setUser } = this.props;
     event.preventDefault();
+
+    // If username field is empty when user submits form, show error.
+    if (this.state.username === "") {
+      this.setState({
+        usernameMissingError: "Username is required."
+      })
+    }
+
+    // If the password field is empty when user submits form, show error.
+    if (this.state.password === "") {
+      this.setState({
+        passwordMissingError: "Password is required."
+      })
+    }
+
     setUser("i am the user")
     axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
       .then((res) => {
@@ -73,7 +97,10 @@ class Login extends Component {
               <LoginForm
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
-                handlePasswordChange = {this.handlePasswordChange}  />
+                handlePasswordChange = {this.handlePasswordChange}
+                usernameMissingError = {this.state.usernameMissingError}
+                passwordMissingError = {this.state.passwordMissingError}  
+              />
             </Grid>
           </Grid>
         </div>

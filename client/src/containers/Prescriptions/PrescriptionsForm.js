@@ -38,6 +38,9 @@ const styles = theme => ({
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red',
+  }
 });
 
 class PrescriptionsForm extends React.Component {
@@ -83,6 +86,7 @@ class PrescriptionsForm extends React.Component {
                   value={this.props.prescriptionName}
                   onChange={this.props.handlePrescriptionNameChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.prescriptionNameError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -111,6 +115,7 @@ class PrescriptionsForm extends React.Component {
                       return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                     })}
                   </TextField>
+                  <Typography className={classes.formError} component="p">{this.props.prescriptionDoctorError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -135,6 +140,7 @@ class PrescriptionsForm extends React.Component {
                   value={this.props.prescriptionDate}
                   onChange={this.props.handlePrescriptionDateChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.prescriptionDateError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -158,6 +164,7 @@ class PrescriptionsForm extends React.Component {
                   value={this.props.prescriptionAmount}
                   onChange={this.props.handlePrescriptionAmountChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.prescriptionAmountError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -181,6 +188,7 @@ class PrescriptionsForm extends React.Component {
                   value={this.props.prescriptionDirections}
                   onChange={this.props.handlePrescriptionDirectionsChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.prescriptionDirectionsError}</Typography>
               </FormControl>
 
               <Button

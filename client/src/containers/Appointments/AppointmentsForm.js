@@ -39,6 +39,9 @@ const styles = {
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red',
+  }
 };
 
 class AppointmentsForm extends React.Component {
@@ -87,6 +90,7 @@ class AppointmentsForm extends React.Component {
                   value={this.props.appointmentName}
                   onChange={this.props.handleAppointmentNameChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.appointmentNameError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -115,6 +119,7 @@ class AppointmentsForm extends React.Component {
                       return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                     })}
                   </TextField>
+                  <Typography className={classes.formError} component="p">{this.props.appointmentDoctorError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -139,12 +144,13 @@ class AppointmentsForm extends React.Component {
                   value={this.props.appointmentDate}
                   onChange={this.props.handleAppointmentDateChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.appointmentDateError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="appointment-time">
                   <span>
-                    Appointment time (HH:MM)
+                    Appointment time (HH:MM AM/PM)
                     <Tooltip  
                       title="Use the time picker to specify the time of the appointment."
                       placement="top">
@@ -155,7 +161,7 @@ class AppointmentsForm extends React.Component {
                 <TextField
                   id="appointment-time"
                   type="time"
-                  defaultValue="10:30"
+                  defaultValue=""
                   className={classes.textField}
                   InputLabelProps={{
                     shrink: true,
@@ -163,6 +169,7 @@ class AppointmentsForm extends React.Component {
                   value={this.props.appointmentTime}
                   onChange={this.props.handleAppointmentTimeChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.appointmentTimeError}</Typography>
               </FormControl>
 
               <Button 

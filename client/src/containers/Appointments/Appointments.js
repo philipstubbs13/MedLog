@@ -68,11 +68,14 @@ class Appointments extends Component {
     appointmentDoctor: "",
     appointmentDate: "",
     appointmentTime: "",
-    appointmentClinic: "",
     appointments: [],
     doctors: [],
     clinics: [],
-    error: ""
+    appointmentNameError: "",
+    appointmentDoctorError: "",
+    appointmentDateError: "",
+    appointmentTimeError: "",
+
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
   componentDidMount() {
@@ -115,33 +118,73 @@ class Appointments extends Component {
       .catch(err => console.log('getting clinics did not work: ', err));
   };
 
-  // Keep track of what user enters for appointment name so that input can be grabbed later
+  // Keep track of what user enters for appointment name so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentNameChange = (event) => {
-    this.setState({ appointmentName: event.target.value });
+    this.setState({ 
+      appointmentName: event.target.value,
+      appointmentNameError: "",
+    });
   }
 
-  // Keep track of what user selects for doctor so that input can be grabbed later
+  // Keep track of what user selects for doctor so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentDoctorChange = (event) => {
-    this.setState({ appointmentDoctor: event.target.value });
+    this.setState({ 
+      appointmentDoctor: event.target.value,
+      appointmentDoctorError: "",
+    });
   }
 
-  // Keep track of what user types into appointment date input field so that input can be grabbed later
+  // Keep track of what user types into appointment date input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentDateChange = (event) => {
-    this.setState({ appointmentDate: event.target.value });
+    this.setState({ 
+      appointmentDate: event.target.value,
+      appointmentDateError: "",
+    });
   }
 
-  // Keep track of what user types into appointment time input field so that input can be grabbed later
+  // Keep track of what user types into appointment time input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleAppointmentTimeChange = (event) => {
-    this.setState({ appointmentTime: event.target.value });
-  }
-
-  // Keep track of what user types into clinic input field so that input can be grabbed later
-  handleAppointmentClinicChange = (event) => {
-    this.setState({ appointmentClinic: event.target.value });
+    this.setState({ 
+      appointmentTime: event.target.value,
+      appointmentTimeError: "",
+    });
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
+
+        // If appointment name field is empty when user submits form, show error.
+    if (this.state.appointmentName === "") {
+      this.setState({
+        appointmentNameError: "Enter a name for the appointment."
+      })
+    }
+
+    // If the appointment doctor field is empty when user submits form, show error.
+    if (this.state.appointmentDoctor === "") {
+      this.setState({
+        appointmentDoctorError: "Select the doctor associated with the appointment from the drop-down list."
+      })
+    }
+
+    // if the appointment date field is empty when user submits form, show error.
+    if (this.state.appointmentDate === "" || this.state.appointmentDate === "mm/dd/yyyy") {
+      this.setState({
+        appointmentDateError: "Use the date picker to select the date of the appointment."
+      })
+    }
+
+    // if the appointment time field is empty when user submits form, show error.
+    if (this.state.appointmentTime === "") {
+      this.setState({
+        appointmentTimeError: "Use the time picker to select the time of the appointment in HH:MM AM/PM format."
+      })
+    }
+
     AppointmentAPI.saveAppointment({
       appointmentName: this.state.appointmentName,
       doctor: this.state.appointmentDoctor,
@@ -215,7 +258,11 @@ class Appointments extends Component {
                     handleAppointmentDoctorChange={this.handleAppointmentDoctorChange}
                     handleAppointmentDateChange={this.handleAppointmentDateChange}
                     handleAppointmentTimeChange={this.handleAppointmentTimeChange}
-                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}  />
+                    handleAppointmentClinicChange={this.handleAppointmentClinicChange}
+                    appointmentNameError = {this.state.appointmentNameError}
+                    appointmentDoctorError = {this.state.appointmentDoctorError}
+                    appointmentDateError  = {this.state.appointmentDateError}
+                    appointmentTimeError = {this.state.appointmentTimeError} />
                 </Grid>
               </Grid>
             </div>
