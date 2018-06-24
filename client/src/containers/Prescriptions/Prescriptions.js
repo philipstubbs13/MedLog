@@ -45,6 +45,7 @@ class Prescriptions extends Component {
     prescriptionDoctorError: "",
     prescriptionAmountError: "",
     prescriptionDirectionsError: "",
+    formSuccessMessage: "",
     doctors: [],
   };
 
@@ -86,6 +87,7 @@ class Prescriptions extends Component {
         this.setState({ 
           prescriptionName: event.target.value,
           prescriptionNameError: "",
+          formSuccessMessage: "",
         });
     }
 
@@ -95,6 +97,7 @@ class Prescriptions extends Component {
         this.setState({ 
           prescriptionDoctor: event.target.value,
           prescriptionDoctorError: "",
+          formSuccessMessage: "",
         });
     }
 
@@ -104,6 +107,7 @@ class Prescriptions extends Component {
         this.setState({ 
           prescriptionDate: event.target.value,
           prescriptionDateError: "",
+          formSuccessMessage: "",
         });
     }
 
@@ -113,6 +117,7 @@ class Prescriptions extends Component {
         this.setState({ 
           prescriptionAmount: event.target.value,
           prescriptionAmountError: "",
+          formSuccessMessage: "",
         });
     }
 
@@ -122,6 +127,7 @@ class Prescriptions extends Component {
         this.setState({ 
           prescriptionDirections: event.target.value,
           prescriptionDirectionsError: "",
+          formSuccessMessage: "",
         });
     }
 
@@ -164,15 +170,23 @@ class Prescriptions extends Component {
           })
         }
 
-        PrescriptionsAPI.savePrescription({
-            prescriptionName: this.state.prescriptionName,
-            doctorprescribed: this.state.prescriptionDoctor,
-            dateprescribed: this.state.prescriptionDate,
-            amount: this.state.prescriptionAmount,
-            generalinstructions: this.state.prescriptionDirections,
-        })
-            .then(res => this.loadPrescriptions())
-            .catch(err => console.log('there is an error in saving the prescription', err));
+        else {
+          //Save prescription to database if all fields are filled out.
+          // Show form success message to user.
+          PrescriptionsAPI.savePrescription({
+              prescriptionName: this.state.prescriptionName,
+              doctorprescribed: this.state.prescriptionDoctor,
+              dateprescribed: this.state.prescriptionDate,
+              amount: this.state.prescriptionAmount,
+              generalinstructions: this.state.prescriptionDirections,
+          })
+              .then(res => this.loadPrescriptions())
+              .catch(err => console.log('there is an error in saving the prescription', err));
+          
+          this.setState({
+            formSuccessMessage: "Prescription added successfully!",
+          });
+        }
     };
 
     render() {
@@ -206,7 +220,9 @@ class Prescriptions extends Component {
                       prescriptionDoctorError = {this.state.prescriptionDoctorError}
                       prescriptionDateError = {this.state.prescriptionDateError}
                       prescriptionAmountError = {this.state.prescriptionAmountError}
-                      prescriptionDirectionsError = {this.state.prescriptionDirectionsError} />
+                      prescriptionDirectionsError = {this.state.prescriptionDirectionsError} 
+                      formSuccessMessage = {this.state.formSuccessMessage}
+                    />
                   </Grid>
                   <Grid item xs={12} sm={12} md={6}>
                     {this.state.prescriptions.map(prescription => {

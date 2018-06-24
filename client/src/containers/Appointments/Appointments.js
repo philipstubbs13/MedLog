@@ -75,6 +75,7 @@ class Appointments extends Component {
     appointmentDoctorError: "",
     appointmentDateError: "",
     appointmentTimeError: "",
+    formSuccessMessage: "",
 
   };
   // When the component mounts, load all appointments and save them to this.state.appointments.
@@ -124,6 +125,7 @@ class Appointments extends Component {
     this.setState({ 
       appointmentName: event.target.value,
       appointmentNameError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -133,6 +135,7 @@ class Appointments extends Component {
     this.setState({ 
       appointmentDoctor: event.target.value,
       appointmentDoctorError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -142,6 +145,7 @@ class Appointments extends Component {
     this.setState({ 
       appointmentDate: event.target.value,
       appointmentDateError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -151,6 +155,7 @@ class Appointments extends Component {
     this.setState({ 
       appointmentTime: event.target.value,
       appointmentTimeError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -185,14 +190,22 @@ class Appointments extends Component {
       })
     }
 
-    AppointmentAPI.saveAppointment({
-      appointmentName: this.state.appointmentName,
-      doctor: this.state.appointmentDoctor,
-      date: this.state.appointmentDate,
-      time: this.state.appointmentTime,
-    })
-      .then(res => this.loadAppointments())
-      .catch(err => console.log(err));
+    else {
+      //Save appointment to database if all fields are filled out.
+      // Show form success message to user.
+      AppointmentAPI.saveAppointment({
+        appointmentName: this.state.appointmentName,
+        doctor: this.state.appointmentDoctor,
+        date: this.state.appointmentDate,
+        time: this.state.appointmentTime,
+      })
+        .then(res => this.loadAppointments())
+        .catch(err => console.log(err));
+
+      this.setState({
+          formSuccessMessage: "Appointment added successfully!",
+      });
+    }
   };
 
   render() {
@@ -262,7 +275,9 @@ class Appointments extends Component {
                     appointmentNameError = {this.state.appointmentNameError}
                     appointmentDoctorError = {this.state.appointmentDoctorError}
                     appointmentDateError  = {this.state.appointmentDateError}
-                    appointmentTimeError = {this.state.appointmentTimeError} />
+                    appointmentTimeError = {this.state.appointmentTimeError}
+                    formSuccessMessage = {this.state.formSuccessMessage} 
+                  />
                 </Grid>
               </Grid>
             </div>
