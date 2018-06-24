@@ -42,6 +42,10 @@ const styles = {
   },
   formError: {
     color: 'red',
+  },
+  formSuccess: {
+    color: 'green',
+    marginTop: 10,
   }
 };
 
@@ -227,6 +231,7 @@ class LogForm extends React.Component {
               >
                 Add notes
               </Button>
+              <Typography className={classes.formSuccess} component="p">{this.props.formSuccessMessage}</Typography>
             </form>
           </CardContent>
         </Card>

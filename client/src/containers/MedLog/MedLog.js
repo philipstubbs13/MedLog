@@ -49,6 +49,7 @@ class MedLog extends Component {
     logHeightError: "",
     logWeightError: "",
     logNotesError: "",
+    formSuccessMessage: "",
   };
 
   // When the component mounts, load all logs and save them to this.state.logs.
@@ -88,7 +89,8 @@ class MedLog extends Component {
   handleLogDoctorChange = (event) => {
     this.setState({ 
       logDoctor: event.target.value,
-      logDoctorError: "" 
+      logDoctorError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -97,7 +99,8 @@ class MedLog extends Component {
   handleLogDateChange = (event) => {
     this.setState({ 
       logDate: event.target.value,
-      logDateError: "" 
+      logDateError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -106,7 +109,8 @@ class MedLog extends Component {
   handleLogVisitReasonChange = (event) => {
     this.setState({ 
       logVisitReason: event.target.value,
-      logVisitReasonError: "" 
+      logVisitReasonError: "",
+      formSuccessMessage: "", 
     });
   }
 
@@ -115,7 +119,8 @@ class MedLog extends Component {
   handleLogHeightChange = (event) => {
     this.setState({ 
       logHeight: event.target.value,
-      logHeightError: "" 
+      logHeightError: "",
+      formSuccessMessage: "", 
     });
   }
 
@@ -124,7 +129,8 @@ class MedLog extends Component {
   handleLogWeightChange = (event) => {
     this.setState({ 
       logWeight: event.target.value,
-      logWeightError: "" 
+      logWeightError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -133,7 +139,8 @@ class MedLog extends Component {
   handleLogNotesChange = (event) => {
     this.setState({ 
       logNotes: event.target.value,
-      logNotesError: ""
+      logNotesError: "",
+      formSuccessMessage: "",
      });
   }
 
@@ -182,16 +189,25 @@ class MedLog extends Component {
         logNotesError: "Enter any additional notes to associate with this doctor visit. If you don't have any additional notes to record, type N/A."
       })
     }
-    MedLogAPI.saveLog({
-      date: this.state.logDate,
-      doctor: this.state.logDoctor,
-      visitPurpose: this.state.logVisitReason,
-      heightIn: this.state.logHeight,
-      weightLb: this.state.logWeight,
-      notes: this.state.logNotes,
-    })
-      .then(res => this.loadLogs())
-      .catch(err => console.log(err));
+
+    else {
+      //Save symptom to database if all fields are filled out.
+      // Show form success message to user.
+      MedLogAPI.saveLog({
+        date: this.state.logDate,
+        doctor: this.state.logDoctor,
+        visitPurpose: this.state.logVisitReason,
+        heightIn: this.state.logHeight,
+        weightLb: this.state.logWeight,
+        notes: this.state.logNotes,
+      })
+        .then(res => this.loadLogs())
+        .catch(err => console.log(err));
+
+      this.setState({
+          formSuccessMessage: "Doctor notes added successfully!",
+      });
+    }
   };
 
   render() {
@@ -227,7 +243,8 @@ class MedLog extends Component {
                       logVisitReasonError = {this.state.logVisitReasonError}
                       logHeightError = {this.state.logHeightError}
                       logWeightError = {this.state.logWeightError}
-                      logNotesError = {this.state.logNotesError} />
+                      logNotesError = {this.state.logNotesError}
+                      formSuccessMessage = {this.state.formSuccessMessage} />
                   </Grid>
                       
                   <Grid item xs={12} sm={12} md={6}>

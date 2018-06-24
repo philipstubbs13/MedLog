@@ -40,6 +40,10 @@ const styles = theme => ({
   },
   formError: {
     color: 'red',
+  },
+  formSuccess: {
+    color: 'green',
+    marginTop: 10,
   }
 });
 
@@ -200,6 +204,7 @@ class PrescriptionsForm extends React.Component {
               >
                 Add prescription
               </Button>
+              <Typography className={classes.formSuccess} component="p">{this.props.formSuccessMessage}</Typography>
             </form>
           </CardContent>
         </Card>

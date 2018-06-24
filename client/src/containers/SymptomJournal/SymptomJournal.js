@@ -49,6 +49,7 @@ class SymptomJournal extends Component {
     symptomDayError: "",
     symptomTimeError: "",
     symptomInfoError: "",
+    formSuccessMessage: "",
   };
 
   // When the component mounts, load all symptoms and save them to this.state.symptoms.
@@ -79,6 +80,7 @@ class SymptomJournal extends Component {
     this.setState({ 
       symptomType: event.target.value,
       symptomTypeError: '',
+      formSuccessMessage: '',
     });
   }
 
@@ -88,6 +90,7 @@ class SymptomJournal extends Component {
     this.setState({ 
       symptomDay: event.target.value,
       symptomDayError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -97,6 +100,7 @@ class SymptomJournal extends Component {
     this.setState({ 
       symptomTime: event.target.value,
       symptomTimeError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -106,6 +110,7 @@ class SymptomJournal extends Component {
     this.setState({ 
       symptomInfo: event.target.value,
       symptomInfoError: "",
+      formSuccessMessage: "",
     });
   }
 
@@ -141,14 +146,22 @@ class SymptomJournal extends Component {
       })
     }
 
-    SymptomAPI.saveSymptom({
-      symptomType: this.state.symptomType,
-      symptomDate: this.state.symptomDay,
-      symptomTime: this.state.symptomTime,
-      symptomInfo: this.state.symptomInfo
-    })
-      .then(res => this.loadSymptoms())
-      .catch(err => console.log(err));
+    else {
+      //Save symptom to database if all fields are filled out.
+      // Show form success message to user.
+      SymptomAPI.saveSymptom({
+        symptomType: this.state.symptomType,
+        symptomDate: this.state.symptomDay,
+        symptomTime: this.state.symptomTime,
+        symptomInfo: this.state.symptomInfo
+      })
+        .then(res => this.loadSymptoms())
+        .catch(err => console.log(err));
+
+      this.setState({
+          formSuccessMessage: "Symptom added successfully!",
+      });
+    }
   };
 
   render() {
@@ -179,7 +192,8 @@ class SymptomJournal extends Component {
                     symptomTypeError = {this.state.symptomTypeError}
                     symptomDayError = {this.state.symptomDayError}
                     symptomTimeError = {this.state.symptomTimeError}
-                    symptomInfoError = {this.state.symptomInfoError} />
+                    symptomInfoError = {this.state.symptomInfoError}
+                    formSuccessMessage = {this.state.formSuccessMessage} />
                 </Grid>  
 
                 <Grid item xs={12} sm={12} md={6}>
