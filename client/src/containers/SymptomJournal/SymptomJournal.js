@@ -45,7 +45,10 @@ class SymptomJournal extends Component {
     symptomTime: "",
     symptomInfo: "",
     symptoms: [],
-    error: ""
+    symptomTypeError: "",
+    symptomDayError: "",
+    symptomTimeError: "",
+    symptomInfoError: "",
   };
 
   // When the component mounts, load all symptoms and save them to this.state.symptoms.
@@ -70,29 +73,74 @@ class SymptomJournal extends Component {
   };
 
 
-  // Keep track of what user selects from symptom drop-down list so that input can be grabbed later
+  // Keep track of what user selects from symptom drop-down list so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleSymptomTypeChange = (event) => {
-    this.setState({ symptomType: event.target.value });
+    this.setState({ 
+      symptomType: event.target.value,
+      symptomTypeError: '',
+    });
   }
 
-  // Keep track of what user enters into the symptom day input field so that input can be grabbed later
+  // Keep track of what user enters into the symptom day input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing 
   handleSymptomDayChange = (event) => {
-    this.setState({ symptomDay: event.target.value });
+    this.setState({ 
+      symptomDay: event.target.value,
+      symptomDayError: "",
+    });
   }
 
   // Keep track of what user types into symptom time input field so that input can be grabbed later
+  // If form validation error is showing, remove error from page when user starts typing 
   handleSymptomTimeChange = (event) => {
-    this.setState({ symptomTime: event.target.value });
+    this.setState({ 
+      symptomTime: event.target.value,
+      symptomTimeError: "",
+    });
   }
 
-  // Keep track of what user types into symptom info input field so that input can be grabbed later
+  // Keep track of what user types into symptom info input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleSymptomInfoChange = (event) => {
-    this.setState({ symptomInfo: event.target.value });
+    this.setState({ 
+      symptomInfo: event.target.value,
+      symptomInfoError: "",
+    });
   }
 
   // When user submits symptom form, save symptom to database.
   handleFormSubmit = event => {
     event.preventDefault();
+
+    // If symptom type field is empty when user submits form, show error.
+    if (this.state.symptomType === "") {
+      this.setState({
+        symptomTypeError: "Select a symptom from the drop-down list."
+      })
+    }
+
+    // If the symptom day field is empty when user submits form, show error.
+    if (this.state.symptomDay === "" || this.state.symptomDay === "mm/dd/yyy") {
+      this.setState({
+        symptomDayError: "Use the date picker to select the day when the symptom occurred."
+      })
+    }
+
+    // if the symptom time field is empty when user submits form, show error.
+    if (this.state.symptomTime === "") {
+      this.setState({
+        symptomTimeError: "Use the time picker to select the time when the symptom occurred using the HH:MM format."
+      })
+    }
+
+    // if the symptom info field is empty when user submits form, show error.
+    if (this.state.symptomInfo === "") {
+      this.setState({
+        symptomInfoError: "Enter any additonal information about the symptom. If you don't have any other information, type N/A for this field."
+      })
+    }
+
     SymptomAPI.saveSymptom({
       symptomType: this.state.symptomType,
       symptomDate: this.state.symptomDay,
@@ -127,7 +175,11 @@ class SymptomJournal extends Component {
                     handleSymptomTypeChange = {this.handleSymptomTypeChange}
                     handleSymptomDayChange = {this.handleSymptomDayChange}
                     handleSymptomTimeChange = {this.handleSymptomTimeChange}
-                    handleSymptomInfoChange = {this.handleSymptomInfoChange} />
+                    handleSymptomInfoChange = {this.handleSymptomInfoChange}
+                    symptomTypeError = {this.state.symptomTypeError}
+                    symptomDayError = {this.state.symptomDayError}
+                    symptomTimeError = {this.state.symptomTimeError}
+                    symptomInfoError = {this.state.symptomInfoError} />
                 </Grid>  
 
                 <Grid item xs={12} sm={12} md={6}>
