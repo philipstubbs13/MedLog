@@ -41,7 +41,10 @@ class Prescriptions extends Component {
     prescriptionAmount: "",
     prescriptionDirections: "",
     prescriptions: [],
-    error: "",
+    prescriptionNameError: "",
+    prescriptionDoctorError: "",
+    prescriptionAmountError: "",
+    prescriptionDirectionsError: "",
     doctors: [],
   };
 
@@ -77,34 +80,90 @@ class Prescriptions extends Component {
             .catch(err => console.log(err));
     };
 
-    // Keep track of what user types for prescription name so that input can be grabbed later
+    // Keep track of what user types for prescription name so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
     handlePrescriptionNameChange = (event) => {
-        this.setState({ prescriptionName: event.target.value });
+        this.setState({ 
+          prescriptionName: event.target.value,
+          prescriptionNameError: "",
+        });
     }
 
-    // Keep track of what user select for prescribing doctor input field so that input can be grabbed later
+    // Keep track of what user select for prescribing doctor input field so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
     handlePrescriptionDoctorChange = (event) => {
-        this.setState({ prescriptionDoctor: event.target.value });
+        this.setState({ 
+          prescriptionDoctor: event.target.value,
+          prescriptionDoctorError: "",
+        });
     }
 
-    // Keep track of what user types into prescription date input field so that input can be grabbed later
+    // Keep track of what user types into prescription date input field so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
     handlePrescriptionDateChange = (event) => {
-        this.setState({ prescriptionDate: event.target.value });
+        this.setState({ 
+          prescriptionDate: event.target.value,
+          prescriptionDateError: "",
+        });
     }
 
-    // Keep track of what user types into number of tablets input field so that input can be grabbed later
+    // Keep track of what user types into number of tablets input field so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
     handlePrescriptionAmountChange = (event) => {
-        this.setState({ prescriptionAmount: event.target.value });
+        this.setState({ 
+          prescriptionAmount: event.target.value,
+          prescriptionAmountError: "",
+        });
     }
 
-    // Keep track of what user types into directions for use input field so that input can be grabbed later
+    // Keep track of what user types into directions for use input field so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
     handlePrescriptionDirectionsChange = (event) => {
-        this.setState({ prescriptionDirections: event.target.value });
+        this.setState({ 
+          prescriptionDirections: event.target.value,
+          prescriptionDirectionsError: "",
+        });
     }
 
     // When user submits prescription form, save prescription information to database.
     handleFormSubmit = event => {
         event.preventDefault();
+
+        // If prescription name field is empty when user submits form, show error.
+        if (this.state.prescriptionName === "") {
+          this.setState({
+            prescriptionNameError: "Enter the name of the prescription."
+          })
+        }
+
+        // If prescription doctor field is empty when user submits form, show error.
+        if (this.state.prescriptionDoctor === "") {
+          this.setState({
+            prescriptionDoctorError: "Select the prescribing doctor from the drop-down list."
+          })
+        }
+
+        // If the date prescribed field is empty when user submits form, show error.
+        if (this.state.prescriptionDate === "" || this.state.prescriptionDate === "mm/dd/yyyy") {
+          this.setState({
+            prescriptionDateError: "Use the date picker to select the date when the prescription was prescribed."
+          })
+        }
+
+        // if the prescription amount field is empty when user submits form, show error.
+        if (this.state.prescriptionAmount === "") {
+          this.setState({
+            prescriptionAmountError: "Enter the amount prescribed."
+          })
+        }
+
+        // if the prescription directions field is empty when user submits form, show error.
+        if (this.state.prescriptionDirections === "") {
+          this.setState({
+            prescriptionDirectionsError: "Enter any verbal and/or written directions received regarding this prescription. If not applicable, enter N/A."
+          })
+        }
+
         PrescriptionsAPI.savePrescription({
             prescriptionName: this.state.prescriptionName,
             doctorprescribed: this.state.prescriptionDoctor,
@@ -142,7 +201,12 @@ class Prescriptions extends Component {
                       handlePrescriptionDoctorChange={this.handlePrescriptionDoctorChange}
                       handlePrescriptionDateChange={this.handlePrescriptionDateChange}
                       handlePrescriptionAmountChange={this.handlePrescriptionAmountChange}
-                      handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange} />
+                      handlePrescriptionDirectionsChange={this.handlePrescriptionDirectionsChange}
+                      prescriptionNameError = {this.state.prescriptionNameError}
+                      prescriptionDoctorError = {this.state.prescriptionDoctorError}
+                      prescriptionDateError = {this.state.prescriptionDateError}
+                      prescriptionAmountError = {this.state.prescriptionAmountError}
+                      prescriptionDirectionsError = {this.state.prescriptionDirectionsError} />
                   </Grid>
                   <Grid item xs={12} sm={12} md={6}>
                     {this.state.prescriptions.map(prescription => {

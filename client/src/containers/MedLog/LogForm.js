@@ -40,6 +40,9 @@ const styles = {
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red',
+  }
 };
 
 class LogForm extends React.Component {
@@ -91,6 +94,7 @@ class LogForm extends React.Component {
                       return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                     })}
                   </TextField>
+                  <Typography className={classes.formError} component="p">{this.props.logDoctorError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -115,6 +119,7 @@ class LogForm extends React.Component {
                   value={this.props.logDate}
                   onChange={this.props.handleLogDateChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.logDateError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -138,6 +143,7 @@ class LogForm extends React.Component {
                   value={this.props.logVisitReason}
                   onChange={this.props.handleLogVisitReasonChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.logVisitReasonError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -160,6 +166,7 @@ class LogForm extends React.Component {
                   value={this.props.logHeight}
                   onChange={this.props.handleLogHeightChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.logHeightError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -184,6 +191,7 @@ class LogForm extends React.Component {
                   value={this.props.logWeight}
                   onChange={this.props.handleLogWeightChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.logWeightError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -207,6 +215,7 @@ class LogForm extends React.Component {
                   value={this.props.logNotes}
                   onChange={this.props.handleLogNotesChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.logNotesError}</Typography>
               </FormControl>
 
               <Button 

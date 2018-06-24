@@ -25,23 +25,52 @@ class Signup extends Component {
     password: "",
     email: "",
     credentials: [],
-    error: ""
+    usernameMissingError: "",
+    passwordMissingError: "",
+    emailMissingError: "",
+    passwordLengthError: "",
   };
 
 
-  // Keep track of what user enters for username so that input can be grabbed later
+  // Keep track of what user enters for username so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleUsernameChange = (event) => {
-    this.setState({username: event.target.value });
+    this.setState({
+      username: event.target.value,
+      usernameMissingError: "", 
+    });
   }
 
-  // Keep track of what user enters into password input field so that input can be grabbed later
+  // Keep track of what user enters into password input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handlePasswordChange = (event) => {
-    this.setState({ password: event.target.value });
+    this.setState({ 
+      password: event.target.value,
+      passwordMissingError: "",
+    });
+
+    // If password length is greater than 0 but less than 8, show password weak error.
+    if (this.state.password.length > 0 && this.state.password.length < 8) {
+      this.setState({
+        passwordLengthError: "Password is weak. Password should be at least 8 characters."
+      });
+    }
+
+    // If password is 8 characters or greater, remove password length error from page.
+    if (this.state.password.length === 8 || this.state.password.length > 8) {
+      this.setState({
+        passwordLengthError: "",
+      });
+    }
   }
 
-  // Keep track of what user enters into email input field so that input can be grabbed later
+  // Keep track of what user enters into email input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleEmailChange = (event) => {
-    this.setState({ email: event.target.value });
+    this.setState({ 
+      email: event.target.value,
+      emailMissingError: "",
+    });
   }
 
 
@@ -49,6 +78,28 @@ class Signup extends Component {
   handleFormSubmit = event => {
     const { history } = this.props;
     event.preventDefault();
+
+    // If username field is empty when user submits form, show error.
+    if (this.state.username === "") {
+      this.setState({
+        usernameMissingError: "Username is required."
+      })
+    }
+
+    // If the password field is empty when user submits form, show error.
+    if (this.state.password === "") {
+      this.setState({
+        passwordMissingError: "Password is required."
+      })
+    }
+
+    // if the email field is empty when user submits form, show error.
+    if (this.state.email === "") {
+      this.setState({
+        emailMissingError: "Email is required."
+      })
+    }
+
     axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
       .then((res) => {
         console.log(res.data);
@@ -80,7 +131,11 @@ class Signup extends Component {
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
                 handlePasswordChange = {this.handlePasswordChange}
-                handleEmailChange = {this.handleEmailChange}   />
+                handleEmailChange = {this.handleEmailChange}
+                usernameMissingError = {this.state.usernameMissingError}
+                passwordMissingError = {this.state.passwordMissingError}
+                emailMissingError = {this.state.emailMissingError}
+                passwordLengthError = {this.state.passwordLengthError}   />
             </Grid>
           </Grid>
         </div>

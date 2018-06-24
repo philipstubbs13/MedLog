@@ -129,7 +129,7 @@ class SymptomTextFields extends React.Component {
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="symptom-time">
                   <span>
-                    Time symptom occurred (HH:MM)
+                    Time symptom occurred (HH:MM AM/PM)
                     <Tooltip  
                       title="Use the time picker to enter the time when the symptom occurred."
                       placement="top">
@@ -139,8 +139,8 @@ class SymptomTextFields extends React.Component {
                 </InputLabel>
                 <TextField
                   id="symptom-time"
-                  type="timedatetime-local"
-                  defaultValue="10:30"
+                  type="time"
+                  defaultValue=""
                   className={classes.textField}
                   InputLabelProps={{
                     shrink: true,
