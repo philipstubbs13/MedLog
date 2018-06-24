@@ -65,7 +65,16 @@ class DoctorList extends Component {
     clinicZip: "",
     clinicPhone: "",
     clinics: [],
-    error: ""
+    doctorFirstNameError: "",
+    doctorLastNameError: "",
+    doctorClinicError: "",
+    doctorPhoneError: "",
+    clinicNameError: "",
+    clinicAddressError: "",
+    clinicCityError: "",
+    clinicStateError: "",
+    clinicZipError: "",
+    clinicPhoneError: "",    
   };
 
   // When the component mounts, load all doctors and clinics and save them to this.state.doctors and this.state.clinics.
@@ -104,59 +113,128 @@ class DoctorList extends Component {
       .catch(err => console.log(err));
   };
 
-  // Keep track of what user enters for doctor first name so that input can be grabbed later
+  // Keep track of what user enters for doctor first name so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleDoctorFirstNameChange = (event) => {
-    this.setState({ doctorFirstName: event.target.value });
+    this.setState({ 
+      doctorFirstName: event.target.value,
+      doctorFirstNameError: "",
+    });
   }
 
-  // Keep track of what user enters for doctor last name so that input can be grabbed later
+  // Keep track of what user enters for doctor last name so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleDoctorLastNameChange = (event) => {
-    this.setState({ doctorLastName: event.target.value });
+    this.setState({ 
+      doctorLastName: event.target.value,
+      doctorLastNameError: "",
+    });
   }
 
-  // Keep track of what user types into clinic input field so that input can be grabbed later
+  // Keep track of what user types into clinic input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleDoctorClinicChange = (event) => {
-    this.setState({ doctorClinic: event.target.value });
+    this.setState({ 
+      doctorClinic: event.target.value,
+      doctorClinicError: "",
+    });
   }
 
-  // Keep track of what user types into phone input field so that input can be grabbed later
+  // Keep track of what user types into phone input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleDoctorPhoneChange = (event) => {
-    this.setState({ doctorPhone: event.target.value });
+    this.setState({ 
+      doctorPhone: event.target.value,
+      doctorPhoneError: "",
+    });
   }
 
-    // Keep track of what user enters for clinic name so that input can be grabbed later
+    // Keep track of what user enters for clinic name so that input can be grabbed later.
+    // If form validation error is showing, remove error from page when user starts typing.
   handleClinicNameChange = (event) => {
-    this.setState({ clinicName: event.target.value });
+    this.setState({ 
+      clinicName: event.target.value,
+      clinicNameError: "",
+    });
   }
 
-  // Keep track of what user enters for clinic address so that input can be grabbed later
+  // Keep track of what user enters for clinic address so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleClinicAddressChange = (event) => {
-    this.setState({ clinicAddress: event.target.value });
+    this.setState({ 
+      clinicAddress: event.target.value,
+      clinicAddressError: "",
+    });
   }
 
-  // Keep track of what user types into clinic city field so that input can be grabbed later
+  // Keep track of what user types into clinic city field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleClinicCityChange = (event) => {
-    this.setState({ clinicCity: event.target.value });
+    this.setState({ 
+      clinicCity: event.target.value,
+      clinicCityError: "",
+    });
   }
 
-  // Keep track of what user types into clinic state field so that input can be grabbed later
+  // Keep track of what user types into clinic state field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleClinicStateChange = (event) => {
-    this.setState({ clinicState: event.target.value });
+    this.setState({ 
+      clinicState: event.target.value,
+      clinicStateError: "",
+    });
   }
 
-   // Keep track of what user types into zip code field so that input can be grabbed later
+   // Keep track of what user types into zip code field so that input can be grabbed later.
+   // If form validation error is showing, remove error from page when user starts typing.
   handleClinicZipChange = (event) => {
-    this.setState({ clinicZip: event.target.value });
+    this.setState({ 
+      clinicZip: event.target.value,
+      clinicZipError: "",
+    });
   }
 
-  // Keep track of what user types into phone input field so that input can be grabbed later
+  // Keep track of what user types into phone input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
   handleClinicPhoneChange = (event) => {
-    this.setState({ clinicPhone: event.target.value });
+    this.setState({ 
+      clinicPhone: event.target.value,
+      clinicPhoneError: "",
+    });
   }
 
   // When user submits doctor form, save doctor to database.
   handleDoctorFormSubmit = event => {
     event.preventDefault();
+
+        // If doctor first name field is empty when user submits form, show error.
+    if (this.state.doctorFirstName === "") {
+      this.setState({
+        doctorFirstNameError: "First name is required."
+      })
+    }
+
+    // If the doctor last name field is empty when user submits form, show error.
+    if (this.state.doctorLastName === "") {
+      this.setState({
+        doctorLastNameError: "Last name is required."
+      })
+    }
+
+    // if the select clinic field is empty when user submits form, show error.
+    if (this.state.doctorClinic === "") {
+      this.setState({
+        doctorClinicError: "From the drop-down list, select the primary clinic that the doctor is associated with."
+      })
+    }
+
+    // if the doctor phone number field is empty when user submits form, show error.
+    if (this.state.doctorPhone === "") {
+      this.setState({
+        doctorPhoneError: "Phone number is required."
+      })
+    }
+
     DoctorsAPI.saveDoctor({
       firstname: this.state.doctorFirstName,
       lastname: this.state.doctorLastName,
@@ -170,6 +248,49 @@ class DoctorList extends Component {
   // When user submits clinic form, save clinic to database.
   handleClinicFormSubmit = event => {
     event.preventDefault();
+
+    // If clinic name field is empty when user submits form, show error.
+    if (this.state.clinicName === "") {
+      this.setState({
+        clinicNameError: "Name is required."
+      })
+    }
+
+    // If the clinic address field is empty when user submits form, show error.
+    if (this.state.clinicAddress === "") {
+      this.setState({
+        clinicAddressError: "Address is required."
+      })
+    }
+
+    // if the clinic city field is empty when user submits form, show error.
+    if (this.state.clinicCity === "") {
+      this.setState({
+        clinicCityError: "City is required."
+      })
+    }
+
+    // if the clinic state field is empty when user submits form, show error.
+    if (this.state.clinicState === "") {
+      this.setState({
+        clinicStateError: "State is required."
+      })
+    }
+
+    // if the clinic zip code field is empty when user submits form, show error.
+    if (this.state.clinicZip === "") {
+      this.setState({
+        clinicZipError: "Zip code is required."
+      })
+    }
+
+    // if the clinic phone number field is empty when user submits form, show error.
+    if (this.state.clinicPhone === "") {
+      this.setState({
+        clinicPhoneError: "Phone number is required."
+      })
+    }
+
     ClinicsAPI.saveClinic({
       clinicname: this.state.clinicName,
       address: this.state.clinicAddress,
@@ -208,7 +329,12 @@ class DoctorList extends Component {
                     handleDoctorFirstNameChange={this.handleDoctorFirstNameChange}
                     handleDoctorLastNameChange={this.handleDoctorLastNameChange}
                     handleDoctorClinicChange={this.handleDoctorClinicChange}
-                    handleDoctorPhoneChange={this.handleDoctorPhoneChange} />
+                    handleDoctorPhoneChange={this.handleDoctorPhoneChange} 
+                    doctorFirstNameError = {this.state.doctorFirstNameError}
+                    doctorLastNameError = {this.state.doctorLastNameError}
+                    doctorClinicError = {this.state.doctorClinicError}
+                    doctorPhoneError = {this.state.doctorPhoneError} 
+                  />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <Paper elevation={4} className={classes.doctorClinicList}>
@@ -240,7 +366,14 @@ class DoctorList extends Component {
                     handleClinicCityChange={this.handleClinicCityChange}
                     handleClinicStateChange={this.handleClinicStateChange}
                     handleClinicZipChange={this.handleClinicZipChange}
-                    handleClinicPhoneChange={this.handleClinicPhoneChange}  />
+                    handleClinicPhoneChange={this.handleClinicPhoneChange}
+                    clinicNameError = {this.state.clinicNameError}
+                    clinicAddressError = {this.state.clinicAddressError}
+                    clinicCityError = {this.state.clinicCityError}
+                    clinicStateError = {this.state.clinicStateError}
+                    clinicZipError = {this.state.clinicZipError}
+                    clinicPhoneError = {this.state.clinicPhoneError}
+                  />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
                   <div>

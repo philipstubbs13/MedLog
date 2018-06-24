@@ -35,6 +35,9 @@ const styles = {
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red',
+  },
 };
 
 class DoctorForm extends Component {
@@ -72,6 +75,7 @@ class DoctorForm extends Component {
                   value={this.props.doctorFirstName}
                   onChange={this.props.handleDoctorFirstNameChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.doctorFirstNameError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -86,6 +90,7 @@ class DoctorForm extends Component {
                   value={this.props.doctorLastName}
                   onChange={this.props.handleDoctorLastNameChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.doctorLastNameError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -105,6 +110,7 @@ class DoctorForm extends Component {
                       return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
                     })}
                   </TextField>
+                  <Typography className={classes.formError} component="p">{this.props.doctorClinicError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -118,6 +124,7 @@ class DoctorForm extends Component {
                   value={this.props.doctorPhone}
                   onChange={this.props.handleDoctorPhoneChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.doctorPhoneError}</Typography>
               </FormControl>
 
               <Button 
