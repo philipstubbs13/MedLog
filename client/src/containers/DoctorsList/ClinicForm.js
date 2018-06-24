@@ -36,6 +36,9 @@ const styles = {
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red'
+  },
 };
 
 class ClinicForm extends React.Component {
@@ -75,6 +78,7 @@ class ClinicForm extends React.Component {
                   value={this.props.clinicName}
                   onChange={this.props.handleClinicNameChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.clinicNameError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -88,6 +92,7 @@ class ClinicForm extends React.Component {
                   value={this.props.clinicAddress}
                   onChange={this.props.handleClinicAddressChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.clinicAddressError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -101,6 +106,7 @@ class ClinicForm extends React.Component {
                   value={this.props.clinicCity}
                   onChange={this.props.handleClinicCityChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.clinicCityError}</Typography>
               </FormControl>
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="select-state-dropdown">State</InputLabel>
@@ -168,6 +174,7 @@ class ClinicForm extends React.Component {
                   <MenuItem value='WI'>Wisconsin</MenuItem>
                   <MenuItem value='WY'>Wyoming</MenuItem>
                 </TextField>
+                <Typography className={classes.formError} component="p">{this.props.clinicStateError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -181,6 +188,7 @@ class ClinicForm extends React.Component {
                   value={this.props.clinicZip}
                   onChange={this.props.handleClinicZipChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.clinicZipError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -194,6 +202,7 @@ class ClinicForm extends React.Component {
                   value={this.props.clinicPhone}
                   onChange={this.props.handleClinicPhoneChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.clinicPhoneError}</Typography>
               </FormControl>
 
               <Button 
