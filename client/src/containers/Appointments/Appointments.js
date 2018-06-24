@@ -203,7 +203,7 @@ class Appointments extends Component {
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: "Appointment added successfully!",
+          formSuccessMessage: `${this.state.appointmentName} with Dr. ${this.state.appointmentDoctor} on ${this.state.appointmentDate} added successfully!`,
       });
     }
   };

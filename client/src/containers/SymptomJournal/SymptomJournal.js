@@ -159,7 +159,7 @@ class SymptomJournal extends Component {
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: "Symptom added successfully!",
+          formSuccessMessage: `${this.state.symptomType} from ${this.state.symptomDay} added successfully!`,
       });
     }
   };

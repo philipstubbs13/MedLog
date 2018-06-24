@@ -184,7 +184,7 @@ class Prescriptions extends Component {
               .catch(err => console.log('there is an error in saving the prescription', err));
           
           this.setState({
-            formSuccessMessage: "Prescription added successfully!",
+            formSuccessMessage: `${this.state.prescriptionName} added successfully!`,
           });
         }
     };
