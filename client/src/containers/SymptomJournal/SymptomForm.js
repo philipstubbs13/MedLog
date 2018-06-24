@@ -39,6 +39,9 @@ const styles = theme => ({
     backgroundColor: '#33658A',
     color: 'white',
   },
+  formError: {
+    color: 'red',
+  }
 });
 
 class SymptomTextFields extends React.Component {
@@ -54,6 +57,7 @@ class SymptomTextFields extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props);
 
     return (
       <div>
@@ -66,7 +70,7 @@ class SymptomTextFields extends React.Component {
               <FormControl className={classes.formControl} fullWidth>     
                 <InputLabel htmlFor="select-symptom">
                   <span>
-                    Select symptom  
+                    Select symptom type
                     <Tooltip  
                       title="Select a symptom from the drop-down list."
                       placement="top">
@@ -94,6 +98,7 @@ class SymptomTextFields extends React.Component {
                     <MenuItem value="Fatigue">Fatigue</MenuItem>
                     <MenuItem value="Other">Other</MenuItem>
                 </TextField>
+                <Typography className={classes.formError} component="p">{this.props.symptomTypeError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -118,6 +123,7 @@ class SymptomTextFields extends React.Component {
                   value={this.props.date}
                   onChange={this.props.handleSymptomDayChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.symptomDayError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -142,6 +148,7 @@ class SymptomTextFields extends React.Component {
                   value={this.props.time}
                   onChange={this.props.handleSymptomTimeChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.symptomTimeError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
@@ -167,6 +174,7 @@ class SymptomTextFields extends React.Component {
                   value={this.props.info}
                   onChange={this.props.handleSymptomInfoChange}
                 />
+                <Typography className={classes.formError} component="p">{this.props.symptomInfoError}</Typography>
               </FormControl>
 
               <Button 
