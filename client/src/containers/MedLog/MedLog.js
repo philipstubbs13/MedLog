@@ -205,7 +205,7 @@ class MedLog extends Component {
         .catch(err => console.log(err));
 
       this.setState({
-          formSuccessMessage: "Doctor notes added successfully!",
+          formSuccessMessage: `Doctor notes from ${this.state.logDate} added successfully!`,
       });
     }
   };

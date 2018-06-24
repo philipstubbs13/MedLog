@@ -74,7 +74,9 @@ class DoctorList extends Component {
     clinicCityError: "",
     clinicStateError: "",
     clinicZipError: "",
-    clinicPhoneError: "",    
+    clinicPhoneError: "",
+    doctorFormSuccessMessage: "",  
+    clinicFormSuccessMessage: "",  
   };
 
   // When the component mounts, load all doctors and clinics and save them to this.state.doctors and this.state.clinics.
@@ -119,6 +121,7 @@ class DoctorList extends Component {
     this.setState({ 
       doctorFirstName: event.target.value,
       doctorFirstNameError: "",
+      doctorFormSuccessMessage: "",
     });
   }
 
@@ -128,6 +131,7 @@ class DoctorList extends Component {
     this.setState({ 
       doctorLastName: event.target.value,
       doctorLastNameError: "",
+      doctorFormSuccessMessage: "",
     });
   }
 
@@ -137,6 +141,7 @@ class DoctorList extends Component {
     this.setState({ 
       doctorClinic: event.target.value,
       doctorClinicError: "",
+      doctorFormSuccessMessage: "",
     });
   }
 
@@ -146,6 +151,7 @@ class DoctorList extends Component {
     this.setState({ 
       doctorPhone: event.target.value,
       doctorPhoneError: "",
+      doctorFormSuccessMessage: "",
     });
   }
 
@@ -155,6 +161,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicName: event.target.value,
       clinicNameError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -164,6 +171,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicAddress: event.target.value,
       clinicAddressError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -173,6 +181,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicCity: event.target.value,
       clinicCityError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -182,6 +191,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicState: event.target.value,
       clinicStateError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -191,6 +201,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicZip: event.target.value,
       clinicZipError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -200,6 +211,7 @@ class DoctorList extends Component {
     this.setState({ 
       clinicPhone: event.target.value,
       clinicPhoneError: "",
+      clinicFormSuccessMessage: "",
     });
   }
 
@@ -235,14 +247,22 @@ class DoctorList extends Component {
       })
     }
 
-    DoctorsAPI.saveDoctor({
-      firstname: this.state.doctorFirstName,
-      lastname: this.state.doctorLastName,
-      clinic: this.state.doctorClinic,
-      phone: this.state.doctorPhone,
-    })
-      .then(res => this.loadDoctors())
-      .catch(err => console.log('there is a problem saving doctor: ' + err));
+    else {
+      //Save doctor to database if all fields are filled out.
+      // Show form success message to user.
+      DoctorsAPI.saveDoctor({
+        firstname: this.state.doctorFirstName,
+        lastname: this.state.doctorLastName,
+        clinic: this.state.doctorClinic,
+        phone: this.state.doctorPhone,
+      })
+        .then(res => this.loadDoctors())
+        .catch(err => console.log('there is a problem saving doctor: ' + err));
+
+      this.setState({
+          doctorFormSuccessMessage: `Dr. ${this.state.doctorFirstName} ${this.state.doctorLastName} added successfully!`,
+      });
+    }
   };
 
   // When user submits clinic form, save clinic to database.
@@ -291,16 +311,24 @@ class DoctorList extends Component {
       })
     }
 
-    ClinicsAPI.saveClinic({
-      clinicname: this.state.clinicName,
-      address: this.state.clinicAddress,
-      city: this.state.clinicCity,
-      state: this.state.clinicState,
-      zip: this.state.clinicZip,
-      phone: this.state.clinicPhone,
-    })
-      .then(res => this.loadClinics())
-      .catch(err => console.log('there is a problem saving doctor: ' + err));
+    else {
+      // Save clinic to database if all fields are filled out.
+      // Show form success message to user.
+      ClinicsAPI.saveClinic({
+        clinicname: this.state.clinicName,
+        address: this.state.clinicAddress,
+        city: this.state.clinicCity,
+        state: this.state.clinicState,
+        zip: this.state.clinicZip,
+        phone: this.state.clinicPhone,
+      })
+        .then(res => this.loadClinics())
+        .catch(err => console.log('there is a problem saving doctor: ' + err));
+
+        this.setState({
+          clinicFormSuccessMessage: `${this.state.clinicName} added successfully!`,
+      });
+    }
   };
 
   render() {
@@ -334,6 +362,7 @@ class DoctorList extends Component {
                     doctorLastNameError = {this.state.doctorLastNameError}
                     doctorClinicError = {this.state.doctorClinicError}
                     doctorPhoneError = {this.state.doctorPhoneError} 
+                    doctorFormSuccessMessage = {this.state.doctorFormSuccessMessage}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>
@@ -373,6 +402,7 @@ class DoctorList extends Component {
                     clinicStateError = {this.state.clinicStateError}
                     clinicZipError = {this.state.clinicZipError}
                     clinicPhoneError = {this.state.clinicPhoneError}
+                    clinicFormSuccessMessage = {this.state.clinicFormSuccessMessage}
                   />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6}>

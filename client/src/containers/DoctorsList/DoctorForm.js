@@ -38,6 +38,10 @@ const styles = {
   formError: {
     color: 'red',
   },
+  formSuccess: {
+    color: 'green',
+    marginTop: 10,
+  }
 };
 
 class DoctorForm extends Component {
@@ -135,6 +139,7 @@ class DoctorForm extends Component {
                 variant="raised">
                 Add doctor
               </Button>
+              <Typography className={classes.formSuccess} component="p">{this.props.doctorFormSuccessMessage}</Typography>
             </form>
           </CardContent>
         </Card>
