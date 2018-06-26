@@ -2,7 +2,7 @@
 import React from 'react';
 // Importing UI components from material-ui-next
 import Typography from 'material-ui/Typography';
-import { InputLabel, InputAdornment } from 'material-ui/Input';
+import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Button from 'material-ui/Button';
@@ -30,10 +30,7 @@ const styles = {
   formControl: {
     minWidth: 120,
     marginTop: 30,
-  },  formControl: {
-    minWidth: 120,
-    marginTop: 30,
-  },
+  },  
   button: {
     marginTop: 20,
     padding: 15,
@@ -191,7 +188,6 @@ class LogForm extends React.Component {
                   }}
                   margin="normal"
                   className={classes.textField}
-                  endAdornment={<InputAdornment position="end">pounds</InputAdornment>}
                   value={this.props.logWeight}
                   onChange={this.props.handleLogWeightChange}
                 />

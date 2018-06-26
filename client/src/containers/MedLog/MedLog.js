@@ -252,6 +252,7 @@ class MedLog extends Component {
                       return (
                         <LogList
                           id={log._id}
+                          key={log._id}
                           date={log.date}
                           doctor={log.doctor}
                           visitPurpose={log.visitPurpose}

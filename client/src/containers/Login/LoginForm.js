@@ -87,9 +87,6 @@ class LoginForm extends React.Component {
                   value={this.props.username}
                   onChange={this.props.handleUsernameChange}
                   className={classes.textField}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                 />
                 <Typography className={classes.formError} component="p">{this.props.usernameMissingError}</Typography>
               </FormControl>
@@ -102,9 +99,6 @@ class LoginForm extends React.Component {
                   value={this.props.password}
                   onChange={this.props.handlePasswordChange}
                   className={classes.textField}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
