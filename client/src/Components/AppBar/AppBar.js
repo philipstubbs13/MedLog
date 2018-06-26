@@ -41,7 +41,7 @@ function NavBar(props) {
       <AppBar position="static" className="appBar">
         <Toolbar>
           <HamburgerMenu className={classes.menuButton} aria-label="Menu" />
-            <Typography variant="title" color="inherit" className={classes.flex} button component={Link} to="/home">
+            <Typography variant="title" color="inherit" className={classes.flex} component={Link} to="/home">
               HealthTracker
             </Typography>
             <Button className={classes.button} onClick={() => {
