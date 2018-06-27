@@ -76,7 +76,7 @@ class LoginForm extends React.Component {
               SIGN UP for a free account
             </Typography>
             <Typography gutterBottom component="p" align="center">
-              To SIGN UP, you'll need to specify your email address and create a username and password.
+              To SIGN UP, you'll need to provide your email address and create a username and password.
             </Typography>
             <form noValidate autoComplete="off">
               <FormControl className={classes.formControl} fullWidth>
@@ -119,6 +119,32 @@ class LoginForm extends React.Component {
                 />
                 <Typography className={classes.formError} component="p">{this.props.passwordMissingError}</Typography>
                 <Typography className={classes.formError} component="p">{this.props.passwordLengthError}</Typography>
+              </FormControl>
+
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="Password">Confirm password</InputLabel>
+                <Input
+                  id="password"
+                  type={this.state.showPassword ? 'text' : 'password'}
+                  value={this.props.confirmPassword}
+                  onChange={this.props.handleConfirmPasswordChange}
+                  className={classes.textField}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Toggle password visibility"
+                        onClick={this.handleClickShowPassword}
+                        onMouseDown={this.handleMouseDownPassword}
+                      >
+                        {this.state.showPassword ? <i className="fas fa-eye-slash" /> : <i className="fas fa-eye" />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                />
+                <Typography className={classes.formError} component="p">{this.props.confirmPasswordError}</Typography>
               </FormControl>
 
               <FormControl className={classes.formControl} fullWidth>
