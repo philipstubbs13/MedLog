@@ -23,12 +23,14 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    confirmPassword: "",
     email: "",
     credentials: [],
     usernameMissingError: "",
     passwordMissingError: "",
     emailMissingError: "",
     passwordLengthError: "",
+    confirmPasswordError: "",
   };
 
 
@@ -62,6 +64,15 @@ class Signup extends Component {
         passwordLengthError: "",
       });
     }
+  }
+
+  // Keep track of what user enters into confirm password input field so that input can be grabbed later.
+  // If form validation error is showing, remove error from page when user starts typing.
+  handleConfirmPasswordChange = (event) => {
+    this.setState({ 
+      confirmPassword: event.target.value,
+      confirmPasswordError: "",
+    });
   }
 
   // Keep track of what user enters into email input field so that input can be grabbed later.
@@ -100,16 +111,33 @@ class Signup extends Component {
       })
     }
 
-    axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
-      .then((res) => {
-        console.log(res.data);
+    // if the confirm password field is empty when user submits form, show error.
+    if (this.state.confirmPassword === "") {
+      this.setState({
+        confirmPasswordError: "Confirm password."
       })
-      .catch(err => console.log(err))
-      axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
-      .then((res) => {
-        console.log(res.data);
-        history.push('/home')
+    }
+
+    // If the password and confirm password fields don't match, tell user.
+    if (this.state.password !== this.state.confirmPassword) {
+      this.setState({
+        confirmPasswordError: "The password entered does not match the first one. Check that the password is entered correctly.",
       })
+    }
+
+    // If form is validated, sign up user...
+    else {
+      axios.post('/Auth/signup', { username: this.state.username, password: this.state.password, email: this.state.email })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch(err => console.log(err))
+        axios.post('/Auth/login', { username: this.state.username, password: this.state.password})
+        .then((res) => {
+          console.log(res.data);
+          history.push('/home')
+        })
+    }
   };
 
   render() {
@@ -131,11 +159,14 @@ class Signup extends Component {
                 handleFormSubmit = {this.handleFormSubmit}
                 handleUsernameChange = {this.handleUsernameChange}
                 handlePasswordChange = {this.handlePasswordChange}
+                handleConfirmPasswordChange = {this.handleConfirmPasswordChange}
                 handleEmailChange = {this.handleEmailChange}
                 usernameMissingError = {this.state.usernameMissingError}
                 passwordMissingError = {this.state.passwordMissingError}
                 emailMissingError = {this.state.emailMissingError}
-                passwordLengthError = {this.state.passwordLengthError}   />
+                passwordLengthError = {this.state.passwordLengthError}
+                confirmPasswordError = {this.state.confirmPasswordError}
+              />
             </Grid>
           </Grid>
         </div>
