@@ -69,7 +69,7 @@ class LoginForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="animated bounceInLeft">
         <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2" align="center">
@@ -171,7 +171,7 @@ class LoginForm extends React.Component {
               SIGN UP
               </Button>
               <Button size="large" className={classes.loginButton} component={Link} to="/" variant="raised" color="primary">
-              Back to LOGIN page
+              Already have an account? Go back to LOGIN page
               </Button>
             </form>
           </CardContent>
