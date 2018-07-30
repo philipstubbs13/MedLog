@@ -72,7 +72,7 @@ class AppointmentsForm extends React.Component {
             <Typography gutterBottom variant="headline" component="h2">
             Add an appointment
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="appointment-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="appointment-name">
                   <span>

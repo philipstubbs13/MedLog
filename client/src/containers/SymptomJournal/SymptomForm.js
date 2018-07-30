@@ -70,7 +70,7 @@ class SymptomTextFields extends React.Component {
             <Typography gutterBottom variant="headline" component="h2">
             Add a symptom
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="symptom-form">
               <FormControl className={classes.formControl} fullWidth>     
                 <InputLabel htmlFor="select-symptom">
                   <span>

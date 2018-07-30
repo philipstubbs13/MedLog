@@ -161,6 +161,9 @@ class SymptomJournal extends Component {
       this.setState({
           formSuccessMessage: `${this.state.symptomType} from ${this.state.symptomDay} added successfully!`,
       });
+
+      // Clear form
+      document.getElementById('symptom-form').reset();
     }
   };
 

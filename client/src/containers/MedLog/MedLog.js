@@ -207,6 +207,9 @@ class MedLog extends Component {
       this.setState({
           formSuccessMessage: `Doctor notes from ${this.state.logDate} added successfully!`,
       });
+
+      // Clear form
+      document.getElementById('log-form').reset();
     }
   };
 
