@@ -69,7 +69,7 @@ class LoginForm extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div className="animated bounceInLeft">
         <Card className={classes.root}>
           <CardContent>
             <Typography gutterBottom variant="headline" component="h2" align="center">
