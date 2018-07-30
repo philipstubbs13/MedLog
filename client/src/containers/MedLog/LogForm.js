@@ -68,7 +68,7 @@ class LogForm extends React.Component {
             <Typography gutterBottom variant="headline" component="h2">
               Add doctor notes
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="log-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="doctor">
                   <span>

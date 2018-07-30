@@ -69,7 +69,7 @@ class ClinicForm extends React.Component {
             <Typography gutterBottom variant="headline" component="h2">
               Add a clinic
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="clinic-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="clinic-name">Name</InputLabel>
                 <TextField

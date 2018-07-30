@@ -248,7 +248,7 @@ class DoctorList extends Component {
     }
 
     else {
-      //Save doctor to database if all fields are filled out.
+      //Save doctor to database if all fields are filled out.s
       // Show form success message to user.
       DoctorsAPI.saveDoctor({
         firstname: this.state.doctorFirstName,
@@ -262,6 +262,9 @@ class DoctorList extends Component {
       this.setState({
           doctorFormSuccessMessage: `Dr. ${this.state.doctorFirstName} ${this.state.doctorLastName} added successfully!`,
       });
+
+      // Clear form
+      document.getElementById('doctor-form').reset();
     }
   };
 
@@ -328,6 +331,9 @@ class DoctorList extends Component {
         this.setState({
           clinicFormSuccessMessage: `${this.state.clinicName} added successfully!`,
       });
+
+      // Clear form
+      document.getElementById('clinic-form').reset();
     }
   };
 

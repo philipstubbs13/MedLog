@@ -66,7 +66,7 @@ class DoctorForm extends Component {
             <Typography gutterBottom variant="headline" component="h2">
               Add a doctor
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="doctor-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="first-name">First name</InputLabel>
                 <TextField

@@ -186,6 +186,9 @@ class Prescriptions extends Component {
           this.setState({
             formSuccessMessage: `${this.state.prescriptionName} added successfully!`,
           });
+    
+        // Clear form
+        document.getElementById('prescription-form').reset();
         }
     };
 

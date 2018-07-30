@@ -68,7 +68,7 @@ class PrescriptionsForm extends React.Component {
             <Typography gutterBottom variant="headline" component="h2">
               Add a prescription
             </Typography>
-            <form noValidate autoComplete="off">
+            <form noValidate autoComplete="off" id="prescription-form">
               <FormControl className={classes.formControl} fullWidth>
                 <InputLabel htmlFor="prescription-name">
                   <span>

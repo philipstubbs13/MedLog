@@ -205,6 +205,10 @@ class Appointments extends Component {
       this.setState({
           formSuccessMessage: `${this.state.appointmentName} with Dr. ${this.state.appointmentDoctor} on ${this.state.appointmentDate} added successfully!`,
       });
+
+      
+      // Clear form
+      document.getElementById('appointment-form').reset();
     }
   };
 
