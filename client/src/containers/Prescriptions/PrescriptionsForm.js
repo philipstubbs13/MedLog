@@ -116,7 +116,7 @@ class PrescriptionsForm extends React.Component {
                   SelectProps={{ name: 'value'}} 
                   margin="normal">
                     {doctors.map(doctor => {
-                      return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                      return <MenuItem key={doctor._id} value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                     })}
                   </TextField>
                   <Typography className={classes.formError} component="p">{this.props.prescriptionDoctorError}</Typography>

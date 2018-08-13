@@ -37,7 +37,7 @@ class DoctorInfo extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <List className={classes.logItem}>
+        <List className={classes.logItem} key={this.props.id}>
           <ListItem>
             <ListItemText >
               <b>Doctor:</b> {this.props.doctorFirstName} {this.props.doctorLastName}

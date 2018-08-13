@@ -33,7 +33,7 @@ class PrescriptionList extends React.Component {
     console.log("the prescription list is here but not working");
     const { classes } = this.props;
     return (
-        <Paper className={classes.root} elevation={4} id={this.props.id}>
+        <Paper className={classes.root} elevation={4} id={this.props.id} key={this.props.key}>
           <Typography component="p">
             <b>Name:</b> {this.props.prescriptionName}
           </Typography>

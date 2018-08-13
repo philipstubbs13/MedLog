@@ -42,10 +42,12 @@ class LogList extends React.Component {
   render() {
     const { classes } = this.props;
     return [
-        <ExpansionPanel className={classes.logItem}>
+        <ExpansionPanel className={classes.logItem} key={this.props._id}>
           <ExpansionPanelSummary>
             <i className="fas fa-plus"></i>
-            <Typography className={classes.heading}><b>Doctor notes from {this.props.date}</b></Typography>
+            <Typography className={classes.heading}>
+              <b>Doctor notes from {this.props.date}</b>
+            </Typography>
           </ExpansionPanelSummary>
 
           <ExpansionPanelDetails>

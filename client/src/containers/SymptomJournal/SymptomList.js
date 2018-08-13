@@ -30,7 +30,7 @@ class SymptomList extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <Paper className={classes.root} elevation={4} id={this.props.id}>
+      <Paper className={classes.root} elevation={4} id={this.props.id} key={this.props.id}>
         <Typography component="p">
           <b>Symptom:</b> {this.props.type}
         </Typography>
