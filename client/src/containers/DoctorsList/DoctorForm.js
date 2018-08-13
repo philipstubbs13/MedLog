@@ -111,7 +111,7 @@ class DoctorForm extends Component {
                   SelectProps={{ name: 'value'}} 
                   margin="normal">
                     {clinics.map(clinic => {
-                      return <MenuItem value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
+                      return <MenuItem key={clinic._id} value={clinic.clinicname} sid={clinic._id}>{clinic.clinicname}</MenuItem>;
                     })}
                   </TextField>
                   <Typography className={classes.formError} component="p">{this.props.doctorClinicError}</Typography>

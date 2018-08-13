@@ -35,7 +35,7 @@ class ClinicInfo extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <List className={classes.logItem}>
+        <List className={classes.logItem} key={this.props.id}>
           <ListItem>
             <ListItemText >
               <b>Clinic:</b> {this.props.clinicName}

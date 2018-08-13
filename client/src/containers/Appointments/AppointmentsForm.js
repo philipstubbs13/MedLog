@@ -52,7 +52,6 @@ class AppointmentsForm extends React.Component {
   handleDoctorMenuOption = event => {
     this.setState({ [event.target.name]: event.target.value });
     event.preventDefault();
-    console.log(event.target.value);
     this.props.handleAppointmentDoctorChange(event);
   }
 
@@ -62,8 +61,6 @@ class AppointmentsForm extends React.Component {
 
   render() {
     const { classes, doctors, clinics } = this.props;
-    console.log(doctors);
-    console.log(clinics);
 
     return (
       <div>
@@ -120,7 +117,7 @@ class AppointmentsForm extends React.Component {
                   SelectProps={{ name: 'value'}} 
                   margin="normal">
                     {doctors.map(doctor => {
-                      return <MenuItem value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
+                      return <MenuItem key={doctor._id} value={doctor.lastname}>Dr. {doctor.lastname}</MenuItem>;
                     })}
                   </TextField>
                   <Typography className={classes.formError} component="p">{this.props.appointmentDoctorError}</Typography>
